@@ -1,7 +1,7 @@
-﻿/*
+/*
 MIT License
 
-Copyright (c) 2017 André Pires
+Copyright (c) 2017 Andr� Pires
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,32 +22,40 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 /*
- Name:		Easyuino.h
- Created:	10/13/2017 12:40:16 AM
- Author:	André
- Editor:	http://www.visualmicro.com
+Printable.h
 */
 
-#ifndef _EASYUINO_h
-#define _EASYUINO_h
+#ifndef _EASYUINO_PRINTABLE_h
+#define _EASYUINO_PRINTABLE_h
 
 #if defined(ARDUINO) && ARDUINO >= 100
-	#include "Arduino.h"
+#include <Arduino.h>
 #else
-	#include "WProgram.h"
-#endif
-	#include "include/OLEDlcd.h"
-	#include "include/SevenSegments.h"	
-
-	#include "include/Relay.h"
-	#include "include/RelayNamed.h"
-
-	#include "include/DistanceMeter.h"
-	#include "include/DistanceMeterPrintable.h"
-
-	#include "include/RGBLed.h"
-	#include "include/InfraRedReceiver.h"
-	#include "include/RainDetector.h"
-	#include "include/Utilities.h"
+#include "WProgram.h"
 #endif
 
+namespace Easyuino {
+
+	/*
+	Provides some devices implementations with an interface to write themeselves to a stream.
+	Useful for debug the current state of the device.
+	*/
+	class Printable {
+
+	#pragma region Public Virtual Common API Methods
+
+	public:
+		/* Used to return a string representation of the Device state.
+		IMPORTANT: It is mandatory to free the returned pointer in order to have no memory leaks. */
+		virtual char* toString() const = 0;
+
+	#pragma endregion
+
+		/* Write the Device state string representation to a given stream (e.g: Used to Debug) */
+		friend Stream& operator<<(Stream & stream, const Printable& printable);
+
+	};
+
+};
+
+#endif

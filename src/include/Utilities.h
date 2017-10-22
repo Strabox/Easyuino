@@ -1,7 +1,7 @@
-﻿/*
+/*
 MIT License
 
-Copyright (c) 2017 André Pires
+Copyright (c) 2017 Andr� Pires
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,32 +22,31 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 /*
- Name:		Easyuino.h
- Created:	10/13/2017 12:40:16 AM
- Author:	André
- Editor:	http://www.visualmicro.com
+Utilities.h
 */
+#ifndef _EASYUINO_UTILITIES_h
+#define _EASYUINO_UTILITIES_h
 
-#ifndef _EASYUINO_h
-#define _EASYUINO_h
+#include <string.h>
+#include <stdlib.h>
 
-#if defined(ARDUINO) && ARDUINO >= 100
-	#include "Arduino.h"
-#else
-	#include "WProgram.h"
+namespace Easyuino {
+
+	/*
+	Provides some auxiliary functions for internal use in library but at same time expose it to public
+	for the library users.
+	*/
+	class Utilities {
+
+		public:
+			/*
+			Wrapper around the stdlib.h malloc to make it safe of overflows in the the majority of common
+			string manipulation cases and at same time zero's all the allocated memory too.
+			*/
+			static void* EasyMalloc(unsigned int sizeInBytes);
+
+	};
+
+};
+
 #endif
-	#include "include/OLEDlcd.h"
-	#include "include/SevenSegments.h"	
-
-	#include "include/Relay.h"
-	#include "include/RelayNamed.h"
-
-	#include "include/DistanceMeter.h"
-	#include "include/DistanceMeterPrintable.h"
-
-	#include "include/RGBLed.h"
-	#include "include/InfraRedReceiver.h"
-	#include "include/RainDetector.h"
-	#include "include/Utilities.h"
-#endif
-

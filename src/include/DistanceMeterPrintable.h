@@ -1,7 +1,7 @@
-﻿/*
+/*
 MIT License
 
-Copyright (c) 2017 André Pires
+Copyright (c) 2017 Andr� Pires
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,32 +22,37 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 /*
- Name:		Easyuino.h
- Created:	10/13/2017 12:40:16 AM
- Author:	André
- Editor:	http://www.visualmicro.com
+DistanceMeterPrintable.h
 */
+#ifndef _EASYUINO_DISTANCE_METER_PRINTABLE_h
+#define _EASYUINO_DISTANCE_METER_PRINTABLE_h
 
-#ifndef _EASYUINO_h
-#define _EASYUINO_h
+#include "Printable.h"
+#include "DistanceMeter.h"
+#include "Utilities.h"
 
-#if defined(ARDUINO) && ARDUINO >= 100
-	#include "Arduino.h"
-#else
-	#include "WProgram.h"
+namespace Easyuino {
+
+	/*
+	It offers the same API as DistanceMetter plus some functions to print the internal state into a stream for example.
+	Useful for debugging purposes.
+	*/
+	class DistanceMeterPrintable : public DistanceMeter, public Printable {
+
+	public:
+		DistanceMeterPrintable(uint8_t triggerPin, uint8_t echoPin);
+
+		~DistanceMeterPrintable();
+
+	#pragma region Public Printable API Methods
+
+		char* toString() const;
+
+	#pragma endregion
+
+	};
+
+};
+
+
 #endif
-	#include "include/OLEDlcd.h"
-	#include "include/SevenSegments.h"	
-
-	#include "include/Relay.h"
-	#include "include/RelayNamed.h"
-
-	#include "include/DistanceMeter.h"
-	#include "include/DistanceMeterPrintable.h"
-
-	#include "include/RGBLed.h"
-	#include "include/InfraRedReceiver.h"
-	#include "include/RainDetector.h"
-	#include "include/Utilities.h"
-#endif
-

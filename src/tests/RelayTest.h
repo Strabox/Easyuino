@@ -1,7 +1,7 @@
-﻿/*
+/*
 MIT License
 
-Copyright (c) 2017 André Pires
+Copyright (c) 2017 Andr� Pires
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,32 +22,41 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 /*
- Name:		Easyuino.h
- Created:	10/13/2017 12:40:16 AM
- Author:	André
- Editor:	http://www.visualmicro.com
+RelayTest.h
 */
+#ifndef _EASYUINO_RELAY_TEST_h
+#define _EASYUINO_RELAY_TEST_h
 
-#ifndef _EASYUINO_h
-#define _EASYUINO_h
+#include "Easyuino.h"
+#include "ManualTest.h"
 
-#if defined(ARDUINO) && ARDUINO >= 100
-	#include "Arduino.h"
-#else
-	#include "WProgram.h"
+using Easyuino::Relay;
+
+class RelayTest : public ManualTest {
+
+	private:
+		Relay* relay;
+
+	public:
+		RelayTest(Stream &debugStream, uint8_t arduinoPin) : ManualTest(debugStream) {
+			relay = new Relay(arduinoPin);
+		}
+
+	protected:
+		void testsSetup() {
+			relay->begin();
+		}
+
+		void tests() {
+
+		}
+
+		void afterTestSuite() {
+			relay->end();
+			delete relay;
+			relay = NULL;
+		}
+
+};
+
 #endif
-	#include "include/OLEDlcd.h"
-	#include "include/SevenSegments.h"	
-
-	#include "include/Relay.h"
-	#include "include/RelayNamed.h"
-
-	#include "include/DistanceMeter.h"
-	#include "include/DistanceMeterPrintable.h"
-
-	#include "include/RGBLed.h"
-	#include "include/InfraRedReceiver.h"
-	#include "include/RainDetector.h"
-	#include "include/Utilities.h"
-#endif
-

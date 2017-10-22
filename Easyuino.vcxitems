@@ -15,7 +15,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="$(MSBuildThisFileDirectory)Keywords.txt" />
-    <Text Include="$(MSBuildThisFileDirectory)readme.txt" />
     <Text Include="$(MSBuildThisFileDirectory)library.properties" />
     <Text Include="$(MSBuildThisFileDirectory)src\Easyuino.h" />
   </ItemGroup>
@@ -24,37 +23,45 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)examples\Leds\RGBLedExample.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)examples\Relay\RelayExample.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)examples\Relay\RelayNamedExample.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\Easyuino\Leds\RGBLed.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\Easyuino\Utilities\Printable.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\Easyuino\Device.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\Easyuino\Displays\SevenSegments.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\Easyuino\UltraSonicModule\DistanceMeter.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\Easyuino\UltraSonicModule\DistanceMeterPrintable.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\Easyuino\InfraRedReceiver\InfraRedReceiver.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\Easyuino\Displays\OLEDlcd.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\Easyuino\WaterDetector\RainDetector.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\Easyuino\Relay\Relay.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\Easyuino\Relay\RelayNamed.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\Easyuino\Utilities\Utilities.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Leds\RGBLed.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Utilities\Printable.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Device.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Displays\SevenSegments.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\UltraSonicModule\DistanceMeter.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\UltraSonicModule\DistanceMeterPrintable.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\InfraRedReceiver\InfraRedReceiver.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Displays\OLEDlcd.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\WaterDetector\RainDetector.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Relay\Relay.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Relay\RelayNamed.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Utilities\Utilities.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\tests\ManualTest.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\Device.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\Printable.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\DistanceMeter.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\DistanceMeterPrintable.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\InfraRedReceiver.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\OLEDlcd.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\RainDetector.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\Relay.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\RelayNamed.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\RGBLed.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\SevenSegments.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\Utilities.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\Device.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\Printable.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\DistanceMeter.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\DistanceMeterPrintable.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\InfraRedReceiver.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\OLEDlcd.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\RainDetector.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\Relay.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\RelayNamed.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\RGBLed.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\SevenSegments.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\Utilities.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tests\ManualTest.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tests\RelayNamedTest.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tests\RelayTest.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tests\RGBLedTest.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory).gitignore" />
     <None Include="$(MSBuildThisFileDirectory)examples\Displays\.gitkeep" />
     <None Include="$(MSBuildThisFileDirectory)examples\UltraSonicModule\.gitkeep" />
     <None Include="$(MSBuildThisFileDirectory)examples\InfraRedReceiver\.gitkeep" />
     <None Include="$(MSBuildThisFileDirectory)examples\RainDetector\.gitkeep" />
+    <None Include="$(MSBuildThisFileDirectory)LICENSE" />
+    <None Include="$(MSBuildThisFileDirectory)README.md" />
   </ItemGroup>
 </Project>

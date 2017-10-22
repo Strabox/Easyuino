@@ -1,7 +1,7 @@
-﻿/*
+/*
 MIT License
 
-Copyright (c) 2017 André Pires
+Copyright (c) 2017 Andr� Pires
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,33 +21,32 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-/*
- Name:		Easyuino.h
- Created:	10/13/2017 12:40:16 AM
- Author:	André
- Editor:	http://www.visualmicro.com
-*/
+#include "../../include/RelayNamed.h"
 
-#ifndef _EASYUINO_h
-#define _EASYUINO_h
+namespace Easyuino {
 
-#if defined(ARDUINO) && ARDUINO >= 100
-	#include "Arduino.h"
-#else
-	#include "WProgram.h"
-#endif
-	#include "include/OLEDlcd.h"
-	#include "include/SevenSegments.h"	
+	RelayNamed::RelayNamed(uint8_t arduinoPin, const char * deviceName) : Relay(arduinoPin) {
+		memset(_name, NULL, MAX_NAME_SIZE);
+		strncpy(_name, deviceName, MAX_NAME_SIZE);
+	}
 
-	#include "include/Relay.h"
-	#include "include/RelayNamed.h"
+	RelayNamed::~RelayNamed() { /* Do Nothing */ }
 
-	#include "include/DistanceMeter.h"
-	#include "include/DistanceMeterPrintable.h"
+	char* RelayNamed::toString() const {
+		const char delimiter = ':';
+		char* res = NULL;
+		unsigned int resSize = 0;
+		if (isOpen()) {
+			resSize = strlen(_name) + 1 + strlen(OPEN_STRING);
+			res = (char*)Utilities::EasyMalloc(sizeof(char) * resSize);
+			snprintf(res, resSize, "%s%c%s", _name, delimiter, OPEN_STRING);
+		}
+		else {
+			resSize = strlen(_name) + 1 + strlen(CLOSED_STRING);
+			res = (char*)Utilities::EasyMalloc(sizeof(char) * resSize);
+			snprintf(res, resSize, "%s%c%s", _name, delimiter, CLOSED_STRING);
+		}
+		return res;
+	}
 
-	#include "include/RGBLed.h"
-	#include "include/InfraRedReceiver.h"
-	#include "include/RainDetector.h"
-	#include "include/Utilities.h"
-#endif
-
+};

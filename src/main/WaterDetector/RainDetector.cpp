@@ -1,7 +1,7 @@
-﻿/*
+/*
 MIT License
 
-Copyright (c) 2017 André Pires
+Copyright (c) 2017 Andr� Pires
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,33 +21,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-/*
- Name:		Easyuino.h
- Created:	10/13/2017 12:40:16 AM
- Author:	André
- Editor:	http://www.visualmicro.com
-*/
+#include "../../include/RainDetector.h"
 
-#ifndef _EASYUINO_h
-#define _EASYUINO_h
+namespace Easyuino {
 
-#if defined(ARDUINO) && ARDUINO >= 100
-	#include "Arduino.h"
-#else
-	#include "WProgram.h"
-#endif
-	#include "include/OLEDlcd.h"
-	#include "include/SevenSegments.h"	
+	//TODO: Implementation soon
 
-	#include "include/Relay.h"
-	#include "include/RelayNamed.h"
-
-	#include "include/DistanceMeter.h"
-	#include "include/DistanceMeterPrintable.h"
-
-	#include "include/RGBLed.h"
-	#include "include/InfraRedReceiver.h"
-	#include "include/RainDetector.h"
-	#include "include/Utilities.h"
-#endif
-
+}

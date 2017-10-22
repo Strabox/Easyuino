@@ -1,7 +1,7 @@
-﻿/*
+/*
 MIT License
 
-Copyright (c) 2017 André Pires
+Copyright (c) 2017 Andr� Pires
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,32 +22,49 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 /*
- Name:		Easyuino.h
- Created:	10/13/2017 12:40:16 AM
- Author:	André
- Editor:	http://www.visualmicro.com
+RelayNamed.h
 */
+#ifndef _EASYUINO_RELAY_NAMED_h
+#define _EASYUINO_RELAY_NAMED_h
 
-#ifndef _EASYUINO_h
-#define _EASYUINO_h
+#include "Device.h"
+#include "Printable.h"
+#include "Utilities.h"
+#include "Relay.h"
 
-#if defined(ARDUINO) && ARDUINO >= 100
-	#include "Arduino.h"
-#else
-	#include "WProgram.h"
+#define MAX_NAME_SIZE 15		// Maximum size for a identifier
+#define OPEN_STRING "Aberto"
+#define CLOSED_STRING "Fechado"
+
+namespace Easyuino {
+
+	/*
+	Represents a relay with a label associated to easily identify the device controlled by the relay
+	*/
+	class RelayNamed : public Relay, public Printable {
+
+	private:
+		/* Name of the device that relay activates  */
+		char _name[MAX_NAME_SIZE + 1];
+
+	public:
+		/*
+		Creates a Relay object to interact with the physical relay
+		@param arduionPin	- Arduino pin that is connected with the relay (normal in relay is IN pins)
+		@param name			- Name (identifier) to the device that the relay activates
+		*/
+		RelayNamed(uint8_t arduinoPin, const char* deviceName);
+
+		~RelayNamed();
+
+	#pragma region Public Printable API Methods
+
+		char* toString() const;
+
+	#pragma endregion
+
+	};
+
+};
+
 #endif
-	#include "include/OLEDlcd.h"
-	#include "include/SevenSegments.h"	
-
-	#include "include/Relay.h"
-	#include "include/RelayNamed.h"
-
-	#include "include/DistanceMeter.h"
-	#include "include/DistanceMeterPrintable.h"
-
-	#include "include/RGBLed.h"
-	#include "include/InfraRedReceiver.h"
-	#include "include/RainDetector.h"
-	#include "include/Utilities.h"
-#endif
-

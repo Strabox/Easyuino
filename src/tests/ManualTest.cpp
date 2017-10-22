@@ -1,7 +1,7 @@
-﻿/*
+/*
 MIT License
 
-Copyright (c) 2017 André Pires
+Copyright (c) 2017 Andr� Pires
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,33 +21,42 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-/*
- Name:		Easyuino.h
- Created:	10/13/2017 12:40:16 AM
- Author:	André
- Editor:	http://www.visualmicro.com
-*/
+#include "ManualTest.h"
 
-#ifndef _EASYUINO_h
-#define _EASYUINO_h
+ManualTest::ManualTest(Stream& debugStream) {
+	_debugStream = &debugStream;
+	_testFinished = false;
+}
 
-#if defined(ARDUINO) && ARDUINO >= 100
-	#include "Arduino.h"
-#else
-	#include "WProgram.h"
-#endif
-	#include "include/OLEDlcd.h"
-	#include "include/SevenSegments.h"	
+void ManualTest::runTestsSetup() {
+	_testFinished = false;
+	testsSetup();
+}
 
-	#include "include/Relay.h"
-	#include "include/RelayNamed.h"
+void ManualTest::runTests() {
+	if (!_testFinished) {
+		tests();
+		afterTestSuite();
+		_testFinished = true;
+		_debugStream->print(TEST_FRAMEWORK_TAG);
+		_debugStream->println(TEST_SUITE_END_MESSAGE);
+	}
+}
 
-	#include "include/DistanceMeter.h"
-	#include "include/DistanceMeterPrintable.h"
+void ManualTest::beforeTest() { /* Do Nothing */ }
 
-	#include "include/RGBLed.h"
-	#include "include/InfraRedReceiver.h"
-	#include "include/RainDetector.h"
-	#include "include/Utilities.h"
-#endif
+void ManualTest::afterTest() { /* Do Nothing */ }
 
+void ManualTest::afterTestSuite() { /* Do Nothing */ }
+
+void ManualTest::testStart(char * customTestMessage){
+	beforeTest();
+	_debugStream->print(TEST_FRAMEWORK_TAG);
+	_debugStream->print(TEST_NEW_TEST_MESSAGE);
+	_debugStream->println(customTestMessage);
+}
+
+void ManualTest::testEnd() {
+	afterTest();
+	delay(DELAY_BETWEEN_TESTS);
+}

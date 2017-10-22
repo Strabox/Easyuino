@@ -2,20 +2,23 @@
 
 Easyuino is a library that offers a modular and set of APIs to several sensors and devices that connects to Arduino (e.g: Relays, RGB Leds, Ultrasonic Modules, Water Detectors, ...). 
 
-The Easyuino library has 4 fundamental goals:
-1. Facilitate the use of several common sensors and devices by beginners but provide a useful API for other users
-2. Use minimum code and memory footprint (due to controllers flash and sram memory constraints) while maintaining a simple API to extend and develop
-3. Put all the sensors API under the same mental/use model to facilitate and speed up the users interest to get new sensors and devices that instigate learning of programming and electronics (Basically support the Arduino foundation ideas)
-4. Having fun using Easyuino as much as I have developing it!!!
+The Easyuino library has 5 fundamental goals:
+1. Easy to integrate in your favorite IDEs because it works like a common Arduino library
+2. Facilitate the use of several common sensors and devices by beginners but provide a useful API for a bit more advanced users
+3. Use minimum code and memory footprint (due to controllers flash and sram memory constraints) while maintaining a simple API to extend and develop
+4. Put all the sensors API under the same mental/use model to facilitate and speed up the users interest to get new sensors and devices that instigate learning of programming and electronics (Basically support the Arduino foundation ideas)
+5. Having fun using Easyuino as much as I have developing it!!!
 
 ## Sensors and Devices Support
 
 The development of the library, including fixes and addition of new sensors/devices, will be done depending on:
 - My time availability (Now I am doing my Masters Degree Thesis in Computer Science and Engineering that stoles a good slice of my time)
-- Interest of people in my Easyuino work
+- Interest of people in Easyuino
 
 Important: Nevertheless I will accept suggestions for interesting devices/sensors to develop and if there are a lot of interest I will start prioritize them
-Contact Channels: TODO
+
+Contact Channels:
+- Email: easyuino@gmail.com
 
 ### Already Implemented, Documented and Tested = Ready to Use
 
@@ -42,24 +45,17 @@ Contact Channels: TODO
 - Methane/Gas sensor
 - ...
 
-### Important: API Usage Examples and Additional Information
-
-**Project's wiki has a set of usage examples of the library API plus more detailed information https://github.com/Strabox/Easyuino/wiki**
-
 ## Getting Started
 
-1. Copy the folder *Easyuino/Easyuino* of the repository to the Arduino Libraries folder (usually the destination folder copy to is something like this "C:\Program Files (x86)\Arduino\libraries" in Windows) 
-2. Put *#include <Easyuino.h>* in your sketch file.
-3. In the top of the file where you want some of library code put, below the include of step 2, *using Easyuino::Relay* to use for example the relay API.
-4. Now you can use the Relay class in your file that offers the API to interact with a relay.
+1. Use GitHub download green button to get the llibrary as a .zip file
+2. Using your favorite IDE add the library selecting .zip file
+2.1 Using Arduino IDE got to to menu bar choose Sketch > Include Library and select the .zip file downloaded in 1.
+3. Have fun!!!
+3. [Optional] Look at https://github.com/Strabox/Easyuino/wiki to usage examples and details about the API
 
-## Project Structure
+## Important: API Usage Examples and Additional Information
 
-The library was made using VisualMicro http://www.visualmicro.com/ plugin for Microsoft Visual Studio 2017 due to the great tool support of VS.
-
-The solution has 2 projects:
-- Easyuino: This one contains the library code and some example files also found in project wiki https://github.com/Strabox/Easyuino/wiki
-- EasyuinoManualTests: This project is used only to maintain some test sketches to run the code in real devices.
+**Project's wiki has a set of usage examples of the library API plus more detailed information about it: https://github.com/Strabox/Easyuino/wiki**
 
 ## Related and Useful Libraries
 
@@ -70,3 +66,25 @@ https://github.com/Strabox/GSMLibrary I have this Arduino library too that is us
 I am Computer Scientist and Engineer (not an Electrotechnical one) that loves programming special in C/C++. 
 This library started with a necessity to use several sensors in one personal project and at same time make me practice C/C++ programming and a bit o "low level" programming.
 At certain point in the development of the project I decided that isolate all the interfaces with each sensor was a good idea and created this library to help others use the devices easily.
+
+## License 
+
+Copyright (c) 2017 André Pires
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
