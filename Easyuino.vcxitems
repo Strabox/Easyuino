@@ -38,18 +38,18 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)src\tests\ManualTest.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\Device.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\Printable.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\DistanceMeter.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\DistanceMeterPrintable.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\InfraRedReceiver.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\OLEDlcd.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\RainDetector.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\Relay.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\RelayNamed.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\RGBLed.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\SevenSegments.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\include\Utilities.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\Device.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\Printable.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\DistanceMeter.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\DistanceMeterPrintable.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\InfraRedReceiver.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\OLEDlcd.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\RainDetector.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\Relay.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\RelayNamed.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\RGBLed.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\SevenSegments.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\Utilities.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tests\ManualTest.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tests\RelayNamedTest.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tests\RelayTest.h" />

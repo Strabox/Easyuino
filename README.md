@@ -47,11 +47,10 @@ Contact Channels:
 
 ## Getting Started
 
-1. Use GitHub download green button to get the llibrary as a .zip file
-2. Using your favorite IDE add the library selecting .zip file
-3. Using Arduino IDE got to to menu bar choose **Sketch > Include Library** and select the .zip file downloaded in 1.
-4. *[Optional]* Look at https://github.com/Strabox/Easyuino/wiki to usage examples and details about the API
-5. Have fun!!!
+1. Use GitHub download *green* button to get the library as a .zip file
+2. Using Arduino IDE got to to menu bar choose **Sketch > Include Library** and select the .zip file downloaded in 1.
+3. *[Optional]* Look at https://github.com/Strabox/Easyuino/wiki to usage examples and details about the API
+4. **[Not Optional]** Have fun!!!
 
 ## Important: API Usage Examples and Additional Information
 

@@ -1,5 +1,5 @@
 #############################
-#			Device     	#
+#			Device     		#
 #############################
 Device			KEYWORD1
 begin			KEYWORD2

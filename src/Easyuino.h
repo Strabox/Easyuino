@@ -36,18 +36,18 @@ SOFTWARE.
 #else
 	#include "WProgram.h"
 #endif
-	#include "include/OLEDlcd.h"
-	#include "include/SevenSegments.h"	
+	#include "OLEDlcd.h"
+	#include "SevenSegments.h"	
 
-	#include "include/Relay.h"
-	#include "include/RelayNamed.h"
+	#include "Relay.h"
+	#include "RelayNamed.h"
 
-	#include "include/DistanceMeter.h"
-	#include "include/DistanceMeterPrintable.h"
+	#include "DistanceMeter.h"
+	#include "DistanceMeterPrintable.h"
 
-	#include "include/RGBLed.h"
-	#include "include/InfraRedReceiver.h"
-	#include "include/RainDetector.h"
-	#include "include/Utilities.h"
+	#include "RGBLed.h"
+	#include "InfraRedReceiver.h"
+	#include "RainDetector.h"
+	#include "Utilities.h"
 #endif
 
