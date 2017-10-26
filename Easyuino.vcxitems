@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory).gitignore" />
+    <None Include="$(MSBuildThisFileDirectory).travis.yml" />
     <None Include="$(MSBuildThisFileDirectory)examples\Displays\.gitkeep" />
     <None Include="$(MSBuildThisFileDirectory)examples\GSM\.gitkeep" />
     <None Include="$(MSBuildThisFileDirectory)examples\InfraRedReceiver\.gitkeep" />
