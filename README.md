@@ -1,4 +1,4 @@
-# Easyuino
+# Easyuino [![Build Status](https://travis-ci.org/Strabox/Easyuino.svg?branch=master)](https://travis-ci.org/Strabox/Easyuino)
 
 Easyuino is a library that offers a modular and set of APIs to several sensors and devices that connects to Arduino (e.g: Relays, RGB Leds, Ultrasonic Modules, Water Detectors, ...). 
 
@@ -68,7 +68,7 @@ At certain point in the development of the project I decided that isolate all th
 
 ## License 
 
-Copyright (c) 2017 André Pires
+Copyright (c) 2017 AndrÃ© Pires
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
