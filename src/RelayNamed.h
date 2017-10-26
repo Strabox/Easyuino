@@ -33,13 +33,17 @@ RelayNamed.h
 #include "Relay.h"
 
 #define MAX_NAME_SIZE 15		// Maximum size for a identifier
-#define OPEN_STRING "Aberto"
-#define CLOSED_STRING "Fechado"
+#define RELAY_ON_STRING "On"
+#define RELAY_OFF_STRING "Off"
 
 namespace Easyuino {
 
 	/*
 	Represents a relay with a label associated to easily identify the device controlled by the relay
+	@Physical Devices Supported:
+	- SRD-05VDC-SL-C, Probably any relay because they are very simple devices
+	@Physical Devices Tested:
+	- SRD-05VDC-SL-C
 	*/
 	class RelayNamed : public Relay, public Printable {
 
@@ -57,11 +61,7 @@ namespace Easyuino {
 
 		~RelayNamed();
 
-	#pragma region Public Printable API Methods
-
 		char* toString() const;
-
-	#pragma endregion
 
 	};
 

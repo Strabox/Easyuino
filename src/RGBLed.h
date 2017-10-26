@@ -80,7 +80,7 @@ namespace Easyuino {
 
 	#pragma region Public Device API Methods
 
-		void begin();
+		bool begin();
 
 		void end();
 

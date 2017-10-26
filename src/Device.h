@@ -52,11 +52,13 @@ namespace Easyuino {
 		/* Destroy all the resources associated with the device (IF EXISTS) */
 		~Device();
 
-	#pragma region Public Virtual Common API Methods
+	#pragma region Public Pure Virtual Common API Methods
 
 		/* Used to put the peripherical ready to receive requests. Normally this have some default behaviour some
-		devices have other API method with same name that receives other arguments to a better customization. */
-		virtual void begin() = 0;
+		devices have other API method with same name that receives other arguments to a better customization. 
+		@return	- True: If the device was initializer. False: Otherwise.
+		*/
+		virtual bool begin() = 0;
 
 		/* Used to stop the device. After this the peripherical will not process API requests. */
 		virtual void end() = 0;
@@ -68,7 +70,7 @@ namespace Easyuino {
 
 		/*
 		Verify is the periphetical is initialized and ready to use.
-		@return	- True: If peripherical is initialzed. False: Otherwise.
+		@return	- True: If peripherical is initialized. False: Otherwise.
 		*/
 		bool isInitialized() const;
 

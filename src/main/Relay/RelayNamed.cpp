@@ -36,15 +36,15 @@ namespace Easyuino {
 		const char delimiter = ':';
 		char* res = NULL;
 		unsigned int resSize = 0;
-		if (isOpen()) {
-			resSize = strlen(_name) + 1 + strlen(OPEN_STRING);
+		if (isOn()) {
+			resSize = strlen(_name) + 1 + strlen(RELAY_ON_STRING) + 1;
 			res = (char*)Utilities::EasyMalloc(sizeof(char) * resSize);
-			snprintf(res, resSize, "%s%c%s", _name, delimiter, OPEN_STRING);
+			snprintf(res, resSize, "%s%c%s", _name, delimiter, RELAY_ON_STRING);
 		}
 		else {
-			resSize = strlen(_name) + 1 + strlen(CLOSED_STRING);
+			resSize = strlen(_name) + 1 + strlen(RELAY_OFF_STRING) + 1;
 			res = (char*)Utilities::EasyMalloc(sizeof(char) * resSize);
-			snprintf(res, resSize, "%s%c%s", _name, delimiter, CLOSED_STRING);
+			snprintf(res, resSize, "%s%c%s", _name, delimiter, RELAY_OFF_STRING);
 		}
 		return res;
 	}

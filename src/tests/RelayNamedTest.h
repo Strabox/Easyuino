@@ -44,11 +44,69 @@ class RelayNamedTest : public ManualTest {
 
 	protected:
 		void testsSetup() {
-			relay->begin();
+			relay->begin(false, HIGH);
 		}
 
 		void tests() {
+			testStart("1.TO STRING");
+			_debugStream->print(relay->toString());
+			_debugStream->println("|");				// To mark the end of string
+			testEnd();
 
+			testStart("2.<<");
+			*_debugStream << *relay;
+			_debugStream->println("|");				// To mark the end of string
+			testEnd();
+
+			testStart("3.ON");
+			relay->turnOn();
+			_debugStream->println(relay->isOn());
+			testEnd();
+
+			testStart("4.NOTHING");
+			relay->turnOn();
+			_debugStream->println(relay->isOn());
+			testEnd();
+
+			testStart("5.OFF");
+			relay->turnOff();
+			_debugStream->println(relay->isOn());
+			testEnd();
+
+			testStart("6.NOTHING");
+			relay->turnOff();
+			_debugStream->println(relay->isOn());
+			testEnd();
+
+			testStart("7.ON");
+			relay->turnOn();
+			_debugStream->println(relay->isOn());
+			testEnd();
+
+			testStart("8.OFF");
+			relay->end();
+			_debugStream->println(relay->isOn());
+			testEnd();
+
+			testStart("9.NOTHING");
+			relay->turnOff();
+			_debugStream->println(relay->isOn());
+			testEnd();
+
+			testStart("10.NOTHING");
+			relay->begin(false, HIGH);
+			_debugStream->println(relay->isOn());
+			testEnd();
+
+			testStart("11.ON");
+			relay->turnOn();
+			_debugStream->println(relay->isOn());
+			testEnd();
+
+			testStart("12.OFF");
+			relay->turnOff();
+			_debugStream->println(relay->isOn());
+			testEnd();
 		}
 
 		void afterTestSuite() {

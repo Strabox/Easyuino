@@ -31,14 +31,20 @@ Relay.h
 
 namespace Easyuino {
 
-	/* Represents a single relay and provides a simple API to interact with the physical it. */
+	/* 
+	Represents a single relay and provides a simple API to interact with it. 
+	@Physical Devices Supported: 
+		- SRD-05VDC-SL-C, Probably any relay because they are very simple devices
+	@Physical Devices Tested: 
+		- SRD-05VDC-SL-C
+	*/
 	class Relay : public Device {
 
 	private:
 		/* Arduino pin that controls the relay */
 		uint8_t _arduinoPin;
-		/* Used to know the logical position of the relay */
-		bool _isOpen;
+		/* Used to know if the device powered by the relay is ON or OFF */
+		bool _isOn;
 
 	public:
 		/*
@@ -48,42 +54,35 @@ namespace Easyuino {
 		Relay(uint8_t arduinoPin);
 
 		/*
-		Used to free all the resources associated with the object Relay
+		Used to free all the resources associated with the Relay object
 		*/
 		~Relay();
 
-		#pragma region Public Device API Methods
-
-		void begin();
-
-		void end();
-
-		#pragma endregion
-
-		#pragma region Public Relay API Methods 
+		bool begin();
 
 		/*
-		Used to initialize the relay API with a custom closed pin level depending on the wanted semantic.
-		@param closedStatePinLevel	- Define the start relay pin level of the Closed State
+		Used to initialize the relay API depending on where the relay will be connected
+		@param isNormallyClosed			- Define what are the state that relay is powering the device (lamp, engine, etc)
+		@param normallyClosedPinLevel	- Digital level of the normally closed relay state (some relays activate on HIGH other on LOW)
 		*/
-		void begin(uint8_t closedStatePinLevel);
+		bool begin(bool isNormallyClosed, uint8_t normallyClosedPinLevel);
+
+		void end();
 
 		/*
 		If the relay is in closed state opens it
 		*/
-		void open();
+		void turnOn();
 
 		/*
 		If the relay is in open state closes it
 		*/
-		void close();
+		void turnOff();
 
 		/*
 		@return	- True: If it is in open state. False: Otherwise.
 		*/
-		bool isOpen() const;
-
-		#pragma endregion
+		bool isOn() const;
 
 	};
 

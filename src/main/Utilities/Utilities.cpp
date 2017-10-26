@@ -39,4 +39,25 @@ namespace Easyuino {
 		}
 	}
 
+	void Utilities::zeroBuffer(void *buffer, size_t bufferSize) {
+		memset(buffer, NULL, bufferSize);
+	}
+
+	void Utilities::overrideLastStringChar(char* string) {
+		int stringLength = strlen(string);
+		if (stringLength >= 1) {
+			*(string + (sizeof(char) * (stringLength - 1))) = NULL;
+		}
+	}
+
+	void Utilities::overrideLastTwoChar(char* string) {
+		int stringLength = strlen(string);
+		if (stringLength >= 1) {
+			*(string + (sizeof(char) * (stringLength - 1))) = NULL;
+		}
+		if (stringLength >= 2) {
+			*(string + (sizeof(char) * (stringLength - 2))) = NULL;
+		}
+	}
+
 }

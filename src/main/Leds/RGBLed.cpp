@@ -39,13 +39,15 @@ namespace Easyuino {
 
 	RGBLed::~RGBLed() { /* Do Nothing */ }
 
-	void RGBLed::begin() {
+	bool RGBLed::begin() {
 		if (!_isInitialized) {
 			pinMode(_redPin, OUTPUT);
 			pinMode(_greenPin, OUTPUT);
 			pinMode(_bluePin, OUTPUT);
 			_isInitialized = true;
+			return true;
 		}
+		return false;
 	}
 
 	void RGBLed::end() {

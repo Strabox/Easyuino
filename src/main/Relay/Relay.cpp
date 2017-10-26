@@ -27,56 +27,63 @@ namespace Easyuino {
 
 	Relay::Relay(uint8_t arduinoPin) : Device() {
 		_arduinoPin = arduinoPin;
-		_isOpen = false;
 	}
 
 	Relay::~Relay() { /* Do Nothing */ }
 
-	void Relay::begin() {
-		begin(HIGH);	// Default is HIGH
+	bool Relay::begin() {
+		return begin(false, HIGH);	// Default is a device connected to a Normally Open terminal
 	}
 
-	void Relay::begin(uint8_t closedStatePinLevel) {
-		if (!_isInitialized && (closedStatePinLevel == LOW || closedStatePinLevel == HIGH)) {
+	bool Relay::begin(bool isNormallyClosed, uint8_t normallyClosedPinLevel) {
+		if (!_isInitialized && (normallyClosedPinLevel == HIGH || normallyClosedPinLevel == LOW)) {
 			pinMode(_arduinoPin, OUTPUT);
-			digitalWrite(_arduinoPin, closedStatePinLevel);
+			digitalWrite(_arduinoPin, normallyClosedPinLevel);
+			if (isNormallyClosed) {
+				_isOn = true;
+			}
+			else {
+				_isOn = false;
+			}
 			_isInitialized = true;
+			return true;
 		}
+		return false;
 	}
 
 	void Relay::end() {
 		if (_isInitialized) {
-			close();
+			turnOff();
 			_isInitialized = false;
 		}
 	}
 
-	void Relay::open() {
-		if (_isInitialized && !_isOpen) {
+	void Relay::turnOn() {
+		if (_isInitialized && !_isOn) {
 			if (digitalRead(_arduinoPin) == HIGH) {
 				digitalWrite(_arduinoPin, LOW);
 			}
 			else {
 				digitalWrite(_arduinoPin, HIGH);
 			}
-			_isOpen = true;
+			_isOn = true;
 		}
 	}
 
-	void Relay::close() {
-		if (_isInitialized && _isOpen) {
+	void Relay::turnOff() {
+		if (_isInitialized && _isOn) {
 			if (digitalRead(_arduinoPin) == HIGH) {
 				digitalWrite(_arduinoPin, LOW);
 			}
 			else {
 				digitalWrite(_arduinoPin, HIGH);
 			}
-			_isOpen = false;
+			_isOn = false;
 		}
 	}
 
-	bool Relay::isOpen() const {
-		return _isOpen;
+	bool Relay::isOn() const {
+		return _isOn;
 	}
 
 };

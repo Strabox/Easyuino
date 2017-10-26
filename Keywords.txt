@@ -1,39 +1,61 @@
-#############################
-#			Device     		#
-#############################
+##################################################
+#					 Device     				 #
+##################################################
 Device			KEYWORD1
 begin			KEYWORD2
 end				KEYWORD2
 isInitialized	KEYWORD2
-#############################
-#			Printable	    #
-#############################
+##################################################
+#					Printable     				 #
+##################################################
 Printable	KEYWORD1
 toString	KEYWORD2
-#############################
-#			Utilities	    #
-#############################
+##################################################
+#					Utilities     				 #
+##################################################
 Utilities	KEYWORD1
 EasyMalloc	KEYWORD2
-#############################
-#			RGBLed	     	#
-#############################
+##################################################
+#					 RGBLed     				 #
+##################################################
 RGBLed		KEYWORD1
 begin		KEYWORD2
 end			KEYWORD2
 turnOff		KEYWORD2
 setColor	KEYWORD2
-#############################
-#			Relay	     	#
-#############################
+##################################################
+#					  Relay     				 #
+##################################################
 Relay		KEYWORD1
 begin		KEYWORD2
 end			KEYWORD2
 open		KEYWORD2
 close		KEYWORD2
 isOpen		KEYWORD2
-#############################
-#		  RelayNamed	    #
-#############################
+##################################################
+#					RelayNamed     				 #
+##################################################
 RelayNamed	KEYWORD1
 toString	KEYWORD2
+##################################################
+#				   DistanceMeter     			 #
+##################################################
+DistanceMeter					KEYWORD1
+getDistanceCentimeters			KEYWORD2
+getDistanceInches				KEYWORD2
+updateDistance					KEYWORD2
+startDistanceMeasureBlocking	KEYWORD2
+measureOnGoingActionsBlocking	KEYWORD2
+##################################################
+#				DistanceMeterNonBlock     		 #
+##################################################
+DistanceMeterNonBlock				KEYWORD1
+updateDistanceNonBlock				KEYWORD2
+calculateDistance					KEYWORD2
+startDistanceMeasureNonBlocking		KEYWORD2
+measureOnGoingActionsNonBlocking	KEYWORD2
+##################################################
+#				DistanceMeterAccurate     		 #
+##################################################
+DistanceMeterAccurate			KEYWORD1
+calculateCurrentSoundSpeed		KEYWORD2

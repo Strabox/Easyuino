@@ -1,7 +1,7 @@
-﻿/*
+/*
 MIT License
 
-Copyright (c) 2017 André Pires
+Copyright (c) 2017 Andr� Pires
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,37 +22,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 /*
- Name:		Easyuino.h
- Created:	10/13/2017 12:40:16 AM
- Author:	André
- Editor:	http://www.visualmicro.com
+EasyuinoTests.h
 */
+#ifndef _EASYUINO_TESTS_h
+#define _EASYUINO_TESTS_h
 
-#ifndef _EASYUINO_h
-#define _EASYUINO_h
+#include "tests\RGBLedTest.h"
+#include "tests\RelayTest.h"
+#include "tests\RelayNamedTest.h"
+#include "tests\DistanceMeterTest.h"
+#include "tests\DistanceMeterNonBlockTest.h"
+#include "tests\DistanceMeterAccurateTest.h"
 
-#if defined(ARDUINO) && ARDUINO >= 100
-	#include "Arduino.h"
-#else
-	#include "WProgram.h"
 #endif
-	#include "GSMService.h"	
-	#include "SMS.h"
-	
-	#include "OLEDlcd.h"
-	#include "SevenSegments.h"	
-
-	#include "Relay.h"
-	#include "RelayNamed.h"
-
-	#include "DistanceMeter.h"
-	#include "DistanceMeterNonBlock.h"
-	#include "DistanceMeterAccurate.h"
-	#include "DistanceMeterPrintable.h"
-
-	#include "RGBLed.h"
-	#include "InfraRedReceiver.h"
-	#include "RainDetector.h"
-	#include "Utilities.h"
-#endif
-

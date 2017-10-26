@@ -44,11 +44,60 @@ class RelayTest : public ManualTest {
 
 	protected:
 		void testsSetup() {
-			relay->begin();
+			relay->begin(false, HIGH);
 		}
 
 		void tests() {
+			testStart("1.ON");
+			relay->turnOn();
+			_debugStream->println(relay->isOn());
+			testEnd();
 
+			testStart("2.NOTHING");
+			relay->turnOn();
+			_debugStream->println(relay->isOn());
+			testEnd();
+
+			testStart("3.OFF");
+			relay->turnOff();
+			_debugStream->println(relay->isOn());
+			testEnd();
+
+			testStart("4.NOTHING");
+			relay->turnOff();
+			_debugStream->println(relay->isOn());
+			testEnd();
+
+			testStart("5.ON");
+			relay->turnOn();
+			_debugStream->println(relay->isOn());
+			testEnd();
+
+			testStart("6.OFF");
+			relay->end();
+			relay->turnOn();
+			_debugStream->println(relay->isOn());
+			testEnd();
+
+			testStart("7.NOTHING");
+			relay->turnOff();
+			_debugStream->println(relay->isOn());
+			testEnd();
+
+			testStart("8.NOTHING");
+			relay->begin(false, HIGH);
+			_debugStream->println(relay->isOn());
+			testEnd();
+
+			testStart("9.ON");
+			relay->turnOn();
+			_debugStream->println(relay->isOn());
+			testEnd();
+
+			testStart("10.OFF");
+			relay->turnOn();
+			_debugStream->println(relay->isOn());
+			testEnd();
 		}
 
 		void afterTestSuite() {

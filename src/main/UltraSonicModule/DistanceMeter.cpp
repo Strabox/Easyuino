@@ -23,135 +23,83 @@ SOFTWARE.
 */
 #include "../../DistanceMeter.h"
 
-#define MAX_UNSIGNED_LONG 4294967295
-
-#define ECHO_TIMEOUT_MICROS 2000000			// 2 seconds
-#define SOUND_SPEED_CM_PER_SEC 340000.0f	// Sound speed in air at 15 Celsius
-
 namespace Easyuino {
-
-	DistanceMeter* DistanceMeter::singleton;
 
 	DistanceMeter::DistanceMeter(uint8_t triggerPin, uint8_t echoPin) : Device() {
 		_triggerPin = triggerPin;
 		_echoPin = echoPin;
-		_timeTrigger = -1;
-		_distance = -1;
+		_distance = -1.0f;
 		_isEchoing = false;
-		_echoSent = false;
-		_blockingMeasure = true;
-		_isDirtyDistance = true;
-		if (DistanceMeter::singleton != NULL) {
-			delete DistanceMeter::singleton;
-		}
-		DistanceMeter::singleton = this;
 	}
 
-	DistanceMeter::~DistanceMeter() {
-		DistanceMeter::singleton = NULL;
+	DistanceMeter::DistanceMeter(uint8_t triggerEchoPin) 
+		: DistanceMeter(triggerEchoPin, triggerEchoPin) {
+		/* Do Nothing */
 	}
 
-	void DistanceMeter::InterruptCaller() {
-		DistanceMeter::singleton->interruptHandler();
-	}
+	DistanceMeter::~DistanceMeter() { /* Do Nothing */ }
 
-	void DistanceMeter::begin() {
+	bool DistanceMeter::begin() {
 		if (!_isInitialized) {
-			pinMode(_triggerPin, OUTPUT);
-			pinMode(_echoPin, INPUT);
-			digitalWrite(_echoPin, LOW);
+			if (_triggerPin != _echoPin) {
+				pinMode(_triggerPin, OUTPUT);
+				pinMode(_echoPin, INPUT);
+				digitalWrite(_echoPin, LOW);
+			}
+			else {
+				pinMode(_triggerPin, OUTPUT);
+				digitalWrite(_triggerPin, LOW);
+			}
 			_isInitialized = true;
-			attachInterrupt(digitalPinToInterrupt(_echoPin), DistanceMeter::InterruptCaller, CHANGE);
+			return true;
 		}
+		return false;
 	}
 
 	void DistanceMeter::end() {
 		if (_isInitialized) {
-			_isInitialized = false;
-			_isEchoing = false;
-			_echoSent = false;
-			_blockingMeasure = true;
-			_isDirtyDistance = true;
-			_timeTrigger = -1;
 			_distance = -1;
-			detachInterrupt(digitalPinToInterrupt(_echoPin));
+			_isEchoing = false;
+			_isInitialized = false;
 		}
 	}
 
-	float DistanceMeter::getDistance() {
-		// Micro timer overflow detected returning last one we had OR the value stored is the most recent we have
-		if (!_isDirtyDistance || (_lastTimeEcho < _lastTimeTrigger)) {
-			return _distance;
-		}
-		else {
-			_distance = ((_lastTimeEcho - _lastTimeTrigger) * SOUND_SPEED_CM_PER_SEC) / 2000000.0f;
-			_isDirtyDistance = false;
-			return _distance;
-		}
+	float DistanceMeter::getDistanceCentimeters() {
+		return _distance;
 	}
 
-	void DistanceMeter::updateDistanceBlock() {
-		if (_isInitialized) {
-			if (!_isEchoing) {	// Don't allow block measure while a non-blocking on is on going
-				_blockingMeasure = true;
-				digitalWrite(_triggerPin, LOW);
-				delayMicroseconds(2);
-				digitalWrite(_triggerPin, HIGH);
-				delayMicroseconds(10);
-				digitalWrite(_triggerPin, LOW);
-				delayMicroseconds(2);
-				_distance = (pulseIn(_echoPin, HIGH, ECHO_TIMEOUT_MICROS) * SOUND_SPEED_CM_PER_SEC / 2000000.0f);
-				_isDirtyDistance = false;
-			}
-			else {
-				if (micros() - _timeTrigger > ECHO_TIMEOUT_MICROS) {	// Timeout for the non-block echo detected
-					_echoSent = _isEchoing = false;
-					updateDistanceBlock();
-				}
-			}
-		}
+	float DistanceMeter::getDistanceInches() {
+		return getDistanceCentimeters() * 0.3937007874f;		// Conversion centimeters to inches
 	}
 
-	void DistanceMeter::updateDistanceNonBlock() {
+	void DistanceMeter::updateDistance() {
 		if (_isInitialized) {
 			if (!_isEchoing) {
-				_blockingMeasure = false;
-				_isEchoing = true;
-				digitalWrite(_triggerPin, LOW);
-				delayMicroseconds(2);
-				digitalWrite(_triggerPin, HIGH);
-				delayMicroseconds(10);
-				digitalWrite(_triggerPin, LOW);
-				delayMicroseconds(2);
-			}
-			else {
-				if (micros() - _timeTrigger > ECHO_TIMEOUT_MICROS) {	// Timeout for the non-block echo detected
-					_echoSent = _isEchoing = false;
-					updateDistanceNonBlock();
-				}
+				executeUpdateDistanceBlock(DEFAULT_SOUND_SPEED_CM_PER_SEC);
 			}
 		}
 	}
 
-	#pragma region Private Methods
-
-
-	void DistanceMeter::interruptHandler() {
-		unsigned long currentTime = micros();
-		if (!_blockingMeasure) {
-			if (digitalRead(_echoPin) == HIGH && _isEchoing && !_echoSent) {
-				_timeTrigger = currentTime;
-				_echoSent = true;
-			}
-			else if (digitalRead(_echoPin) == LOW && _isEchoing && _echoSent) {
-				 _isEchoing = _echoSent = false;
-				 _isDirtyDistance = true;
-				_lastTimeTrigger = _timeTrigger;
-				_lastTimeEcho = currentTime;
-			}
+	float DistanceMeter::executeUpdateDistanceBlock(float soundSpeedCmSec) {
+		unsigned long echoTravelTime = 0;
+		_isEchoing = true;
+		if (_echoPin == _triggerPin) {		// Change the pin to output if it is 3 pin module to send echo
+			pinMode(_triggerPin, OUTPUT);
 		}
+		digitalWrite(_triggerPin, LOW);
+		delayMicroseconds(DELAY_AFTER_TRIGGER_LOW_MICROS);
+		digitalWrite(_triggerPin, HIGH);
+		delayMicroseconds(ECHO_PULSE_DURATION_MICROS);
+		digitalWrite(_triggerPin, LOW);
+		delayMicroseconds(DELAY_AFTER_TRIGGER_LOW_MICROS);
+		if (_echoPin == _triggerPin) {		// Change the pin to input if it is 3 pin module to receive echo
+			pinMode(_triggerPin, INPUT);
+		}
+		echoTravelTime = pulseIn(_echoPin, HIGH, ECHO_TIMEOUT_MICROS);
+		if (echoTravelTime != 0) {
+			_distance = echoTravelTime / 2000000.0f * soundSpeedCmSec;
+		}
+		_isEchoing = false;
 	}
-
-	#pragma endregion
 
 };

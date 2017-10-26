@@ -21,53 +21,52 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-/*
-ManualTest.h
-*/
-#ifndef _MANUAL_TEST_h
-#define _MANUAL_TEST_h
+#include "../../SMS.h"
 
-#if defined(ARDUINO) && ARDUINO >= 100
-#include <Arduino.h>
-#else
-#include "WProgram.h"
-#endif
+namespace Easyuino {
 
-#define TEST_FRAMEWORK_TAG "[Test Framework]"
-#define TEST_NEW_TEST_MESSAGE "Test: "
-#define TEST_SUITE_END_MESSAGE "Test Suite Ended"
-#define DELAY_BETWEEN_TESTS 4000		// 4 seconds
+	SMS::SMS(unsigned long number, const char* message, unsigned int countryPrefixCode)
+		: SMS::SMS() {
+		setNumber(number);
+		setMessage(message);
+		setCountryPrefixCode(countryPrefixCode);
+	}
 
-/* Base class for a set of tests on Arduino. Used to test Easyuino library components in real sensors/devices */
-class ManualTest {
+	SMS::SMS(unsigned int countryPrefixCode) {
+		Utilities::zeroBuffer(_message, MAX_SMS_SIZE + 1);
+		setNumber(0);
+		setCountryPrefixCode(countryPrefixCode);
+	}
 
-	private:
-		bool _testFinished;
-	protected:
-		Stream* _debugStream;
+	unsigned int SMS::getCountryPrefixCode() {
+		return _countryPrefixCode;
+	}
 
-	public:
-		ManualTest(Stream& debugStream);
+	void SMS::setCountryPrefixCode(unsigned int newCountryPrefixCode) {
+		_countryPrefixCode = newCountryPrefixCode;
+	}
 
-		void runTestsSetup();
+	unsigned long SMS::getNumber() {
+		return _number;
+	}
 
-		void runTests();
+	void SMS::setNumber(unsigned long newNumber) {
+		_number = newNumber;
+	}
 
-	protected:
-		virtual void testsSetup() = 0;
+	const char* SMS::getMessage() {
+		return _message;
+	}
 
-		virtual void tests() = 0;
+	void SMS::setMessage(const char* newMessage) {
+		Utilities::zeroBuffer(_message, MAX_SMS_SIZE + 1);
+		strncpy(_message, newMessage, MAX_SMS_SIZE);
+	}
 
-		virtual void beforeTest();
-
-		virtual void afterTest();
-
-		virtual void afterTestSuite();
-	
-		void testStart(char* str);
-
-		void testEnd(unsigned long delayAfterTestOverride = DELAY_BETWEEN_TESTS);
+	void SMS::reset() {
+		Utilities::zeroBuffer(_message, MAX_SMS_SIZE + 1);
+		setNumber(0);
+		setCountryPrefixCode(0);
+	}
 
 };
-
-#endif

@@ -51,12 +51,14 @@ void ManualTest::afterTestSuite() { /* Do Nothing */ }
 
 void ManualTest::testStart(char * customTestMessage){
 	beforeTest();
-	_debugStream->print(TEST_FRAMEWORK_TAG);
-	_debugStream->print(TEST_NEW_TEST_MESSAGE);
-	_debugStream->println(customTestMessage);
+	if (customTestMessage != NULL) {
+		_debugStream->print(TEST_FRAMEWORK_TAG);
+		_debugStream->print(TEST_NEW_TEST_MESSAGE);
+		_debugStream->println(customTestMessage);
+	}
 }
 
-void ManualTest::testEnd() {
+void ManualTest::testEnd(unsigned long delayAfterTestOverride) {
 	afterTest();
-	delay(DELAY_BETWEEN_TESTS);
+	delay(delayAfterTestOverride);
 }

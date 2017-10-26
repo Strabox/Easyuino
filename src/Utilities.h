@@ -45,6 +45,21 @@ namespace Easyuino {
 			*/
 			static void* EasyMalloc(unsigned int sizeInBytes);
 
+			/*
+			
+			*/
+			static void zeroBuffer(void *buffer, size_t bufferSize);
+
+			/*
+			
+			*/
+			static void overrideLastStringChar(char* string);
+
+			/*
+			
+			*/
+			static void overrideLastTwoChar(char* string);
+
 	};
 
 };

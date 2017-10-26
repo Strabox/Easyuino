@@ -1,5 +1,5 @@
 /*
-RGBLedExample.cpp
+RGBLedExample.ino
 */
 
 #include <Easyuino.h>	// Include the library in order to the compiler know you want Easyuino library
@@ -19,14 +19,14 @@ void setup() {
 void loop() {
 
 	/*
-	This method call set the led color to RED.
-	First parameter controls the amount of red (0-255)
-	First parameter controls the amount of green (0-255)
-	First parameter controls the amount of blue (0-255)
-	The color of the led will be the overlap of the amount of 3 colors. See:
-	- https://en.wikipedia.org/wiki/Additive_color 
-	You can use this link to pick up RGB colors: 
-	- https://www.w3schools.com/colors/colors_picker.asp
+	- This method call set the led color to RED.
+	- First parameter controls the amount of red (0-255).
+	- First parameter controls the amount of green (0-255).
+	- First parameter controls the amount of blue (0-255).
+	- The color of the led will be the overlap of the amount of 3 colors. See:
+	https://en.wikipedia.org/wiki/Additive_color 
+	- You can use this link to pick up RGB colors: 
+	https://www.w3schools.com/colors/colors_picker.asp
 	*/
 	led.setColor(255, 0, 0);
 
@@ -43,25 +43,24 @@ void loop() {
 	delay(2000);
 
 	/* 
-	This method sets the color to YELLOW. There are several ones you can chose normally you can see the list
-	in IDEs 
+	- This method sets the color to YELLOW. There are several ones
+	you can chose normally you can see the list in IDEs.
 	*/
 	led.setColor(RGBLed::COLOR::YELLOW);
 
 	delay(2000);
 
 	/* 
-	This method will set the color to BLUE. See Hexadecimal color code on how to use it. 
-	You can use this link to pick up Heaxadecimal codes https://www.w3schools.com/colors/colors_picker.asp
+	- This method will set the color to BLUE. See Hexadecimal color code on how to use it. 
+	- You can use this link to pick up Heaxadecimal codes https://www.w3schools.com/colors/colors_picker.asp
 	*/
 	led.setColor("#0000ff");
 
 	delay(2000);
 
 	/* 
-	This method will turn off the led. After this call you can' set the color of the led anymore while 
-	led.begin(); is not called
+	- This method will turn off the led. After this call you can't set
+	the color of the led anymore while led.begin(); is not called again.
 	*/
 	led.end();
-
 }

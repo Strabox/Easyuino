@@ -1,6 +1,6 @@
 # Easyuino
 
-Easyuino is a library that offers a modular and set of APIs to several sensors and devices that connects to Arduino (e.g: Relays, RGB Leds, Ultrasonic Modules, Water Detectors, ...). 
+Easyuino is a library that offers a modular and set of APIs to several sensors and devices that connects to Arduino (e.g: Relays, RGB Leds, Ultrasonic Modules, GSM Modules, Water Detectors, ...). 
 
 The Easyuino library has 5 fundamental goals:
 1. Easy to integrate in your favorite IDEs because it works like a common Arduino library
@@ -15,25 +15,26 @@ The development of the library, including fixes and addition of new sensors/devi
 - My time availability (Now I am doing my Masters Degree Thesis in Computer Science and Engineering that stoles a good slice of my time)
 - Interest of people in Easyuino
 
-Important: Nevertheless I will accept suggestions for interesting devices/sensors to develop and if there are a lot of interest I will start prioritize them
+Important: Nevertheless I will accept suggestions for interesting devices/sensors to develop and if there are a lot of interest I will start prioritize them.
+
+More Important: If you have question you can contact me too !!!
 
 Contact Channels:
 - Email: easyuino@gmail.com
 
 ### Already Implemented, Documented and Tested = Ready to Use
 
-- RGB Led
+- RGB led, Ultrasonic Module (measure distances) , GSM Module (currently only SMS services), Relay Module
 
 ### Currently Developing
 
-- Ultrasonic Module (as a Distance Meter)
-- Relays
+- Water/Rain Detector
+- Displays: OLED lcd and Seven Segments
 
 ### Develop in a Near Future
 
-- Water Detector
 - Infra Red Receiver
-- Displays: OLED lcd and Seven Segments
+- Flame Sensor
 
 ### Develop in a Long Term Future
 
