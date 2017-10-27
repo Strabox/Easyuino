@@ -57,10 +57,6 @@ Contact Channels:
 
 **Project's wiki has a set of usage examples of the library API plus more detailed information about it: https://github.com/Strabox/Easyuino/wiki**
 
-## Related and Useful Libraries
-
-https://github.com/Strabox/GSMLibrary I have this Arduino library too that is used to interact with GSM/GPRS boards. It is separated from this one because addresses a much more complex device but follows identical rules of Easyuino.
-
 ## Easyuino History
 
 I am Computer Scientist and Engineer (not an Electrotechnical one) that loves programming special in C/C++. 
