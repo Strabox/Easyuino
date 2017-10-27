@@ -22,7 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 #include "../../GSMService.h"
-#include "..\..\GSMService.h"
 
 #define DELAY_WAIT_FOR_DATA 250				// 200 milliseconds - Used to wait for all the data from the GSM board
 
