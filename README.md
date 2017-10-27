@@ -17,12 +17,12 @@ The development of the library, including fixes and addition of new sensors/devi
 
 Important: Nevertheless I will accept suggestions for interesting devices/sensors to develop and if there are a lot of interest I will start prioritize them.
 
-More Important: If you have question you can contact me too !!!
+More Important: If you have any question about the library or some doubts about the supported devices you can contact me too !!!
 
 Contact Channels:
 - Email: easyuino@gmail.com
 
-### Already Implemented, Documented and Tested = Ready to Use
+### Implemented, Documented and Tested = Ready to Use
 
 - RGB led, Ultrasonic Module (measure distances) , GSM Module (currently only SMS services), Relay Module
 
@@ -52,10 +52,6 @@ Contact Channels:
 2. Using Arduino IDE got to to menu bar choose **Sketch > Include Library** and select the .zip file downloaded in 1.
 3. *[Optional]* Look at https://github.com/Strabox/Easyuino/wiki to usage examples and details about the API
 4. **[Not Optional]** Have fun!!!
-
-## Important: API Usage Examples and Additional Information
-
-**Project's wiki has a set of usage examples of the library API plus more detailed information about it: https://github.com/Strabox/Easyuino/wiki**
 
 ## Easyuino History
 
