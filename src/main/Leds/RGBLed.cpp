@@ -87,7 +87,7 @@ namespace Easyuino {
 		for (uint8_t i = 0; i < 8; i++) {
 			char currentChar = hexadecimalColorCode[i];
 			if ((i == 0 && currentChar != '#') ||
-				(i == 7 && currentChar != NULL)||
+				(i == 7 && currentChar != '\0')||
 				(i != 0 && i != 7 && !isHexadecimalDigit(currentChar))) {
 				return;
 			}

@@ -258,7 +258,7 @@ namespace Easyuino {
 		GSMInternalRequestStatus waitForGSMBoardData();
 
 		/*
-		Verify if there are informationfrom the GSM board waiting in the SoftwareSerial
+		Verify if there are information from the GSM board waiting in the SoftwareSerial
 		*/
 		bool lookForGSMBoardData();
 

@@ -33,7 +33,7 @@ namespace Easyuino {
 	}
 
 	SMS::SMS(unsigned int countryPrefixCode) {
-		Utilities::zeroBuffer(_message, MAX_SMS_SIZE + 1);
+		Utilities::ZeroBuffer(_message, MAX_SMS_SIZE + 1);
 		setNumber(0);
 		setCountryPrefixCode(countryPrefixCode);
 	}
@@ -59,12 +59,12 @@ namespace Easyuino {
 	}
 
 	void SMS::setMessage(const char* newMessage) {
-		Utilities::zeroBuffer(_message, MAX_SMS_SIZE + 1);
+		Utilities::ZeroBuffer(_message, MAX_SMS_SIZE + 1);
 		strncpy(_message, newMessage, MAX_SMS_SIZE);
 	}
 
 	void SMS::reset() {
-		Utilities::zeroBuffer(_message, MAX_SMS_SIZE + 1);
+		Utilities::ZeroBuffer(_message, MAX_SMS_SIZE + 1);
 		setNumber(0);
 		setCountryPrefixCode(0);
 	}

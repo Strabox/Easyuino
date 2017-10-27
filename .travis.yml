@@ -10,12 +10,12 @@ before_install:
 install:
   - ln -s $PWD /usr/local/share/arduino/libraries/Easyuino
 script:
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Leds/RGBLedExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Leds/RelayExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Leds/RelayNamedExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Leds/DistanceMeterExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Leds/DistanceMeterNonBlockExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Leds/DistanceMeterAccurateExample.ino
+  - travis-wait arduino --verify --board arduino:avr:uno $PWD/examples/Leds/RGBLedExample.ino
+  - travis-wait arduino --verify --board arduino:avr:uno $PWD/examples/Leds/RelayExample.ino
+  - travis-wait arduino --verify --board arduino:avr:uno $PWD/examples/Leds/RelayNamedExample.ino
+  - travis-wait arduino --verify --board arduino:avr:uno $PWD/examples/Leds/DistanceMeterExample.ino
+  - travis-wait arduino --verify --board arduino:avr:uno $PWD/examples/Leds/DistanceMeterNonBlockExample.ino
+  - travis-wait arduino --verify --board arduino:avr:uno $PWD/examples/Leds/DistanceMeterAccurateExample.ino
 notifications:
   email:
     on_success: change

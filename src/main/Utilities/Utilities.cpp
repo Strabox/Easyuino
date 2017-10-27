@@ -34,29 +34,29 @@ namespace Easyuino {
 			return NULL;
 		}
 		else {
-			memset(resPtr, NULL, sizeInBytes + EXTRA_SAFE_BYTES_MALLOC);
+			memset(resPtr, 0, sizeInBytes + EXTRA_SAFE_BYTES_MALLOC);
 			return resPtr;
 		}
 	}
 
-	void Utilities::zeroBuffer(void *buffer, size_t bufferSize) {
-		memset(buffer, NULL, bufferSize);
+	void Utilities::ZeroBuffer(void *buffer, size_t bufferSize) {
+		memset(buffer, 0, bufferSize);
 	}
 
-	void Utilities::overrideLastStringChar(char* string) {
+	void Utilities::OverrideLastStringChar(char* string) {
 		int stringLength = strlen(string);
 		if (stringLength >= 1) {
-			*(string + (sizeof(char) * (stringLength - 1))) = NULL;
+			*(string + (sizeof(char) * (stringLength - 1))) = '\0';
 		}
 	}
 
-	void Utilities::overrideLastTwoChar(char* string) {
+	void Utilities::OverrideLastTwoChar(char* string) {
 		int stringLength = strlen(string);
 		if (stringLength >= 1) {
-			*(string + (sizeof(char) * (stringLength - 1))) = NULL;
+			*(string + (sizeof(char) * (stringLength - 1))) = '\0';
 		}
 		if (stringLength >= 2) {
-			*(string + (sizeof(char) * (stringLength - 2))) = NULL;
+			*(string + (sizeof(char) * (stringLength - 2))) = '\0';
 		}
 	}
 

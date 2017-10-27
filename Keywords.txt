@@ -13,8 +13,11 @@ toString	KEYWORD2
 ##################################################
 #					Utilities     				 #
 ##################################################
-Utilities	KEYWORD1
-EasyMalloc	KEYWORD2
+Utilities				KEYWORD1
+EasyMalloc				KEYWORD2
+ZeroBuffer				KEYWORD2
+OverrideLastStringChar	KEYWORD2
+OverrideLastTwoChar		KEYWORD2
 ##################################################
 #					 RGBLed     				 #
 ##################################################
@@ -29,9 +32,9 @@ setColor	KEYWORD2
 Relay		KEYWORD1
 begin		KEYWORD2
 end			KEYWORD2
-open		KEYWORD2
-close		KEYWORD2
-isOpen		KEYWORD2
+turnOn		KEYWORD2
+turnOff		KEYWORD2
+isOn		KEYWORD2
 ##################################################
 #					RelayNamed     				 #
 ##################################################
@@ -40,22 +43,54 @@ toString	KEYWORD2
 ##################################################
 #				   DistanceMeter     			 #
 ##################################################
-DistanceMeter					KEYWORD1
-getDistanceCentimeters			KEYWORD2
-getDistanceInches				KEYWORD2
-updateDistance					KEYWORD2
-startDistanceMeasureBlocking	KEYWORD2
-measureOnGoingActionsBlocking	KEYWORD2
+DistanceMeter				KEYWORD1
+getDistanceCentimeters		KEYWORD2
+getDistanceInches			KEYWORD2
+updateDistance				KEYWORD2
 ##################################################
 #				DistanceMeterNonBlock     		 #
 ##################################################
-DistanceMeterNonBlock				KEYWORD1
-updateDistanceNonBlock				KEYWORD2
-calculateDistance					KEYWORD2
-startDistanceMeasureNonBlocking		KEYWORD2
-measureOnGoingActionsNonBlocking	KEYWORD2
+DistanceMeterNonBlock			KEYWORD1
+updateDistanceNonBlock			KEYWORD2
 ##################################################
 #				DistanceMeterAccurate     		 #
 ##################################################
-DistanceMeterAccurate			KEYWORD1
-calculateCurrentSoundSpeed		KEYWORD2
+DistanceMeterAccurate	KEYWORD1
+##################################################
+#				     GSMService     		     #
+##################################################
+GSMService					KEYWORD1
+addAllowedNumber			KEYWORD2
+isAllowed					KEYWORD2
+removeAllowedNumber			KEYWORD2
+clearAllowedNumbers			KEYWORD2
+beginListenForSMS			KEYWORD2
+availableSMS				KEYWORD2
+sendSMS						KEYWORD2
+deleteAllSMS				KEYWORD2
+deleteAllReadSMS			KEYWORD2
+deleteAllSentAndReadSMS		KEYWORD2
+##################################################
+#				  GSMRequestStatus     		     #
+##################################################
+GSMRequestStatus						KEYWORD1
+GSM_OK									LITERAL1
+GSM_UNEXPECTED_REPLY					LITERAL1
+GSM_BOARD_DIDNT_REPLY					LITERAL1
+GSM_SERVICE_NOT_INITIALIZED				LITERAL1
+GSM_REQUEST_INVALID_ARGUMENT			LITERAL1
+GSM_MAXIMUM_ALLOWED_NUMBERS_REACHED		LITERAL1
+##################################################
+#						SMS     		         #
+##################################################
+SMS						KEYWORD1
+getCountryPrefixCode	KEYWORD2
+setCountryPrefixCode	KEYWORD2
+getNumber				KEYWORD2
+setNumber				KEYWORD2
+getMessage				KEYWORD2
+setMessage				KEYWORD2
+reset					KEYWORD2
+##################################################
+#							     		         #
+##################################################

@@ -46,19 +46,19 @@ namespace Easyuino {
 			static void* EasyMalloc(unsigned int sizeInBytes);
 
 			/*
-			
+			Fills a given buffer with zeros
 			*/
-			static void zeroBuffer(void *buffer, size_t bufferSize);
+			static void ZeroBuffer(void *buffer, size_t bufferSize);
 
 			/*
-			
+			Put a \0 in the last character
 			*/
-			static void overrideLastStringChar(char* string);
+			static void OverrideLastStringChar(char* string);
 
 			/*
-			
+			Put a \0 in the last two characters
 			*/
-			static void overrideLastTwoChar(char* string);
+			static void OverrideLastTwoChar(char* string);
 
 	};
 

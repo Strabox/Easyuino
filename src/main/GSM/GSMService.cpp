@@ -48,7 +48,7 @@ namespace Easyuino {
 		_outputStream = NULL;
 		_isInitialized = false;
 		_readyToReceiveSMS = false;
-		Utilities::zeroBuffer(_allowedNumbers, sizeof(unsigned long) * MAX_NUMBER_OF_ALLOWED_NUMBERS);
+		Utilities::ZeroBuffer(_allowedNumbers, sizeof(unsigned long) * MAX_NUMBER_OF_ALLOWED_NUMBERS);
 		zeroInternalBuffer();
 	}
 
@@ -143,7 +143,7 @@ namespace Easyuino {
 	}
 
 	GSMRequestStatus GSMService::clearAllowedNumbers() {
-		Utilities::zeroBuffer(_allowedNumbers, sizeof(unsigned long) * MAX_NUMBER_OF_ALLOWED_NUMBERS);
+		Utilities::ZeroBuffer(_allowedNumbers, sizeof(unsigned long) * MAX_NUMBER_OF_ALLOWED_NUMBERS);
 		return GSMRequestStatus::GSM_OK;
 	}
 
@@ -198,7 +198,7 @@ namespace Easyuino {
 			else if (num_tokens == 1) {
 				if (strlen(token) > 20) {
 					char number[10];
-					Utilities::zeroBuffer(number, 10);
+					Utilities::ZeroBuffer(number, 10);
 					for (int i = 11; i < 20; i++) {
 						number[i - 11] = token[i];
 					}
@@ -210,7 +210,7 @@ namespace Easyuino {
 				}
 			}
 			else if (num_tokens == 2) {
-				Utilities::overrideLastStringChar(token);
+				Utilities::OverrideLastStringChar(token);
 				message.setMessage(token);
 			}
 			else {
@@ -354,7 +354,7 @@ namespace Easyuino {
 	}
 
 	void GSMService::zeroInternalBuffer() {
-		Utilities::zeroBuffer(_internalBuffer, INTERNAL_BUFFER_SIZE_BYTES);
+		Utilities::ZeroBuffer(_internalBuffer, INTERNAL_BUFFER_SIZE_BYTES);
 	}
 
 	#pragma endregion

@@ -26,7 +26,7 @@ SOFTWARE.
 namespace Easyuino {
 
 	RelayNamed::RelayNamed(uint8_t arduinoPin, const char * deviceName) : Relay(arduinoPin) {
-		memset(_name, NULL, MAX_NAME_SIZE);
+		memset(_name, 0, MAX_NAME_SIZE);
 		strncpy(_name, deviceName, MAX_NAME_SIZE);
 	}
 
