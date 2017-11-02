@@ -9,12 +9,12 @@ install:
   # Install the library in the arduino user libraries folder
   - ln -s $PWD /usr/local/share/arduino/libraries/Easyuino
 script:
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Leds/RGBLedExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/Leds/RGBLed/RGBLedExample.ino
   - arduino --verify --board arduino:avr:uno $PWD/examples/Relay/RelayExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Relay/RelayNamedExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/UltraSonicModule/DistanceMeterExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/UltraSonicModule/DistanceMeterNonBlockExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/UltraSonicModule/DistanceMeterAccurateExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/Relay/RelayNamed/RelayNamedExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/UltraSonicModule/DistanceMeter/DistanceMeterExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/UltraSonicModule/DistanceMeterNonBlock/DistanceMeterNonBlockExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/UltraSonicModule/DistanceMeterAccurate/DistanceMeterAccurateExample.ino
   - arduino --verify --board arduino:avr:uno $PWD/examples/WaterDetector/WaterDetectorExample.ino
 notifications:
   email:
