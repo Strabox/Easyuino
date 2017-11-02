@@ -7,13 +7,13 @@ RelayNamedExample.ino
 using Easyuino::RelayNamed;  // Necessary in order to use RelayNamed
 
 int arduinoPin = 6;				// Arduino pin that controls the relay
-char* controlledDevice = "Lamp";// The difference for normal relay is that the relay stays with a name identifier name attached	
+const char* controlledDevice = "Lamp";// The difference for normal relay is that the relay stays with a name identifier name attached	
 
 RelayNamed relayNamed(arduinoPin, controlledDevice);  // Create the RelayNamed object that exposes the API to use
 
 void setup() {
   Serial.begin(9600);  // Used to start the serial connection with the computer. Change the 9600 if needed.
-  relayNamed.begin(false, HIGH);	// See RelayExample.ino for the explanation
+  relayNamed.begin(false, HIGH);  // See RelayExample.ino for the explanation
 }
 
 void loop() {
