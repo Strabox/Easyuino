@@ -25,7 +25,7 @@ SOFTWARE.
 
 namespace Easyuino {
 
-	DistanceMeterPrintable::DistanceMeterPrintable(uint8_t triggerPin, uint8_t echoPin)
+	DistanceMeterPrintable::DistanceMeterPrintable(IN uint8_t triggerPin, IN uint8_t echoPin)
 		: DistanceMeter(triggerPin, echoPin) {
 		/* Do Nothing */
 	}

@@ -25,13 +25,13 @@ SOFTWARE.
 
 namespace Easyuino {
 
-	DistanceMeterAccurate::DistanceMeterAccurate(uint8_t triggerPin, uint8_t echoPin)
+	DistanceMeterAccurate::DistanceMeterAccurate(IN uint8_t triggerPin, IN uint8_t echoPin)
 		: DistanceMeterNonBlock(triggerPin, echoPin) {
 		_airTemperature = DEFAULT_AIR_TEMPERATURE_CELSIUS;
 		_temperatureScale = CELSIUS;
 	}
 
-	DistanceMeterAccurate::DistanceMeterAccurate(uint8_t triggerEchoPin)
+	DistanceMeterAccurate::DistanceMeterAccurate(IN uint8_t triggerEchoPin)
 		: DistanceMeterAccurate(triggerEchoPin, triggerEchoPin) {
 		/* Do Nothing */
 	}
@@ -43,7 +43,7 @@ namespace Easyuino {
 		return calculateDistance(CalculateSoundSpeed(_airTemperature, _temperatureScale));
 	}
 
-	void DistanceMeterAccurate::updateDistance(float airTemperature, TemperatureScale temperatureScale) {
+	void DistanceMeterAccurate::updateDistance(IN float airTemperature, IN TemperatureScale temperatureScale) {
 		if (_isInitialized) {
 			if (!_isEchoing || (_isEchoing && isUpdateDistanceNonBlockTimeout())) {
 				_airTemperature = airTemperature;
@@ -53,7 +53,7 @@ namespace Easyuino {
 		}
 	}
 
-	void DistanceMeterAccurate::updateDistanceNonBlock(float airTemperature, TemperatureScale temperatureScale) {
+	void DistanceMeterAccurate::updateDistanceNonBlock(IN float airTemperature, IN TemperatureScale temperatureScale) {
 		if (_isInitialized) {
 			if (!_isEchoing || (_isEchoing && isUpdateDistanceNonBlockTimeout())) {
 				_airTemperature = airTemperature;
@@ -63,7 +63,7 @@ namespace Easyuino {
 		}
 	}
 
-	float DistanceMeterAccurate::CalculateSoundSpeed(float airTemperature, TemperatureScale temperatureScale) {
+	float DistanceMeterAccurate::CalculateSoundSpeed(IN float airTemperature, IN TemperatureScale temperatureScale) {
 		float celsiusAirTemperature;
 		switch (temperatureScale) {
 		case TemperatureScale::FAHRENHEIT:

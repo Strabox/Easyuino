@@ -27,6 +27,7 @@ DistanceMeter.h
 #ifndef _EASYUINO_DISTANCE_METER_h
 #define _EASYUINO_DISTANCE_METER_h
 
+#include "Utilities.h"
 #include "Device.h"
 
 #define ECHO_TIMEOUT_MICROS 30000UL				// 0.03 Seconds (Time of sound to travel 8 meters plus a small bonus)
@@ -58,10 +59,10 @@ namespace Easyuino {
 		volatile float _distance;
 
 	public:
-		DistanceMeter(uint8_t triggerPin, uint8_t echoPin);
+		DistanceMeter(IN uint8_t triggerPin, IN uint8_t echoPin);
 
 		/* Contructor used when we have US with only one pin for trigger and echo */
-		DistanceMeter(uint8_t triggerEchoPin);
+		DistanceMeter(IN uint8_t triggerEchoPin);
 
 		~DistanceMeter();
 
@@ -94,7 +95,7 @@ namespace Easyuino {
 		Execute a block distance measure and calculate the distance based on the sound speed
 		@return distance (Centimeters) - Distance measured 
 		*/
-		float executeUpdateDistanceBlock(float soundSpeedCmSec);
+		float executeUpdateDistanceBlock(IN float soundSpeedCmSec);
 
 	};
 

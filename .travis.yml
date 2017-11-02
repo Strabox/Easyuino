@@ -1,18 +1,21 @@
 language: c
 before_install:
+  # Download and install Arduino IDE environment
   - wget http://downloads.arduino.cc/arduino-1.8.5-linux64.tar.xz
   - tar xf arduino-1.8.5-linux64.tar.xz
   - sudo mv arduino-1.8.5 /usr/local/share/arduino
   - sudo ln -s /usr/local/share/arduino/arduino /usr/local/bin/arduino
 install:
+  # Install the library in the arduino user libraries folder
   - ln -s $PWD /usr/local/share/arduino/libraries/Easyuino
 script:
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Leds/RGBLedExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Leds/RelayExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Leds/RelayNamedExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Leds/DistanceMeterExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Leds/DistanceMeterNonBlockExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Leds/DistanceMeterAccurateExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/Leds/RGBLed/RGBLedExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/Relay/RelayExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/Relay/RelayNamed/RelayNamedExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/UltraSonicModule/DistanceMeter/DistanceMeterExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/UltraSonicModule/DistanceMeterNonBlock/DistanceMeterNonBlockExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/UltraSonicModule/DistanceMeterAccurate/DistanceMeterAccurateExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/WaterDetector/WaterDetectorExample.ino
 notifications:
   email:
     on_success: change

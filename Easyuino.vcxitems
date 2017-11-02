@@ -31,11 +31,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)src\main\UltraSonicModule\DistanceMeter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\main\UltraSonicModule\DistanceMeterPrintable.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\main\InfraRedReceiver\InfraRedReceiver.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Displays\OLEDlcd.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\WaterDetector\RainDetector.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\WaterDetector\WaterDetector.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Relay\Relay.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Relay\RelayNamed.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Utilities\Utilities.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\WaterFlow\WaterFlowMeter.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\WaterFlow\WaterFlowSensor.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\tests\ManualTest.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -48,8 +49,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)src\DistanceMeter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\DistanceMeterPrintable.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\InfraRedReceiver.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\OLEDlcd.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\RainDetector.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\tests\WaterDetectorTest.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\WaterDetector.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\Relay.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\RelayNamed.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\RGBLed.h" />
@@ -63,6 +64,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tests\RelayNamedTest.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tests\RelayTest.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tests\RGBLedTest.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\WaterFlowMeter.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\WaterFlowSensor.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory).gitignore" />
@@ -70,11 +73,11 @@
     <None Include="$(MSBuildThisFileDirectory)examples\Displays\.gitkeep" />
     <None Include="$(MSBuildThisFileDirectory)examples\GSM\.gitkeep" />
     <None Include="$(MSBuildThisFileDirectory)examples\InfraRedReceiver\.gitkeep" />
-    <None Include="$(MSBuildThisFileDirectory)examples\RainDetector\.gitkeep" />
+    <None Include="$(MSBuildThisFileDirectory)examples\WaterFlow\.gitkeep" />
     <None Include="$(MSBuildThisFileDirectory)LICENSE" />
     <None Include="$(MSBuildThisFileDirectory)README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="$(MSBuildThisFileDirectory)examples\Leds\20171022_232756.jpg" />
+    <Image Include="$(MSBuildThisFileDirectory)examples\Leds\RGBLed\RGBLedCircuit.jpg" />
   </ItemGroup>
 </Project>

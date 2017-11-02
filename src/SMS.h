@@ -30,17 +30,16 @@ SMS.h
 #include "Utilities.h"
 
 /* Maximum SMS size to allow static allocation of resources */
-#define MAX_SMS_SIZE 64
+#define MAX_SMS_SIZE 50
 
 namespace Easyuino {
 
 	/*
-	Represents a SMS object used to send and receive it from the GSMService
+	Represents a SMS object used to send and receive it from the GSMService API.
 	*/
 	class SMS {
 
 	private:
-
 		/* Country code used to put in the prefix */
 		unsigned int _countryPrefixCode;
 		/* Phone number without the country prefix code */
@@ -49,18 +48,17 @@ namespace Easyuino {
 		char _message[MAX_SMS_SIZE + 1];
 
 	public:
-
 		/*	Create a SMS object used to send/receive SMS from GSMLibrary
 		@param number				- Number of sender or receiver
 		@param message				- Message content
 		@param countryPrefixCode	- Country prefix code of the message. Default value is 351 (Portugal Code)
 		*/
-		SMS(unsigned long number, const char* message, unsigned int countryPrefixCode = 351);
+		SMS(IN unsigned long number, IN const char* message, IN unsigned int countryPrefixCode = 351);
 
 		/*	Create an empty SMS
 		@param number - Country prefix code of the message.Default value is 351 (Portugal Code)
 		*/
-		SMS(unsigned int countryPrefixCode = 351);
+		SMS(IN unsigned int countryPrefixCode = 351);
 
 		/* Get the country prefix code associated with the SMS
 		@return - Number associated with the SMS OR 0 if it was impossible to obtain the prefix code.
@@ -70,7 +68,7 @@ namespace Easyuino {
 		/* Set the country prefix code associated with the SMS. Valid numbers are in range [0,999].
 		@param newCountryPrefixCode - New country prefix code to the SMS
 		*/
-		void setCountryPrefixCode(unsigned int newCountryPrefixCode);
+		void setCountryPrefixCode(IN unsigned int newCountryPrefixCode);
 
 		/* Get the number associated with the SMS
 		@return	- Number associated with the SMS
@@ -80,7 +78,7 @@ namespace Easyuino {
 		/* Set the number of the SMS
 		@param number - The new number to be set on the SMS
 		*/
-		void setNumber(unsigned long newNumber);
+		void setNumber(IN unsigned long newNumber);
 
 		/* Get the message associated with the SMS
 		@return	- Message associated with the SMS
@@ -90,7 +88,7 @@ namespace Easyuino {
 		/* Set the message of the SMS
 		@param message - The new message to be set on the SMS
 		*/
-		void setMessage(const char* newMessage);
+		void setMessage(IN const char* newMessage);
 
 		/* Resets the message to zeros, number to zero and the country prefix code to 0 (Undefined)*/
 		void reset();

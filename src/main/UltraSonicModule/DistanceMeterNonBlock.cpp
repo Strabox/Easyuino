@@ -27,7 +27,7 @@ namespace Easyuino {
 
 	DistanceMeterNonBlock* DistanceMeterNonBlock::INSTANCES[MAXIMUM_NUMBER_OF_DM_NON_BLOCK];
 
-	DistanceMeterNonBlock::DistanceMeterNonBlock(uint8_t triggerPin, uint8_t echoPin)
+	DistanceMeterNonBlock::DistanceMeterNonBlock(IN uint8_t triggerPin, IN uint8_t echoPin)
 		: DistanceMeter(triggerPin, echoPin) {
 		_lastTimeTrigger = _lastTimeEcho = 0;
 		_echoSent = false;
@@ -36,7 +36,7 @@ namespace Easyuino {
 		DistanceMeterNonBlock::assignInstance(this);
 	}
 
-	DistanceMeterNonBlock::DistanceMeterNonBlock(uint8_t triggerEchoPin)
+	DistanceMeterNonBlock::DistanceMeterNonBlock(IN uint8_t triggerEchoPin)
 		: DistanceMeterNonBlock(triggerEchoPin, triggerEchoPin) {
 		/* Do Nothing */
 	}
@@ -117,9 +117,8 @@ namespace Easyuino {
 		return false;
 	}
 
-	float DistanceMeterNonBlock::calculateDistance(float soundSpeedCmPerSec) {
-		// Micro timer overflow detected returning last one we had OR the value stored is the most recent we have
-		if (!_isDirtyDistance || (_lastTimeEcho <= _lastTimeTrigger)) {
+	float DistanceMeterNonBlock::calculateDistance(IN float soundSpeedCmPerSec) {
+		if (!_isDirtyDistance) {
 			return _distance;
 		}
 		else {
@@ -131,7 +130,7 @@ namespace Easyuino {
 
 	#pragma region Interrupt Management/Handling Methods
 	
-	void DistanceMeterNonBlock::interruptHandler(unsigned long interruptCallTimeMicros) {
+	void DistanceMeterNonBlock::interruptHandler(IN unsigned long interruptCallTimeMicros) {
 		if (!_blockingMeasure) {
 			if (digitalRead(_echoPin) == HIGH && _isEchoing && !_echoSent) {
 				_lastTimeTrigger = interruptCallTimeMicros;
@@ -146,7 +145,7 @@ namespace Easyuino {
 	}
 
 	/* Static */
-	void DistanceMeterNonBlock::assignInstance(DistanceMeterNonBlock* dm) {
+	void DistanceMeterNonBlock::assignInstance(IN DistanceMeterNonBlock* dm) {
 		if (DistanceMeterNonBlock::INSTANCES[0] == NULL) {
 			DistanceMeterNonBlock::INSTANCES[0] = dm;
 		}
@@ -160,7 +159,7 @@ namespace Easyuino {
 	}
 
 	/* Static */
-	void DistanceMeterNonBlock::deleteInstance(DistanceMeterNonBlock* dm) {
+	void DistanceMeterNonBlock::deleteInstance(IN DistanceMeterNonBlock* dm) {
 		if (DistanceMeterNonBlock::INSTANCES[0] == dm) {
 			DistanceMeterNonBlock::INSTANCES[0] = NULL;
 		}
@@ -170,7 +169,7 @@ namespace Easyuino {
 	}
 
 	/* Static */
-	void DistanceMeterNonBlock::attachInterruptToInstance(DistanceMeterNonBlock* dm) {
+	void DistanceMeterNonBlock::attachInterruptToInstance(IN DistanceMeterNonBlock* dm) {
 		if (DistanceMeterNonBlock::INSTANCES[0] == dm) {
 			attachInterrupt(digitalPinToInterrupt(dm->_echoPin), DistanceMeterNonBlock::interruptCaller0, CHANGE);
 		}

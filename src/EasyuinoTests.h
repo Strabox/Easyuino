@@ -33,5 +33,6 @@ EasyuinoTests.h
 #include "tests\DistanceMeterTest.h"
 #include "tests\DistanceMeterNonBlockTest.h"
 #include "tests\DistanceMeterAccurateTest.h"
+#include "tests\WaterDetectorTest.h"
 
 #endif

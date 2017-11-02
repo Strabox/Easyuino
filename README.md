@@ -12,34 +12,39 @@ The Easyuino library has 5 fundamental goals:
 ## Sensors and Devices Support
 
 The development of the library, including fixes and addition of new sensors/devices, will be done depending on:
-- My time availability (Now I am doing my Masters Degree Thesis in Computer Science and Engineering that stoles a good slice of my time)
+- My time availability (Now I am doing my Masters Degree Thesis in Computer Science and Engineering that stoles a huge slice of my time)
 - Interest of people in Easyuino
 
 Important: Nevertheless I will accept suggestions for interesting devices/sensors to develop and if there are a lot of interest I will start prioritize them.
 
-More Important: If you have any question about the library or some doubts about the supported devices you can contact me too !!!
+More Important: If you have any question about easyuino you can contact me !!!
 
 Contact Channels:
 - Email: easyuino@gmail.com
 
-### Implemented, Documented and Tested = Ready to Use
+### Already Implemented, Documented and Tested = Ready to Use
 
-- RGB led, Ultrasonic Module (measure distances) , GSM Module (currently only SMS services), Relay Module
+- RGB led
+- Ultrasonic Module (measure distances)
+- GSM Module (currently only SMS services)
+- Relay Module 
+- Water Detector Sensor
 
 ### Currently Developing
 
-- Water/Rain Detector
-- Displays: OLED lcd and Seven Segments
+- Water Flow Sensor (as a sensor exclusively and as a flow rate meter)
+- Seven Segments Display
 
 ### Develop in a Near Future
 
-- Infra Red Receiver
+- Soil moisture/humidity Sensor
+- Photoresistor/Light Sensor
 - Flame Sensor
+- Infra Red Receiver
 
 ### Develop in a Long Term Future
 
 - Temperature/Humidity sensor
-- Photoresistors/Light sensor
 - Knock sensor
 - Sound sensor
 - Optical Fingerprint sensor
@@ -52,6 +57,14 @@ Contact Channels:
 2. Using Arduino IDE got to to menu bar choose **Sketch > Include Library** and select the .zip file downloaded in 1.
 3. *[Optional]* Look at https://github.com/Strabox/Easyuino/wiki to usage examples and details about the API
 4. **[Not Optional]** Have fun!!!
+
+## Important: API Usage Examples and Additional Information
+
+**Project's wiki has a set of usage examples of the library API plus more detailed information about it: https://github.com/Strabox/Easyuino/wiki**
+
+## Related and Useful Libraries
+
+https://github.com/Strabox/GSMLibrary I have this Arduino library too that is used to interact with GSM/GPRS boards. It is separated from this one because addresses a much more complex device but follows identical rules of Easyuino.
 
 ## Easyuino History
 

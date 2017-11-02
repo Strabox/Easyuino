@@ -27,6 +27,7 @@ Relay.h
 #ifndef _EASYUINO_RELAY_h
 #define _EASYUINO_RELAY_h
 
+#include "Utilities.h"
 #include "Device.h"
 
 namespace Easyuino {
@@ -51,7 +52,7 @@ namespace Easyuino {
 		Creates a Relay object to interact with the physical one
 		@param arduionPin	- Arduino pin that is connected with the relay (normaly called IN pins)
 		*/
-		Relay(uint8_t arduinoPin);
+		Relay(IN uint8_t arduinoPin);
 
 		/*
 		Used to free all the resources associated with the Relay object
@@ -65,7 +66,7 @@ namespace Easyuino {
 		@param isNormallyClosed			- Define what are the state that relay is powering the device (lamp, engine, etc)
 		@param normallyClosedPinLevel	- Digital level of the normally closed relay state (some relays activate on HIGH other on LOW)
 		*/
-		bool begin(bool isNormallyClosed, uint8_t normallyClosedPinLevel);
+		bool begin(IN bool isNormallyClosed, IN uint8_t normallyClosedPinLevel);
 
 		void end();
 

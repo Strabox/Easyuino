@@ -34,6 +34,8 @@ Printable.h
 #include "WProgram.h"
 #endif
 
+#include "Utilities.h"
+
 namespace Easyuino {
 
 	/*
@@ -52,7 +54,7 @@ namespace Easyuino {
 	#pragma endregion
 
 		/* Write the Device state string representation to a given stream (e.g: Used to Debug) */
-		friend Stream& operator<<(Stream & stream, const Printable& printable);
+		friend Stream& operator<<(IN Stream & stream, IN const Printable& printable);
 
 	};
 
