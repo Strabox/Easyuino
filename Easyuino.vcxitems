@@ -78,6 +78,6 @@
     <None Include="$(MSBuildThisFileDirectory)README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="$(MSBuildThisFileDirectory)examples\Leds\RGBLedCircuit.jpg" />
+    <Image Include="$(MSBuildThisFileDirectory)examples\Leds\RGBLed\RGBLedCircuit.jpg" />
   </ItemGroup>
 </Project>
