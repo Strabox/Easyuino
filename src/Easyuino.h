@@ -39,9 +39,6 @@ SOFTWARE.
 	#include "GSMService.h"	
 	#include "SMS.h"
 	
-	#include "OLEDlcd.h"
-	#include "SevenSegments.h"	
-
 	#include "Relay.h"
 	#include "RelayNamed.h"
 
@@ -51,8 +48,8 @@ SOFTWARE.
 	#include "DistanceMeterPrintable.h"
 
 	#include "RGBLed.h"
-	#include "InfraRedReceiver.h"
-	#include "RainDetector.h"
+	#include "WaterDetector.h"
+
 	#include "Utilities.h"
 #endif
 

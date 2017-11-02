@@ -27,11 +27,12 @@ DistanceMeterAccurate.h
 #ifndef _EASYUINO_DISTANCE_METER_ACCURATE_h
 #define _EASYUINO_DISTANCE_METER_ACCURATE_h
 
+#include "Utilities.h"
 #include "DistanceMeterNonBlock.h"
 
 namespace Easyuino {
 
-	enum TemperatureScale {
+	enum TemperatureScale : uint8_t {
 		CELSIUS, KELVIN, FAHRENHEIT
 	};
 
@@ -55,9 +56,9 @@ namespace Easyuino {
 		TemperatureScale _temperatureScale;
 
 	public:
-		DistanceMeterAccurate(uint8_t triggerPin, uint8_t echoPin);
+		DistanceMeterAccurate(IN uint8_t triggerPin, IN uint8_t echoPin);
 
-		DistanceMeterAccurate(uint8_t triggerEchoPin);
+		DistanceMeterAccurate(IN uint8_t triggerEchoPin);
 
 		~DistanceMeterAccurate();
 
@@ -69,7 +70,7 @@ namespace Easyuino {
 		@param airTemperature	- Air temperatures to be used when calculating the distance (good if it is the current temperature)
 		@param temperatureScale	- The temperature scale that is being provided (CELSIUS, KELVIN or FAHRENHEIT)
 		*/
-		void updateDistance(float airTemperature = DEFAULT_AIR_TEMPERATURE_CELSIUS, TemperatureScale temperatureScale = CELSIUS);
+		void updateDistance(IN float airTemperature = DEFAULT_AIR_TEMPERATURE_CELSIUS, IN TemperatureScale temperatureScale = CELSIUS);
 
 		/* Updates the distance of the US to the objects in a non-blocking way. It means that the call to the method
 		will return immediatly and in the "background" the distance measure will ocurr after a while depending on the distance
@@ -77,7 +78,7 @@ namespace Easyuino {
 		@param airTemperature	- Air temperatures to be used when calculating the distance (good if it is the current temperature)
 		@param temperatureScale	- The temperature scale that is being provided (CELSIUS, KELVIN or FAHRENHEIT)
 		*/
-		void updateDistanceNonBlock(float airTemperature = DEFAULT_AIR_TEMPERATURE_CELSIUS, TemperatureScale temperatureScale = CELSIUS);
+		void updateDistanceNonBlock(IN float airTemperature = DEFAULT_AIR_TEMPERATURE_CELSIUS, IN TemperatureScale temperatureScale = CELSIUS);
 
 	private:
 		/* 
@@ -86,7 +87,7 @@ namespace Easyuino {
 		@param temperatureScale			- The scale of the temperature given (CELSIUS, KELVIN or FAHRENHEIT)
 		@return soundSpeed	(cm/sec)	- The sound of the speed
 		*/
-		static float CalculateSoundSpeed(float airTemperature = DEFAULT_AIR_TEMPERATURE_CELSIUS, TemperatureScale temperatureScale = CELSIUS);
+		static float CalculateSoundSpeed(IN float airTemperature = DEFAULT_AIR_TEMPERATURE_CELSIUS, IN TemperatureScale temperatureScale = CELSIUS);
 
 	};
 

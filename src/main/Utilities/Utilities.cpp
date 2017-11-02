@@ -27,7 +27,7 @@ SOFTWARE.
 
 namespace Easyuino {
 
-	void* Utilities::EasyMalloc(unsigned int sizeInBytes) {
+	void* Utilities::EasyMalloc(IN unsigned int sizeInBytes) {
 		void* resPtr = NULL;
 		resPtr = (void*)malloc(sizeInBytes + EXTRA_SAFE_BYTES_MALLOC);
 		if (resPtr == NULL) {
@@ -39,18 +39,18 @@ namespace Easyuino {
 		}
 	}
 
-	void Utilities::ZeroBuffer(void *buffer, size_t bufferSize) {
+	void Utilities::ZeroBuffer(IN void *buffer,IN size_t bufferSize) {
 		memset(buffer, 0, bufferSize);
 	}
 
-	void Utilities::OverrideLastStringChar(char* string) {
+	void Utilities::OverrideLastStringChar(IN char* string) {
 		int stringLength = strlen(string);
 		if (stringLength >= 1) {
 			*(string + (sizeof(char) * (stringLength - 1))) = '\0';
 		}
 	}
 
-	void Utilities::OverrideLastTwoChar(char* string) {
+	void Utilities::OverrideLastTwoChar(IN char* string) {
 		int stringLength = strlen(string);
 		if (stringLength >= 1) {
 			*(string + (sizeof(char) * (stringLength - 1))) = '\0';

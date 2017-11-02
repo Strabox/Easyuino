@@ -25,14 +25,14 @@ SOFTWARE.
 
 namespace Easyuino {
 
-	SMS::SMS(unsigned long number, const char* message, unsigned int countryPrefixCode)
+	SMS::SMS(IN unsigned long number, IN const char* message, IN unsigned int countryPrefixCode)
 		: SMS::SMS() {
 		setNumber(number);
 		setMessage(message);
 		setCountryPrefixCode(countryPrefixCode);
 	}
 
-	SMS::SMS(unsigned int countryPrefixCode) {
+	SMS::SMS(IN unsigned int countryPrefixCode) {
 		Utilities::ZeroBuffer(_message, MAX_SMS_SIZE + 1);
 		setNumber(0);
 		setCountryPrefixCode(countryPrefixCode);
@@ -42,7 +42,7 @@ namespace Easyuino {
 		return _countryPrefixCode;
 	}
 
-	void SMS::setCountryPrefixCode(unsigned int newCountryPrefixCode) {
+	void SMS::setCountryPrefixCode(IN unsigned int newCountryPrefixCode) {
 		_countryPrefixCode = newCountryPrefixCode;
 	}
 
@@ -50,7 +50,7 @@ namespace Easyuino {
 		return _number;
 	}
 
-	void SMS::setNumber(unsigned long newNumber) {
+	void SMS::setNumber(IN unsigned long newNumber) {
 		_number = newNumber;
 	}
 
@@ -58,7 +58,7 @@ namespace Easyuino {
 		return _message;
 	}
 
-	void SMS::setMessage(const char* newMessage) {
+	void SMS::setMessage(IN const char* newMessage) {
 		Utilities::ZeroBuffer(_message, MAX_SMS_SIZE + 1);
 		strncpy(_message, newMessage, MAX_SMS_SIZE);
 	}

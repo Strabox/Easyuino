@@ -34,15 +34,17 @@ Device.h
 #include "WProgram.h"
 #endif
 
+#include "Utilities.h"
+
 namespace Easyuino {
 
 	/*
-	General class that provides the common API and behaviour for the majority of peripheric/sensors for Arduino
+	General class that provides the common API and behaviour for the majority of devices/sensors for Arduino
 	*/
 	class Device {
 
 	protected:
-		/* Used to know if the peripherical is initialized and ready to receive requests */
+		/* Used to know if the device is initialized and ready to receive requests */
 		bool _isInitialized;
 
 	public:
@@ -54,13 +56,13 @@ namespace Easyuino {
 
 	#pragma region Public Pure Virtual Common API Methods
 
-		/* Used to put the peripherical ready to receive requests. Normally this have some default behaviour some
+		/* Used to put the device ready to receive requests. Normally this have some default behaviour some
 		devices have other API method with same name that receives other arguments to a better customization. 
 		@return	- True: If the device was initializer. False: Otherwise.
 		*/
 		virtual bool begin() = 0;
 
-		/* Used to stop the device. After this the peripherical will not process API requests. */
+		/* Used to stop the device. After this the the device will not process API requests. */
 		virtual void end() = 0;
 
 	#pragma endregion
@@ -69,8 +71,8 @@ namespace Easyuino {
 	#pragma region Public Common API Methods
 
 		/*
-		Verify is the periphetical is initialized and ready to use.
-		@return	- True: If peripherical is initialized. False: Otherwise.
+		Verify is the device is initialized and ready to use.
+		@return	- True: If device is initialized. False: Otherwise.
 		*/
 		bool isInitialized() const;
 

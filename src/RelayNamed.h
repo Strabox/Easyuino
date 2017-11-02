@@ -27,9 +27,9 @@ RelayNamed.h
 #ifndef _EASYUINO_RELAY_NAMED_h
 #define _EASYUINO_RELAY_NAMED_h
 
+#include "Utilities.h"
 #include "Device.h"
 #include "Printable.h"
-#include "Utilities.h"
 #include "Relay.h"
 
 #define MAX_NAME_SIZE 15		// Maximum size for a identifier
@@ -57,7 +57,7 @@ namespace Easyuino {
 		@param arduionPin	- Arduino pin that is connected with the relay (normal in relay is IN pins)
 		@param name			- Name (identifier) to the device that the relay activates
 		*/
-		RelayNamed(uint8_t arduinoPin, const char* deviceName);
+		RelayNamed(IN uint8_t arduinoPin, IN const char* deviceName);
 
 		~RelayNamed();
 

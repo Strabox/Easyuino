@@ -70,19 +70,19 @@ class RGBLedTest : public ManualTest {
 			testEnd();
 
 			testStart("GREEN LED");
-			rgbLedCatode->setColor(RGBLed::COLOR::GREEN);
+			rgbLedCatode->setColor(RGBLed::Color::GREEN);
 			testEnd();
 
 			testStart("PINK LED");
-			rgbLedCatode->setColor(RGBLed::COLOR::PINK);
+			rgbLedCatode->setColor(RGBLed::Color::PINK);
 			testEnd();
 
 			testStart("WHITE LED");
-			rgbLedCatode->setColor(RGBLed::COLOR::WHITE);
+			rgbLedCatode->setColor(RGBLed::Color::WHITE);
 			testEnd();
 
 			testStart("FIREBRICK LED");
-			rgbLedCatode->setColor(RGBLed::COLOR::FIREBRICK);
+			rgbLedCatode->setColor(RGBLed::Color::FIREBRICK);
 			testEnd();
 
 			testStart("END RGB LED => LED OFF");

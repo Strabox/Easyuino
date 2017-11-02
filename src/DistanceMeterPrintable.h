@@ -27,9 +27,9 @@ DistanceMeterPrintable.h
 #ifndef _EASYUINO_DISTANCE_METER_PRINTABLE_h
 #define _EASYUINO_DISTANCE_METER_PRINTABLE_h
 
+#include "Utilities.h"
 #include "Printable.h"
 #include "DistanceMeter.h"
-#include "Utilities.h"
 
 namespace Easyuino {
 
@@ -40,7 +40,7 @@ namespace Easyuino {
 	class DistanceMeterPrintable : public DistanceMeter, public Printable {
 
 	public:
-		DistanceMeterPrintable(uint8_t triggerPin, uint8_t echoPin);
+		DistanceMeterPrintable(IN uint8_t triggerPin, IN uint8_t echoPin);
 
 		~DistanceMeterPrintable();
 

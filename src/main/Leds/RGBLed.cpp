@@ -25,12 +25,12 @@ SOFTWARE.
 
 namespace Easyuino {
 
-	RGBLed::RGBLed(uint8_t redPin, uint8_t greenPin, uint8_t bluePin)
-		: RGBLed(redPin, greenPin, bluePin, LED_TYPE::COMMON_CATODE ) {	// Default: Common Catode
+	RGBLed::RGBLed(IN uint8_t redPin, IN uint8_t greenPin, IN uint8_t bluePin)
+		: RGBLed(redPin, greenPin, bluePin, LedType::COMMON_CATODE ) {	// Default: Common Catode
 		/* Do Nothing */
 	}
 
-	RGBLed::RGBLed(uint8_t redPin, uint8_t greenPin, uint8_t bluePin, LED_TYPE ledType) {
+	RGBLed::RGBLed(IN uint8_t redPin, IN uint8_t greenPin, IN uint8_t bluePin, IN LedType ledType) {
 		_redPin = redPin;
 		_greenPin = greenPin;
 		_bluePin = bluePin;
@@ -63,12 +63,12 @@ namespace Easyuino {
 		}
 	}
 
-	void RGBLed::setColor(uint8_t red, uint8_t green, uint8_t blue) {
+	void RGBLed::setColor(IN uint8_t red, IN uint8_t green, IN uint8_t blue) {
 		if (_isInitialized) {
 			if (red >= 0 && red <= 255 &&
 				green >= 0 && green <= 255 &&
 				blue >= 0 && blue <= 255) {
-				if (_ledType == LED_TYPE::COMMON_ANODE) {
+				if (_ledType == LedType::COMMON_ANODE) {
 					red = 255 - red;
 					green = 255 - green;
 					blue = 255 - blue;
@@ -81,7 +81,7 @@ namespace Easyuino {
 	}
 
 
-	void RGBLed::setColor(char hexadecimalColorCode[8]) {
+	void RGBLed::setColor(IN char hexadecimalColorCode[8]) {
 		uint8_t red, green, blue;
 		char temp[5] = "0X\0\0";
 		for (uint8_t i = 0; i < 8; i++) {
@@ -101,53 +101,53 @@ namespace Easyuino {
 		setColor(red, green, blue);
 	}
 
-	void RGBLed::setColor(COLOR color) {
+	void RGBLed::setColor(IN Color color) {
 		if (_isInitialized) {
 			switch (color)
 			{
-			case COLOR::RED:
+			case Color::RED:
 				setColor(255, 0, 0);
 				break;
-			case COLOR::GREEN:
+			case Color::GREEN:
 				setColor(0, 255, 0);
 				break;
-			case COLOR::BLUE:
+			case Color::BLUE:
 				setColor(0, 0, 255);
 				break;
-			case COLOR::YELLOW:
+			case Color::YELLOW:
 				setColor(255, 255, 0);
 				break;
-			case COLOR::WHITE:
+			case Color::WHITE:
 				setColor(255, 255, 255);
 				break;
-			case COLOR::ORANGE:
+			case Color::ORANGE:
 				setColor(255, 165, 0);
 				break;
-			case COLOR::PINK:
+			case Color::PINK:
 				setColor(255, 192, 203);
 				break;
-			case COLOR::SALMON:
+			case Color::SALMON:
 				setColor(250, 128, 114);
 				break;
-			case COLOR::VIOLET:
+			case Color::VIOLET:
 				setColor(238, 130, 238);
 				break;
-			case COLOR::AQUA:
+			case Color::AQUA:
 				setColor(0, 255, 255);
 				break;
-			case COLOR::BROWN:
+			case Color::BROWN:
 				setColor(165, 42, 42);
 				break;
-			case COLOR::DARKGREY:
+			case Color::DARKGREY:
 				setColor(165, 169, 169);
 				break;
-			case COLOR::OLIVE:
+			case Color::OLIVE:
 				setColor(128, 128, 0);
 				break;
-			case COLOR::SKYBLUE:
+			case Color::SKYBLUE:
 				setColor(135, 206, 235);
 				break;
-			case COLOR::FIREBRICK:
+			case Color::FIREBRICK:
 				setColor(178, 34, 34);
 				break;
 			default:

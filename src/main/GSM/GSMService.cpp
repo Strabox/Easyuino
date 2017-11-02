@@ -23,17 +23,14 @@ SOFTWARE.
 */
 #include "../../GSMService.h"
 
-#define DELAY_WAIT_FOR_DATA 250				// 200 milliseconds - Used to wait for all the data from the GSM board
+#define DELAY_WAIT_FOR_DATA 200			// 200 milliseconds: Used to wait for all the data from the GSM board
 
-/* List of used and deprecated by API AT commands */
-
-#define AT_ATE0 "ATE0\r"					// Disables the command echoing 
-#define AT_CNMI "AT+CNMI=2,2,0,0,0\r"		// Make GSM board send the SMS to the serial ports when received
-#define AT_CMGD "AT+CMGD="					// Deletes SMS (SMS Index, [optional] flag)
+#define AT_ATE0 "ATE0\r"				// Disables the command echoing 
+#define AT_CNMI "AT+CNMI=2,2,0,0,0\r"	// Make GSM board send the SMS to the serial ports when received
+#define AT_CMGD "AT+CMGD="				// Deletes SMS (SMS Index, [optional] flag)
 
 #define CHAR_CTRL_Z (char)26
 #define CHAR_ESC (char)27
-
 
 namespace Easyuino {
 
@@ -82,7 +79,7 @@ namespace Easyuino {
 	}
 
 	bool GSMService::begin() {
-		return begin(GSM_SIM900_BAUD_RATE);
+		return begin(GSM_DEFAULT_BAUD_RATE);
 	}
 
 	void GSMService::end() {
@@ -93,7 +90,7 @@ namespace Easyuino {
 	}
 
 	GSMRequestStatus GSMService::addAllowedNumber(IN unsigned long numberToAdd) {
-		if (numberToAdd == 0) {									// Necessary because we consider 0 not valid number
+		if (numberToAdd == 0) {		// Necessary because we consider 0 not valid number
 			GSMRequestStatus::GSM_REQUEST_INVALID_ARGUMENT;
 		}
 
@@ -107,7 +104,7 @@ namespace Easyuino {
 	}
 
 	GSMRequestStatus GSMService::isAllowed(IN unsigned long phoneNumber, INOUT bool &allowed) {
-		if (phoneNumber == 0) {									// Necessary because we consider 0 not valid number
+		if (phoneNumber == 0) {		// Necessary because we consider 0 not valid number
 			allowed = false;
 			return GSMRequestStatus::GSM_REQUEST_INVALID_ARGUMENT;
 		}
@@ -127,7 +124,7 @@ namespace Easyuino {
 	}
 
 	GSMRequestStatus GSMService::removeAllowedNumber(IN unsigned long phoneNumberToRemove) {
-		if (phoneNumberToRemove == 0) {								// Necessary because we consider 0 not valid number
+		if (phoneNumberToRemove == 0) {		// Necessary because we consider 0 not valid number
 			return GSMRequestStatus::GSM_REQUEST_INVALID_ARGUMENT;
 		}
 
@@ -148,7 +145,7 @@ namespace Easyuino {
 
 	GSMRequestStatus GSMService::beginListenForSMS() {
 		if (!_isInitialized) {
-			return GSMRequestStatus::GSM_SERVICE_NOT_INITIALIZED;
+			return GSMRequestStatus::NOT_INITIALIZED;
 		}
 		GSMInternalRequestStatus internalTemp;
 
@@ -179,7 +176,7 @@ namespace Easyuino {
 		smsRead = false;
 
 		if (!_isInitialized) {
-			return GSMRequestStatus::GSM_SERVICE_NOT_INITIALIZED;
+			return GSMRequestStatus::NOT_INITIALIZED;
 		}
 		if (!_readyToReceiveSMS || !lookForGSMBoardData()) {
 			return GSMRequestStatus::GSM_OK;
@@ -235,7 +232,7 @@ namespace Easyuino {
 
 	GSMRequestStatus GSMService::sendSMS(IN SMS &sms) {
 		if (!_isInitialized) {
-			return GSMRequestStatus::GSM_SERVICE_NOT_INITIALIZED;
+			return GSMRequestStatus::NOT_INITIALIZED;
 		}
 		GSMInternalRequestStatus internalTemp;
 
@@ -283,12 +280,11 @@ namespace Easyuino {
 
 	#pragma endregion
 
-
 	#pragma region Private Methods
 
 	GSMRequestStatus GSMService::deleteSMS(IN GSMSmsDeleteFlag flag, IN unsigned int messageIndex) {
 		if (!_isInitialized) {
-			return GSMRequestStatus::GSM_SERVICE_NOT_INITIALIZED;
+			return GSMRequestStatus::NOT_INITIALIZED;
 		}
 		GSMInternalRequestStatus internalTemp;
 
@@ -312,15 +308,10 @@ namespace Easyuino {
 
 	GSMService::GSMInternalRequestStatus GSMService::waitForGSMBoardData() {
 		unsigned long waitInitTime = millis();
-		unsigned long currentTime = millis();
 		while (_GSMSerial->available() == 0) {
 			/* ACTIVELY wait for data */
-			currentTime = millis();
-			if (currentTime <= waitInitTime) {				// Prevent the cases where millis() register overflow
-				waitInitTime = millis();					// TODO: Solution may cause a bigger timeout 
-			}
-			else if ((currentTime - waitInitTime) > WAIT_FOR_DATA_TIMEOUT) {
-				return GSM_INTERNAL_COMMUNICATION_FAILED;	// TIMEOUT - Waiting for board reply
+			if ((millis() - waitInitTime) > WAIT_FOR_DATA_TIMEOUT) {  // TIMEOUT - Waiting for board reply
+				return GSM_INTERNAL_COMMUNICATION_FAILED;
 			}
 		}
 		lookForGSMBoardData();
