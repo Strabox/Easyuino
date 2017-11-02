@@ -27,13 +27,30 @@ SevenSegments.h
 #ifndef _EASYUINO_SEVEN_SEGMENTS_h
 #define _EASYUINO_SEVEN_SEGMENTS_h
 
+#include "Utilities.h"
 #include "Device.h"
 
 namespace Easyuino {
 
 	class SevenSegments : public Device {
 
-		// TODO: Implementation soon
+	private:
+		uint8_t _clkPin;
+		uint8_t _dataPin;
+
+	public:
+		SevenSegments(uint8_t clkPin, uint8_t dataPin);
+
+		bool begin();
+
+		void end();
+
+		void print(uint8_t byte);
+
+	private:
+		void start();
+
+		void stop();
 
 	};
 

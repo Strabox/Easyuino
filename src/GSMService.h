@@ -28,27 +28,20 @@ GSMService.h
 #define _EASYUINO_GSM_SERVICE_h
 
 #include <SoftwareSerial.h>
-
+#include "Utilities.h"
 #include "Device.h"
 #include "SMS.h"
-#include "Utilities.h"
 
-/* Define API method parameter to be exclusively an input */
-#define IN
-/* Define API method parameter to be exclusively an output */
-#define OUT
-/* Define API method parameter that is used as input and output */
-#define INOUT
+/* It can change depending on the board (DEFAULT VALUE) */
+#define GSM_DEFAULT_BAUD_RATE 9600
 
-/* It can change from board to board (Use the compatible with your board) */
-#define GSM_SIM900_BAUD_RATE 9600
-
-/* IMPORTANT: Size (bytes) of the buffer used internally to receive/send data from/to the GSM board
-if you have more memory you can change this (Advisable to change if you will receive Calls or huge SMSs)
+/* 
+IMPORTANT: Size (bytes) of the buffer used internally to receive/send data from/to the GSM board
+if you have more memory you can change this (Advisable to change if you will receive huge SMSs)
 */
 #define INTERNAL_BUFFER_SIZE_BYTES 128
 
-/* IMPORTANT: Maximum number of allowed numbers to call and send sms to the board */
+/* IMPORTANT: Maximum number of allowed numbers to do CALLS and send SMS to the board */
 #define MAX_NUMBER_OF_ALLOWED_NUMBERS 4
 
 namespace Easyuino {
@@ -56,7 +49,7 @@ namespace Easyuino {
 	/*
 	Used to indicate the status of the request to the GSMService API
 	*/
-	enum GSMRequestStatus {
+	enum class GSMRequestStatus : uint8_t {
 		/* The request was successful executed */
 		GSM_OK = 0,
 		/* Happens in many cases where the board answer with things we were not expected due to:
@@ -64,70 +57,42 @@ namespace Easyuino {
 		- Defect in the board (not likely) or a general hardware error.
 		IMPORTANT: In this case we consider the request failed and we try put all the things in a consistent and previous state.
 		*/
-		GSM_UNEXPECTED_REPLY = -1,
+		GSM_UNEXPECTED_REPLY = 1,
 		/* GSMService API Tried communicate (e.g: send commands) to the board and it didn't answer in reasonable time */
-		GSM_BOARD_DIDNT_REPLY = -2,
-		/* The GSMService API was not correctly initialized and can't process requests */
-		GSM_SERVICE_NOT_INITIALIZED = -3,
+		GSM_BOARD_DIDNT_REPLY = 2,
 		/* When provided an invalid argument to the GSMService API (e.g: negative pin number, negative baud rate, ...) */
-		GSM_REQUEST_INVALID_ARGUMENT = -5,
+		GSM_REQUEST_INVALID_ARGUMENT = 4,
 		/* Not possible add more allowed numbers to the GSMService API */
-		GSM_MAXIMUM_ALLOWED_NUMBERS_REACHED = -6
+		GSM_MAXIMUM_ALLOWED_NUMBERS_REACHED = 5,
+		/* The GSMService API was not correctly initialized and can't process requests */
+		NOT_INITIALIZED = 255
 	};
 
 	/*
-	Interface fot the GSMService API
+	Implementation of an GSMService API to interact with the GSM board through a set of well defined methods.
+	@Physical Devices Supported:
+	- SIM900 Chipset
+	@Physical Devices Tested:
+	- SIM900 Chipset
 	*/
-	class IGSMService {
-
-	public:
-
-		virtual bool begin(IN unsigned long gsmBoardBaudRate) = 0;
-
-		virtual GSMRequestStatus addAllowedNumber(IN unsigned long phoneNumberToAdd) = 0;
-
-		virtual GSMRequestStatus isAllowed(IN unsigned long phoneNumber, INOUT bool& allowed) = 0;
-
-		virtual GSMRequestStatus removeAllowedNumber(IN unsigned long phoneNumberToRemove) = 0;
-
-		virtual GSMRequestStatus clearAllowedNumbers() = 0;
-
-		virtual GSMRequestStatus beginListenForSMS() = 0;
-
-		virtual GSMRequestStatus availableSMS(INOUT SMS &message, OUT bool &smsRead) = 0;
-
-		virtual GSMRequestStatus sendSMS(IN SMS &sms) = 0;
-
-		virtual GSMRequestStatus deleteAllReadSMS() = 0;
-
-		virtual GSMRequestStatus deleteAllSentAndReadSMS() = 0;
-
-		virtual GSMRequestStatus deleteAllSMS() = 0;
-
-	};
-
-	/*
-	Implementation of an GSMService API to interact with the GSM board through a set of well defined methods
-	*/
-	class GSMService : public IGSMService, public Device {
+	class GSMService : public Device {
 
 	private:
-
 		/* Status of calls to private API of the GSMService */
-		enum GSMInternalRequestStatus {
+		enum GSMInternalRequestStatus : uint8_t {
 			GSM_INTERNAL_OK = 0,
-			GSM_INTERNAL_COMMUNICATION_FAILED = -1
+			GSM_INTERNAL_COMMUNICATION_FAILED = 1
 		};
 
 		/* Indicate what type and amount of stored SMSs we want to delete (See AT Commands Reference) */
-		enum GSMSmsDeleteFlag {
+		enum GSMSmsDeleteFlag : uint8_t {
 			INDEX_PARAMTER_CHOSEN_ONLY = 0,
 			ALL_READ_SMS = 1,
 			ALL_SENT_AND_READ_SMS = 2,
-			ALL_SMS = 4
+			ALL_SMS = 3
 		};
 
-		const unsigned long WAIT_FOR_DATA_TIMEOUT = 5000;	// 5 seconds
+		const unsigned long WAIT_FOR_DATA_TIMEOUT = 5000;	// 5 Seconds Timeout
 		const char *AT_OK = "\r\nOK\r\n";
 		const char *AT_ERROR = "\r\nERROR\r\n";
 
@@ -141,11 +106,9 @@ namespace Easyuino {
 		bool _isInitialized;
 		bool _readyToReceiveSMS;
 
-
 	public:
-
 		/*
-		Creates a GSMService
+		Creates a GSMService API object.
 		@param txPin		- Pin used to send the serial information to GSM module
 		@param rxPin		- Pin used to receive the serial information from GSM module
 		@param outputStream	- Stream to output the GSM Module outputs in case of necessary debug
@@ -153,7 +116,7 @@ namespace Easyuino {
 		GSMService(IN uint8_t txPin, IN uint8_t rxPin, IN Stream &outputStream);
 
 		/*
-		Creates a GSMService
+		Creates a GSMService API object.
 		@param txPin		- Pin used to send the serial information to GSM module
 		@param rxPin		- Pin used to receive the serial information from GSM module
 		*/
@@ -172,9 +135,6 @@ namespace Easyuino {
 
 		bool begin();
 
-		/*
-		Closes all the communications with the GSM module
-		*/
 		void end();
 
 		/*
@@ -187,7 +147,7 @@ namespace Easyuino {
 		/*
 		Verify if the phone number is in the list of allowed numbers
 		@param phoneNumber	- Number to verify
-		@param allowed		- After the method executes: True - If the number is in allowed list or if the list is empty. False - Otherwise.
+		@param allowed		- After the method executes. True: If the number is in allowed list or if the list is empty. False: Otherwise.
 		@return				- GSMService API request status
 		*/
 		GSMRequestStatus isAllowed(IN unsigned long phoneNumber, INOUT bool& allowed);
@@ -246,9 +206,8 @@ namespace Easyuino {
 
 
 	private:
-
 		/*
-
+		Delete SMS dependind on the flags passed to the method.
 		*/
 		GSMRequestStatus deleteSMS(IN GSMSmsDeleteFlag parameter, IN unsigned int messageIndex = 0);
 

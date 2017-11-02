@@ -27,30 +27,29 @@ RGBLed.h
 #ifndef _EASYUINO_RGB_LED_h
 #define _EASYUINO_RGB_LED_h
 
+#include "Utilities.h"
 #include "Device.h"
 
 namespace Easyuino {
 
-	/* RGBLed API allows to easily interact with a RGB led to set its color for example */
-	class RGBLed : public Device {
-	
-	public:
-
 	/* Enum with the types of RGB physical leds */
-	enum LED_TYPE {
+	enum LedType : uint8_t {
 		COMMON_ANODE,
 		COMMON_CATODE
 	};
 
 	/* Enum with a set of pre defined colors that the RGBLed API knows how to write */
-	enum COLOR {
-		RED, GREEN, BLUE, YELLOW, WHITE, ORANGE, PINK, SALMON, VIOLET, AQUA, BROWN, FIREBRICK, DARKGREY, OLIVE,
-		SKYBLUE
+	enum Color : uint8_t {
+		RED, GREEN, BLUE, YELLOW, WHITE, ORANGE, PINK, SALMON, VIOLET, AQUA, BROWN,
+		FIREBRICK, DARKGREY, OLIVE, SKYBLUE
 	};
 
+	/* RGBLed API allows to easily interact with a RGB led to set its color for example */
+	class RGBLed : public Device {
+	
 	private:
 		/* The type of the led defined by the enumerate LED_TYPE */
-		LED_TYPE _ledType;
+		LedType _ledType;
 
 		/* The Arduino pin connected do led's red pin */
 		uint8_t _redPin;
@@ -65,7 +64,7 @@ namespace Easyuino {
 		@param greenPin - The Arduino pin connected to led's green pin
 		@param bluePin	- The Arduino pin connected to led's blue pin
 		*/
-		RGBLed(uint8_t redPin, uint8_t greenPin, uint8_t bluePin);
+		RGBLed(IN uint8_t redPin, IN uint8_t greenPin, IN uint8_t bluePin);
 
 		/* Makes a RGBLed object that exposes the API 
 		@param redPin	- The Arduino pin connected do led's red pin
@@ -73,7 +72,7 @@ namespace Easyuino {
 		@param bluePin	- The Arduino pin connected to led's blue pin
 		@param ledType	- The type of the LED's inners
 		*/
-		RGBLed(uint8_t redPin, uint8_t greenPin, uint8_t bluePin, LED_TYPE ledType);
+		RGBLed(IN uint8_t redPin, IN uint8_t greenPin, IN uint8_t bluePin, IN LedType ledType);
 
 		/* Destroys a RGBLed object that exposes the API and frees the resources*/
 		~RGBLed();
@@ -96,17 +95,17 @@ namespace Easyuino {
 		@param green	- Green value	(0-255)
 		@param blue		- Blue value	(0-255)
 		*/
-		void setColor(uint8_t red, uint8_t green, uint8_t blue);
+		void setColor(IN uint8_t red, IN uint8_t green, IN uint8_t blue);
 
 		/* Set the led's color based on the hexadecimal color code used in web context
 		@param hexadecimalCode - String that represents a valid hexadecimal color code (e.g: "#ffffff" to red color)
 		*/
-		void setColor(char hexadecimalColoCode[8]);
+		void setColor(IN char hexadecimalColoCode[8]);
 
 		/* Set the led's color based in a set o pre defined colors
 		@param color - Enum value that represents the wanted color
 		*/
-		void setColor(COLOR color);
+		void setColor(IN Color color);
 
 	#pragma endregion
 

@@ -25,14 +25,14 @@ SOFTWARE.
 
 namespace Easyuino {
 
-	DistanceMeter::DistanceMeter(uint8_t triggerPin, uint8_t echoPin) : Device() {
+	DistanceMeter::DistanceMeter(IN uint8_t triggerPin,IN uint8_t echoPin) : Device() {
 		_triggerPin = triggerPin;
 		_echoPin = echoPin;
 		_distance = -1.0f;
 		_isEchoing = false;
 	}
 
-	DistanceMeter::DistanceMeter(uint8_t triggerEchoPin) 
+	DistanceMeter::DistanceMeter(IN uint8_t triggerEchoPin) 
 		: DistanceMeter(triggerEchoPin, triggerEchoPin) {
 		/* Do Nothing */
 	}
@@ -69,7 +69,7 @@ namespace Easyuino {
 	}
 
 	float DistanceMeter::getDistanceInches() {
-		return getDistanceCentimeters() * 0.3937007874f;		// Conversion centimeters to inches
+		return getDistanceCentimeters() * 0.3937007874f;	// Conversion centimeters to inches
 	}
 
 	void DistanceMeter::updateDistance() {
@@ -80,7 +80,7 @@ namespace Easyuino {
 		}
 	}
 
-	float DistanceMeter::executeUpdateDistanceBlock(float soundSpeedCmSec) {
+	float DistanceMeter::executeUpdateDistanceBlock(IN float soundSpeedCmSec) {
 		unsigned long echoTravelTime = 0;
 		_isEchoing = true;
 		if (_echoPin == _triggerPin) {		// Change the pin to output if it is 3 pin module to send echo

@@ -21,10 +21,60 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#include "../../OLEDlcd.h"
+/*
+WaterFlowMeter.h
+*/
+#ifndef _EASYUINO_WATER_FLOW_METER_h
+#define _EASYUINO_WATER_FLOW_METER_h
+
+#include "Utilities.h"
+#include "Device.h"
 
 namespace Easyuino {
 
-	//TODO: Implementation soon
+	/*
+	Water flow meter used to 
+	*/
+	class WaterFlowMeter : public Device {
 
-}
+	private:
+		/* */
+		static WaterFlowMeter* Singleton;
+
+		/* */
+		uint8_t _sensorPin;
+
+		/* */
+		float _sensorCalibration;
+
+		unsigned long _lastCheckTimestamp;
+		/* */
+		volatile uint16_t _pulseCounter;
+		/* */
+		float _flowRate;
+
+	public:
+		WaterFlowMeter(IN uint8_t sensorPin);
+
+		~WaterFlowMeter();
+
+		bool begin();
+
+		void end();
+
+		void updateFlowRate();
+
+		bool isFlowing();
+
+		float getFlowRate();
+
+	private:
+		void countPulses();
+
+		static void InterruptCaller();
+
+	};
+
+};
+
+#endif

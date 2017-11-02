@@ -27,6 +27,7 @@ DistanceMeterNonBlock.h
 #ifndef _EASYUINO_DISTANCE_METER_NON_BLOCK_h
 #define _EASYUINO_DISTANCE_METER_NON_BLOCK_h
 
+#include "Utilities.h"
 #include "DistanceMeter.h"
 
 #define MAXIMUM_NUMBER_OF_DM_NON_BLOCK 2	//	WARNING: DON'T change it because it will broke the API
@@ -69,9 +70,9 @@ namespace Easyuino {
 		volatile bool _echoSent;
 
 	public:
-		DistanceMeterNonBlock(uint8_t triggerPin, uint8_t echoPin);
+		DistanceMeterNonBlock(IN uint8_t triggerPin, IN uint8_t echoPin);
 
-		DistanceMeterNonBlock(uint8_t triggerEchoPin);
+		DistanceMeterNonBlock(IN uint8_t triggerEchoPin);
 
 		~DistanceMeterNonBlock();
 
@@ -109,18 +110,18 @@ namespace Easyuino {
 		@param soundSpeedCmPerSec (cm/sec)	- The sound speed to be taken in account.
 		@return	distance (Centimeters)		- The distance to the object.
 		*/
-		float calculateDistance(float soundSpeedCmPerSec);
+		float calculateDistance(IN float soundSpeedCmPerSec);
 
 	private:
 	#pragma region Interrupt Management/Handling Methods
 		/* Interrupt handler of the DistanceMeterNonBlock instance that is in charge of the measurement */
-		void interruptHandler(unsigned long interruptCallTimeMicros);
+		void interruptHandler(IN unsigned long interruptCallTimeMicros);
 
 		/* Assign a new DistanceMeterNonBlock instance to an available spot */
-		static void assignInstance(DistanceMeterNonBlock* dm);
+		static void assignInstance(IN DistanceMeterNonBlock* dm);
 
 		/* Delete the DistanceMeterNonBlock instance from the available spot */
-		static void deleteInstance(DistanceMeterNonBlock* dm);
+		static void deleteInstance(IN DistanceMeterNonBlock* dm);
 
 		/* Attach the interrupt interruptCaller function to the right instance object */
 		static void attachInterruptToInstance(DistanceMeterNonBlock* dm);

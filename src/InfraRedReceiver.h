@@ -27,6 +27,7 @@ InfraRedReceiver.h
 #ifndef _EASYUINO_INFRA_RED_RECEIVER_h
 #define _EASYUINO_INFRA_RED_RECEIVER_h
 
+#include "Utilities.h"
 #include "Device.h"
 
 namespace Easyuino {

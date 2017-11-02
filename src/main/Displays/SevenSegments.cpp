@@ -23,8 +23,77 @@ SOFTWARE.
 */
 #include "../../SevenSegments.h"
 
+#define INITIALIZE 7
+
 namespace Easyuino {
 
 	//TODO: Implementation soon
+
+	SevenSegments::SevenSegments(uint8_t clkPin, uint8_t dataPin) : Device() {
+		_clkPin = clkPin;
+		_dataPin = dataPin;
+	}
+
+	bool SevenSegments::begin() {
+		if (!_isInitialized) {
+			print(INITIALIZE);
+			_isInitialized = true;
+		}
+		return _isInitialized;
+	}
+
+	void SevenSegments::end() {
+		if (_isInitialized) {
+			_isInitialized = false;
+		}
+	}
+
+	void SevenSegments::print(uint8_t byte) {
+		start();
+		for (uint8_t i = 0; i < 8; i++)
+		{
+			digitalWrite(_clkPin, LOW);
+			delayMicroseconds(5);
+			digitalWrite(_dataPin, (byte & (1 << i)) >> i);
+			delayMicroseconds(5);
+			digitalWrite(_clkPin, HIGH);
+			delayMicroseconds(5);
+		}
+
+		// wait for ACK 
+		digitalWrite(_clkPin, LOW);
+		delayMicroseconds(5);
+
+		pinMode(_dataPin, INPUT);
+
+		digitalWrite(_clkPin, HIGH);
+		delayMicroseconds(5);
+
+		bool ack = digitalRead(_dataPin) == 0;
+
+		pinMode(_dataPin, OUTPUT);
+		stop();
+	}
+
+	void SevenSegments::start() {
+		digitalWrite(_clkPin, HIGH);	//send start signal to TM1637 
+		digitalWrite(_dataPin, HIGH);
+		delayMicroseconds(5);
+
+		digitalWrite(_dataPin, LOW);
+		digitalWrite(_clkPin, LOW);
+		delayMicroseconds(5);
+	}
+
+	void SevenSegments::stop() {
+		digitalWrite(_clkPin, LOW);
+		digitalWrite(_dataPin, LOW);
+		delayMicroseconds(5);
+
+		digitalWrite(_clkPin, HIGH);
+		digitalWrite(_dataPin, HIGH);
+		delayMicroseconds(5);
+	}
+
 
 }

@@ -25,7 +25,7 @@ SOFTWARE.
 
 namespace Easyuino {
 
-	Relay::Relay(uint8_t arduinoPin) : Device() {
+	Relay::Relay(IN uint8_t arduinoPin) : Device() {
 		_arduinoPin = arduinoPin;
 	}
 
@@ -35,7 +35,7 @@ namespace Easyuino {
 		return begin(false, HIGH);	// Default is a device connected to a Normally Open terminal
 	}
 
-	bool Relay::begin(bool isNormallyClosed, uint8_t normallyClosedPinLevel) {
+	bool Relay::begin(IN bool isNormallyClosed, IN uint8_t normallyClosedPinLevel) {
 		if (!_isInitialized && (normallyClosedPinLevel == HIGH || normallyClosedPinLevel == LOW)) {
 			pinMode(_arduinoPin, OUTPUT);
 			digitalWrite(_arduinoPin, normallyClosedPinLevel);

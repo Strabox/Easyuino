@@ -57,6 +57,25 @@ updateDistanceNonBlock			KEYWORD2
 ##################################################
 DistanceMeterAccurate	KEYWORD1
 ##################################################
+#				   WaterDetector    		     #
+##################################################
+WaterDetector		KEYWORD1
+begin				KEYWORD2
+end					KEYWORD2
+getWaterStatus		KEYWORD2
+getWaterStatusRange	KEYWORD2
+isWaterDetected		KEYWORD2
+##################################################
+#				    WaterStatus    			     #
+##################################################
+WaterStatus		KEYWORD1
+DRY				LITERAL1
+FEW_DROPS		LITERAL1
+WET				LITERAL1
+FLOOD			LITERAL1
+INVALID			LITERAL1
+NOT_INITIALIZED	LITERAL1
+##################################################
 #				     GSMService     		     #
 ##################################################
 GSMService					KEYWORD1
