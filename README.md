@@ -78,8 +78,6 @@ The examples are in examples folder of the library and hosted in the new Arduino
 * Advanced/Complex Devices
     - GSM/GPRS Module (Example coming soon)
 
-**Note:** These examples are exactly the same as the ones in the examples folder of the library
-
 ## Library Maintenance
 
 The development of the library, including fixes and addition of new sensors/devices, will be done depending on:

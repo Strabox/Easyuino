@@ -11,22 +11,22 @@ install:
 script:
   ################################## Examples To Build ###################################
   # Communication
-  - arduino --verify --module arduino:avr:uno $PWD/examples/Communication/GSMService/GSMServiceExample.ino
-  - arduino --verify --module arduino:avr:uno $PWD/examples/Communication/GSMServiceSecure/GSMServiceSecureExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/Communication/GSMService/GSMServiceExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/Communication/GSMServiceSecure/GSMServiceSecureExample.ino
   # Led
-  - arduino --verify --module arduino:avr:uno $PWD/examples/Led/RGBLed/RGBLedExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/Led/RGBLed/RGBLedExample.ino
   # Relay
-  - arduino --verify --module arduino:avr:uno $PWD/examples/Relay/RelaySimple/RelayExample.ino
-  - arduino --verify --module arduino:avr:uno $PWD/examples/Relay/RelayNamed/RelayNamedExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/Relay/RelaySimple/RelayExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/Relay/RelayNamed/RelayNamedExample.ino
   # Ultrasonic
-  - arduino --verify --module arduino:avr:uno $PWD/examples/Ultrasonic/DistanceMeter/DistanceMeterExample.ino
-  - arduino --verify --module arduino:avr:uno $PWD/examples/Ultrasonic/DistanceMeterNonBlock/DistanceMeterNonBlockExample.ino
-  - arduino --verify --module arduino:avr:uno $PWD/examples/Ultrasonic/DistanceMeterAccurate/DistanceMeterAccurateExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/Ultrasonic/DistanceMeter/DistanceMeterExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/Ultrasonic/DistanceMeterNonBlock/DistanceMeterNonBlockExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/Ultrasonic/DistanceMeterAccurate/DistanceMeterAccurateExample.ino
   # WaterDetector
-  - arduino --verify --module arduino:avr:uno $PWD/examples/WaterDetector/WaterDetectorExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/WaterDetector/WaterDetectorExample.ino
   # WaterFlow
-  - arduino --verify --module arduino:avr:uno $PWD/examples/WaterFlow/WaterFlowSensor/WaterFlowSensorExample.ino
-  - arduino --verify --module arduino:avr:uno $PWD/examples/WaterFlow/WaterFlowMeter/WaterFlowMeterExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/WaterFlow/WaterFlowSensor/WaterFlowSensorExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/WaterFlow/WaterFlowMeter/WaterFlowMeterExample.ino
 notifications:
   email:
     on_success: change
