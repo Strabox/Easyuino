@@ -29,7 +29,7 @@ SMS.h
 
 #include "Utilities.h"
 
-/* Maximum SMS size to allow static allocation of resources */
+/* Maximum SMS size to allow predictable allocation of resources */
 #define MAX_SMS_SIZE 50
 
 namespace Easyuino {

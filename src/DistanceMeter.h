@@ -85,7 +85,7 @@ namespace Easyuino {
 		/* 
 		Updates the distance of the US to the objects.
 		Distance value is avaialble using getDistance methods after calling this method.
-		WARNING: This method blocks while the measuring so the arduino waits for the measure to be concluded,
+		ATTENTION: This method blocks while the measuring so the arduino waits for the measure to be concluded,
 		if you want a non block update distance method look for DistanceMeterNonBlock API.
 		*/
 		virtual void updateDistance();

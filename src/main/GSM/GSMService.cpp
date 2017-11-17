@@ -23,57 +23,46 @@ SOFTWARE.
 */
 #include "../../GSMService.h"
 
-#define DELAY_WAIT_FOR_DATA 200			// 200 milliseconds: Used to wait for all the data from the GSM board
+#define DELAY_WAIT_FOR_DATA 200						// 200 milliseconds: Used to wait for all the data from the GSM module
+#define WAIT_FOR_DATA_TIMEOUT 5000					// 5 seconds
 
-#define AT_ATE0 "ATE0\r"				// Disables the command echoing 
-#define AT_CNMI "AT+CNMI=2,2,0,0,0\r"	// Make GSM board send the SMS to the serial ports when received
-#define AT_CMGD "AT+CMGD="				// Deletes SMS (SMS Index, [optional] flag)
+#define AT_COMM_DISABLE_ECHOING "ATE0\r"			// Disables the command echoing 
+#define AT_COMM_SMS_TO_SERIAL "AT+CNMI=2,2,0,0,0\r"	// Make GSM module send the SMS to the serial ports when received
+#define AT_COMM_DELETE_SMS "AT+CMGD="				// Deletes SMS (SMS Index, [optional] flag)
+#define AT_COMM_MANUFACTER_ID "AT+CGMI=?\r"			// Used only yo know if the module is on or off
+#define AT_COMM_SET_BAUD_RATE "AT+IPR="				// Used to set the baud rate of the GSM module
 
 #define CHAR_CTRL_Z (char)26
 #define CHAR_ESC (char)27
 
 namespace Easyuino {
 
-	GSMService::GSMService(IN uint8_t txPin, IN uint8_t rxPin, IN Stream &outputStream)
-		: GSMService(txPin, rxPin) {
+	GSMService::GSMService(IN uint8_t txPin, IN uint8_t rxPin, IN uint8_t powerPin, IN Stream &outputStream)
+		: GSMService(txPin, rxPin, powerPin) {
 		_outputStream = &outputStream;
 	}
 
-	GSMService::GSMService(IN uint8_t txPin, IN uint8_t rxPin) {
+	GSMService::GSMService(IN uint8_t txPin, IN uint8_t rxPin, IN uint8_t powerPin)  
+		: Device() {
 		_GSMSerial = new SoftwareSerial(txPin, rxPin);
+		_powerPin = powerPin;
 		_outputStream = NULL;
-		_isInitialized = false;
 		_readyToReceiveSMS = false;
-		Utilities::ZeroBuffer(_allowedNumbers, sizeof(unsigned long) * MAX_NUMBER_OF_ALLOWED_NUMBERS);
 		zeroInternalBuffer();
 	}
 
 	GSMService::~GSMService() {
 		end();
 		delete _GSMSerial;
-		_GSMSerial = NULL;
-		_outputStream = NULL;
 	}
 
+#pragma region Public GSMService API Methods
 
-	#pragma region Public GSMService API Methods
-
-	bool GSMService::begin(IN unsigned long gsmBoardBaudRate) {
-		GSMInternalRequestStatus internalTemp;
-
+	bool GSMService::begin(IN unsigned long gsmmoduleBaudRate) {
 		if (!_isInitialized) {
-			_GSMSerial->begin(gsmBoardBaudRate);
-			_GSMSerial->print(F(AT_ATE0));		// Disables the command echo when outputing
-			internalTemp = waitForGSMBoardData();
-
-			if ((internalTemp == GSMInternalRequestStatus::GSM_INTERNAL_OK) &&
-				((strcmp(_internalBuffer, AT_OK) == 0) || (strcmp(_internalBuffer, "ATE0\r\r\nOK\r\n") == 0))) {
-				_isInitialized = true;
-			}
-			else {
-				_GSMSerial->end();
-				return false;
-			}
+			_GSMSerial->begin(gsmmoduleBaudRate);
+			pinMode(_powerPin, OUTPUT);
+			_isInitialized = true;
 		}
 		return true;
 	}
@@ -89,86 +78,116 @@ namespace Easyuino {
 		}
 	}
 
-	GSMRequestStatus GSMService::addAllowedNumber(IN unsigned long numberToAdd) {
-		if (numberToAdd == 0) {		// Necessary because we consider 0 not valid number
-			GSMRequestStatus::GSM_REQUEST_INVALID_ARGUMENT;
+	GSMRequestStatus GSMService::turnOn() {
+		if (!_isInitialized) {
+			return GSMRequestStatus::NOT_INITIALIZED;
 		}
+		GSMRequestStatus internalReq;
+		bool on;
+		internalReq = isOn(on);
+		if (internalReq == GSMRequestStatus::GSM_OK && !on) {
+			digitalWrite(_powerPin, LOW);
+			delay(1000);
+			digitalWrite(_powerPin, HIGH);
+			delay(2000);
+			digitalWrite(_powerPin, LOW);
+			delay(1000);
+			delay(GSM_DELAY_NETWORK_LOGIN);	//Delay to log in in the network
 
-		for (size_t i = 0; i < MAX_NUMBER_OF_ALLOWED_NUMBERS; i++) {
-			if (_allowedNumbers[i] == 0) {
-				_allowedNumbers[i] = numberToAdd;
+			lookForGSMmoduleData();	// Discard turn on data
+		}
+		return internalReq;
+	}
+
+	GSMRequestStatus GSMService::turnOff() {
+		if (!_isInitialized) {
+			return GSMRequestStatus::NOT_INITIALIZED;
+		}
+		GSMRequestStatus internalReq;
+		bool on;
+		internalReq = isOn(on);
+		if (internalReq == GSMRequestStatus::GSM_OK && on) {
+			digitalWrite(_powerPin, LOW);
+			delay(1000);
+			digitalWrite(_powerPin, HIGH);
+			delay(2000);
+			digitalWrite(_powerPin, LOW);
+			delay(1000);
+		}
+		return internalReq;
+	}
+
+	GSMRequestStatus GSMService::isOn(OUT bool &result) {
+		if (!_isInitialized) {
+			result = false;
+			return GSMRequestStatus::NOT_INITIALIZED;
+		}
+		GSMRequestStatus internalReq;
+		result = false;
+
+		_GSMSerial->print(F(AT_COMM_MANUFACTER_ID));
+		internalReq = waitForGSMmoduleData();
+
+		if (internalReq == GSMRequestStatus::GSM_OK) {
+			if (strlen(_internalBuffer) > 0) {
+				result = true;
+			}
+		}
+		return GSMRequestStatus::GSM_OK;
+	}
+
+	GSMRequestStatus GSMService::setBaudRate(IN unsigned long newBaudRate) {
+		if (!_isInitialized) {
+			return GSMRequestStatus::NOT_INITIALIZED;
+		}
+		GSMRequestStatus internalReq;
+
+		_GSMSerial->print(F(AT_COMM_SET_BAUD_RATE));
+		_GSMSerial->print(newBaudRate);
+		_GSMSerial->print('\r');
+		internalReq = waitForGSMmoduleData();
+
+		if (internalReq == GSMRequestStatus::GSM_OK) {
+			if (strcmp(_internalBuffer, AT_OK) == 0) {
+				_GSMSerial->end();
+				_GSMSerial->begin(newBaudRate);
 				return GSMRequestStatus::GSM_OK;
 			}
-		}
-		return GSMRequestStatus::GSM_MAXIMUM_ALLOWED_NUMBERS_REACHED;
-	}
-
-	GSMRequestStatus GSMService::isAllowed(IN unsigned long phoneNumber, INOUT bool &allowed) {
-		if (phoneNumber == 0) {		// Necessary because we consider 0 not valid number
-			allowed = false;
-			return GSMRequestStatus::GSM_REQUEST_INVALID_ARGUMENT;
-		}
-		allowed = true;
-
-		for (size_t i = 0; i < MAX_NUMBER_OF_ALLOWED_NUMBERS; i++) {
-			if (_allowedNumbers[i] == phoneNumber) {
-				allowed = true;
-				break;
-			}
-			else if (_allowedNumbers[i] != 0) {
-				allowed = false;
+			else {
+				return GSMRequestStatus::GSM_UNEXPECTED_REPLY;
 			}
 		}
-
-		return GSMRequestStatus::GSM_OK;
-	}
-
-	GSMRequestStatus GSMService::removeAllowedNumber(IN unsigned long phoneNumberToRemove) {
-		if (phoneNumberToRemove == 0) {		// Necessary because we consider 0 not valid number
-			return GSMRequestStatus::GSM_REQUEST_INVALID_ARGUMENT;
+		else {
+			return internalReq;
 		}
-
-		for (size_t i = 0; i < MAX_NUMBER_OF_ALLOWED_NUMBERS; i++) {
-			if (_allowedNumbers[i] == phoneNumberToRemove) {
-				_allowedNumbers[i] = 0;
-				break;
-			}
-		}
-
-		return GSMRequestStatus::GSM_OK;
-	}
-
-	GSMRequestStatus GSMService::clearAllowedNumbers() {
-		Utilities::ZeroBuffer(_allowedNumbers, sizeof(unsigned long) * MAX_NUMBER_OF_ALLOWED_NUMBERS);
-		return GSMRequestStatus::GSM_OK;
 	}
 
 	GSMRequestStatus GSMService::beginListenForSMS() {
 		if (!_isInitialized) {
 			return GSMRequestStatus::NOT_INITIALIZED;
 		}
-		GSMInternalRequestStatus internalTemp;
+		GSMRequestStatus internalReq;
 
-		_GSMSerial->print(F(AT_CNMI));
-		internalTemp = waitForGSMBoardData();
+		_readyToReceiveSMS = false;
 
-		if ((internalTemp == GSMInternalRequestStatus::GSM_INTERNAL_OK) &&
-			(strcmp(_internalBuffer, AT_OK) == 0)) {
-			_readyToReceiveSMS = true;
-			return GSMRequestStatus::GSM_OK;
-		}
-		else {
-			_readyToReceiveSMS = false;
-			if (internalTemp == GSMInternalRequestStatus::GSM_INTERNAL_COMMUNICATION_FAILED) {
-				return GSMRequestStatus::GSM_BOARD_DIDNT_REPLY;
+		_GSMSerial->print(F(AT_COMM_SMS_TO_SERIAL));
+		internalReq = waitForGSMmoduleData();
+
+		if ((internalReq == GSMRequestStatus::GSM_OK)) {
+			if (strcmp(_internalBuffer, AT_OK) == 0) {
+				_readyToReceiveSMS = true;
+				return GSMRequestStatus::GSM_OK;
 			}
 			else {
 				return GSMRequestStatus::GSM_UNEXPECTED_REPLY;
 			}
 		}
+		else {
+			return internalReq;
+		}
 	}
 
-	GSMRequestStatus GSMService::availableSMS(INOUT SMS& message, OUT bool &smsRead) {
+	GSMRequestStatus GSMService::availableSMS(OUT SMS& message, OUT bool &smsRead) {
 		const char delim[] = "\n";
 		char *token = NULL, *next_token = NULL;
 		int num_tokens = 0;
@@ -178,7 +197,7 @@ namespace Easyuino {
 		if (!_isInitialized) {
 			return GSMRequestStatus::NOT_INITIALIZED;
 		}
-		if (!_readyToReceiveSMS || !lookForGSMBoardData()) {
+		if (!_readyToReceiveSMS || !lookForGSMmoduleData()) {
 			return GSMRequestStatus::GSM_OK;
 		}
 
@@ -186,12 +205,6 @@ namespace Easyuino {
 		token = strtok_r(_internalBuffer, delim, &next_token);
 		while (token != NULL) {
 			if (num_tokens == 0) {
-				if (strcmp(token, "\r") != 0) {
-					message.reset();
-					return GSMRequestStatus::GSM_OK;
-				}
-			}
-			else if (num_tokens == 1) {
 				if (strlen(token) > 20) {
 					char number[10];
 					Utilities::ZeroBuffer(number, 10);
@@ -205,7 +218,7 @@ namespace Easyuino {
 					return GSMRequestStatus::GSM_OK;
 				}
 			}
-			else if (num_tokens == 2) {
+			else if (num_tokens == 1) {
 				Utilities::OverrideLastStringChar(token);
 				message.setMessage(token);
 			}
@@ -213,43 +226,94 @@ namespace Easyuino {
 				message.reset();
 				return GSMRequestStatus::GSM_OK;
 			}
-
 			num_tokens++;
 			token = strtok_r(NULL, delim, &next_token);
 		}
 
-		if (num_tokens == 3) {
-			isAllowed(message.getNumber(), smsRead);
-			if (!smsRead) {
-				message.reset();
-			}
-		}
-		else {
+		if(num_tokens != 2) {
 			message.reset();
 		}
 		return GSMRequestStatus::GSM_OK;
+	}
+
+	GSMRequestStatus GSMService::getUnreadSMS(INOUT SMS &sms, OUT bool &smsAvailable) {
+		if (!_isInitialized) {
+			return GSMRequestStatus::NOT_INITIALIZED;
+		}
+		GSMRequestStatus internalReq;
+		unsigned int countryPrefixCode = 0;
+		unsigned long phoneNumber = 0;
+		char* messageContentPtr = NULL;
+		int ctr = 0;
+		smsAvailable = false;
+
+		_GSMSerial->print(F("AT+CMGL=\"REC READ\"\r"));
+		internalReq = waitForGSMmoduleData();
+
+		if (internalReq == GSMRequestStatus::GSM_OK) {
+			if (strcmp(_internalBuffer, AT_OK) == 0) {
+				Serial.println("No Unread Messages");
+				return GSMRequestStatus::GSM_OK;
+			}
+			else {
+				Serial.println("Unread Messages");
+				while (_internalBuffer[ctr] != '\n') {	// Looking in the message header
+					bool insideField = false;
+
+					if (_internalBuffer[ctr] == '"' && _internalBuffer[ctr+1] == '+') {	// Phone number found
+						int countryCounter = 0;
+						ctr = ctr + 2;
+						while (_internalBuffer[ctr] != '"') {
+							if (countryCounter < 3) {
+								countryPrefixCode = (countryPrefixCode * 10) + (_internalBuffer[ctr] - '0');
+								countryCounter++;
+							}
+							else {
+								phoneNumber = (phoneNumber * 10) + (_internalBuffer[ctr] - '0');
+							}
+							ctr++;
+						}
+						continue;
+					}
+
+					ctr++;
+				}
+				messageContentPtr = _internalBuffer + (sizeof(char) * ++ctr);
+				while (_internalBuffer[ctr] != '\r') {	// Looking in the message content
+					ctr++;
+				}
+				_internalBuffer[ctr] = '\0';
+			}
+			if (phoneNumber != 0) {	// Make sure we read a messages and not junk
+				smsAvailable = true;
+				sms.setNumber(phoneNumber);
+				sms.setCountryPrefixCode(countryPrefixCode);
+				sms.setMessage(messageContentPtr);
+			}
+		}
+		return internalReq;
 	}
 
 	GSMRequestStatus GSMService::sendSMS(IN SMS &sms) {
 		if (!_isInitialized) {
 			return GSMRequestStatus::NOT_INITIALIZED;
 		}
-		GSMInternalRequestStatus internalTemp;
+		GSMRequestStatus internalReq;
 
 		zeroInternalBuffer();
 		snprintf(_internalBuffer, INTERNAL_BUFFER_SIZE_BYTES - 1, "AT+CMGS=\"+%u%ld\"\r",
 			sms.getCountryPrefixCode(), sms.getNumber());
 		_GSMSerial->print(_internalBuffer);
 		_outputStream->println(_internalBuffer);
-		internalTemp = waitForGSMBoardData();
+		internalReq = waitForGSMmoduleData();
 
-		if ((internalTemp == GSMInternalRequestStatus::GSM_INTERNAL_OK) &&
+		if ((internalReq == GSMRequestStatus::GSM_OK) &&
 			(strcmp(_internalBuffer, "\r\n> ") == 0)) {
 			_GSMSerial->print(sms.getMessage());
 			_GSMSerial->print(CHAR_CTRL_Z);		// Send CTR+Z char to indicate the end of SMS
-			internalTemp = waitForGSMBoardData();
+			internalReq = waitForGSMmoduleData();
 
-			if ((internalTemp == GSMInternalRequestStatus::GSM_INTERNAL_OK) &&
+			if ((internalReq == GSMRequestStatus::GSM_OK) &&
 				strstr(_internalBuffer, "OK") != NULL) {
 				return GSMRequestStatus::GSM_OK;
 			}
@@ -258,13 +322,19 @@ namespace Easyuino {
 			_GSMSerial->print(CHAR_ESC);		// Send ESC char to cancel the SMS sending
 		}
 
-		if (internalTemp == GSMInternalRequestStatus::GSM_INTERNAL_COMMUNICATION_FAILED) {
-			return GSMRequestStatus::GSM_BOARD_DIDNT_REPLY;
+		if (internalReq == GSMRequestStatus::GSM_MODULE_DIDNT_REPLY) {
+			return GSMRequestStatus::GSM_MODULE_DIDNT_REPLY;
 		}
 		else {
 			return GSMRequestStatus::GSM_UNEXPECTED_REPLY;
 		}
 	}
+
+	GSMRequestStatus GSMService::sendSMS(IN unsigned long phoneNumber, IN const char* message, IN unsigned int countryPrefixCode) {
+		SMS smsToSend = SMS(phoneNumber, message, countryPrefixCode);
+		return sendSMS(smsToSend);
+	}
+
 
 	GSMRequestStatus GSMService::deleteAllSMS() {
 		return deleteSMS(GSMSmsDeleteFlag::ALL_SMS);
@@ -278,61 +348,64 @@ namespace Easyuino {
 		return deleteSMS(GSMSmsDeleteFlag::ALL_SENT_AND_READ_SMS);
 	}
 
-	#pragma endregion
+#pragma endregion
 
-	#pragma region Private Methods
+#pragma region Private Methods
 
 	GSMRequestStatus GSMService::deleteSMS(IN GSMSmsDeleteFlag flag, IN unsigned int messageIndex) {
 		if (!_isInitialized) {
 			return GSMRequestStatus::NOT_INITIALIZED;
 		}
-		GSMInternalRequestStatus internalTemp;
+		GSMRequestStatus internalReq;
 
 		zeroInternalBuffer();
-		snprintf(_internalBuffer, INTERNAL_BUFFER_SIZE_BYTES - 1, "%s%u,%d\r", AT_CMGD, messageIndex, flag);
+		snprintf(_internalBuffer, INTERNAL_BUFFER_SIZE_BYTES - 1, "%s%u,%d\r", AT_COMM_DELETE_SMS, messageIndex, flag);
 		_outputStream->println(_internalBuffer);
 		_GSMSerial->print(_internalBuffer);
-		internalTemp = waitForGSMBoardData();
+		internalReq = waitForGSMmoduleData();
 
-		if ((internalTemp == GSMInternalRequestStatus::GSM_INTERNAL_OK) &&
-			(strcmp(_internalBuffer, AT_OK) == 0)) {
-			return GSMRequestStatus::GSM_OK;
-		}
-		else if (internalTemp == GSMInternalRequestStatus::GSM_INTERNAL_COMMUNICATION_FAILED) {
-			return GSMRequestStatus::GSM_BOARD_DIDNT_REPLY;
+		if ((internalReq == GSMRequestStatus::GSM_OK)) {
+			if (strcmp(_internalBuffer, AT_OK) == 0) {
+				return GSMRequestStatus::GSM_OK;
+			}
+			else {
+				return GSMRequestStatus::GSM_UNEXPECTED_REPLY;
+			}
 		}
 		else {
-			return GSMRequestStatus::GSM_UNEXPECTED_REPLY;
+			return internalReq;
 		}
 	}
 
-	GSMService::GSMInternalRequestStatus GSMService::waitForGSMBoardData() {
+	GSMRequestStatus GSMService::waitForGSMmoduleData() {
 		unsigned long waitInitTime = millis();
 		while (_GSMSerial->available() == 0) {
 			/* ACTIVELY wait for data */
-			if ((millis() - waitInitTime) > WAIT_FOR_DATA_TIMEOUT) {  // TIMEOUT - Waiting for board reply
-				return GSM_INTERNAL_COMMUNICATION_FAILED;
+			if ((millis() - waitInitTime) > WAIT_FOR_DATA_TIMEOUT) {  // TIMEOUT - Waiting for module reply
+				return GSMRequestStatus::GSM_MODULE_DIDNT_REPLY;
 			}
 		}
-		lookForGSMBoardData();
-		return GSM_INTERNAL_OK;
+		lookForGSMmoduleData();
+		return GSMRequestStatus::GSM_OK;
 	}
 
-	bool GSMService::lookForGSMBoardData() {
+	bool GSMService::lookForGSMmoduleData() {
 		int count = 0;
 
 		if (_GSMSerial->available() > 0) {
 			zeroInternalBuffer();
 			delay(DELAY_WAIT_FOR_DATA);
 
-			while (_GSMSerial->available() > 0) {
+			while (_GSMSerial->read() != '\n');	// Discard the first line that normally is command echo
+
+			while (_GSMSerial->available() > 0) {	// Fill the API buffer with the data from the module
 				_internalBuffer[count++] = _GSMSerial->read();
 				if (count == (INTERNAL_BUFFER_SIZE_BYTES - 1)) {
 					break;
 				}
 			}
 
-			if (_outputStream != NULL) {	//Output the GSM board output if user want
+			if (_outputStream != NULL) {		//Output the GSM module output if debug serial is defined
 				_outputStream->write(_internalBuffer, count);
 			}
 
@@ -347,7 +420,7 @@ namespace Easyuino {
 		Utilities::ZeroBuffer(_internalBuffer, INTERNAL_BUFFER_SIZE_BYTES);
 	}
 
-	#pragma endregion
+#pragma endregion
 
 
 };

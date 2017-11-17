@@ -28,28 +28,21 @@ WaterFlowMeter.h
 #define _EASYUINO_WATER_FLOW_METER_h
 
 #include "Utilities.h"
-#include "Device.h"
+#include "WaterFlowSensor.h"
 
 namespace Easyuino {
 
 	/*
-	Water flow meter used to 
+	WaterFlowMeter API provides the same as WaterFlowSensor plus a bonus to 
+	know how much water is flowing and how much water flown since the begining.
 	*/
-	class WaterFlowMeter : public Device {
+	class WaterFlowMeter : public WaterFlowSensor {
 
 	private:
+		/* Number of pulses per second per liters/minute that the sensor does */
+		float _sensorCalibrationFactor;
 		/* */
-		static WaterFlowMeter* Singleton;
-
-		/* */
-		uint8_t _sensorPin;
-
-		/* */
-		float _sensorCalibration;
-
 		unsigned long _lastCheckTimestamp;
-		/* */
-		volatile uint16_t _pulseCounter;
 		/* */
 		float _flowRate;
 
@@ -62,16 +55,11 @@ namespace Easyuino {
 
 		void end();
 
-		void updateFlowRate();
-
 		bool isFlowing();
 
+		void updateFlowRate();
+
 		float getFlowRate();
-
-	private:
-		void countPulses();
-
-		static void InterruptCaller();
 
 	};
 

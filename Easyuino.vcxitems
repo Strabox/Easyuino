@@ -21,15 +21,16 @@
   <ItemGroup>
     <!-- <ClInclude Include="$(MSBuildThisFileDirectory)Easyuino.h" /> -->
     <ClCompile Include="$(MSBuildThisFileDirectory)src\main\GSM\GSMService.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\GSM\GSMServiceSecure.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\main\GSM\SMS.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Leds\RGBLed.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\UltraSonicModule\DistanceMeterAccurate.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\UltraSonicModule\DistanceMeterNonBlock.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Led\RGBLed.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Ultrasonic\DistanceMeterAccurate.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Ultrasonic\DistanceMeterNonBlock.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Utilities\Printable.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Device.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Displays\SevenSegments.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\UltraSonicModule\DistanceMeter.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\UltraSonicModule\DistanceMeterPrintable.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Display\SevenSegments.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Ultrasonic\DistanceMeter.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Ultrasonic\DistanceMeterPrintable.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\main\InfraRedReceiver\InfraRedReceiver.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\main\WaterDetector\WaterDetector.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Relay\Relay.cpp" />
@@ -45,6 +46,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)src\DistanceMeterNonBlock.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\EasyuinoTests.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\GSMService.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\GSMServiceSecure.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\Printable.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\DistanceMeter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\DistanceMeterPrintable.h" />
@@ -70,14 +72,14 @@
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory).gitignore" />
     <None Include="$(MSBuildThisFileDirectory).travis.yml" />
-    <None Include="$(MSBuildThisFileDirectory)examples\Displays\.gitkeep" />
-    <None Include="$(MSBuildThisFileDirectory)examples\GSM\.gitkeep" />
+    <None Include="$(MSBuildThisFileDirectory)examples\Display\.gitkeep" />
+    <None Include="$(MSBuildThisFileDirectory)examples\Communication\GSMService\GSMServiceExample.ino" />
+    <None Include="$(MSBuildThisFileDirectory)examples\Communication\GSMServiceSecure\GSMServiceSecureExample.ino" />
     <None Include="$(MSBuildThisFileDirectory)examples\InfraRedReceiver\.gitkeep" />
-    <None Include="$(MSBuildThisFileDirectory)examples\WaterFlow\.gitkeep" />
     <None Include="$(MSBuildThisFileDirectory)LICENSE" />
     <None Include="$(MSBuildThisFileDirectory)README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="$(MSBuildThisFileDirectory)examples\Leds\RGBLed\RGBLedCircuit.jpg" />
+    <Image Include="$(MSBuildThisFileDirectory)examples\Led\RGBLed\RGBLedCircuit.jpg" />
   </ItemGroup>
 </Project>

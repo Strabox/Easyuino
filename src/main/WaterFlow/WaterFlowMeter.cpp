@@ -25,26 +25,15 @@ SOFTWARE.
 
 namespace Easyuino {
 
-	WaterFlowMeter* WaterFlowMeter::Singleton;
-
-	WaterFlowMeter::WaterFlowMeter(IN uint8_t sensorPin) {
-		_sensorPin = sensorPin;
-		if (Singleton != NULL) {
-			delete Singleton;
-		}
-		Singleton = this;
+	WaterFlowMeter::WaterFlowMeter(IN uint8_t sensorPin) 
+		: WaterFlowSensor(sensorPin) {
+		/* Do Nothing */
 	}
 
-	WaterFlowMeter::~WaterFlowMeter() { 
-		Singleton = NULL;
-	}
+	WaterFlowMeter::~WaterFlowMeter() { /* Do Nothing */ }
 
 	bool WaterFlowMeter::begin() {
-		if (!_isInitialized) {
-			pinMode(_sensorPin, INPUT);
-			digitalWrite(_sensorPin, HIGH);
-			attachInterrupt(digitalPinToInterrupt(_sensorPin), InterruptCaller, FALLING);
-			_pulseCounter = 0;
+		if (!_isInitialized && WaterFlowSensor::begin()) {
 			_lastCheckTimestamp = 0;
 			_flowRate = 0.0f;
 			_isInitialized = true;
@@ -54,21 +43,21 @@ namespace Easyuino {
 
 	void WaterFlowMeter::end() {
 		if (_isInitialized) {
-			detachInterrupt(digitalPinToInterrupt(_sensorPin));
+			WaterFlowSensor::end();
 			_isInitialized = false;
 		}
 	}
 
 	void WaterFlowMeter::updateFlowRate() {
-		detachInterrupt(digitalPinToInterrupt(_sensorPin));
-		_flowRate = (1000.0 / (millis() - _lastCheckTimestamp)) * _pulseCounter / _sensorCalibration;
-		_lastCheckTimestamp = millis();
+		disablePulseCouning();
+		_flowRate = ((millis() - _lastCheckTimestamp) / 1000.0f) * _pulseCounter / _sensorCalibrationFactor;
 		_pulseCounter = 0;
-		attachInterrupt(digitalPinToInterrupt(_sensorPin), InterruptCaller, FALLING);
+		_lastCheckTimestamp = millis();
+		enablePulseCounting();
 	}
 
 	bool WaterFlowMeter::isFlowing() {
-		if (_flowRate < 0.001f) {
+		if (_flowRate < 1.0f) {
 			return false;
 		}
 		else {
@@ -77,18 +66,7 @@ namespace Easyuino {
 	}
 
 	float WaterFlowMeter::getFlowRate() {
-		return 0.0f;
-	}
-
-	void WaterFlowMeter::countPulses() {
-		_pulseCounter++;
-	}
-
-	/* Static */
-	void WaterFlowMeter::InterruptCaller() {
-		if (Singleton != NULL) {
-			Singleton->countPulses();
-		}
+		_flowRate;
 	}
 
 };

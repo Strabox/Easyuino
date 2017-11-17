@@ -1,115 +1,119 @@
 ##################################################
 #					 Device     				 #
 ##################################################
-Device			KEYWORD1
-begin			KEYWORD2
-end				KEYWORD2
-isInitialized	KEYWORD2
+Device									KEYWORD1
+begin									KEYWORD2
+end										KEYWORD2
+isInitialized							KEYWORD2
 ##################################################
 #					Printable     				 #
 ##################################################
-Printable	KEYWORD1
-toString	KEYWORD2
+Printable								KEYWORD1
+toString								KEYWORD2
 ##################################################
 #					Utilities     				 #
 ##################################################
-Utilities				KEYWORD1
-EasyMalloc				KEYWORD2
-ZeroBuffer				KEYWORD2
-OverrideLastStringChar	KEYWORD2
-OverrideLastTwoChar		KEYWORD2
+Utilities								KEYWORD1
+EasyMalloc								KEYWORD2
+ZeroBuffer								KEYWORD2
+OverrideLastStringChar					KEYWORD2
+OverrideLastTwoChar						KEYWORD2
 ##################################################
 #					 RGBLed     				 #
 ##################################################
-RGBLed		KEYWORD1
-begin		KEYWORD2
-end			KEYWORD2
-turnOff		KEYWORD2
-setColor	KEYWORD2
+RGBLed									KEYWORD1
+begin									KEYWORD2
+end										KEYWORD2
+turnOff									KEYWORD2
+setColor								KEYWORD2
 ##################################################
 #					  Relay     				 #
 ##################################################
-Relay		KEYWORD1
-begin		KEYWORD2
-end			KEYWORD2
-turnOn		KEYWORD2
-turnOff		KEYWORD2
-isOn		KEYWORD2
+Relay									KEYWORD1
+begin									KEYWORD2
+end										KEYWORD2
+turnOn									KEYWORD2
+turnOff									KEYWORD2
+isOn									KEYWORD2
 ##################################################
 #					RelayNamed     				 #
 ##################################################
-RelayNamed	KEYWORD1
-toString	KEYWORD2
+RelayNamed								KEYWORD1
+toString								KEYWORD2
 ##################################################
 #				   DistanceMeter     			 #
 ##################################################
-DistanceMeter				KEYWORD1
-getDistanceCentimeters		KEYWORD2
-getDistanceInches			KEYWORD2
-updateDistance				KEYWORD2
+DistanceMeter							KEYWORD1
+getDistanceCentimeters					KEYWORD2
+getDistanceInches						KEYWORD2
+updateDistance							KEYWORD2
 ##################################################
 #				DistanceMeterNonBlock     		 #
 ##################################################
-DistanceMeterNonBlock			KEYWORD1
-updateDistanceNonBlock			KEYWORD2
+DistanceMeterNonBlock					KEYWORD1
+updateDistanceNonBlock					KEYWORD2
 ##################################################
 #				DistanceMeterAccurate     		 #
 ##################################################
-DistanceMeterAccurate	KEYWORD1
+DistanceMeterAccurate					KEYWORD1
 ##################################################
 #				   WaterDetector    		     #
 ##################################################
-WaterDetector		KEYWORD1
-begin				KEYWORD2
-end					KEYWORD2
-getWaterStatus		KEYWORD2
-getWaterStatusRange	KEYWORD2
-isWaterDetected		KEYWORD2
+WaterDetector							KEYWORD1
+begin									KEYWORD2
+end										KEYWORD2
+getWaterStatus							KEYWORD2
+getWaterStatusRange						KEYWORD2
+isWaterDetected							KEYWORD2
 ##################################################
 #				    WaterStatus    			     #
 ##################################################
-WaterStatus		KEYWORD1
-DRY				LITERAL1
-FEW_DROPS		LITERAL1
-WET				LITERAL1
-FLOOD			LITERAL1
-INVALID			LITERAL1
-NOT_INITIALIZED	LITERAL1
+WaterStatus								KEYWORD1
+DRY										LITERAL1
+FEW_DROPS								LITERAL1
+WET										LITERAL1
+FLOOD									LITERAL1
+INVALID									LITERAL1
+NOT_INITIALIZED							LITERAL1
 ##################################################
 #				     GSMService     		     #
 ##################################################
-GSMService					KEYWORD1
-addAllowedNumber			KEYWORD2
-isAllowed					KEYWORD2
-removeAllowedNumber			KEYWORD2
-clearAllowedNumbers			KEYWORD2
-beginListenForSMS			KEYWORD2
-availableSMS				KEYWORD2
-sendSMS						KEYWORD2
-deleteAllSMS				KEYWORD2
-deleteAllReadSMS			KEYWORD2
-deleteAllSentAndReadSMS		KEYWORD2
+GSMService								KEYWORD1
+beginListenForSMS						KEYWORD2
+availableSMS							KEYWORD2
+sendSMS									KEYWORD2
+deleteAllSMS							KEYWORD2
+deleteAllReadSMS						KEYWORD2
+deleteAllSentAndReadSMS					KEYWORD2
+##################################################
+#				   GSMServiceSecure    		     #
+##################################################
+GSMServiceSecure						KEYWORD1
+addAllowedNumber						KEYWORD2
+isAllowed								KEYWORD2
+removeAllowedNumber						KEYWORD2
+clearAllowedNumbers						KEYWORD2
 ##################################################
 #				  GSMRequestStatus     		     #
 ##################################################
 GSMRequestStatus						KEYWORD1
 GSM_OK									LITERAL1
 GSM_UNEXPECTED_REPLY					LITERAL1
-GSM_BOARD_DIDNT_REPLY					LITERAL1
+GSM_module_DIDNT_REPLY					LITERAL1
 GSM_SERVICE_NOT_INITIALIZED				LITERAL1
 GSM_REQUEST_INVALID_ARGUMENT			LITERAL1
 GSM_MAXIMUM_ALLOWED_NUMBERS_REACHED		LITERAL1
 ##################################################
 #						SMS     		         #
 ##################################################
-SMS						KEYWORD1
-getCountryPrefixCode	KEYWORD2
-setCountryPrefixCode	KEYWORD2
-getNumber				KEYWORD2
-setNumber				KEYWORD2
-getMessage				KEYWORD2
-setMessage				KEYWORD2
-reset					KEYWORD2
+SMS										KEYWORD1
+getCountryPrefixCode					KEYWORD2
+setCountryPrefixCode					KEYWORD2
+getNumber								KEYWORD2
+setNumber								KEYWORD2
+getMessage								KEYWORD2
+setMessage								KEYWORD2
+reset									KEYWORD2
 ##################################################
 #							     		         #
 ##################################################

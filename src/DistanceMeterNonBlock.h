@@ -30,7 +30,7 @@ DistanceMeterNonBlock.h
 #include "Utilities.h"
 #include "DistanceMeter.h"
 
-#define MAXIMUM_NUMBER_OF_DM_NON_BLOCK 2	//	WARNING: DON'T change it because it will broke the API
+#define MAXIMUM_NUMBER_OF_DM_NON_BLOCK 2	//	ATTENTION: DON'T change it because it will broke the API
 
 namespace Easyuino {
 
@@ -38,7 +38,7 @@ namespace Easyuino {
 	DistanceMeterNonBlock offers an API to interact with an Ultrasonic Sensor (US) to measure distance to objects using sound waves.
 	It offers a the same as DistanceMeter API plus updateDistanceNonBlock that allows your application code run while
 	the distance is calculated in "background" without stopping your program.
-	WARNING: You can ONLY use TWO instances of DistanceMeterNonBlock per sketch due to implementation restrictions.
+	ATTENTION: You can ONLY use TWO instances of DistanceMeterNonBlock per sketch due to implementation restrictions.
 	So if you want have multiple distance meters you can at maximum TWO DistanceMeterNonBlock and several DistanceMeter.
 	@Limitations: 
 		- This only allows ONLY 2 instances of DistanceMeterNonBlock per sketch!!!

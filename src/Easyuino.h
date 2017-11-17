@@ -37,6 +37,7 @@ SOFTWARE.
 	#include "WProgram.h"
 #endif
 	#include "GSMService.h"	
+	#include "GSMServiceSecure.h"	
 	#include "SMS.h"
 	
 	#include "Relay.h"
