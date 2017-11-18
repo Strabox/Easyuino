@@ -1,0 +1,71 @@
+\hypertarget{class_easyuino_1_1_distance_meter_non_block}{}\section{Easyuino\+:\+:Distance\+Meter\+Non\+Block Class Reference}
+\label{class_easyuino_1_1_distance_meter_non_block}\index{Easyuino\+::\+Distance\+Meter\+Non\+Block@{Easyuino\+::\+Distance\+Meter\+Non\+Block}}
+Inheritance diagram for Easyuino\+:\+:Distance\+Meter\+Non\+Block\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_easyuino_1_1_distance_meter_non_block}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_ad7e7b63fc4655957eb00f24d82512d2a}\label{class_easyuino_1_1_distance_meter_non_block_ad7e7b63fc4655957eb00f24d82512d2a}} 
+{\bfseries Distance\+Meter\+Non\+Block} (IN uint8\+\_\+t trigger\+Pin, IN uint8\+\_\+t echo\+Pin)
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_af77c0f4649ea521a5b75c457b6762db2}\label{class_easyuino_1_1_distance_meter_non_block_af77c0f4649ea521a5b75c457b6762db2}} 
+{\bfseries Distance\+Meter\+Non\+Block} (IN uint8\+\_\+t trigger\+Echo\+Pin)
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_a46d2093d0fc125e98c3602868c088a77}\label{class_easyuino_1_1_distance_meter_non_block_a46d2093d0fc125e98c3602868c088a77}} 
+bool {\bfseries begin} ()
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_a845d4db657ff408205d1cdb3c35982a4}\label{class_easyuino_1_1_distance_meter_non_block_a845d4db657ff408205d1cdb3c35982a4}} 
+void {\bfseries end} ()
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_a00419fc2c2ff7c587735063971aa7464}\label{class_easyuino_1_1_distance_meter_non_block_a00419fc2c2ff7c587735063971aa7464}} 
+float {\bfseries get\+Distance\+Centimeters} ()
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_a4ea37c6c0562a76cd03636db329743f9}\label{class_easyuino_1_1_distance_meter_non_block_a4ea37c6c0562a76cd03636db329743f9}} 
+void {\bfseries update\+Distance} ()
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_a5cfeac9309d045a5eba22d8955e376b6}\label{class_easyuino_1_1_distance_meter_non_block_a5cfeac9309d045a5eba22d8955e376b6}} 
+virtual void {\bfseries update\+Distance\+Non\+Block} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_a5410be2725e26c878ebf9bcdf2b79a05}\label{class_easyuino_1_1_distance_meter_non_block_a5410be2725e26c878ebf9bcdf2b79a05}} 
+void {\bfseries execute\+Update\+Distance\+Non\+Block} ()
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_a88f2b7e249345b93a8258ae5c7b75a49}\label{class_easyuino_1_1_distance_meter_non_block_a88f2b7e249345b93a8258ae5c7b75a49}} 
+bool {\bfseries is\+Update\+Distance\+Non\+Block\+Timeout} ()
+\item 
+float \hyperlink{class_easyuino_1_1_distance_meter_non_block_aa51eb173540f65e000189ac7137e699a}{calculate\+Distance} (IN float sound\+Speed\+Cm\+Per\+Sec)
+\begin{DoxyCompactList}\small\item\em Calculates the distance to the object based on the sound speed in air using the last distance value measured! \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_aa51eb173540f65e000189ac7137e699a}\label{class_easyuino_1_1_distance_meter_non_block_aa51eb173540f65e000189ac7137e699a}} 
+\index{Easyuino\+::\+Distance\+Meter\+Non\+Block@{Easyuino\+::\+Distance\+Meter\+Non\+Block}!calculate\+Distance@{calculate\+Distance}}
+\index{calculate\+Distance@{calculate\+Distance}!Easyuino\+::\+Distance\+Meter\+Non\+Block@{Easyuino\+::\+Distance\+Meter\+Non\+Block}}
+\subsubsection{\texorpdfstring{calculate\+Distance()}{calculateDistance()}}
+{\footnotesize\ttfamily float Easyuino\+::\+Distance\+Meter\+Non\+Block\+::calculate\+Distance (\begin{DoxyParamCaption}\item[{IN float}]{sound\+Speed\+Cm\+Per\+Sec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Calculates the distance to the object based on the sound speed in air using the last distance value measured! 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sound\+Speed\+Cm\+Per\+Sec} & (cm/sec) -\/ The sound speed to be taken in account. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+distance (Centimeters) -\/ The distance to the object. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Distance\+Meter\+Non\+Block.\+h\item 
+src/main/\+Ultrasonic/Distance\+Meter\+Non\+Block.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,66 @@
+\hypertarget{class_easyuino_1_1_g_s_m_service}{}\section{Easyuino\+:\+:G\+S\+M\+Service Class Reference}
+\label{class_easyuino_1_1_g_s_m_service}\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+Inheritance diagram for Easyuino\+:\+:G\+S\+M\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_easyuino_1_1_g_s_m_service}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_ad8700c921a8f3ce267369e9843853be1}\label{class_easyuino_1_1_g_s_m_service_ad8700c921a8f3ce267369e9843853be1}} 
+{\bfseries G\+S\+M\+Service} (IN uint8\+\_\+t tx\+Pin, IN uint8\+\_\+t rx\+Pin, IN uint8\+\_\+t power\+Pin, IN Stream \&output\+Stream)
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_ab856f1ecdb47de6b13f186bea7c69ce2}\label{class_easyuino_1_1_g_s_m_service_ab856f1ecdb47de6b13f186bea7c69ce2}} 
+{\bfseries G\+S\+M\+Service} (IN uint8\+\_\+t tx\+Pin, IN uint8\+\_\+t rx\+Pin, IN uint8\+\_\+t power\+Pin)
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a49dd695dba030b168464f620c3d96ee0}\label{class_easyuino_1_1_g_s_m_service_a49dd695dba030b168464f620c3d96ee0}} 
+bool {\bfseries begin} (IN unsigned long gsm\+Module\+Baud\+Rate)
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_aeafc2dae47e4b13e127eb228a0f7ff6a}\label{class_easyuino_1_1_g_s_m_service_aeafc2dae47e4b13e127eb228a0f7ff6a}} 
+bool {\bfseries begin} ()
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a05bef783773776ec209608aa81d1ff45}\label{class_easyuino_1_1_g_s_m_service_a05bef783773776ec209608aa81d1ff45}} 
+void {\bfseries end} ()
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_ad5bd54c7dfcc402df0fac92c88e07c6e}\label{class_easyuino_1_1_g_s_m_service_ad5bd54c7dfcc402df0fac92c88e07c6e}} 
+G\+S\+M\+Request\+Status {\bfseries turn\+On} ()
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a327c2610c2aa7ba5a54530d87a0d6128}\label{class_easyuino_1_1_g_s_m_service_a327c2610c2aa7ba5a54530d87a0d6128}} 
+G\+S\+M\+Request\+Status {\bfseries turn\+Off} ()
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a2ad440efbd04942d956212988d20a0df}\label{class_easyuino_1_1_g_s_m_service_a2ad440efbd04942d956212988d20a0df}} 
+G\+S\+M\+Request\+Status {\bfseries is\+On} (O\+UT bool \&result)
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a6b6ee723ceaf62bfd9312278b5dbf36d}\label{class_easyuino_1_1_g_s_m_service_a6b6ee723ceaf62bfd9312278b5dbf36d}} 
+G\+S\+M\+Request\+Status {\bfseries set\+Baud\+Rate} (IN unsigned long new\+Baud\+Rate)
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a8fd764ef215a16f676e6e5e4b283b61d}\label{class_easyuino_1_1_g_s_m_service_a8fd764ef215a16f676e6e5e4b283b61d}} 
+G\+S\+M\+Request\+Status {\bfseries begin\+Listen\+For\+S\+MS} ()
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a4d987881793f811e1a032bc48e5f7861}\label{class_easyuino_1_1_g_s_m_service_a4d987881793f811e1a032bc48e5f7861}} 
+virtual G\+S\+M\+Request\+Status {\bfseries available\+S\+MS} (O\+UT \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} \&message, O\+UT bool \&sms\+Read)
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_ae860cc330ef552c733d9ab4a5c2fd366}\label{class_easyuino_1_1_g_s_m_service_ae860cc330ef552c733d9ab4a5c2fd366}} 
+G\+S\+M\+Request\+Status {\bfseries send\+S\+MS} (IN \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} \&sms)
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_ad37d83f2a91fbe2e50a11f1d435eccb5}\label{class_easyuino_1_1_g_s_m_service_ad37d83f2a91fbe2e50a11f1d435eccb5}} 
+G\+S\+M\+Request\+Status {\bfseries send\+S\+MS} (IN unsigned long phone\+Number, IN const char $\ast$message, IN unsigned int country\+Prefix\+Code)
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_aef4379e7c82f275f0af341f79a3b451f}\label{class_easyuino_1_1_g_s_m_service_aef4379e7c82f275f0af341f79a3b451f}} 
+G\+S\+M\+Request\+Status {\bfseries delete\+All\+S\+MS} ()
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_af142e4f7d99cffda9a3598446466cdb3}\label{class_easyuino_1_1_g_s_m_service_af142e4f7d99cffda9a3598446466cdb3}} 
+G\+S\+M\+Request\+Status {\bfseries delete\+All\+Read\+S\+MS} ()
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a7b457ab0669a8e9c16ab1906cc246365}\label{class_easyuino_1_1_g_s_m_service_a7b457ab0669a8e9c16ab1906cc246365}} 
+G\+S\+M\+Request\+Status {\bfseries delete\+All\+Sent\+And\+Read\+S\+MS} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/G\+S\+M\+Service.\+h\item 
+src/main/\+G\+S\+M/G\+S\+M\+Service.\+cpp\end{DoxyCompactItemize}

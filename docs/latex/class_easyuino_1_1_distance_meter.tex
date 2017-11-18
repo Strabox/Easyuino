@@ -1,0 +1,59 @@
+\hypertarget{class_easyuino_1_1_distance_meter}{}\section{Easyuino\+:\+:Distance\+Meter Class Reference}
+\label{class_easyuino_1_1_distance_meter}\index{Easyuino\+::\+Distance\+Meter@{Easyuino\+::\+Distance\+Meter}}
+Inheritance diagram for Easyuino\+:\+:Distance\+Meter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_easyuino_1_1_distance_meter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_aad61ebf8398ba5cf6a80e5defc29bfcc}\label{class_easyuino_1_1_distance_meter_aad61ebf8398ba5cf6a80e5defc29bfcc}} 
+{\bfseries Distance\+Meter} (IN uint8\+\_\+t trigger\+Pin, IN uint8\+\_\+t echo\+Pin)
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_aa5551cc3c42fe77f0972a41acf896cf9}\label{class_easyuino_1_1_distance_meter_aa5551cc3c42fe77f0972a41acf896cf9}} 
+{\bfseries Distance\+Meter} (IN uint8\+\_\+t trigger\+Echo\+Pin)
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_a0374e6f806cd71f0f918c6ea7b7700a0}\label{class_easyuino_1_1_distance_meter_a0374e6f806cd71f0f918c6ea7b7700a0}} 
+bool {\bfseries begin} ()
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_a8a818cc922418ae5a078193dbfab1e6b}\label{class_easyuino_1_1_distance_meter_a8a818cc922418ae5a078193dbfab1e6b}} 
+void {\bfseries end} ()
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_af1ce4460cc2818294a8b1f3fc6c00d64}\label{class_easyuino_1_1_distance_meter_af1ce4460cc2818294a8b1f3fc6c00d64}} 
+virtual float {\bfseries get\+Distance\+Centimeters} ()
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_a4e3c650c54382d9af6bca51dcac4e7a3}\label{class_easyuino_1_1_distance_meter_a4e3c650c54382d9af6bca51dcac4e7a3}} 
+float {\bfseries get\+Distance\+Inches} ()
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_a124a8975be3829cbf9f39c746853f5c3}\label{class_easyuino_1_1_distance_meter_a124a8975be3829cbf9f39c746853f5c3}} 
+virtual void {\bfseries update\+Distance} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_aeb3b9b39f19ff88ab798b6b0c3ba7d0d}\label{class_easyuino_1_1_distance_meter_aeb3b9b39f19ff88ab798b6b0c3ba7d0d}} 
+float {\bfseries execute\+Update\+Distance\+Block} (IN float sound\+Speed\+Cm\+Sec)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_a39f2305fe998cd3212eef389dfe036fe}\label{class_easyuino_1_1_distance_meter_a39f2305fe998cd3212eef389dfe036fe}} 
+uint8\+\_\+t {\bfseries \+\_\+trigger\+Pin}
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_a6f4a18c48dc147102f1fae8cb12e24a2}\label{class_easyuino_1_1_distance_meter_a6f4a18c48dc147102f1fae8cb12e24a2}} 
+uint8\+\_\+t {\bfseries \+\_\+echo\+Pin}
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_ae2b9e4d3e8704c8f1a73639afd53614d}\label{class_easyuino_1_1_distance_meter_ae2b9e4d3e8704c8f1a73639afd53614d}} 
+volatile bool {\bfseries \+\_\+is\+Echoing}
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_ae10df1a21d2acfec3aa3eef57ea3a632}\label{class_easyuino_1_1_distance_meter_ae10df1a21d2acfec3aa3eef57ea3a632}} 
+volatile float {\bfseries \+\_\+distance}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Distance\+Meter.\+h\item 
+src/main/\+Ultrasonic/Distance\+Meter.\+cpp\end{DoxyCompactItemize}

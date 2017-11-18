@@ -64,7 +64,7 @@ namespace Easyuino {
 
 		float getDistanceCentimeters();
 
-		/* Updates the distance of the US to the objects in a blocking way. Basically if updateDistanceNonBlock
+		/** Updates the distance of the US to the objects in a blocking way. Basically if updateDistanceNonBlock
 		was not called in the last 3 secs at least the method will block on call and when it finishes the distance
 		value can be grabbed by getDistance method. 
 		@param airTemperature	- Air temperatures to be used when calculating the distance (good if it is the current temperature)

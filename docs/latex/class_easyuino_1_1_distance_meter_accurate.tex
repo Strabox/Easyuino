@@ -1,0 +1,52 @@
+\hypertarget{class_easyuino_1_1_distance_meter_accurate}{}\section{Easyuino\+:\+:Distance\+Meter\+Accurate Class Reference}
+\label{class_easyuino_1_1_distance_meter_accurate}\index{Easyuino\+::\+Distance\+Meter\+Accurate@{Easyuino\+::\+Distance\+Meter\+Accurate}}
+Inheritance diagram for Easyuino\+:\+:Distance\+Meter\+Accurate\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_easyuino_1_1_distance_meter_accurate}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_accurate_a57f810d7e6653028bc23139e703985d7}\label{class_easyuino_1_1_distance_meter_accurate_a57f810d7e6653028bc23139e703985d7}} 
+{\bfseries Distance\+Meter\+Accurate} (IN uint8\+\_\+t trigger\+Pin, IN uint8\+\_\+t echo\+Pin)
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_accurate_a6e58a043f9d28dd6c7e4c5b819607341}\label{class_easyuino_1_1_distance_meter_accurate_a6e58a043f9d28dd6c7e4c5b819607341}} 
+{\bfseries Distance\+Meter\+Accurate} (IN uint8\+\_\+t trigger\+Echo\+Pin)
+\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_accurate_a4de44a347db0bebbf5d74f12397cd4d9}\label{class_easyuino_1_1_distance_meter_accurate_a4de44a347db0bebbf5d74f12397cd4d9}} 
+float {\bfseries get\+Distance\+Centimeters} ()
+\item 
+void \hyperlink{class_easyuino_1_1_distance_meter_accurate_af7c43ebaa1ae75db2f806dc7039c8a82}{update\+Distance} (IN float air\+Temperature=D\+E\+F\+A\+U\+L\+T\+\_\+\+A\+I\+R\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+R\+E\+\_\+\+C\+E\+L\+S\+I\+US, IN Temperature\+Scale temperature\+Scale=C\+E\+L\+S\+I\+US)
+\begin{DoxyCompactList}\small\item\em Updates the distance of the US to the objects in a blocking way. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_accurate_ac428b0dfd816862fab277b2da1f0c164}\label{class_easyuino_1_1_distance_meter_accurate_ac428b0dfd816862fab277b2da1f0c164}} 
+void {\bfseries update\+Distance\+Non\+Block} (IN float air\+Temperature=D\+E\+F\+A\+U\+L\+T\+\_\+\+A\+I\+R\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+R\+E\+\_\+\+C\+E\+L\+S\+I\+US, IN Temperature\+Scale temperature\+Scale=C\+E\+L\+S\+I\+US)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_accurate_af7c43ebaa1ae75db2f806dc7039c8a82}\label{class_easyuino_1_1_distance_meter_accurate_af7c43ebaa1ae75db2f806dc7039c8a82}} 
+\index{Easyuino\+::\+Distance\+Meter\+Accurate@{Easyuino\+::\+Distance\+Meter\+Accurate}!update\+Distance@{update\+Distance}}
+\index{update\+Distance@{update\+Distance}!Easyuino\+::\+Distance\+Meter\+Accurate@{Easyuino\+::\+Distance\+Meter\+Accurate}}
+\subsubsection{\texorpdfstring{update\+Distance()}{updateDistance()}}
+{\footnotesize\ttfamily void Easyuino\+::\+Distance\+Meter\+Accurate\+::update\+Distance (\begin{DoxyParamCaption}\item[{IN float}]{air\+Temperature = {\ttfamily DEFAULT\+\_\+AIR\+\_\+TEMPERATURE\+\_\+CELSIUS},  }\item[{IN Temperature\+Scale}]{temperature\+Scale = {\ttfamily CELSIUS} }\end{DoxyParamCaption})}
+
+
+
+Updates the distance of the US to the objects in a blocking way. 
+
+Basically if update\+Distance\+Non\+Block was not called in the last 3 secs at least the method will block on call and when it finishes the distance value can be grabbed by get\+Distance method. 
+\begin{DoxyParams}{Parameters}
+{\em air\+Temperature} & -\/ Air temperatures to be used when calculating the distance (good if it is the current temperature) \\
+\hline
+{\em temperature\+Scale} & -\/ The temperature scale that is being provided (C\+E\+L\+S\+I\+US, K\+E\+L\+V\+IN or F\+A\+H\+R\+E\+N\+H\+E\+IT) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Distance\+Meter\+Accurate.\+h\item 
+src/main/\+Ultrasonic/Distance\+Meter\+Accurate.\+cpp\end{DoxyCompactItemize}

@@ -71,7 +71,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory).gitignore" />
+    <None Include="$(MSBuildThisFileDirectory).releaseGuide">
+      <FileType>Document</FileType>
+    </None>
     <None Include="$(MSBuildThisFileDirectory).travis.yml" />
+    <None Include="$(MSBuildThisFileDirectory)Doxyfile" />
     <None Include="$(MSBuildThisFileDirectory)examples\Display\.gitkeep" />
     <None Include="$(MSBuildThisFileDirectory)examples\Communication\GSMService\GSMServiceExample.ino" />
     <None Include="$(MSBuildThisFileDirectory)examples\Communication\GSMServiceSecure\GSMServiceSecureExample.ino" />

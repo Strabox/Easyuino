@@ -105,7 +105,7 @@ namespace Easyuino {
 		*/
 		bool isUpdateDistanceNonBlockTimeout();
 
-		/*
+		/**
 		Calculates the distance to the object based on the sound speed in air using the last distance value measured!
 		@param soundSpeedCmPerSec (cm/sec)	- The sound speed to be taken in account.
 		@return	distance (Centimeters)		- The distance to the object.
@@ -124,7 +124,7 @@ namespace Easyuino {
 		static void deleteInstance(IN DistanceMeterNonBlock* dm);
 
 		/* Attach the interrupt interruptCaller function to the right instance object */
-		static void attachInterruptToInstance(DistanceMeterNonBlock* dm);
+		static void attachInterruptToInstance(IN DistanceMeterNonBlock* dm);
 
 		/* Necessary to redirect the interrupt to the specific DistanceMeterNonBlock instance */
 		static void interruptCaller0();
