@@ -25,9 +25,9 @@ SOFTWARE.
 
 namespace Easyuino {
 
-	WaterFlowMeter::WaterFlowMeter(IN uint8_t sensorPin) 
+	WaterFlowMeter::WaterFlowMeter(IN uint8_t sensorPin, IN float sensorCalibrationFactor)
 		: WaterFlowSensor(sensorPin) {
-		/* Do Nothing */
+		_sensorCalibrationFactor = sensorCalibrationFactor;
 	}
 
 	WaterFlowMeter::~WaterFlowMeter() { /* Do Nothing */ }
@@ -49,24 +49,31 @@ namespace Easyuino {
 	}
 
 	void WaterFlowMeter::updateFlowRate() {
-		disablePulseCouning();
-		_flowRate = ((millis() - _lastCheckTimestamp) / 1000.0f) * _pulseCounter / _sensorCalibrationFactor;
-		_pulseCounter = 0;
-		_lastCheckTimestamp = millis();
-		enablePulseCounting();
+		unsigned long currentTime = millis();
+		if (_isInitialized && (currentTime - _lastCheckTimestamp) > MIN_TIME_BETWEEN_UPDATES) {
+			disablePulseCouning();
+			// The flow formula: Pulses/Sec(Hz) = (sensorCalibrationFactor * Liters/Min) +- 3%
+			_flowRate = (_pulseCounter / ((currentTime - _lastCheckTimestamp) / 1000.0f))  / _sensorCalibrationFactor;
+			_pulseCounter = 0;
+			_lastCheckTimestamp = currentTime;
+			enablePulseCounting();
+		}
 	}
 
 	bool WaterFlowMeter::isFlowing() {
-		if (_flowRate < 1.0f) {
-			return false;
+		if (_isInitialized) {
+			if (_flowRate < 1.0f) {
+				return false;
+			}
+			else {
+				return true;
+			}
 		}
-		else {
-			return true;
-		}
+		return false;	// API not initialized
 	}
 
-	float WaterFlowMeter::getFlowRate() {
-		_flowRate;
+	float WaterFlowMeter::getFlowRate() const {
+		return _flowRate;
 	}
 
 };

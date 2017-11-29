@@ -32,62 +32,59 @@ WaterFlowSensor.h
 
 namespace Easyuino {
 
-	/*
-	WaterFlowSensor is an API that uses a water flow sensor to know if it is flowing something through
-	the sensor or not. If needed know the flow rate there is the WaterFlowMeter API.
+	/** WaterFlowSensor is an API offers the ability to know if it is flowing something through the sensor or not
+	using fluid flow meters.
+	@see Devices Supported:	 YF-DN40
+	@see Devices Tested:	 YF-DN40
 	*/
 	class WaterFlowSensor : public Device {
 
 	private:
-		/* Instance used to redirect the interruptions in the pin transparently to the user */
+		/** Instance used to redirect the interruptions in the pin transparently to the user */
 		static WaterFlowSensor* Singleton;
 
 	protected:
-		/* Arduino pin connected to the sensor cable */
+		/** Arduino pin connected to the sensor pulse pin */
 		uint8_t _sensorPin;
 
-		/* Incremented by the sensor each time the "fan" does a full path */
+		/** Incremented by the sensor each time the "turbine" does a full round */
 		volatile uint32_t _pulseCounter;
 
 	public:
+		/** Constructor
+		@param sensorPin Arduino pin connected to the sensor pulse pin
+		*/
 		WaterFlowSensor(IN uint8_t sensorPin);
 
+		/** Destructor */
 		~WaterFlowSensor();
 
 		bool begin();
 
 		void end();
 
-		/*
-		Checks if it is flowing something or not.
-		ATTENTION: Since a snapshot in time is impossible to know if it is flowing a single call to this
-		method is useless. You need call it constantly (e.g: every 3 second) in order to the API know how
-		it is going.
-		@return - True: If there are something flowing. False: Otherwise.
+		//virtual void updateFlow();
+
+		/** Checks if there are flowing in the sensor.
+		Attention: Since with snapshot in time is impossible to know if it is flowing a single call to this
+		method is useless. You need call it constantly (e.g: every second) in order to the API measure
+		if it is really flowing or not.
+		@return isFlowing True: If there is flow. False: Otherwise.
 		*/
 		virtual bool isFlowing();
 
 	protected:
-		/*
-		Used to enable the pin interruption that increments the pulse counter
-		*/
+		/** Enable the pin interruption that increments the pulse counter. */
 		void enablePulseCounting();
 		
-		/*
-		Used to disable the pin interruption that increments the pulse counter
-		*/
+		/** Disable the pin interruption that increments the pulse counter. */
 		void disablePulseCouning();
 
 	private:
-		/*
-		Called by the interruption ISR for each pulse and increments the pulse counter
-		*/
+		/** Called by the interruption ISR for each pulse and increments the pulse counter. */
 		void countPulses();
 
-		/*
-		Static method bind to handle the sensor pin interruption redirecting the call to
-		the Singleton instance
-		*/
+		/** Binds the interruption event ISR to the sensor instance that will treat it. */
 		static void InterruptCaller();
 
 	};

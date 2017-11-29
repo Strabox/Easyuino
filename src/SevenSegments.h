@@ -27,30 +27,55 @@ SevenSegments.h
 #ifndef _EASYUINO_SEVEN_SEGMENTS_h
 #define _EASYUINO_SEVEN_SEGMENTS_h
 
+#include <string.h>
 #include "Utilities.h"
 #include "Device.h"
 
 namespace Easyuino {
 
+	/** API
+	@see Devices Supported:	 TM1637
+	@see Devices Tested:	 TM1637
+	*/
 	class SevenSegments : public Device {
 
 	private:
+		/** */
 		uint8_t _clkPin;
+		/** */
 		uint8_t _dataPin;
 
 	public:
-		SevenSegments(uint8_t clkPin, uint8_t dataPin);
+		SevenSegments(IN uint8_t clkPin, IN uint8_t dataPin);
 
 		bool begin();
 
+		bool begin(IN uint8_t brightness);
+
 		void end();
 
-		void print(uint8_t byte);
+		void setBrightness(IN uint8_t brightness);
+
+		void print(IN uint8_t num, IN uint8_t position);
+
+		void print(IN unsigned int num);
+
+		void print(IN int num);
+
+		void print(IN const char* string);
+
+	protected:
+		/**
+		
+		*/
+		void sendByte(IN uint8_t byte);
 
 	private:
 		void start();
 
 		void stop();
+
+		void microDelay();
 
 	};
 

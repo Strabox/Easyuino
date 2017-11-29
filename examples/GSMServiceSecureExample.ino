@@ -7,9 +7,6 @@ GSMServiceSecureExample.ino
 using Easyuino::GSMService;	// Necessary in order to use RGBLed
 using Easyuino::SMS;  // Necessary for some method calls
 
-int tx_pin = 9;  // Arduino pin connected to led red pin
-int rx_pin = 10;  // Arduino pin connected to led green pin
-int power_pin = 11;  // Arduino pin connected to led blue pin
 
 
 void setup() {

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['updatedistance',['updateDistance',['../class_easyuino_1_1_distance_meter_accurate.html#af7c43ebaa1ae75db2f806dc7039c8a82',1,'Easyuino::DistanceMeterAccurate']]],
-  ['utilities',['Utilities',['../class_easyuino_1_1_utilities.html',1,'Easyuino']]]
+  ['relay',['Relay',['../class_easyuino_1_1_relay.html',1,'Easyuino']]],
+  ['relaynamed',['RelayNamed',['../class_easyuino_1_1_relay_named.html',1,'Easyuino']]],
+  ['rgbled',['RGBLed',['../class_easyuino_1_1_r_g_b_led.html',1,'Easyuino']]]
 ];

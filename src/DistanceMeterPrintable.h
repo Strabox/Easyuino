@@ -33,15 +33,21 @@ DistanceMeterPrintable.h
 
 namespace Easyuino {
 
-	/*
-	It offers the same API as DistanceMetter plus some functions to print the internal state into a stream for example.
+	/** It offers the same API as DistanceMeter plus some methods to print the internal state into a stream for example.
 	Useful for debugging purposes.
+	@see Devices Supported:	 HC-SR03, HC-SR04, HC-SR05
+	@see Devices Tested:	 HC-SR04
 	*/
 	class DistanceMeterPrintable : public DistanceMeter, public Printable {
 
 	public:
+		/** Constructor similar to the DistanceMeter one.
+		@param triggerPin	Arduino pin connected to the trigger pin of the Ultrasonic Module
+		@param echoPin		Arduino pin connected to the echo pin of the Ultrasonic Module
+		*/
 		DistanceMeterPrintable(IN uint8_t triggerPin, IN uint8_t echoPin);
 
+		/** Destructor */
 		~DistanceMeterPrintable();
 
 	#pragma region Public Printable API Methods

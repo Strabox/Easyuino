@@ -21,15 +21,6 @@ var hierarchy =
         [ "Easyuino::WaterFlowMeter", "class_easyuino_1_1_water_flow_meter.html", null ]
       ] ]
     ] ],
-    [ "ManualTest", "class_manual_test.html", [
-      [ "DistanceMeterAccurateTest", "class_distance_meter_accurate_test.html", null ],
-      [ "DistanceMeterNonBlockTest", "class_distance_meter_non_block_test.html", null ],
-      [ "DistanceMeterTest", "class_distance_meter_test.html", null ],
-      [ "RelayNamedTest", "class_relay_named_test.html", null ],
-      [ "RelayTest", "class_relay_test.html", null ],
-      [ "RGBLedTest", "class_r_g_b_led_test.html", null ],
-      [ "WaterDetectorTest", "class_water_detector_test.html", null ]
-    ] ],
     [ "Easyuino::Printable", "class_easyuino_1_1_printable.html", [
       [ "Easyuino::DistanceMeterPrintable", "class_easyuino_1_1_distance_meter_printable.html", null ],
       [ "Easyuino::RelayNamed", "class_easyuino_1_1_relay_named.html", null ]

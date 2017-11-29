@@ -22,9 +22,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 /*
+Easyuino.h
+
  Name:		Easyuino.h
  Created:	10/13/2017 12:40:16 AM
- Author:	André
+ Author:	André Pires
  Editor:	http://www.visualmicro.com
 */
 
@@ -48,8 +50,14 @@ SOFTWARE.
 	#include "DistanceMeterAccurate.h"
 	#include "DistanceMeterPrintable.h"
 
-	#include "RGBLed.h"
+	#include "SevenSegments.h"
+	
 	#include "WaterDetector.h"
+	#include "WaterFlowSensor.h"
+	#include "WaterFlowMeter.h"
+
+	#include "Button.h"
+	#include "RGBLed.h"
 
 	#include "Utilities.h"
 #endif

@@ -32,49 +32,49 @@ RGBLed.h
 
 namespace Easyuino {
 
-	/* Enum with the types of RGB physical leds */
+	/** Types of RGB physical leds */
 	enum LedType : uint8_t {
 		COMMON_ANODE,
 		COMMON_CATODE
 	};
 
-	/* Enum with a set of pre defined colors that the RGBLed API knows how to write */
+	/** Set of pre-defined colors that the RGBLed API knows how to reproduce */
 	enum Color : uint8_t {
 		RED, GREEN, BLUE, YELLOW, WHITE, ORANGE, PINK, SALMON, VIOLET, AQUA, BROWN,
 		FIREBRICK, DARKGREY, OLIVE, SKYBLUE
 	};
 
-	/* RGBLed API allows to easily interact with a RGB led to set its color for example */
+	/** RGBLed API allows to easily interact with a RGB led to set its color for example */
 	class RGBLed : public Device {
 	
 	private:
-		/* The type of the led defined by the enumerate LED_TYPE */
+		/** Type of the led defined by the enumerate LED_TYPE */
 		LedType _ledType;
 
-		/* The Arduino pin connected do led's red pin */
+		/** Arduino pin connected do led's red pin */
 		uint8_t _redPin;
-		/* The Arduino pin connected to led's green pin */
+		/** Arduino pin connected to led's green pin */
 		uint8_t _greenPin;
-		/* The Arduino pin connected to led's blue pin */
+		/** Arduino pin connected to led's blue pin */
 		uint8_t _bluePin;
 
 	public:
-		/* Makes a RGBLed object that exposes the API to interact with a COMMON CATODE RGB led
-		@param redPin	- The Arduino pin connected do led's red pin
-		@param greenPin - The Arduino pin connected to led's green pin
-		@param bluePin	- The Arduino pin connected to led's blue pin
+		/** Constructor for a COMMON CATODE RGBLed
+		@param redPin	Arduino pin connected do led's red pin
+		@param greenPin Arduino pin connected to led's green pin
+		@param bluePin	Arduino pin connected to led's blue pin
 		*/
 		RGBLed(IN uint8_t redPin, IN uint8_t greenPin, IN uint8_t bluePin);
 
-		/* Makes a RGBLed object that exposes the API 
-		@param redPin	- The Arduino pin connected do led's red pin
-		@param greenPin - The Arduino pin connected to led's green pin
-		@param bluePin	- The Arduino pin connected to led's blue pin
-		@param ledType	- The type of the LED's inners
+		/** Constructor
+		@param redPin	Arduino pin connected do led's red pin
+		@param greenPin Arduino pin connected to led's green pin
+		@param bluePin	Arduino pin connected to led's blue pin
+		@param ledType	Type of the RGB led
 		*/
 		RGBLed(IN uint8_t redPin, IN uint8_t greenPin, IN uint8_t bluePin, IN LedType ledType);
 
-		/* Destroys a RGBLed object that exposes the API and frees the resources*/
+		/* Destructor */
 		~RGBLed();
 
 	#pragma region Public Device API Methods
@@ -87,23 +87,23 @@ namespace Easyuino {
 
 	#pragma region Public RGBLed API Methods 
 
-		/* Led emits no light when turned off. It can be lit again using setColor methods. */
+		/** Turns off the led. It can be lit again using any setColor() methods. */
 		void turnOff();
 
-		/* Set the led's color based on the RGB coded 
-		@param red		- Red value		(0-255)	
-		@param green	- Green value	(0-255)
-		@param blue		- Blue value	(0-255)
+		/** Set the led's color based on the RGB code 
+		@param red		Red value	(0-255)	
+		@param green	Green value	(0-255)
+		@param blue		Blue value	(0-255)
 		*/
 		void setColor(IN uint8_t red, IN uint8_t green, IN uint8_t blue);
 
-		/* Set the led's color based on the hexadecimal color code used in web context
-		@param hexadecimalCode - String that represents a valid hexadecimal color code (e.g: "#ffffff" to red color)
+		/** Set the led's color based on the hexadecimal color code (highly used in web development)
+		@param hexadecimalCode	String that represents a valid hexadecimal color code (e.g: "#ffffff" to red color)
 		*/
 		void setColor(IN char hexadecimalColoCode[8]);
 
-		/* Set the led's color based in a set o pre defined colors
-		@param color - Enum value that represents the wanted color
+		/** Set the led's color based in a set o pre defined colors
+		@param color Value that represents the color
 		*/
 		void setColor(IN Color color);
 

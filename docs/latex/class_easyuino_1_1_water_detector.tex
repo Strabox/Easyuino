@@ -12,15 +12,13 @@ Inheritance diagram for Easyuino\+:\+:Water\+Detector\+:\begin{figure}[H]
 \mbox{\Hypertarget{class_easyuino_1_1_water_detector_a33690612b2b89efcfb97d4967b16c617}\label{class_easyuino_1_1_water_detector_a33690612b2b89efcfb97d4967b16c617}} 
 {\bfseries Water\+Detector} (IN uint8\+\_\+t digital\+Pin, IN uint8\+\_\+t analog\+Pin)
 \item 
-\mbox{\Hypertarget{class_easyuino_1_1_water_detector_af7a0ec32d6abcb8c1060f493525d5228}\label{class_easyuino_1_1_water_detector_af7a0ec32d6abcb8c1060f493525d5228}} 
-bool {\bfseries begin} ()
-\item 
+bool \hyperlink{class_easyuino_1_1_water_detector_af7a0ec32d6abcb8c1060f493525d5228}{begin} ()
+\begin{DoxyCompactList}\small\item\em Used to put the device ready to receive requests. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_easyuino_1_1_water_detector_a06ac56298c56026691d7d6a9dbb63748}\label{class_easyuino_1_1_water_detector_a06ac56298c56026691d7d6a9dbb63748}} 
 bool {\bfseries begin} (IN uint8\+\_\+t digital\+Pin\+Trigger\+Level)
 \item 
-\mbox{\Hypertarget{class_easyuino_1_1_water_detector_a9c1473536f47b2a7d8e1f8fb1bf5f3fd}\label{class_easyuino_1_1_water_detector_a9c1473536f47b2a7d8e1f8fb1bf5f3fd}} 
-void {\bfseries end} ()
-\item 
+void \hyperlink{class_easyuino_1_1_water_detector_a9c1473536f47b2a7d8e1f8fb1bf5f3fd}{end} ()
+\begin{DoxyCompactList}\small\item\em Used to stop the device A\+PI. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_easyuino_1_1_water_detector_a0dfefd3b3aa2ed21f30ceb8041a8652a}\label{class_easyuino_1_1_water_detector_a0dfefd3b3aa2ed21f30ceb8041a8652a}} 
 Water\+Status {\bfseries get\+Water\+Status} ()
 \item 
@@ -33,7 +31,40 @@ bool {\bfseries is\+Water\+Detected} ()
 \subsection*{Additional Inherited Members}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_water_detector_af7a0ec32d6abcb8c1060f493525d5228}\label{class_easyuino_1_1_water_detector_af7a0ec32d6abcb8c1060f493525d5228}} 
+\index{Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}!begin@{begin}}
+\index{begin@{begin}!Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}}
+\subsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily bool Easyuino\+::\+Water\+Detector\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Used to put the device ready to receive requests. 
+
+Normally this have some default behaviour some devices have other overload method with same name that receives other arguments to device customization. \begin{DoxyReturn}{Returns}
+True\+: If the device was initialized. False\+: Otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_easyuino_1_1_device_a2e7bb2fec849719a9d9432b57cdb72ba}{Easyuino\+::\+Device}.
+
+\mbox{\Hypertarget{class_easyuino_1_1_water_detector_a9c1473536f47b2a7d8e1f8fb1bf5f3fd}\label{class_easyuino_1_1_water_detector_a9c1473536f47b2a7d8e1f8fb1bf5f3fd}} 
+\index{Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}!end@{end}}
+\index{end@{end}!Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}}
+\subsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void Easyuino\+::\+Water\+Detector\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Used to stop the device A\+PI. 
+
+After this the the device will not process A\+PI requests. 
+
+Implements \hyperlink{class_easyuino_1_1_device_ab31018ef64adc84aa2ea575b2297548f}{Easyuino\+::\+Device}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/Water\+Detector.\+h\item 
-src/main/\+Water\+Detector/Water\+Detector.\+cpp\end{DoxyCompactItemize}
+src/Water\+Detector.\+h\end{DoxyCompactItemize}

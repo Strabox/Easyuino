@@ -18,12 +18,10 @@ Inheritance diagram for Easyuino\+:\+:G\+S\+M\+Service\+:\begin{figure}[H]
 \mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a49dd695dba030b168464f620c3d96ee0}\label{class_easyuino_1_1_g_s_m_service_a49dd695dba030b168464f620c3d96ee0}} 
 bool {\bfseries begin} (IN unsigned long gsm\+Module\+Baud\+Rate)
 \item 
-\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_aeafc2dae47e4b13e127eb228a0f7ff6a}\label{class_easyuino_1_1_g_s_m_service_aeafc2dae47e4b13e127eb228a0f7ff6a}} 
-bool {\bfseries begin} ()
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a05bef783773776ec209608aa81d1ff45}\label{class_easyuino_1_1_g_s_m_service_a05bef783773776ec209608aa81d1ff45}} 
-void {\bfseries end} ()
-\item 
+bool \hyperlink{class_easyuino_1_1_g_s_m_service_aeafc2dae47e4b13e127eb228a0f7ff6a}{begin} ()
+\begin{DoxyCompactList}\small\item\em Used to put the device ready to receive requests. \end{DoxyCompactList}\item 
+void \hyperlink{class_easyuino_1_1_g_s_m_service_a05bef783773776ec209608aa81d1ff45}{end} ()
+\begin{DoxyCompactList}\small\item\em Used to stop the device A\+PI. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_ad5bd54c7dfcc402df0fac92c88e07c6e}\label{class_easyuino_1_1_g_s_m_service_ad5bd54c7dfcc402df0fac92c88e07c6e}} 
 G\+S\+M\+Request\+Status {\bfseries turn\+On} ()
 \item 
@@ -39,7 +37,7 @@ G\+S\+M\+Request\+Status {\bfseries set\+Baud\+Rate} (IN unsigned long new\+Baud
 \mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a8fd764ef215a16f676e6e5e4b283b61d}\label{class_easyuino_1_1_g_s_m_service_a8fd764ef215a16f676e6e5e4b283b61d}} 
 G\+S\+M\+Request\+Status {\bfseries begin\+Listen\+For\+S\+MS} ()
 \item 
-\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a4d987881793f811e1a032bc48e5f7861}\label{class_easyuino_1_1_g_s_m_service_a4d987881793f811e1a032bc48e5f7861}} 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a02c2bddace1c87f035f324ae248c4f1d}\label{class_easyuino_1_1_g_s_m_service_a02c2bddace1c87f035f324ae248c4f1d}} 
 virtual G\+S\+M\+Request\+Status {\bfseries available\+S\+MS} (O\+UT \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} \&message, O\+UT bool \&sms\+Read)
 \item 
 \mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_ae860cc330ef552c733d9ab4a5c2fd366}\label{class_easyuino_1_1_g_s_m_service_ae860cc330ef552c733d9ab4a5c2fd366}} 
@@ -60,7 +58,40 @@ G\+S\+M\+Request\+Status {\bfseries delete\+All\+Sent\+And\+Read\+S\+MS} ()
 \subsection*{Additional Inherited Members}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_aeafc2dae47e4b13e127eb228a0f7ff6a}\label{class_easyuino_1_1_g_s_m_service_aeafc2dae47e4b13e127eb228a0f7ff6a}} 
+\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}!begin@{begin}}
+\index{begin@{begin}!Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+\subsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily bool Easyuino\+::\+G\+S\+M\+Service\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Used to put the device ready to receive requests. 
+
+Normally this have some default behaviour some devices have other overload method with same name that receives other arguments to device customization. \begin{DoxyReturn}{Returns}
+True\+: If the device was initialized. False\+: Otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_easyuino_1_1_device_a2e7bb2fec849719a9d9432b57cdb72ba}{Easyuino\+::\+Device}.
+
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a05bef783773776ec209608aa81d1ff45}\label{class_easyuino_1_1_g_s_m_service_a05bef783773776ec209608aa81d1ff45}} 
+\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}!end@{end}}
+\index{end@{end}!Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+\subsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void Easyuino\+::\+G\+S\+M\+Service\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Used to stop the device A\+PI. 
+
+After this the the device will not process A\+PI requests. 
+
+Implements \hyperlink{class_easyuino_1_1_device_ab31018ef64adc84aa2ea575b2297548f}{Easyuino\+::\+Device}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/G\+S\+M\+Service.\+h\item 
-src/main/\+G\+S\+M/G\+S\+M\+Service.\+cpp\end{DoxyCompactItemize}
+src/G\+S\+M\+Service.\+h\end{DoxyCompactItemize}

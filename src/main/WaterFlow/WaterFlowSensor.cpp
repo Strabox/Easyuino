@@ -67,10 +67,11 @@ namespace Easyuino {
 			res = false;
 		}
 		enablePulseCounting();
-		return res;
+		return !res;
 	}
 
 	void WaterFlowSensor::enablePulseCounting() {
+		/* My sensor works on falling. See if there are sensors that work on rising. */
 		attachInterrupt(digitalPinToInterrupt(_sensorPin), InterruptCaller, FALLING);
 	}
 

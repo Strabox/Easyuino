@@ -30,25 +30,36 @@ WaterFlowMeter.h
 #include "Utilities.h"
 #include "WaterFlowSensor.h"
 
+/** Minimum time between the flow rates update. Necessary to create a window of analysis otherwise
+many measurements in small space time would be difficult to calculate due to the small window time. Arduino goes around
+loop function faster than the turbine. (Default 1 Sec)*/
+#define MIN_TIME_BETWEEN_UPDATES 1000
+
 namespace Easyuino {
 
-	/*
-	WaterFlowMeter API provides the same as WaterFlowSensor plus a bonus to 
-	know how much water is flowing and how much water flown since the begining.
+	/** WaterFlowMeter API extends the WaterFlowSensor API adding the possiblity to know how much water
+	is flowing and how much have flown in total.
+	@see Devices Supported:	 YF-DN40
+	@see Devices Tested:	 YF-DN40
 	*/
 	class WaterFlowMeter : public WaterFlowSensor {
 
 	private:
-		/* Number of pulses per second per liters/minute that the sensor does */
+		/** Calibration factor that comes with the sensor (e.g: 0.2 in case of YF-DN40) */
 		float _sensorCalibrationFactor;
-		/* */
+		/** Timestamp with the last time API checked the flow rate */
 		unsigned long _lastCheckTimestamp;
-		/* */
-		float _flowRate;
+		/** The flow rate calculated when updateFlowRate() was called */
+		volatile float _flowRate;
 
 	public:
-		WaterFlowMeter(IN uint8_t sensorPin);
+		/** Constructor
+		@param sensorPin				Arduino pin connected to the sensor pulse pin
+		@param sensorCalibrationFactor	Calibration factor that comes with the sensor (e.g: 0.2 in case of YF-DN40)
+		*/
+		WaterFlowMeter(IN uint8_t sensorPin, IN float sensorCalibrationFactor);
 
+		/** Destructor */
 		~WaterFlowMeter();
 
 		bool begin();
@@ -57,9 +68,15 @@ namespace Easyuino {
 
 		bool isFlowing();
 
+		/**
+
+		*/
 		void updateFlowRate();
 
-		float getFlowRate();
+		/**
+
+		*/
+		float getFlowRate() const;
 
 	};
 

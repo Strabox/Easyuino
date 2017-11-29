@@ -1,0 +1,15 @@
+This guide has the steps/checklist to do in order to release a new Easyuino version.
+
+Note: I Would like to automatize this (with batch scripts or a build tool JENKINS???)
+but for now I will go like this while this doesn't take off the ground.
+
+1. Update Keywords.txt and README.md IF there are new things or changes in the public API.
+2. Update .travis.yml IF there are new things to add into CI (e.g: new examples files to build).
+3. Update the Easyuino version to the new one in library.properties.
+4. Update the Easyuino version to the new one in Doxyfile.
+5. Run the Doxygen with Doxyfile to generate the documentation into the /docs folder.
+6. Run the visual studio line endings plugin on the solution to put all the files with Unix style.
+7. Commit (DON'T forget close github issues in the commit message if there are any).
+8. Push/Sync to the remote branch.
+9. Merge the remote branch with master branch IF travis build pass.
+10. RELEASE DONE!!

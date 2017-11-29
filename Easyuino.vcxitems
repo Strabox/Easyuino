@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <!-- <ClInclude Include="$(MSBuildThisFileDirectory)Easyuino.h" /> -->
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main\Button\Button.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\main\GSM\GSMService.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\main\GSM\GSMServiceSecure.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\main\GSM\SMS.cpp" />
@@ -52,6 +53,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)src\DistanceMeterPrintable.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\InfraRedReceiver.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\tests\WaterDetectorTest.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\Button.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\WaterDetector.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\Relay.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\RelayNamed.h" />
@@ -76,14 +78,11 @@
     </None>
     <None Include="$(MSBuildThisFileDirectory).travis.yml" />
     <None Include="$(MSBuildThisFileDirectory)Doxyfile" />
-    <None Include="$(MSBuildThisFileDirectory)examples\Display\.gitkeep" />
-    <None Include="$(MSBuildThisFileDirectory)examples\Communication\GSMService\GSMServiceExample.ino" />
-    <None Include="$(MSBuildThisFileDirectory)examples\Communication\GSMServiceSecure\GSMServiceSecureExample.ino" />
-    <None Include="$(MSBuildThisFileDirectory)examples\InfraRedReceiver\.gitkeep" />
+    <None Include="$(MSBuildThisFileDirectory)extras\.gitkeep" />
     <None Include="$(MSBuildThisFileDirectory)LICENSE" />
     <None Include="$(MSBuildThisFileDirectory)README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="$(MSBuildThisFileDirectory)examples\Led\RGBLed\RGBLedCircuit.jpg" />
+    <Image Include="$(MSBuildThisFileDirectory)examples\RGBLedCircuit.jpg" />
   </ItemGroup>
 </Project>

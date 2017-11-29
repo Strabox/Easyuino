@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['updatedistance',['updateDistance',['../class_easyuino_1_1_distance_meter_accurate.html#af7c43ebaa1ae75db2f806dc7039c8a82',1,'Easyuino::DistanceMeterAccurate']]]
+  ['calculatedistance',['calculateDistance',['../class_easyuino_1_1_distance_meter_non_block.html#aa51eb173540f65e000189ac7137e699a',1,'Easyuino::DistanceMeterNonBlock']]]
 ];

@@ -15,12 +15,10 @@ Inheritance diagram for Easyuino\+:\+:R\+G\+B\+Led\+:\begin{figure}[H]
 \mbox{\Hypertarget{class_easyuino_1_1_r_g_b_led_a85c5af3b8b5288d7b45eabcf4fc71aba}\label{class_easyuino_1_1_r_g_b_led_a85c5af3b8b5288d7b45eabcf4fc71aba}} 
 {\bfseries R\+G\+B\+Led} (IN uint8\+\_\+t red\+Pin, IN uint8\+\_\+t green\+Pin, IN uint8\+\_\+t blue\+Pin, IN Led\+Type led\+Type)
 \item 
-\mbox{\Hypertarget{class_easyuino_1_1_r_g_b_led_abdc3512266c7f584609147fccc1ec816}\label{class_easyuino_1_1_r_g_b_led_abdc3512266c7f584609147fccc1ec816}} 
-bool {\bfseries begin} ()
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_r_g_b_led_ad0e9fb0da405c537e876c8a2dc22246e}\label{class_easyuino_1_1_r_g_b_led_ad0e9fb0da405c537e876c8a2dc22246e}} 
-void {\bfseries end} ()
-\item 
+bool \hyperlink{class_easyuino_1_1_r_g_b_led_abdc3512266c7f584609147fccc1ec816}{begin} ()
+\begin{DoxyCompactList}\small\item\em Used to put the device ready to receive requests. \end{DoxyCompactList}\item 
+void \hyperlink{class_easyuino_1_1_r_g_b_led_ad0e9fb0da405c537e876c8a2dc22246e}{end} ()
+\begin{DoxyCompactList}\small\item\em Used to stop the device A\+PI. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_easyuino_1_1_r_g_b_led_a100140fa6d32e190f68cdc1e24c3aba0}\label{class_easyuino_1_1_r_g_b_led_a100140fa6d32e190f68cdc1e24c3aba0}} 
 void {\bfseries turn\+Off} ()
 \item 
@@ -36,7 +34,40 @@ void {\bfseries set\+Color} (IN Color color)
 \subsection*{Additional Inherited Members}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_r_g_b_led_abdc3512266c7f584609147fccc1ec816}\label{class_easyuino_1_1_r_g_b_led_abdc3512266c7f584609147fccc1ec816}} 
+\index{Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}!begin@{begin}}
+\index{begin@{begin}!Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}}
+\subsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily bool Easyuino\+::\+R\+G\+B\+Led\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Used to put the device ready to receive requests. 
+
+Normally this have some default behaviour some devices have other overload method with same name that receives other arguments to device customization. \begin{DoxyReturn}{Returns}
+True\+: If the device was initialized. False\+: Otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_easyuino_1_1_device_a2e7bb2fec849719a9d9432b57cdb72ba}{Easyuino\+::\+Device}.
+
+\mbox{\Hypertarget{class_easyuino_1_1_r_g_b_led_ad0e9fb0da405c537e876c8a2dc22246e}\label{class_easyuino_1_1_r_g_b_led_ad0e9fb0da405c537e876c8a2dc22246e}} 
+\index{Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}!end@{end}}
+\index{end@{end}!Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}}
+\subsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void Easyuino\+::\+R\+G\+B\+Led\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Used to stop the device A\+PI. 
+
+After this the the device will not process A\+PI requests. 
+
+Implements \hyperlink{class_easyuino_1_1_device_ab31018ef64adc84aa2ea575b2297548f}{Easyuino\+::\+Device}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/R\+G\+B\+Led.\+h\item 
-src/main/\+Led/R\+G\+B\+Led.\+cpp\end{DoxyCompactItemize}
+src/R\+G\+B\+Led.\+h\end{DoxyCompactItemize}

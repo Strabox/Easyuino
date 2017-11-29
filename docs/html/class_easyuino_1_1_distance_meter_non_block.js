@@ -10,5 +10,5 @@ var class_easyuino_1_1_distance_meter_non_block =
     [ "getDistanceCentimeters", "class_easyuino_1_1_distance_meter_non_block.html#a00419fc2c2ff7c587735063971aa7464", null ],
     [ "isUpdateDistanceNonBlockTimeout", "class_easyuino_1_1_distance_meter_non_block.html#a88f2b7e249345b93a8258ae5c7b75a49", null ],
     [ "updateDistance", "class_easyuino_1_1_distance_meter_non_block.html#a4ea37c6c0562a76cd03636db329743f9", null ],
-    [ "updateDistanceNonBlock", "class_easyuino_1_1_distance_meter_non_block.html#a5cfeac9309d045a5eba22d8955e376b6", null ]
+    [ "updateDistanceNonBlock", "class_easyuino_1_1_distance_meter_non_block.html#ac7163baab744f1393bab3841de0170d4", null ]
 ];

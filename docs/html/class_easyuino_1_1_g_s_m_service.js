@@ -3,7 +3,7 @@ var class_easyuino_1_1_g_s_m_service =
     [ "GSMService", "class_easyuino_1_1_g_s_m_service.html#ad8700c921a8f3ce267369e9843853be1", null ],
     [ "GSMService", "class_easyuino_1_1_g_s_m_service.html#ab856f1ecdb47de6b13f186bea7c69ce2", null ],
     [ "~GSMService", "class_easyuino_1_1_g_s_m_service.html#afacd5511768214c79ae02dc16b07e32f", null ],
-    [ "availableSMS", "class_easyuino_1_1_g_s_m_service.html#a4d987881793f811e1a032bc48e5f7861", null ],
+    [ "availableSMS", "class_easyuino_1_1_g_s_m_service.html#a02c2bddace1c87f035f324ae248c4f1d", null ],
     [ "begin", "class_easyuino_1_1_g_s_m_service.html#a49dd695dba030b168464f620c3d96ee0", null ],
     [ "begin", "class_easyuino_1_1_g_s_m_service.html#aeafc2dae47e4b13e127eb228a0f7ff6a", null ],
     [ "beginListenForSMS", "class_easyuino_1_1_g_s_m_service.html#a8fd764ef215a16f676e6e5e4b283b61d", null ],

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['manualtest',['ManualTest',['../class_manual_test.html',1,'']]]
+  ['easyuino',['Easyuino',['../namespace_easyuino.html',1,'']]],
+  ['end',['end',['../class_easyuino_1_1_device.html#ab31018ef64adc84aa2ea575b2297548f',1,'Easyuino::Device::end()'],['../class_easyuino_1_1_distance_meter.html#a8a818cc922418ae5a078193dbfab1e6b',1,'Easyuino::DistanceMeter::end()'],['../class_easyuino_1_1_distance_meter_non_block.html#a845d4db657ff408205d1cdb3c35982a4',1,'Easyuino::DistanceMeterNonBlock::end()'],['../class_easyuino_1_1_g_s_m_service.html#a05bef783773776ec209608aa81d1ff45',1,'Easyuino::GSMService::end()'],['../class_easyuino_1_1_relay.html#a2b57237c996a6ffe8e900ae273bce9d4',1,'Easyuino::Relay::end()'],['../class_easyuino_1_1_r_g_b_led.html#ad0e9fb0da405c537e876c8a2dc22246e',1,'Easyuino::RGBLed::end()'],['../class_easyuino_1_1_seven_segments.html#afea49385382a7b9c597b4fe42a003fee',1,'Easyuino::SevenSegments::end()'],['../class_easyuino_1_1_water_detector.html#a9c1473536f47b2a7d8e1f8fb1bf5f3fd',1,'Easyuino::WaterDetector::end()'],['../class_easyuino_1_1_water_flow_meter.html#a47024d4da9568e42743a875c08c33121',1,'Easyuino::WaterFlowMeter::end()'],['../class_easyuino_1_1_water_flow_sensor.html#a7f31ac7735b049394d34cfbc37f17359',1,'Easyuino::WaterFlowSensor::end()']]],
+  ['executeupdatedistanceblock',['executeUpdateDistanceBlock',['../class_easyuino_1_1_distance_meter.html#a4e02477669d61a3a7afb7deb9c53cf17',1,'Easyuino::DistanceMeter']]]
 ];
