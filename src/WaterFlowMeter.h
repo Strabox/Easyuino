@@ -30,32 +30,30 @@ WaterFlowMeter.h
 #include "Utilities.h"
 #include "WaterFlowSensor.h"
 
-/** Minimum time between the flow rates update. Necessary to create a window of analysis otherwise
-many measurements in small space time would be difficult to calculate due to the small window time. Arduino goes around
-loop function faster than the turbine. (Default 1 Sec)*/
-#define MIN_TIME_BETWEEN_UPDATES 1000
-
 namespace Easyuino {
 
 	/** WaterFlowMeter API extends the WaterFlowSensor API adding the possiblity to know how much water
 	is flowing and how much have flown in total.
+	@see Limitation:		This allows ONLY 1 instance of WaterFlowMeter per sketch!!
 	@see Devices Supported:	 YF-DN40
 	@see Devices Tested:	 YF-DN40
 	*/
 	class WaterFlowMeter : public WaterFlowSensor {
 
 	private:
-		/** Calibration factor that comes with the sensor (e.g: 0.2 in case of YF-DN40) */
+		/** Calibration factor that comes with the sensor specs (e.g: 0.2 in case of YF-DN40) */
 		float _sensorCalibrationFactor;
-		/** Timestamp with the last time API checked the flow rate */
-		unsigned long _lastCheckTimestamp;
-		/** The flow rate calculated when updateFlowRate() was called */
-		volatile float _flowRate;
+		
+		/** The flow rate calculated when updateFlow() was called, if it is called frequently this value will be accurate. */
+		float _currentFlowRate;
+		/** Accumulates the liters that flowed through the sensor */
+		float _totalAmountFlowedLiters;
 
 	public:
 		/** Constructor
 		@param sensorPin				Arduino pin connected to the sensor pulse pin
-		@param sensorCalibrationFactor	Calibration factor that comes with the sensor (e.g: 0.2 in case of YF-DN40)
+		@param sensorCalibrationFactor	Calibration factor that comes with the sensor specs, necessary for a good
+										calculation of the flow rate and the total amount flowed (e.g: 0.2 in case of YF-DN40)
 		*/
 		WaterFlowMeter(IN uint8_t sensorPin, IN float sensorCalibrationFactor);
 
@@ -66,17 +64,20 @@ namespace Easyuino {
 
 		void end();
 
-		bool isFlowing();
+		void updateFlow();
 
-		/**
-
-		*/
-		void updateFlowRate();
-
-		/**
-
+		/** Returns the current flow rate that is passing through the flow meter.
+		@return flowRate (Liters/min) The current flow rate.
 		*/
 		float getFlowRate() const;
+
+		/** Returns the current total amount of liters that flowed throudh the flow meter.
+		@return totalAmountFlowed (Liters) The total amount flowed through the meter.
+		*/
+		float getTotalAmountFlowedLiters() const;
+
+		/** Resets the total amount flowed through the meter putting it at 0. */
+		void resetTotalAmountFlowed();
 
 	};
 

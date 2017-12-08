@@ -33,9 +33,9 @@ SevenSegments.h
 
 namespace Easyuino {
 
-	/** API
-	@see Devices Supported:	 TM1637
-	@see Devices Tested:	 TM1637
+	/** SevenSegments API is used to interact with seven segments displays.
+	@see Devices Supported:	 TM1637 Driver
+	@see Devices Tested:	 TM1637 Driver
 	*/
 	class SevenSegments : public Device {
 
@@ -49,32 +49,52 @@ namespace Easyuino {
 		SevenSegments(IN uint8_t clkPin, IN uint8_t dataPin);
 
 		bool begin();
-
+		
+		/**
+		
+		*/
 		bool begin(IN uint8_t brightness);
 
 		void end();
 
-		void setBrightness(IN uint8_t brightness);
-
-		void print(IN uint8_t num, IN uint8_t position);
-
-		void print(IN unsigned int num);
-
-		void print(IN int num);
-
-		void print(IN const char* string);
-
-	protected:
 		/**
 		
 		*/
-		void sendByte(IN uint8_t byte);
+		void setBrightness(IN uint8_t brightness);
+
+		/**
+		
+		*/
+		void print(IN uint8_t num, IN uint8_t position);
+
+		/**
+		
+		*/
+		void print(IN unsigned int num);
+
+		/**
+		
+		*/
+		void print(IN int num);
+
+		/**
+		
+		*/
+		void print(IN const char* string);
 
 	private:
+		/**
+
+		*/
+		void sendByte(IN uint8_t byte);
+		
+		/** */
 		void start();
 
+		/** */
 		void stop();
 
+		/** */
 		void microDelay();
 
 	};

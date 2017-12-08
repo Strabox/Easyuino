@@ -34,12 +34,16 @@ The Easyuino library has 4 fundamental goals:
 ### Currently Supported
 
 - RGB Led
-- Seven Segments Display
-- Ultrasonic Module
-- GSM Module (currently only SMS services)
+- Seven Segments Display [Hardware Supported: TM1637 Driver]
+- Ultrasonic Module [Hardware Supported: HC-SR03, HC-SR04, HC-SR05]
+- Buttons
 - Relay Module 
 - Water Detector Sensor
-- Water Flow Sensor (Can be used for air, gas and more)
+- Water Flow Sensor/Meter (Can be used for air and other fluids) [Hardware Supported: YF-DN40]
+- GSM Module (currently SMS services only) [Hardware Supported: GSM900 Chipset]
+
+**Note:** The hardware devices supported could be more than the specified. I only put there the tested ones.
+**Note2:** The devices that doesn't have [Hardware supported] tag it is due to its simplicity.
 
 ### Under Development
 
@@ -115,6 +119,10 @@ The maintenance/development of the library, including fixes and addition of new 
 
 Contact Channels:
 - Email: easyuino@gmail.com
+
+## Contributing
+
+TODO
 
 ## Important Features (Advanced)
 

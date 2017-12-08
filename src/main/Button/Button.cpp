@@ -25,8 +25,8 @@ SOFTWARE.
 
 namespace Easyuino {
 
-	Button::Button(IN uint8_t touchPin) : Device() {
-		_touchPin = touchPin;
+	Button::Button(IN uint8_t buttonPin) : Device() {
+		_buttonPin = buttonPin;
 		_lastState = _currentState = LOW;
 		_lastReadTimestamp = millis();
 	}
@@ -35,7 +35,7 @@ namespace Easyuino {
 
 	bool Button::begin() {
 		if (!_isInitialized) {
-			pinMode(_touchPin, INPUT);
+			pinMode(_buttonPin, INPUT);
 			_isInitialized = true;
 		}
 		return _isInitialized;
@@ -48,7 +48,7 @@ namespace Easyuino {
 	}
 
 	bool Button::isPressed() {
-		uint8_t readingState = digitalRead(_touchPin);
+		uint8_t readingState = digitalRead(_buttonPin);
 		bool res;
 
 		if (readingState != _lastState) {
@@ -63,7 +63,26 @@ namespace Easyuino {
 
 		}
 		_lastState = readingState;
-		return _currentState == HIGH;
+		return _currentState == BUTTON_PRESSED_DIGITAL_LEVEL;
 	}
+
+	unsigned long Button::getPressedTimeMilliseconds() {
+		if (isPressed()) {
+			return millis() - _lastReadTimestamp;
+		}
+		else {
+			return 0;
+		}
+	}
+
+	unsigned int Button::getPressedTimeSeconds() {
+		if (isPressed()) {
+			return (millis() - _lastReadTimestamp) / 1000;
+		}
+		else {
+			return 0;
+		}
+	}
+
 
 };

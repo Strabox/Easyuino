@@ -19,6 +19,13 @@ ZeroBuffer								KEYWORD2
 OverrideLastStringChar					KEYWORD2
 OverrideLastTwoChar						KEYWORD2
 ##################################################
+#					 Button     				 #
+##################################################
+Button									KEYWORD1
+isPressed								KEYWORD2
+getPressedTimeMilliseconds				KEYWORD2
+getPressedTimeSeconds					KEYWORD2
+##################################################
 #					 RGBLed     				 #
 ##################################################
 RGBLed									KEYWORD1
@@ -75,6 +82,19 @@ WET										LITERAL1
 FLOOD									LITERAL1
 INVALID									LITERAL1
 NOT_INITIALIZED							LITERAL1
+##################################################
+#				    WaterFlowSensor    		     #
+##################################################
+WaterFlowSensor							KEYWORD1
+updateFlow								KEYWORD2
+isFlowing								KEYWORD2
+##################################################
+#				    WaterFlowMeter    			 #
+##################################################
+WaterFlowMeter							KEYWORD1
+getFlowRate								KEYWORD2
+getTotalAmountFlowedLiters				KEYWORD2
+resetTotalAmountFlowed					KEYWORD2
 ##################################################
 #				     GSMService     		     #
 ##################################################

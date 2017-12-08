@@ -27,7 +27,7 @@ namespace Easyuino {
 
 	WaterFlowSensor* WaterFlowSensor::Singleton;
 
-	WaterFlowSensor::WaterFlowSensor(IN uint8_t sensorPin) {
+	WaterFlowSensor::WaterFlowSensor(IN uint8_t sensorPin) : Device() {
 		_sensorPin = sensorPin;
 		if (Singleton != NULL) {
 			delete Singleton;
@@ -42,40 +42,51 @@ namespace Easyuino {
 	bool WaterFlowSensor::begin() {
 		if (!_isInitialized) {
 			pinMode(_sensorPin, INPUT);
-			digitalWrite(_sensorPin, HIGH);
 			_pulseCounter = 0;
-			enablePulseCounting();
+			_lastFlowUpdateTimestamp = 0;
+			_isFlowing = false;
 			_isInitialized = true;
+			enablePulseCounting();
 		}
 		return _isInitialized;
 	}
 
 	void WaterFlowSensor::end() {
 		if (_isInitialized) {
-			disablePulseCouning();
+			disablePulseCounting();
+			_isInitialized = false;
 		}
 	}
 
-	bool WaterFlowSensor::isFlowing() {
-		bool res;
-		disablePulseCouning();
-		if (_pulseCounter == 0) {
-			res =  true;
+	void WaterFlowSensor::updateFlow() {
+		unsigned long currentTime = millis();
+		if (_isInitialized && (currentTime - _lastFlowUpdateTimestamp) > MIN_TIME_BETWEEN_UPDATES) {
+			disablePulseCounting();
+			if (_pulseCounter == 0) {
+				_isFlowing = false;
+			}
+			else {
+				_isFlowing = true;
+				_pulseCounter = 0;
+			}
+			_lastFlowUpdateTimestamp = currentTime;
+			enablePulseCounting();
 		}
-		else {
-			_pulseCounter = 0;
-			res = false;
+	}
+
+	bool WaterFlowSensor::isFlowing() const {
+		if (_isInitialized) {
+			return _isFlowing;
 		}
-		enablePulseCounting();
-		return !res;
+		return false;	//API not initialized
 	}
 
 	void WaterFlowSensor::enablePulseCounting() {
-		/* My sensor works on falling. See if there are sensors that work on rising. */
-		attachInterrupt(digitalPinToInterrupt(_sensorPin), InterruptCaller, FALLING);
+		/* My sensor works on falling. TODO see if there are sensors that work on rising. */
+		attachInterrupt(digitalPinToInterrupt(_sensorPin), WaterFlowSensor::InterruptCaller, FALLING);
 	}
 
-	void WaterFlowSensor::disablePulseCouning() {
+	void WaterFlowSensor::disablePulseCounting() {
 		detachInterrupt(digitalPinToInterrupt(_sensorPin));
 	}
 

@@ -34,8 +34,7 @@ namespace Easyuino {
 
 	bool WaterFlowMeter::begin() {
 		if (!_isInitialized && WaterFlowSensor::begin()) {
-			_lastCheckTimestamp = 0;
-			_flowRate = 0.0f;
+			_totalAmountFlowedLiters = _currentFlowRate = 0.0f;
 			_isInitialized = true;
 		}
 		return _isInitialized;
@@ -44,36 +43,40 @@ namespace Easyuino {
 	void WaterFlowMeter::end() {
 		if (_isInitialized) {
 			WaterFlowSensor::end();
-			_isInitialized = false;
 		}
 	}
 
-	void WaterFlowMeter::updateFlowRate() {
+	void WaterFlowMeter::updateFlow() {
 		unsigned long currentTime = millis();
-		if (_isInitialized && (currentTime - _lastCheckTimestamp) > MIN_TIME_BETWEEN_UPDATES) {
-			disablePulseCouning();
+		if (_isInitialized && (currentTime - _lastFlowUpdateTimestamp) > MIN_TIME_BETWEEN_UPDATES) {
+			disablePulseCounting();
 			// The flow formula: Pulses/Sec(Hz) = (sensorCalibrationFactor * Liters/Min) +- 3%
-			_flowRate = (_pulseCounter / ((currentTime - _lastCheckTimestamp) / 1000.0f))  / _sensorCalibrationFactor;
+			_currentFlowRate = (_pulseCounter / ((currentTime - _lastFlowUpdateTimestamp) / 1000.0f))  / _sensorCalibrationFactor;
+			_totalAmountFlowedLiters += _currentFlowRate * ((currentTime - _lastFlowUpdateTimestamp) / 60000.0f);
 			_pulseCounter = 0;
-			_lastCheckTimestamp = currentTime;
+			_lastFlowUpdateTimestamp = currentTime;
+			if (_currentFlowRate == 0.0f) {
+				_isFlowing = false;
+			}
+			else {
+				_isFlowing = true;
+			}
 			enablePulseCounting();
 		}
 	}
 
-	bool WaterFlowMeter::isFlowing() {
-		if (_isInitialized) {
-			if (_flowRate < 1.0f) {
-				return false;
-			}
-			else {
-				return true;
-			}
-		}
-		return false;	// API not initialized
+	float WaterFlowMeter::getFlowRate() const {
+		return _currentFlowRate;
 	}
 
-	float WaterFlowMeter::getFlowRate() const {
-		return _flowRate;
+	float WaterFlowMeter::getTotalAmountFlowedLiters() const {
+		return _totalAmountFlowedLiters;
+	}
+
+	void WaterFlowMeter::resetTotalAmountFlowed() {
+		if (_isInitialized) {
+			_totalAmountFlowedLiters = 0.0f;
+		}
 	}
 
 };
