@@ -1,0 +1,331 @@
+\hypertarget{class_easyuino_1_1_g_s_m_service}{}\section{Easyuino\+:\+:G\+S\+M\+Service Class Reference}
+\label{class_easyuino_1_1_g_s_m_service}\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+
+
+\hyperlink{class_easyuino_1_1_g_s_m_service}{G\+S\+M\+Service} A\+PI allows to interact with G\+SM boards in order to perform calls, sms management etc.  
+
+
+
+
+{\ttfamily \#include $<$G\+S\+M\+Service.\+h$>$}
+
+Inheritance diagram for Easyuino\+:\+:G\+S\+M\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_easyuino_1_1_g_s_m_service}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_easyuino_1_1_g_s_m_service_ad8700c921a8f3ce267369e9843853be1}{G\+S\+M\+Service} (IN uint8\+\_\+t tx\+Pin, IN uint8\+\_\+t rx\+Pin, IN uint8\+\_\+t power\+Pin, IN Stream \&output\+Stream)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_easyuino_1_1_g_s_m_service_ab856f1ecdb47de6b13f186bea7c69ce2}{G\+S\+M\+Service} (IN uint8\+\_\+t tx\+Pin, IN uint8\+\_\+t rx\+Pin, IN uint8\+\_\+t power\+Pin)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_afacd5511768214c79ae02dc16b07e32f}\label{class_easyuino_1_1_g_s_m_service_afacd5511768214c79ae02dc16b07e32f}} 
+\hyperlink{class_easyuino_1_1_g_s_m_service_afacd5511768214c79ae02dc16b07e32f}{$\sim$\+G\+S\+M\+Service} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+bool \hyperlink{class_easyuino_1_1_g_s_m_service_a49dd695dba030b168464f620c3d96ee0}{begin} (IN unsigned long gsm\+Module\+Baud\+Rate)
+\begin{DoxyCompactList}\small\item\em Initialize the \hyperlink{class_easyuino_1_1_g_s_m_service}{G\+S\+M\+Service} A\+PI make it ready tor receive requests. \end{DoxyCompactList}\item 
+bool \hyperlink{class_easyuino_1_1_g_s_m_service_aeafc2dae47e4b13e127eb228a0f7ff6a}{begin} ()
+\begin{DoxyCompactList}\small\item\em Initialize the \hyperlink{class_easyuino_1_1_g_s_m_service}{G\+S\+M\+Service} A\+PI make it ready tor receive requests It uses the baud rate G\+S\+M\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+TE to initialize the A\+PI. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a05bef783773776ec209608aa81d1ff45}\label{class_easyuino_1_1_g_s_m_service_a05bef783773776ec209608aa81d1ff45}} 
+void \hyperlink{class_easyuino_1_1_g_s_m_service_a05bef783773776ec209608aa81d1ff45}{end} ()
+\begin{DoxyCompactList}\small\item\em Stops the \hyperlink{class_easyuino_1_1_g_s_m_service}{G\+S\+M\+Service} A\+PI making it unable to receive more requests. \end{DoxyCompactList}\item 
+G\+S\+M\+Request\+Status \hyperlink{class_easyuino_1_1_g_s_m_service_ad5bd54c7dfcc402df0fac92c88e07c6e}{turn\+On} ()
+\begin{DoxyCompactList}\small\item\em Turns On the G\+SM module if it is turned Off. \end{DoxyCompactList}\item 
+G\+S\+M\+Request\+Status \hyperlink{class_easyuino_1_1_g_s_m_service_a327c2610c2aa7ba5a54530d87a0d6128}{turn\+Off} ()
+\begin{DoxyCompactList}\small\item\em Turns Off the G\+SM module if it is turned On. \end{DoxyCompactList}\item 
+G\+S\+M\+Request\+Status \hyperlink{class_easyuino_1_1_g_s_m_service_a3595ff12b6e3e5854ed48625b2fa457e}{is\+On} (O\+UT bool \&is\+On)
+\begin{DoxyCompactList}\small\item\em Used to see if the G\+SM module is turned on or off. \end{DoxyCompactList}\item 
+G\+S\+M\+Request\+Status \hyperlink{class_easyuino_1_1_g_s_m_service_a6b6ee723ceaf62bfd9312278b5dbf36d}{set\+Baud\+Rate} (IN unsigned long new\+Baud\+Rate)
+\begin{DoxyCompactList}\small\item\em Set the baud rate of the G\+SM module to a new one. \end{DoxyCompactList}\item 
+G\+S\+M\+Request\+Status \hyperlink{class_easyuino_1_1_g_s_m_service_a8fd764ef215a16f676e6e5e4b283b61d}{begin\+Listen\+For\+S\+MS} ()
+\begin{DoxyCompactList}\small\item\em Start listening for \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} reception. \end{DoxyCompactList}\item 
+virtual G\+S\+M\+Request\+Status \hyperlink{class_easyuino_1_1_g_s_m_service_a02c2bddace1c87f035f324ae248c4f1d}{available\+S\+MS} (O\+UT \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} \&message, O\+UT bool \&sms\+Read)
+\begin{DoxyCompactList}\small\item\em Check if there is a new received \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. \end{DoxyCompactList}\item 
+G\+S\+M\+Request\+Status \hyperlink{class_easyuino_1_1_g_s_m_service_ae860cc330ef552c733d9ab4a5c2fd366}{send\+S\+MS} (IN \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} \&sms)
+\begin{DoxyCompactList}\small\item\em Send a \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} through the G\+SM module. \end{DoxyCompactList}\item 
+G\+S\+M\+Request\+Status \hyperlink{class_easyuino_1_1_g_s_m_service_ad37d83f2a91fbe2e50a11f1d435eccb5}{send\+S\+MS} (IN unsigned long phone\+Number, IN const char $\ast$message, IN unsigned int country\+Prefix\+Code)
+\begin{DoxyCompactList}\small\item\em Send a \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} through the G\+SM module. \end{DoxyCompactList}\item 
+G\+S\+M\+Request\+Status \hyperlink{class_easyuino_1_1_g_s_m_service_aef4379e7c82f275f0af341f79a3b451f}{delete\+All\+S\+MS} ()
+\begin{DoxyCompactList}\small\item\em Delete all the sms in the G\+SM module. \end{DoxyCompactList}\item 
+G\+S\+M\+Request\+Status \hyperlink{class_easyuino_1_1_g_s_m_service_af142e4f7d99cffda9a3598446466cdb3}{delete\+All\+Read\+S\+MS} ()
+\begin{DoxyCompactList}\small\item\em Detele all the messages that were received and read. \end{DoxyCompactList}\item 
+G\+S\+M\+Request\+Status \hyperlink{class_easyuino_1_1_g_s_m_service_a7b457ab0669a8e9c16ab1906cc246365}{delete\+All\+Sent\+And\+Read\+S\+MS} ()
+\begin{DoxyCompactList}\small\item\em Delete all the the messages that were received and read plus the sent ones. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_easyuino_1_1_g_s_m_service}{G\+S\+M\+Service} A\+PI allows to interact with G\+SM boards in order to perform calls, sms management etc. 
+
+\begin{DoxySeeAlso}{See also}
+Devices Supported\+: S\+I\+M90x Series Chipset, S\+I\+M80x Chipset 
+
+Devices Tested\+: S\+I\+M900 Chipset 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_ad8700c921a8f3ce267369e9843853be1}\label{class_easyuino_1_1_g_s_m_service_ad8700c921a8f3ce267369e9843853be1}} 
+\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}!G\+S\+M\+Service@{G\+S\+M\+Service}}
+\index{G\+S\+M\+Service@{G\+S\+M\+Service}!Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+\subsubsection{\texorpdfstring{G\+S\+M\+Service()}{GSMService()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Easyuino\+::\+G\+S\+M\+Service\+::\+G\+S\+M\+Service (\begin{DoxyParamCaption}\item[{IN uint8\+\_\+t}]{tx\+Pin,  }\item[{IN uint8\+\_\+t}]{rx\+Pin,  }\item[{IN uint8\+\_\+t}]{power\+Pin,  }\item[{IN Stream \&}]{output\+Stream }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tx\+Pin} & Arduino pin used to send the serial information to G\+SM module \\
+\hline
+{\em rx\+Pin} & Arduino pin used to receive the serial information from G\+SM module \\
+\hline
+{\em power\+Pin} & Arduino pin used to turn on and off the G\+SM module \\
+\hline
+{\em output\+Stream} & Debug output stream \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_ab856f1ecdb47de6b13f186bea7c69ce2}\label{class_easyuino_1_1_g_s_m_service_ab856f1ecdb47de6b13f186bea7c69ce2}} 
+\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}!G\+S\+M\+Service@{G\+S\+M\+Service}}
+\index{G\+S\+M\+Service@{G\+S\+M\+Service}!Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+\subsubsection{\texorpdfstring{G\+S\+M\+Service()}{GSMService()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Easyuino\+::\+G\+S\+M\+Service\+::\+G\+S\+M\+Service (\begin{DoxyParamCaption}\item[{IN uint8\+\_\+t}]{tx\+Pin,  }\item[{IN uint8\+\_\+t}]{rx\+Pin,  }\item[{IN uint8\+\_\+t}]{power\+Pin }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tx\+Pin} & Arduino pin used to send the serial information to G\+SM module \\
+\hline
+{\em rx\+Pin} & Arduino pin used to receive the serial information from G\+SM module \\
+\hline
+{\em power\+Pin} & Arduino pin used to turn on and off the G\+SM module \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a02c2bddace1c87f035f324ae248c4f1d}\label{class_easyuino_1_1_g_s_m_service_a02c2bddace1c87f035f324ae248c4f1d}} 
+\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}!available\+S\+MS@{available\+S\+MS}}
+\index{available\+S\+MS@{available\+S\+MS}!Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+\subsubsection{\texorpdfstring{available\+S\+M\+S()}{availableSMS()}}
+{\footnotesize\ttfamily virtual G\+S\+M\+Request\+Status Easyuino\+::\+G\+S\+M\+Service\+::available\+S\+MS (\begin{DoxyParamCaption}\item[{O\+UT \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} \&}]{message,  }\item[{O\+UT bool \&}]{sms\+Read }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Check if there is a new received \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. 
+
+If there is it filles the message with the content. 
+\begin{DoxyParams}{Parameters}
+{\em message} & Message reference to be filled by the method if there is a new \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. \\
+\hline
+{\em sms\+Read} & Filled by the A\+PI. True\+: if a \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} was available. False\+: otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+S\+M\+Request\+Status (N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, G\+S\+M\+\_\+\+OK) 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_easyuino_1_1_g_s_m_service_secure_a42177d8a9943f30a2b63f9bc51a5370d}{Easyuino\+::\+G\+S\+M\+Service\+Secure}.
+
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a49dd695dba030b168464f620c3d96ee0}\label{class_easyuino_1_1_g_s_m_service_a49dd695dba030b168464f620c3d96ee0}} 
+\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}!begin@{begin}}
+\index{begin@{begin}!Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+\subsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Easyuino\+::\+G\+S\+M\+Service\+::begin (\begin{DoxyParamCaption}\item[{IN unsigned long}]{gsm\+Module\+Baud\+Rate }\end{DoxyParamCaption})}
+
+
+
+Initialize the \hyperlink{class_easyuino_1_1_g_s_m_service}{G\+S\+M\+Service} A\+PI make it ready tor receive requests. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gsm\+Module\+Baud\+Rate} & Baud rate to communicate with the G\+SM module \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True\+: If begin was success. False\+: Otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_aeafc2dae47e4b13e127eb228a0f7ff6a}\label{class_easyuino_1_1_g_s_m_service_aeafc2dae47e4b13e127eb228a0f7ff6a}} 
+\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}!begin@{begin}}
+\index{begin@{begin}!Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+\subsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Easyuino\+::\+G\+S\+M\+Service\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Initialize the \hyperlink{class_easyuino_1_1_g_s_m_service}{G\+S\+M\+Service} A\+PI make it ready tor receive requests It uses the baud rate G\+S\+M\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+TE to initialize the A\+PI. 
+
+\begin{DoxyReturn}{Returns}
+True\+: If begin was success. False\+: Otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_easyuino_1_1_device_a2e7bb2fec849719a9d9432b57cdb72ba}{Easyuino\+::\+Device}.
+
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a8fd764ef215a16f676e6e5e4b283b61d}\label{class_easyuino_1_1_g_s_m_service_a8fd764ef215a16f676e6e5e4b283b61d}} 
+\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}!begin\+Listen\+For\+S\+MS@{begin\+Listen\+For\+S\+MS}}
+\index{begin\+Listen\+For\+S\+MS@{begin\+Listen\+For\+S\+MS}!Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+\subsubsection{\texorpdfstring{begin\+Listen\+For\+S\+M\+S()}{beginListenForSMS()}}
+{\footnotesize\ttfamily G\+S\+M\+Request\+Status Easyuino\+::\+G\+S\+M\+Service\+::begin\+Listen\+For\+S\+MS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Start listening for \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} reception. 
+
+Necessary for the \hyperlink{class_easyuino_1_1_g_s_m_service_a02c2bddace1c87f035f324ae248c4f1d}{available\+S\+M\+S()} return new S\+M\+Ss. \begin{DoxyReturn}{Returns}
+G\+S\+M\+Request\+Status (N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, G\+S\+M\+\_\+\+OK, G\+S\+M\+\_\+\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+R\+E\+P\+LY, G\+S\+M\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+D\+I\+D\+N\+T\+\_\+\+R\+E\+P\+LY) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_af142e4f7d99cffda9a3598446466cdb3}\label{class_easyuino_1_1_g_s_m_service_af142e4f7d99cffda9a3598446466cdb3}} 
+\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}!delete\+All\+Read\+S\+MS@{delete\+All\+Read\+S\+MS}}
+\index{delete\+All\+Read\+S\+MS@{delete\+All\+Read\+S\+MS}!Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+\subsubsection{\texorpdfstring{delete\+All\+Read\+S\+M\+S()}{deleteAllReadSMS()}}
+{\footnotesize\ttfamily G\+S\+M\+Request\+Status Easyuino\+::\+G\+S\+M\+Service\+::delete\+All\+Read\+S\+MS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Detele all the messages that were received and read. 
+
+\begin{DoxyReturn}{Returns}
+G\+S\+M\+Request\+Statuss (N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, G\+S\+M\+\_\+\+OK, G\+S\+M\+\_\+\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+R\+E\+P\+LY, G\+S\+M\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+D\+I\+D\+N\+T\+\_\+\+R\+E\+P\+LY) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a7b457ab0669a8e9c16ab1906cc246365}\label{class_easyuino_1_1_g_s_m_service_a7b457ab0669a8e9c16ab1906cc246365}} 
+\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}!delete\+All\+Sent\+And\+Read\+S\+MS@{delete\+All\+Sent\+And\+Read\+S\+MS}}
+\index{delete\+All\+Sent\+And\+Read\+S\+MS@{delete\+All\+Sent\+And\+Read\+S\+MS}!Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+\subsubsection{\texorpdfstring{delete\+All\+Sent\+And\+Read\+S\+M\+S()}{deleteAllSentAndReadSMS()}}
+{\footnotesize\ttfamily G\+S\+M\+Request\+Status Easyuino\+::\+G\+S\+M\+Service\+::delete\+All\+Sent\+And\+Read\+S\+MS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Delete all the the messages that were received and read plus the sent ones. 
+
+\begin{DoxyReturn}{Returns}
+G\+S\+M\+Request\+Status (N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, G\+S\+M\+\_\+\+OK, G\+S\+M\+\_\+\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+R\+E\+P\+LY, G\+S\+M\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+D\+I\+D\+N\+T\+\_\+\+R\+E\+P\+LY) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_aef4379e7c82f275f0af341f79a3b451f}\label{class_easyuino_1_1_g_s_m_service_aef4379e7c82f275f0af341f79a3b451f}} 
+\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}!delete\+All\+S\+MS@{delete\+All\+S\+MS}}
+\index{delete\+All\+S\+MS@{delete\+All\+S\+MS}!Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+\subsubsection{\texorpdfstring{delete\+All\+S\+M\+S()}{deleteAllSMS()}}
+{\footnotesize\ttfamily G\+S\+M\+Request\+Status Easyuino\+::\+G\+S\+M\+Service\+::delete\+All\+S\+MS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Delete all the sms in the G\+SM module. 
+
+\begin{DoxyReturn}{Returns}
+G\+S\+M\+Request\+Status (N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, G\+S\+M\+\_\+\+OK, G\+S\+M\+\_\+\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+R\+E\+P\+LY, G\+S\+M\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+D\+I\+D\+N\+T\+\_\+\+R\+E\+P\+LY) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a3595ff12b6e3e5854ed48625b2fa457e}\label{class_easyuino_1_1_g_s_m_service_a3595ff12b6e3e5854ed48625b2fa457e}} 
+\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}!is\+On@{is\+On}}
+\index{is\+On@{is\+On}!Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+\subsubsection{\texorpdfstring{is\+On()}{isOn()}}
+{\footnotesize\ttfamily G\+S\+M\+Request\+Status Easyuino\+::\+G\+S\+M\+Service\+::is\+On (\begin{DoxyParamCaption}\item[{O\+UT bool \&}]{is\+On }\end{DoxyParamCaption})}
+
+
+
+Used to see if the G\+SM module is turned on or off. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+On} & True\+: If G\+SM board is on. False\+: otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+S\+M\+Request\+Status (N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, G\+S\+M\+\_\+\+OK) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_ae860cc330ef552c733d9ab4a5c2fd366}\label{class_easyuino_1_1_g_s_m_service_ae860cc330ef552c733d9ab4a5c2fd366}} 
+\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}!send\+S\+MS@{send\+S\+MS}}
+\index{send\+S\+MS@{send\+S\+MS}!Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+\subsubsection{\texorpdfstring{send\+S\+M\+S()}{sendSMS()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily G\+S\+M\+Request\+Status Easyuino\+::\+G\+S\+M\+Service\+::send\+S\+MS (\begin{DoxyParamCaption}\item[{IN \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} \&}]{sms }\end{DoxyParamCaption})}
+
+
+
+Send a \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} through the G\+SM module. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sms} & Reference of the the filled \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} to be sent by the G\+SM module. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+S\+M\+Request\+Status (N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, G\+S\+M\+\_\+\+OK, G\+S\+M\+\_\+\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+R\+E\+P\+LY, G\+S\+M\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+D\+I\+D\+N\+T\+\_\+\+R\+E\+P\+LY) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_ad37d83f2a91fbe2e50a11f1d435eccb5}\label{class_easyuino_1_1_g_s_m_service_ad37d83f2a91fbe2e50a11f1d435eccb5}} 
+\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}!send\+S\+MS@{send\+S\+MS}}
+\index{send\+S\+MS@{send\+S\+MS}!Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+\subsubsection{\texorpdfstring{send\+S\+M\+S()}{sendSMS()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily G\+S\+M\+Request\+Status Easyuino\+::\+G\+S\+M\+Service\+::send\+S\+MS (\begin{DoxyParamCaption}\item[{IN unsigned long}]{phone\+Number,  }\item[{IN const char $\ast$}]{message,  }\item[{IN unsigned int}]{country\+Prefix\+Code }\end{DoxyParamCaption})}
+
+
+
+Send a \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} through the G\+SM module. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phone\+Number} & Phone number of \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} receipt. \\
+\hline
+{\em message} & The message content to be sent. \\
+\hline
+{\em country\+Prefix\+Code} & The country prefix code of the phone number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+S\+M\+Request\+Status (N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, G\+S\+M\+\_\+\+OK, G\+S\+M\+\_\+\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+R\+E\+P\+LY, G\+S\+M\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+D\+I\+D\+N\+T\+\_\+\+R\+E\+P\+LY) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a6b6ee723ceaf62bfd9312278b5dbf36d}\label{class_easyuino_1_1_g_s_m_service_a6b6ee723ceaf62bfd9312278b5dbf36d}} 
+\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}!set\+Baud\+Rate@{set\+Baud\+Rate}}
+\index{set\+Baud\+Rate@{set\+Baud\+Rate}!Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+\subsubsection{\texorpdfstring{set\+Baud\+Rate()}{setBaudRate()}}
+{\footnotesize\ttfamily G\+S\+M\+Request\+Status Easyuino\+::\+G\+S\+M\+Service\+::set\+Baud\+Rate (\begin{DoxyParamCaption}\item[{IN unsigned long}]{new\+Baud\+Rate }\end{DoxyParamCaption})}
+
+
+
+Set the baud rate of the G\+SM module to a new one. 
+
+After calling this method with success the next time you use the G\+SM module you need to provide this new baud rate in the begin(unsigned long) method. 
+\begin{DoxyParams}{Parameters}
+{\em new\+Baud\+Rate} & New baud rate to communicate with the G\+SM module. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+S\+M\+Request\+Status (N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, G\+S\+M\+\_\+\+OK, G\+S\+M\+\_\+\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+R\+E\+P\+LY, G\+S\+M\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+D\+I\+D\+N\+T\+\_\+\+R\+E\+P\+LY) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_a327c2610c2aa7ba5a54530d87a0d6128}\label{class_easyuino_1_1_g_s_m_service_a327c2610c2aa7ba5a54530d87a0d6128}} 
+\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}!turn\+Off@{turn\+Off}}
+\index{turn\+Off@{turn\+Off}!Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+\subsubsection{\texorpdfstring{turn\+Off()}{turnOff()}}
+{\footnotesize\ttfamily G\+S\+M\+Request\+Status Easyuino\+::\+G\+S\+M\+Service\+::turn\+Off (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Turns Off the G\+SM module if it is turned On. 
+
+\begin{DoxyReturn}{Returns}
+G\+S\+M\+Request\+Status (N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, G\+S\+M\+\_\+\+OK) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_ad5bd54c7dfcc402df0fac92c88e07c6e}\label{class_easyuino_1_1_g_s_m_service_ad5bd54c7dfcc402df0fac92c88e07c6e}} 
+\index{Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}!turn\+On@{turn\+On}}
+\index{turn\+On@{turn\+On}!Easyuino\+::\+G\+S\+M\+Service@{Easyuino\+::\+G\+S\+M\+Service}}
+\subsubsection{\texorpdfstring{turn\+On()}{turnOn()}}
+{\footnotesize\ttfamily G\+S\+M\+Request\+Status Easyuino\+::\+G\+S\+M\+Service\+::turn\+On (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Turns On the G\+SM module if it is turned Off. 
+
+\begin{DoxyReturn}{Returns}
+G\+S\+M\+Request\+Status (N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, G\+S\+M\+\_\+\+OK) 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/G\+S\+M\+Service.\+h\end{DoxyCompactItemize}

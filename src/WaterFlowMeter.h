@@ -28,50 +28,64 @@ WaterFlowMeter.h
 #define _EASYUINO_WATER_FLOW_METER_h
 
 #include "Utilities.h"
-#include "Device.h"
+#include "WaterFlowSensor.h"
+
+/** Minimum time between the flow rates update. Necessary to create a window of analysis otherwise
+many measurements in small space time would be difficult to calculate due to the small window time.
+Arduino goes around loop function much faster than the turbine spings so we need accumulate. (Default/Minimum 1 Sec)*/
+#define MIN_TIME_BETWEEN_UPDATES 1000
 
 namespace Easyuino {
 
-	/*
-	Water flow meter used to 
+	/** WaterFlowMeter API extends the WaterFlowSensor API adding the possiblity to know how much water
+	is flowing and how much have flown in total.
+	@see Limitation:		This allows ONLY 1 instance of WaterFlowMeter per sketch!!
+	@see Devices Supported:	 YF-DN40
+	@see Devices Tested:	 YF-DN40
 	*/
-	class WaterFlowMeter : public Device {
+	class WaterFlowMeter : public WaterFlowSensor {
 
 	private:
-		/* */
-		static WaterFlowMeter* Singleton;
+		/** Calibration factor that comes with the sensor specs (e.g: 0.2 in case of YF-DN40) */
+		float _sensorCalibrationFactor;
 
-		/* */
-		uint8_t _sensorPin;
+		/** The last value calculated by the API. Used to avoid calculate the value multiple times when it didn't change. */
+		float _cachedFlowRate;
+		/** Used to indicate that _cachedFlowRate is dirty making the API use the new measurements to calculate the value. */
+		volatile bool _isDirtyFlowRate;
 
-		/* */
-		float _sensorCalibration;
+		/** The last measurement counter for pulses. Used to calculate the value of flow rate. */
+		volatile unsigned long _previousMeasurementPulses;
+		/** The last measurement exat duration. Used to calculate the value of flow rate. */
+		volatile unsigned long _previousMeasurementDuration;
 
-		unsigned long _lastCheckTimestamp;
-		/* */
-		volatile uint16_t _pulseCounter;
-		/* */
-		float _flowRate;
+		/** The current pulse counter that is being updated */
+		volatile unsigned long _currentMeasurementPulseCounter;
+		/** When the current measurement started */
+		volatile unsigned long _currentMeasurementInitialTimestamp;
 
 	public:
-		WaterFlowMeter(IN uint8_t sensorPin);
+		/** Constructor
+		@param sensorPin				Arduino pin connected to the sensor pulse pin
+		@param sensorCalibrationFactor	Calibration factor that comes with the sensor specs, necessary for a good
+										calculation of the flow rate and the total amount flowed (e.g: 0.2 in case of YF-DN40)
+		*/
+		WaterFlowMeter(IN uint8_t sensorPin, IN float sensorCalibrationFactor);
 
+		/** Destructor */
 		~WaterFlowMeter();
 
 		bool begin();
 
 		void end();
 
-		void updateFlowRate();
+		/** Returns the current flow rate that is passing through the flow meter.
+		@return flowRate (Liters/min) The current flow rate.
+		*/
+		float getFlowRateLitersMin();
 
-		bool isFlowing();
-
-		float getFlowRate();
-
-	private:
-		void countPulses();
-
-		static void InterruptCaller();
+	protected:
+		void pulseHandler(IN unsigned long callTimestamp);
 
 	};
 

@@ -1,0 +1,159 @@
+\hypertarget{class_easyuino_1_1_water_detector}{}\section{Easyuino\+:\+:Water\+Detector Class Reference}
+\label{class_easyuino_1_1_water_detector}\index{Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}}
+
+
+Rain\+Detector A\+PI is used to detect the amount of water that is touching the sensor.  
+
+
+
+
+{\ttfamily \#include $<$Water\+Detector.\+h$>$}
+
+Inheritance diagram for Easyuino\+:\+:Water\+Detector\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_easyuino_1_1_water_detector}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_easyuino_1_1_water_detector_a33690612b2b89efcfb97d4967b16c617}{Water\+Detector} (IN uint8\+\_\+t digital\+Pin, IN uint8\+\_\+t analog\+Pin)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_easyuino_1_1_water_detector_af63f706076f6941135412d57c1ddc5cf}\label{class_easyuino_1_1_water_detector_af63f706076f6941135412d57c1ddc5cf}} 
+\hyperlink{class_easyuino_1_1_water_detector_af63f706076f6941135412d57c1ddc5cf}{$\sim$\+Water\+Detector} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+bool \hyperlink{class_easyuino_1_1_water_detector_af7a0ec32d6abcb8c1060f493525d5228}{begin} ()
+\begin{DoxyCompactList}\small\item\em Used to put the device ready to receive requests. \end{DoxyCompactList}\item 
+bool \hyperlink{class_easyuino_1_1_water_detector_a06ac56298c56026691d7d6a9dbb63748}{begin} (IN uint8\+\_\+t digital\+Pin\+Trigger\+Level)
+\begin{DoxyCompactList}\small\item\em Initialize the \hyperlink{class_easyuino_1_1_water_detector}{Water\+Detector} A\+PI putting it ready to receive requests. \end{DoxyCompactList}\item 
+void \hyperlink{class_easyuino_1_1_water_detector_a9c1473536f47b2a7d8e1f8fb1bf5f3fd}{end} ()
+\begin{DoxyCompactList}\small\item\em Used to stop the device A\+PI. \end{DoxyCompactList}\item 
+Water\+Status \hyperlink{class_easyuino_1_1_water_detector_a0dfefd3b3aa2ed21f30ceb8041a8652a}{get\+Water\+Status} ()
+\begin{DoxyCompactList}\small\item\em Returns an enumerate value depending on how wet is the sensor. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{class_easyuino_1_1_water_detector_a4a4c4a0ab6ae8a51535762f38b4f0d01}{get\+Water\+Status\+Range} ()
+\begin{DoxyCompactList}\small\item\em Return a number in \mbox{[}0,1023\mbox{]} depending on dry is the sensor. \end{DoxyCompactList}\item 
+bool \hyperlink{class_easyuino_1_1_water_detector_a9ea69c2eec25543fad47759379d62ce6}{is\+Water\+Detected} ()
+\begin{DoxyCompactList}\small\item\em Used to get the value from the digital pin that is activated when a wet threshold is passed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Rain\+Detector A\+PI is used to detect the amount of water that is touching the sensor. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_water_detector_a33690612b2b89efcfb97d4967b16c617}\label{class_easyuino_1_1_water_detector_a33690612b2b89efcfb97d4967b16c617}} 
+\index{Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}!Water\+Detector@{Water\+Detector}}
+\index{Water\+Detector@{Water\+Detector}!Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}}
+\subsubsection{\texorpdfstring{Water\+Detector()}{WaterDetector()}}
+{\footnotesize\ttfamily Easyuino\+::\+Water\+Detector\+::\+Water\+Detector (\begin{DoxyParamCaption}\item[{IN uint8\+\_\+t}]{digital\+Pin,  }\item[{IN uint8\+\_\+t}]{analog\+Pin }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em digital\+Pin} & Arduino pin connected to digital pin (Normally D0 in sensor board) \\
+\hline
+{\em analog\+Pin} & Arduino pin connected to analog pin (Normally A0 in sensor board) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_water_detector_af7a0ec32d6abcb8c1060f493525d5228}\label{class_easyuino_1_1_water_detector_af7a0ec32d6abcb8c1060f493525d5228}} 
+\index{Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}!begin@{begin}}
+\index{begin@{begin}!Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}}
+\subsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Easyuino\+::\+Water\+Detector\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Used to put the device ready to receive requests. 
+
+Normally this have some default behaviour some devices have other overload method with same name that receives other arguments to device customization. \begin{DoxyReturn}{Returns}
+True\+: If the device was initialized. False\+: Otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_easyuino_1_1_device_a2e7bb2fec849719a9d9432b57cdb72ba}{Easyuino\+::\+Device}.
+
+\mbox{\Hypertarget{class_easyuino_1_1_water_detector_a06ac56298c56026691d7d6a9dbb63748}\label{class_easyuino_1_1_water_detector_a06ac56298c56026691d7d6a9dbb63748}} 
+\index{Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}!begin@{begin}}
+\index{begin@{begin}!Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}}
+\subsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Easyuino\+::\+Water\+Detector\+::begin (\begin{DoxyParamCaption}\item[{IN uint8\+\_\+t}]{digital\+Pin\+Trigger\+Level }\end{DoxyParamCaption})}
+
+
+
+Initialize the \hyperlink{class_easyuino_1_1_water_detector}{Water\+Detector} A\+PI putting it ready to receive requests. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em digital\+Pin\+Trigger\+Level} & The digital level that is triggered in digital pin when water is sensed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True\+: If the device was initialized. False\+: Otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_water_detector_a9c1473536f47b2a7d8e1f8fb1bf5f3fd}\label{class_easyuino_1_1_water_detector_a9c1473536f47b2a7d8e1f8fb1bf5f3fd}} 
+\index{Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}!end@{end}}
+\index{end@{end}!Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}}
+\subsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void Easyuino\+::\+Water\+Detector\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Used to stop the device A\+PI. 
+
+After this the the device will not process A\+PI requests. 
+
+Implements \hyperlink{class_easyuino_1_1_device_ab31018ef64adc84aa2ea575b2297548f}{Easyuino\+::\+Device}.
+
+\mbox{\Hypertarget{class_easyuino_1_1_water_detector_a0dfefd3b3aa2ed21f30ceb8041a8652a}\label{class_easyuino_1_1_water_detector_a0dfefd3b3aa2ed21f30ceb8041a8652a}} 
+\index{Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}!get\+Water\+Status@{get\+Water\+Status}}
+\index{get\+Water\+Status@{get\+Water\+Status}!Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}}
+\subsubsection{\texorpdfstring{get\+Water\+Status()}{getWaterStatus()}}
+{\footnotesize\ttfamily Water\+Status Easyuino\+::\+Water\+Detector\+::get\+Water\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns an enumerate value depending on how wet is the sensor. 
+
+\begin{DoxyReturn}{Returns}
+water\+Status Available options in Water\+Status enumerate. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_water_detector_a4a4c4a0ab6ae8a51535762f38b4f0d01}\label{class_easyuino_1_1_water_detector_a4a4c4a0ab6ae8a51535762f38b4f0d01}} 
+\index{Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}!get\+Water\+Status\+Range@{get\+Water\+Status\+Range}}
+\index{get\+Water\+Status\+Range@{get\+Water\+Status\+Range}!Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}}
+\subsubsection{\texorpdfstring{get\+Water\+Status\+Range()}{getWaterStatusRange()}}
+{\footnotesize\ttfamily unsigned int Easyuino\+::\+Water\+Detector\+::get\+Water\+Status\+Range (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return a number in \mbox{[}0,1023\mbox{]} depending on dry is the sensor. 
+
+Used in \hyperlink{class_easyuino_1_1_water_detector_a0dfefd3b3aa2ed21f30ceb8041a8652a}{get\+Water\+Status()} method. \begin{DoxyReturn}{Returns}
+Number in range \mbox{[}0,1023\mbox{]}, 1023 = dry and 0 = flood or -\/1 if A\+PI is not initialized 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_water_detector_a9ea69c2eec25543fad47759379d62ce6}\label{class_easyuino_1_1_water_detector_a9ea69c2eec25543fad47759379d62ce6}} 
+\index{Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}!is\+Water\+Detected@{is\+Water\+Detected}}
+\index{is\+Water\+Detected@{is\+Water\+Detected}!Easyuino\+::\+Water\+Detector@{Easyuino\+::\+Water\+Detector}}
+\subsubsection{\texorpdfstring{is\+Water\+Detected()}{isWaterDetected()}}
+{\footnotesize\ttfamily bool Easyuino\+::\+Water\+Detector\+::is\+Water\+Detected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Used to get the value from the digital pin that is activated when a wet threshold is passed. 
+
+Normally the threshold is set using the potentiometer in the water detector board. \begin{DoxyReturn}{Returns}
+True\+: If water threshold detection passed. False\+: Otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Water\+Detector.\+h\end{DoxyCompactItemize}

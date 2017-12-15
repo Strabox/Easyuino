@@ -1,0 +1,181 @@
+\hypertarget{class_easyuino_1_1_r_g_b_led}{}\section{Easyuino\+:\+:R\+G\+B\+Led Class Reference}
+\label{class_easyuino_1_1_r_g_b_led}\index{Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}}
+
+
+\hyperlink{class_easyuino_1_1_r_g_b_led}{R\+G\+B\+Led} A\+PI allows to easily interact with a R\+GB led to set its color for example.  
+
+
+
+
+{\ttfamily \#include $<$R\+G\+B\+Led.\+h$>$}
+
+Inheritance diagram for Easyuino\+:\+:R\+G\+B\+Led\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_easyuino_1_1_r_g_b_led}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_easyuino_1_1_r_g_b_led_a3580be3110cebddcd06917994ebdb8ad}{R\+G\+B\+Led} (IN uint8\+\_\+t red\+Pin, IN uint8\+\_\+t green\+Pin, IN uint8\+\_\+t blue\+Pin)
+\begin{DoxyCompactList}\small\item\em Constructor for a C\+O\+M\+M\+ON C\+A\+T\+O\+DE \hyperlink{class_easyuino_1_1_r_g_b_led}{R\+G\+B\+Led}. \end{DoxyCompactList}\item 
+\hyperlink{class_easyuino_1_1_r_g_b_led_a85c5af3b8b5288d7b45eabcf4fc71aba}{R\+G\+B\+Led} (IN uint8\+\_\+t red\+Pin, IN uint8\+\_\+t green\+Pin, IN uint8\+\_\+t blue\+Pin, IN Led\+Type led\+Type)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+bool \hyperlink{class_easyuino_1_1_r_g_b_led_abdc3512266c7f584609147fccc1ec816}{begin} ()
+\begin{DoxyCompactList}\small\item\em Used to put the device ready to receive requests. \end{DoxyCompactList}\item 
+void \hyperlink{class_easyuino_1_1_r_g_b_led_ad0e9fb0da405c537e876c8a2dc22246e}{end} ()
+\begin{DoxyCompactList}\small\item\em Used to stop the device A\+PI. \end{DoxyCompactList}\item 
+void \hyperlink{class_easyuino_1_1_r_g_b_led_a100140fa6d32e190f68cdc1e24c3aba0}{turn\+Off} ()
+\begin{DoxyCompactList}\small\item\em Turns off the led. \end{DoxyCompactList}\item 
+void \hyperlink{class_easyuino_1_1_r_g_b_led_a4c113ab3fbbd2a75f020a902355faa3e}{set\+Color} (IN uint8\+\_\+t red, IN uint8\+\_\+t green, IN uint8\+\_\+t blue)
+\begin{DoxyCompactList}\small\item\em Set the led\textquotesingle{}s color based on the R\+GB code. \end{DoxyCompactList}\item 
+void \hyperlink{class_easyuino_1_1_r_g_b_led_a7e1437d944d139f3246b92b17f207175}{set\+Color} (IN char hexadecimal\+Color\+Code\mbox{[}8\mbox{]})
+\begin{DoxyCompactList}\small\item\em Set the led\textquotesingle{}s color based on the hexadecimal color code (highly used in web development) \end{DoxyCompactList}\item 
+void \hyperlink{class_easyuino_1_1_r_g_b_led_a5b8365a4191bbe0a092ba30996a37b13}{set\+Color} (IN Color color)
+\begin{DoxyCompactList}\small\item\em Set the led\textquotesingle{}s color based in a set o pre defined colors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_easyuino_1_1_r_g_b_led}{R\+G\+B\+Led} A\+PI allows to easily interact with a R\+GB led to set its color for example. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_r_g_b_led_a3580be3110cebddcd06917994ebdb8ad}\label{class_easyuino_1_1_r_g_b_led_a3580be3110cebddcd06917994ebdb8ad}} 
+\index{Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}!R\+G\+B\+Led@{R\+G\+B\+Led}}
+\index{R\+G\+B\+Led@{R\+G\+B\+Led}!Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}}
+\subsubsection{\texorpdfstring{R\+G\+B\+Led()}{RGBLed()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Easyuino\+::\+R\+G\+B\+Led\+::\+R\+G\+B\+Led (\begin{DoxyParamCaption}\item[{IN uint8\+\_\+t}]{red\+Pin,  }\item[{IN uint8\+\_\+t}]{green\+Pin,  }\item[{IN uint8\+\_\+t}]{blue\+Pin }\end{DoxyParamCaption})}
+
+
+
+Constructor for a C\+O\+M\+M\+ON C\+A\+T\+O\+DE \hyperlink{class_easyuino_1_1_r_g_b_led}{R\+G\+B\+Led}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em red\+Pin} & Arduino pin connected do led\textquotesingle{}s red pin \\
+\hline
+{\em green\+Pin} & Arduino pin connected to led\textquotesingle{}s green pin \\
+\hline
+{\em blue\+Pin} & Arduino pin connected to led\textquotesingle{}s blue pin \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_easyuino_1_1_r_g_b_led_a85c5af3b8b5288d7b45eabcf4fc71aba}\label{class_easyuino_1_1_r_g_b_led_a85c5af3b8b5288d7b45eabcf4fc71aba}} 
+\index{Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}!R\+G\+B\+Led@{R\+G\+B\+Led}}
+\index{R\+G\+B\+Led@{R\+G\+B\+Led}!Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}}
+\subsubsection{\texorpdfstring{R\+G\+B\+Led()}{RGBLed()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Easyuino\+::\+R\+G\+B\+Led\+::\+R\+G\+B\+Led (\begin{DoxyParamCaption}\item[{IN uint8\+\_\+t}]{red\+Pin,  }\item[{IN uint8\+\_\+t}]{green\+Pin,  }\item[{IN uint8\+\_\+t}]{blue\+Pin,  }\item[{IN Led\+Type}]{led\+Type }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em red\+Pin} & Arduino pin connected do led\textquotesingle{}s red pin \\
+\hline
+{\em green\+Pin} & Arduino pin connected to led\textquotesingle{}s green pin \\
+\hline
+{\em blue\+Pin} & Arduino pin connected to led\textquotesingle{}s blue pin \\
+\hline
+{\em led\+Type} & Type of the R\+GB led \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_r_g_b_led_abdc3512266c7f584609147fccc1ec816}\label{class_easyuino_1_1_r_g_b_led_abdc3512266c7f584609147fccc1ec816}} 
+\index{Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}!begin@{begin}}
+\index{begin@{begin}!Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}}
+\subsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily bool Easyuino\+::\+R\+G\+B\+Led\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Used to put the device ready to receive requests. 
+
+Normally this have some default behaviour some devices have other overload method with same name that receives other arguments to device customization. \begin{DoxyReturn}{Returns}
+True\+: If the device was initialized. False\+: Otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_easyuino_1_1_device_a2e7bb2fec849719a9d9432b57cdb72ba}{Easyuino\+::\+Device}.
+
+\mbox{\Hypertarget{class_easyuino_1_1_r_g_b_led_ad0e9fb0da405c537e876c8a2dc22246e}\label{class_easyuino_1_1_r_g_b_led_ad0e9fb0da405c537e876c8a2dc22246e}} 
+\index{Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}!end@{end}}
+\index{end@{end}!Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}}
+\subsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void Easyuino\+::\+R\+G\+B\+Led\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Used to stop the device A\+PI. 
+
+After this the the device will not process A\+PI requests. 
+
+Implements \hyperlink{class_easyuino_1_1_device_ab31018ef64adc84aa2ea575b2297548f}{Easyuino\+::\+Device}.
+
+\mbox{\Hypertarget{class_easyuino_1_1_r_g_b_led_a4c113ab3fbbd2a75f020a902355faa3e}\label{class_easyuino_1_1_r_g_b_led_a4c113ab3fbbd2a75f020a902355faa3e}} 
+\index{Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}!set\+Color@{set\+Color}}
+\index{set\+Color@{set\+Color}!Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}}
+\subsubsection{\texorpdfstring{set\+Color()}{setColor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Easyuino\+::\+R\+G\+B\+Led\+::set\+Color (\begin{DoxyParamCaption}\item[{IN uint8\+\_\+t}]{red,  }\item[{IN uint8\+\_\+t}]{green,  }\item[{IN uint8\+\_\+t}]{blue }\end{DoxyParamCaption})}
+
+
+
+Set the led\textquotesingle{}s color based on the R\+GB code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em red} & Red value (0-\/255) \\
+\hline
+{\em green} & Green value (0-\/255) \\
+\hline
+{\em blue} & Blue value (0-\/255) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_easyuino_1_1_r_g_b_led_a7e1437d944d139f3246b92b17f207175}\label{class_easyuino_1_1_r_g_b_led_a7e1437d944d139f3246b92b17f207175}} 
+\index{Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}!set\+Color@{set\+Color}}
+\index{set\+Color@{set\+Color}!Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}}
+\subsubsection{\texorpdfstring{set\+Color()}{setColor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Easyuino\+::\+R\+G\+B\+Led\+::set\+Color (\begin{DoxyParamCaption}\item[{IN char}]{hexadecimal\+Color\+Code\mbox{[}8\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Set the led\textquotesingle{}s color based on the hexadecimal color code (highly used in web development) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hexadecimal\+Color\+Code} & String that represents a valid hexadecimal color code (e.\+g\+: \char`\"{}\#ffffff\char`\"{} to red color) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_easyuino_1_1_r_g_b_led_a5b8365a4191bbe0a092ba30996a37b13}\label{class_easyuino_1_1_r_g_b_led_a5b8365a4191bbe0a092ba30996a37b13}} 
+\index{Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}!set\+Color@{set\+Color}}
+\index{set\+Color@{set\+Color}!Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}}
+\subsubsection{\texorpdfstring{set\+Color()}{setColor()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Easyuino\+::\+R\+G\+B\+Led\+::set\+Color (\begin{DoxyParamCaption}\item[{IN Color}]{color }\end{DoxyParamCaption})}
+
+
+
+Set the led\textquotesingle{}s color based in a set o pre defined colors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Value that represents the color \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_easyuino_1_1_r_g_b_led_a100140fa6d32e190f68cdc1e24c3aba0}\label{class_easyuino_1_1_r_g_b_led_a100140fa6d32e190f68cdc1e24c3aba0}} 
+\index{Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}!turn\+Off@{turn\+Off}}
+\index{turn\+Off@{turn\+Off}!Easyuino\+::\+R\+G\+B\+Led@{Easyuino\+::\+R\+G\+B\+Led}}
+\subsubsection{\texorpdfstring{turn\+Off()}{turnOff()}}
+{\footnotesize\ttfamily void Easyuino\+::\+R\+G\+B\+Led\+::turn\+Off (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Turns off the led. 
+
+It can be lit again using any \hyperlink{class_easyuino_1_1_r_g_b_led_a4c113ab3fbbd2a75f020a902355faa3e}{set\+Color()} methods. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/R\+G\+B\+Led.\+h\end{DoxyCompactItemize}

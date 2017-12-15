@@ -32,57 +32,44 @@ Relay.h
 
 namespace Easyuino {
 
-	/* 
-	Represents a single relay and provides a simple API to interact with it. 
-	@Physical Devices Supported: 
-		- SRD-05VDC-SL-C, Probably any relay because they are very simple devices
-	@Physical Devices Tested: 
-		- SRD-05VDC-SL-C
+	/** Relay offers a simple API to interact with relay devices. 
+	@see Devices Supported:	SRD-05VDC-SL-C, Probably any relay because they are very simple devices
+	@see Devices Tested:	SRD-05VDC-SL-C
 	*/
 	class Relay : public Device {
 
 	private:
-		/* Arduino pin that controls the relay */
+		/** Arduino pin that controls the relay */
 		uint8_t _arduinoPin;
-		/* Used to know if the device powered by the relay is ON or OFF */
+		/** Used to know if the device powered by the relay is ON or OFF */
 		bool _isOn;
 
 	public:
-		/*
-		Creates a Relay object to interact with the physical one
-		@param arduionPin	- Arduino pin that is connected with the relay (normaly called IN pins)
+		/** Constructor
+		@param arduinoPin	Arduino pin that is connected with the relay (normaly called IN pins in the relay boards)
 		*/
 		Relay(IN uint8_t arduinoPin);
 
-		/*
-		Used to free all the resources associated with the Relay object
-		*/
+		/** Destructor */
 		~Relay();
 
 		bool begin();
 
-		/*
-		Used to initialize the relay API depending on where the relay will be connected
-		@param isNormallyClosed			- Define what are the state that relay is powering the device (lamp, engine, etc)
-		@param normallyClosedPinLevel	- Digital level of the normally closed relay state (some relays activate on HIGH other on LOW)
+		/** Used to initialize the relay API depending on how the relay will be connected
+		@param isNormallyClosed			Define what are the state that relay is powering the device (lamp, engine, etc) Normally Closed or Normally Open
+		@param normallyClosedPinLevel	Digital level of the normally closed relay state (some relays activate on HIGH other on LOW)
 		*/
 		bool begin(IN bool isNormallyClosed, IN uint8_t normallyClosedPinLevel);
 
 		void end();
 
-		/*
-		If the relay is in closed state opens it
-		*/
+		/** Turns on the device that is connected to the relay (depends on how the begin(bool,uint8_t) was called) */
 		void turnOn();
 
-		/*
-		If the relay is in open state closes it
-		*/
+		/** Turns off the device that is connected to the relay (depends on how the begin(bool,uint8_t) was called) */
 		void turnOff();
 
-		/*
-		@return	- True: If it is in open state. False: Otherwise.
-		*/
+		/** @return	isON True: If it is in open state. False: Otherwise. */
 		bool isOn() const;
 
 	};

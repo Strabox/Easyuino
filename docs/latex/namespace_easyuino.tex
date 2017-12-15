@@ -1,0 +1,108 @@
+\hypertarget{namespace_easyuino}{}\section{Easyuino Namespace Reference}
+\label{namespace_easyuino}\index{Easyuino@{Easyuino}}
+
+
+\hyperlink{_device_8h_source}{Device.\+h}.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_easyuino_1_1_device}{Device}
+\begin{DoxyCompactList}\small\item\em General class that provides the common A\+PI behaviour for all the devices/sensors. \end{DoxyCompactList}\item 
+class \hyperlink{class_easyuino_1_1_distance_meter}{Distance\+Meter}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_easyuino_1_1_distance_meter}{Distance\+Meter} offers an A\+PI to interact with an Ultrasonic Module to measure distances to objects. \end{DoxyCompactList}\item 
+class \hyperlink{class_easyuino_1_1_distance_meter_accurate}{Distance\+Meter\+Accurate}
+\item 
+class \hyperlink{class_easyuino_1_1_distance_meter_non_block}{Distance\+Meter\+Non\+Block}
+\item 
+class \hyperlink{class_easyuino_1_1_distance_meter_printable}{Distance\+Meter\+Printable}
+\item 
+class \hyperlink{class_easyuino_1_1_g_s_m_service}{G\+S\+M\+Service}
+\item 
+class \hyperlink{class_easyuino_1_1_g_s_m_service_secure}{G\+S\+M\+Service\+Secure}
+\item 
+class \hyperlink{class_easyuino_1_1_infra_red_receiver}{Infra\+Red\+Receiver}
+\item 
+class \hyperlink{class_easyuino_1_1_printable}{Printable}
+\item 
+class \hyperlink{class_easyuino_1_1_relay}{Relay}
+\item 
+class \hyperlink{class_easyuino_1_1_relay_named}{Relay\+Named}
+\item 
+class \hyperlink{class_easyuino_1_1_r_g_b_led}{R\+G\+B\+Led}
+\item 
+class \hyperlink{class_easyuino_1_1_seven_segments}{Seven\+Segments}
+\item 
+class \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}
+\item 
+class \hyperlink{class_easyuino_1_1_utilities}{Utilities}
+\item 
+class \hyperlink{class_easyuino_1_1_water_detector}{Water\+Detector}
+\item 
+class \hyperlink{class_easyuino_1_1_water_flow_meter}{Water\+Flow\+Meter}
+\item 
+class \hyperlink{class_easyuino_1_1_water_flow_sensor}{Water\+Flow\+Sensor}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_easyuino_a85413be05b0d8b00c7f4ba6a364831f0}\label{namespace_easyuino_a85413be05b0d8b00c7f4ba6a364831f0}} 
+enum {\bfseries Temperature\+Scale} \+: uint8\+\_\+t \{ {\bfseries C\+E\+L\+S\+I\+US}, 
+{\bfseries K\+E\+L\+V\+IN}, 
+{\bfseries F\+A\+H\+R\+E\+N\+H\+E\+IT}
+ \}
+\item 
+\mbox{\Hypertarget{namespace_easyuino_a5e4e15cd0975a7cd647ebcc96c690483}\label{namespace_easyuino_a5e4e15cd0975a7cd647ebcc96c690483}} 
+enum {\bfseries G\+S\+M\+Request\+Status} \+: uint8\+\_\+t \{ \newline
+{\bfseries G\+S\+M\+\_\+\+OK} = 0, 
+{\bfseries G\+S\+M\+\_\+\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+R\+E\+P\+LY} = 1, 
+{\bfseries G\+S\+M\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+D\+I\+D\+N\+T\+\_\+\+R\+E\+P\+LY} = 2, 
+{\bfseries G\+S\+M\+\_\+\+R\+E\+Q\+U\+E\+S\+T\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+R\+G\+U\+M\+E\+NT} = 4, 
+\newline
+{\bfseries G\+S\+M\+\_\+\+M\+A\+X\+I\+M\+U\+M\+\_\+\+A\+L\+L\+O\+W\+E\+D\+\_\+\+N\+U\+M\+B\+E\+R\+S\+\_\+\+R\+E\+A\+C\+H\+ED} = 5, 
+{\bfseries N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED} = 255
+ \}
+\item 
+\mbox{\Hypertarget{namespace_easyuino_a74bc07d98caedb13e9712514799659fa}\label{namespace_easyuino_a74bc07d98caedb13e9712514799659fa}} 
+enum {\bfseries Led\+Type} \+: uint8\+\_\+t \{ {\bfseries C\+O\+M\+M\+O\+N\+\_\+\+A\+N\+O\+DE}, 
+{\bfseries C\+O\+M\+M\+O\+N\+\_\+\+C\+A\+T\+O\+DE}
+ \}
+\item 
+\mbox{\Hypertarget{namespace_easyuino_a1dfcdd2c7e87c01db504814ec8b3579c}\label{namespace_easyuino_a1dfcdd2c7e87c01db504814ec8b3579c}} 
+enum {\bfseries Color} \+: uint8\+\_\+t \{ \newline
+{\bfseries R\+ED}, 
+{\bfseries G\+R\+E\+EN}, 
+{\bfseries B\+L\+UE}, 
+{\bfseries Y\+E\+L\+L\+OW}, 
+\newline
+{\bfseries W\+H\+I\+TE}, 
+{\bfseries O\+R\+A\+N\+GE}, 
+{\bfseries P\+I\+NK}, 
+{\bfseries S\+A\+L\+M\+ON}, 
+\newline
+{\bfseries V\+I\+O\+L\+ET}, 
+{\bfseries A\+Q\+UA}, 
+{\bfseries B\+R\+O\+WN}, 
+{\bfseries F\+I\+R\+E\+B\+R\+I\+CK}, 
+\newline
+{\bfseries D\+A\+R\+K\+G\+R\+EY}, 
+{\bfseries O\+L\+I\+VE}, 
+{\bfseries S\+K\+Y\+B\+L\+UE}
+ \}
+\item 
+\mbox{\Hypertarget{namespace_easyuino_a79c73f0814a2f298bdae8029bb04f44d}\label{namespace_easyuino_a79c73f0814a2f298bdae8029bb04f44d}} 
+enum {\bfseries Water\+Status} \+: uint8\+\_\+t \{ \newline
+{\bfseries D\+RY} = 0, 
+{\bfseries F\+E\+W\+\_\+\+D\+R\+O\+PS} = 1, 
+{\bfseries W\+ET} = 2, 
+{\bfseries F\+L\+O\+OD} = 3, 
+\newline
+{\bfseries I\+N\+V\+A\+L\+ID} = 4, 
+{\bfseries N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED} = 255
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{_device_8h_source}{Device.\+h}. 

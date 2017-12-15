@@ -32,60 +32,66 @@ DistanceMeterAccurate.h
 
 namespace Easyuino {
 
+	/** Temperature scale */
 	enum TemperatureScale : uint8_t {
 		CELSIUS, KELVIN, FAHRENHEIT
 	};
 
-	/*
-	DistanceMeterAccurate offers an API to interact with an Ultrasonic Sensor (US) to measure distance to objects.
-	It offers a the same of DistanceMeterNonBlock API plus a possibility to offer the updateDistance and updateDistanceNonBlock
+	/** DistanceMeterAccurate offers an API to interact with an Ultrasonic Module to measure distances considering the current
+	air temperature (due to the effect that the air temperature have in the sound speed in air).
+	It offers a the same of DistanceMeterNonBlock API plus a possibility to pass the updateDistance() and updateDistanceNonBlock()
 	methods the current air temperature in order to minimize the distance calculation error.
-	If you want know more about sound waves velocity dependency with temperature see https://en.wikipedia.org/wiki/Speed_of_sound
-	@Limitation: This only allows ONLY 2 instances of DistanceMeterNonBlock/DistanceMeterAccurate per sketch!!!
-	@Physical Devices Supported: 
-		- HC-SR03, HC-SR04, HC-SR05
-	@Physical Devices Tested: 
-		- HC-SR04
+	If you want know more about sound waves velocity dependency with temperature see https://en.wikipedia.org/wiki/Speed_of_sound.
+	@see Limitation:		This allows ONLY 2 instances of DistanceMeterAccurate per sketch!!
+	@see Limitation:		The accuracy of the non-block method is much smaller because it uses interruption mechanism
+	@see Devices Supported:	HC-SR03, HC-SR04, HC-SR05
+	@see Devices Tested:	HC-SR04
 	*/
 	class DistanceMeterAccurate : public DistanceMeterNonBlock {
 
 	private:
-		/* Air temperature value collected when the last distance measure was taken */
+		/** Air temperature value collected when the last distance measure was initiated */
 		float _airTemperature;
-		/* The type of scale that matches the provided air temperature */
+		/** The type of scale that matches the provided _airTemperature */
 		TemperatureScale _temperatureScale;
 
 	public:
+		/** Constructor
+		@param triggerPin	Arduino pin connected to the trigger pin of the Ultrasonic Module
+		@param echoPin		Arduino pin connected to the echo pin of the Ultrasonic Module
+		*/
 		DistanceMeterAccurate(IN uint8_t triggerPin, IN uint8_t echoPin);
-
+		
+		/** Contructor used with Ultrasonic Modules that have only one pin for trigger and echo 
+		@param triggerEchoPin	Arduino pin connected to the trigger&echo pin of the Ultrasonic Module
+		*/
 		DistanceMeterAccurate(IN uint8_t triggerEchoPin);
 
+		/** Destructor */
 		~DistanceMeterAccurate();
 
 		float getDistanceCentimeters();
 
-		/* Updates the distance of the US to the objects in a blocking way. Basically if updateDistanceNonBlock
-		was not called in the last 3 secs at least the method will block on call and when it finishes the distance
-		value can be grabbed by getDistance method. 
-		@param airTemperature	- Air temperatures to be used when calculating the distance (good if it is the current temperature)
-		@param temperatureScale	- The temperature scale that is being provided (CELSIUS, KELVIN or FAHRENHEIT)
+		/** Updates the distance of the Ultrasonic Module to the objects in a blocking way. 
+		@param airTemperature	Air temperatures to be used when calculating the distance
+		@param temperatureScale	The temperature scale that is being provided
 		*/
 		void updateDistance(IN float airTemperature = DEFAULT_AIR_TEMPERATURE_CELSIUS, IN TemperatureScale temperatureScale = CELSIUS);
 
-		/* Updates the distance of the US to the objects in a non-blocking way. It means that the call to the method
-		will return immediatly and in the "background" the distance measure will ocurr after a while depending on the distance
-		to the object the getDistance method can be called to get the new distance value.
-		@param airTemperature	- Air temperatures to be used when calculating the distance (good if it is the current temperature)
-		@param temperatureScale	- The temperature scale that is being provided (CELSIUS, KELVIN or FAHRENHEIT)
+		/** Updates the distance of the Ultrasonic Module to the objects in a non-blocking way. This means that
+		the call to the method will return immediatly and in the "background" the distance measure will ocurr after a while. 
+		When the measurement is concluded and you call getDistanceCentimeters() or getDistanceInches() the new distance value
+		will be returned. While the measurement is on going the distance will be from the last measurement.
+		@param airTemperature	Air temperatures to be used when calculating the distance
+		@param temperatureScale	The temperature scale that is being provided
 		*/
 		void updateDistanceNonBlock(IN float airTemperature = DEFAULT_AIR_TEMPERATURE_CELSIUS, IN TemperatureScale temperatureScale = CELSIUS);
 
 	private:
-		/* 
-		Calculates the speed of sound based on the air temperature
-		@param airTemperature			- Air temperature
-		@param temperatureScale			- The scale of the temperature given (CELSIUS, KELVIN or FAHRENHEIT)
-		@return soundSpeed	(cm/sec)	- The sound of the speed
+		/** Calculates the speed of sound based on the air temperature.
+		@param airTemperature			Air temperature
+		@param temperatureScale			The scale of the temperature given
+		@return soundSpeed	(Cm/Sec)	The sound of the speed
 		*/
 		static float CalculateSoundSpeed(IN float airTemperature = DEFAULT_AIR_TEMPERATURE_CELSIUS, IN TemperatureScale temperatureScale = CELSIUS);
 

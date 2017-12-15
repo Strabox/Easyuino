@@ -25,28 +25,21 @@ SOFTWARE.
 
 namespace Easyuino {
 
-	WaterFlowMeter* WaterFlowMeter::Singleton;
-
-	WaterFlowMeter::WaterFlowMeter(IN uint8_t sensorPin) {
-		_sensorPin = sensorPin;
-		if (Singleton != NULL) {
-			delete Singleton;
-		}
-		Singleton = this;
+	WaterFlowMeter::WaterFlowMeter(IN uint8_t sensorPin, IN float sensorCalibrationFactor)
+		: WaterFlowSensor(sensorPin) {
+		_sensorCalibrationFactor = sensorCalibrationFactor;
 	}
 
-	WaterFlowMeter::~WaterFlowMeter() { 
-		Singleton = NULL;
-	}
+	WaterFlowMeter::~WaterFlowMeter() { /* Do Nothing */ }
 
 	bool WaterFlowMeter::begin() {
-		if (!_isInitialized) {
-			pinMode(_sensorPin, INPUT);
-			digitalWrite(_sensorPin, HIGH);
-			attachInterrupt(digitalPinToInterrupt(_sensorPin), InterruptCaller, FALLING);
-			_pulseCounter = 0;
-			_lastCheckTimestamp = 0;
-			_flowRate = 0.0f;
+		if (!_isInitialized && WaterFlowSensor::begin()) {
+			_cachedFlowRate = 0.0f;
+			_currentMeasurementInitialTimestamp = millis();
+			_previousMeasurementDuration = 0;
+			_previousMeasurementPulses = 0;
+			_currentMeasurementPulseCounter = 0;
+			_isDirtyFlowRate = false;
 			_isInitialized = true;
 		}
 		return _isInitialized;
@@ -54,40 +47,32 @@ namespace Easyuino {
 
 	void WaterFlowMeter::end() {
 		if (_isInitialized) {
-			detachInterrupt(digitalPinToInterrupt(_sensorPin));
-			_isInitialized = false;
+			WaterFlowSensor::end();
 		}
 	}
 
-	void WaterFlowMeter::updateFlowRate() {
-		detachInterrupt(digitalPinToInterrupt(_sensorPin));
-		_flowRate = (1000.0 / (millis() - _lastCheckTimestamp)) * _pulseCounter / _sensorCalibration;
-		_lastCheckTimestamp = millis();
-		_pulseCounter = 0;
-		attachInterrupt(digitalPinToInterrupt(_sensorPin), InterruptCaller, FALLING);
-	}
-
-	bool WaterFlowMeter::isFlowing() {
-		if (_flowRate < 0.001f) {
-			return false;
+	float WaterFlowMeter::getFlowRateLitersMin()  {
+		if (!isFlowing()) {
+			return 0.0f;
+		}
+		else if (!_isDirtyFlowRate) {
+			return _cachedFlowRate;
 		}
 		else {
-			return true;
+			_isDirtyFlowRate = false;
+			return _cachedFlowRate = (_previousMeasurementPulses / (_previousMeasurementDuration / 1000.0f)) / _sensorCalibrationFactor;
 		}
 	}
 
-	float WaterFlowMeter::getFlowRate() {
-		return 0.0f;
-	}
-
-	void WaterFlowMeter::countPulses() {
-		_pulseCounter++;
-	}
-
-	/* Static */
-	void WaterFlowMeter::InterruptCaller() {
-		if (Singleton != NULL) {
-			Singleton->countPulses();
+	void WaterFlowMeter::pulseHandler(IN unsigned long callTimestamp) {
+		_lastPulseTimestamp = callTimestamp;
+		_currentMeasurementPulseCounter++;
+		if ((callTimestamp - _currentMeasurementInitialTimestamp) > MIN_TIME_BETWEEN_UPDATES) {
+			_previousMeasurementDuration = callTimestamp - _currentMeasurementInitialTimestamp;
+			_previousMeasurementPulses = _currentMeasurementPulseCounter;
+			_currentMeasurementInitialTimestamp = callTimestamp;
+			_currentMeasurementPulseCounter = 0;
+			_isDirtyFlowRate = true;
 		}
 	}
 

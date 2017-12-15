@@ -32,30 +32,28 @@ RelayNamed.h
 #include "Printable.h"
 #include "Relay.h"
 
-#define MAX_NAME_SIZE 15		// Maximum size for a identifier
+/** Maximum size for a identifier */
+#define MAX_NAME_SIZE 15
+
 #define RELAY_ON_STRING "On"
 #define RELAY_OFF_STRING "Off"
 
 namespace Easyuino {
 
-	/*
-	Represents a relay with a label associated to easily identify the device controlled by the relay
-	@Physical Devices Supported:
-	- SRD-05VDC-SL-C, Probably any relay because they are very simple devices
-	@Physical Devices Tested:
-	- SRD-05VDC-SL-C
+	/** RelayNamed offers the same API of the Relay plus the possibility to associate a string label to the API object.
+	@see Devices Supported:	SRD-05VDC-SL-C, Probably any relay because they are very simple devices
+	@see Devices Tested:	SRD-05VDC-SL-C
 	*/
 	class RelayNamed : public Relay, public Printable {
 
 	private:
-		/* Name of the device that relay activates  */
+		/** Name of the device that relay activates  */
 		char _name[MAX_NAME_SIZE + 1];
 
 	public:
-		/*
-		Creates a Relay object to interact with the physical relay
-		@param arduionPin	- Arduino pin that is connected with the relay (normal in relay is IN pins)
-		@param name			- Name (identifier) to the device that the relay activates
+		/** Constructor
+		@param arduinoPin	Arduino pin that is connected with the relay (normal in relay is IN pins)
+		@param deviceName	Name (identifier) of the device that the relay activates/deactivates
 		*/
 		RelayNamed(IN uint8_t arduinoPin, IN const char* deviceName);
 

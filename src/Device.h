@@ -38,31 +38,29 @@ Device.h
 
 namespace Easyuino {
 
-	/*
-	General class that provides the common API and behaviour for the majority of devices/sensors for Arduino
-	*/
+	/** General class that provides the common API behaviour for all the devices/sensors */
 	class Device {
 
 	protected:
-		/* Used to know if the device is initialized and ready to receive requests */
+		/** Used to know if the device API is initialized and ready to receive requests */
 		bool _isInitialized;
 
 	public:
-		/* Constructor called by every sub-classes */
+		/** Constructor called by every sub-classes */
 		Device();
 
-		/* Destroy all the resources associated with the device (IF EXISTS) */
+		/** Destroy all the resources associated with the device */
 		~Device();
 
-	#pragma region Public Pure Virtual Common API Methods
+	#pragma region Public Virtual Common API Methods
 
-		/* Used to put the device ready to receive requests. Normally this have some default behaviour some
-		devices have other API method with same name that receives other arguments to a better customization. 
-		@return	- True: If the device was initializer. False: Otherwise.
+		/** Used to put the device ready to receive requests. Normally this have some default behaviour some
+		devices have other overload method with same name that receives other arguments to device customization. 
+		@return	True: If the device was initialized. False: Otherwise.
 		*/
 		virtual bool begin() = 0;
 
-		/* Used to stop the device. After this the the device will not process API requests. */
+		/** Used to stop the device API. After this the the device will not process API requests. */
 		virtual void end() = 0;
 
 	#pragma endregion
@@ -70,9 +68,8 @@ namespace Easyuino {
 
 	#pragma region Public Common API Methods
 
-		/*
-		Verify is the device is initialized and ready to use.
-		@return	- True: If device is initialized. False: Otherwise.
+		/** Verify is the device is initialized and ready to use.
+		@return	True: If device is initialized. False: Otherwise.
 		*/
 		bool isInitialized() const;
 

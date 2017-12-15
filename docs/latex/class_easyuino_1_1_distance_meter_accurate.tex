@@ -1,0 +1,142 @@
+\hypertarget{class_easyuino_1_1_distance_meter_accurate}{}\section{Easyuino\+:\+:Distance\+Meter\+Accurate Class Reference}
+\label{class_easyuino_1_1_distance_meter_accurate}\index{Easyuino\+::\+Distance\+Meter\+Accurate@{Easyuino\+::\+Distance\+Meter\+Accurate}}
+
+
+\hyperlink{class_easyuino_1_1_distance_meter_accurate}{Distance\+Meter\+Accurate} offers an A\+PI to interact with an Ultrasonic Module to measure distances considering the current air temperature (due to the effect that the air temperature have in the sound speed in air).  
+
+
+
+
+{\ttfamily \#include $<$Distance\+Meter\+Accurate.\+h$>$}
+
+Inheritance diagram for Easyuino\+:\+:Distance\+Meter\+Accurate\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_easyuino_1_1_distance_meter_accurate}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_easyuino_1_1_distance_meter_accurate_a57f810d7e6653028bc23139e703985d7}{Distance\+Meter\+Accurate} (IN uint8\+\_\+t trigger\+Pin, IN uint8\+\_\+t echo\+Pin)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_easyuino_1_1_distance_meter_accurate_a6e58a043f9d28dd6c7e4c5b819607341}{Distance\+Meter\+Accurate} (IN uint8\+\_\+t trigger\+Echo\+Pin)
+\begin{DoxyCompactList}\small\item\em Contructor used with Ultrasonic Modules that have only one pin for trigger and echo. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_accurate_ac4188e3403c7f953c0e9b32a130c35e4}\label{class_easyuino_1_1_distance_meter_accurate_ac4188e3403c7f953c0e9b32a130c35e4}} 
+\hyperlink{class_easyuino_1_1_distance_meter_accurate_ac4188e3403c7f953c0e9b32a130c35e4}{$\sim$\+Distance\+Meter\+Accurate} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+float \hyperlink{class_easyuino_1_1_distance_meter_accurate_a4de44a347db0bebbf5d74f12397cd4d9}{get\+Distance\+Centimeters} ()
+\begin{DoxyCompactList}\small\item\em Gets the last value that the A\+PI measured using the Ultrasonic Module. \end{DoxyCompactList}\item 
+void \hyperlink{class_easyuino_1_1_distance_meter_accurate_af7c43ebaa1ae75db2f806dc7039c8a82}{update\+Distance} (IN float air\+Temperature=D\+E\+F\+A\+U\+L\+T\+\_\+\+A\+I\+R\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+R\+E\+\_\+\+C\+E\+L\+S\+I\+US, IN Temperature\+Scale temperature\+Scale=C\+E\+L\+S\+I\+US)
+\begin{DoxyCompactList}\small\item\em Updates the distance of the Ultrasonic Module to the objects in a blocking way. \end{DoxyCompactList}\item 
+void \hyperlink{class_easyuino_1_1_distance_meter_accurate_ac428b0dfd816862fab277b2da1f0c164}{update\+Distance\+Non\+Block} (IN float air\+Temperature=D\+E\+F\+A\+U\+L\+T\+\_\+\+A\+I\+R\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+R\+E\+\_\+\+C\+E\+L\+S\+I\+US, IN Temperature\+Scale temperature\+Scale=C\+E\+L\+S\+I\+US)
+\begin{DoxyCompactList}\small\item\em Updates the distance of the Ultrasonic Module to the objects in a non-\/blocking way. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_easyuino_1_1_distance_meter_accurate}{Distance\+Meter\+Accurate} offers an A\+PI to interact with an Ultrasonic Module to measure distances considering the current air temperature (due to the effect that the air temperature have in the sound speed in air). 
+
+It offers a the same of \hyperlink{class_easyuino_1_1_distance_meter_non_block}{Distance\+Meter\+Non\+Block} A\+PI plus a possibility to pass the \hyperlink{class_easyuino_1_1_distance_meter_non_block_a4ea37c6c0562a76cd03636db329743f9}{update\+Distance()} and \hyperlink{class_easyuino_1_1_distance_meter_non_block_ac7163baab744f1393bab3841de0170d4}{update\+Distance\+Non\+Block()} methods the current air temperature in order to minimize the distance calculation error. If you want know more about sound waves velocity dependency with temperature see \href{https://en.wikipedia.org/wiki/Speed_of_sound}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Speed\+\_\+of\+\_\+sound}. \begin{DoxySeeAlso}{See also}
+Limitation\+: This allows O\+N\+LY 2 instances of \hyperlink{class_easyuino_1_1_distance_meter_accurate}{Distance\+Meter\+Accurate} per sketch!! 
+
+Limitation\+: The accuracy of the non-\/block method is much smaller because it uses interruption mechanism 
+
+Devices Supported\+: H\+C-\/\+S\+R03, H\+C-\/\+S\+R04, H\+C-\/\+S\+R05 
+
+Devices Tested\+: H\+C-\/\+S\+R04 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_accurate_a57f810d7e6653028bc23139e703985d7}\label{class_easyuino_1_1_distance_meter_accurate_a57f810d7e6653028bc23139e703985d7}} 
+\index{Easyuino\+::\+Distance\+Meter\+Accurate@{Easyuino\+::\+Distance\+Meter\+Accurate}!Distance\+Meter\+Accurate@{Distance\+Meter\+Accurate}}
+\index{Distance\+Meter\+Accurate@{Distance\+Meter\+Accurate}!Easyuino\+::\+Distance\+Meter\+Accurate@{Easyuino\+::\+Distance\+Meter\+Accurate}}
+\subsubsection{\texorpdfstring{Distance\+Meter\+Accurate()}{DistanceMeterAccurate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Easyuino\+::\+Distance\+Meter\+Accurate\+::\+Distance\+Meter\+Accurate (\begin{DoxyParamCaption}\item[{IN uint8\+\_\+t}]{trigger\+Pin,  }\item[{IN uint8\+\_\+t}]{echo\+Pin }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trigger\+Pin} & Arduino pin connected to the trigger pin of the Ultrasonic Module \\
+\hline
+{\em echo\+Pin} & Arduino pin connected to the echo pin of the Ultrasonic Module \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_accurate_a6e58a043f9d28dd6c7e4c5b819607341}\label{class_easyuino_1_1_distance_meter_accurate_a6e58a043f9d28dd6c7e4c5b819607341}} 
+\index{Easyuino\+::\+Distance\+Meter\+Accurate@{Easyuino\+::\+Distance\+Meter\+Accurate}!Distance\+Meter\+Accurate@{Distance\+Meter\+Accurate}}
+\index{Distance\+Meter\+Accurate@{Distance\+Meter\+Accurate}!Easyuino\+::\+Distance\+Meter\+Accurate@{Easyuino\+::\+Distance\+Meter\+Accurate}}
+\subsubsection{\texorpdfstring{Distance\+Meter\+Accurate()}{DistanceMeterAccurate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Easyuino\+::\+Distance\+Meter\+Accurate\+::\+Distance\+Meter\+Accurate (\begin{DoxyParamCaption}\item[{IN uint8\+\_\+t}]{trigger\+Echo\+Pin }\end{DoxyParamCaption})}
+
+
+
+Contructor used with Ultrasonic Modules that have only one pin for trigger and echo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trigger\+Echo\+Pin} & Arduino pin connected to the trigger\&echo pin of the Ultrasonic Module \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_accurate_a4de44a347db0bebbf5d74f12397cd4d9}\label{class_easyuino_1_1_distance_meter_accurate_a4de44a347db0bebbf5d74f12397cd4d9}} 
+\index{Easyuino\+::\+Distance\+Meter\+Accurate@{Easyuino\+::\+Distance\+Meter\+Accurate}!get\+Distance\+Centimeters@{get\+Distance\+Centimeters}}
+\index{get\+Distance\+Centimeters@{get\+Distance\+Centimeters}!Easyuino\+::\+Distance\+Meter\+Accurate@{Easyuino\+::\+Distance\+Meter\+Accurate}}
+\subsubsection{\texorpdfstring{get\+Distance\+Centimeters()}{getDistanceCentimeters()}}
+{\footnotesize\ttfamily float Easyuino\+::\+Distance\+Meter\+Accurate\+::get\+Distance\+Centimeters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the last value that the A\+PI measured using the Ultrasonic Module. 
+
+\begin{DoxyReturn}{Returns}
+distance (Centimeters) The most recent measurement the A\+PI have done 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_easyuino_1_1_distance_meter_a637cdd0d3e4f3bcf094704ae91e0c7c3}{Easyuino\+::\+Distance\+Meter}.
+
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_accurate_af7c43ebaa1ae75db2f806dc7039c8a82}\label{class_easyuino_1_1_distance_meter_accurate_af7c43ebaa1ae75db2f806dc7039c8a82}} 
+\index{Easyuino\+::\+Distance\+Meter\+Accurate@{Easyuino\+::\+Distance\+Meter\+Accurate}!update\+Distance@{update\+Distance}}
+\index{update\+Distance@{update\+Distance}!Easyuino\+::\+Distance\+Meter\+Accurate@{Easyuino\+::\+Distance\+Meter\+Accurate}}
+\subsubsection{\texorpdfstring{update\+Distance()}{updateDistance()}}
+{\footnotesize\ttfamily void Easyuino\+::\+Distance\+Meter\+Accurate\+::update\+Distance (\begin{DoxyParamCaption}\item[{IN float}]{air\+Temperature = {\ttfamily DEFAULT\+\_\+AIR\+\_\+TEMPERATURE\+\_\+CELSIUS},  }\item[{IN Temperature\+Scale}]{temperature\+Scale = {\ttfamily CELSIUS} }\end{DoxyParamCaption})}
+
+
+
+Updates the distance of the Ultrasonic Module to the objects in a blocking way. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em air\+Temperature} & Air temperatures to be used when calculating the distance \\
+\hline
+{\em temperature\+Scale} & The temperature scale that is being provided \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_accurate_ac428b0dfd816862fab277b2da1f0c164}\label{class_easyuino_1_1_distance_meter_accurate_ac428b0dfd816862fab277b2da1f0c164}} 
+\index{Easyuino\+::\+Distance\+Meter\+Accurate@{Easyuino\+::\+Distance\+Meter\+Accurate}!update\+Distance\+Non\+Block@{update\+Distance\+Non\+Block}}
+\index{update\+Distance\+Non\+Block@{update\+Distance\+Non\+Block}!Easyuino\+::\+Distance\+Meter\+Accurate@{Easyuino\+::\+Distance\+Meter\+Accurate}}
+\subsubsection{\texorpdfstring{update\+Distance\+Non\+Block()}{updateDistanceNonBlock()}}
+{\footnotesize\ttfamily void Easyuino\+::\+Distance\+Meter\+Accurate\+::update\+Distance\+Non\+Block (\begin{DoxyParamCaption}\item[{IN float}]{air\+Temperature = {\ttfamily DEFAULT\+\_\+AIR\+\_\+TEMPERATURE\+\_\+CELSIUS},  }\item[{IN Temperature\+Scale}]{temperature\+Scale = {\ttfamily CELSIUS} }\end{DoxyParamCaption})}
+
+
+
+Updates the distance of the Ultrasonic Module to the objects in a non-\/blocking way. 
+
+This means that the call to the method will return immediatly and in the \char`\"{}background\char`\"{} the distance measure will ocurr after a while. When the measurement is concluded and you call \hyperlink{class_easyuino_1_1_distance_meter_accurate_a4de44a347db0bebbf5d74f12397cd4d9}{get\+Distance\+Centimeters()} or \hyperlink{class_easyuino_1_1_distance_meter_a4e3c650c54382d9af6bca51dcac4e7a3}{get\+Distance\+Inches()} the new distance value will be returned. While the measurement is on going the distance will be from the last measurement. 
+\begin{DoxyParams}{Parameters}
+{\em air\+Temperature} & Air temperatures to be used when calculating the distance \\
+\hline
+{\em temperature\+Scale} & The temperature scale that is being provided \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Distance\+Meter\+Accurate.\+h\end{DoxyCompactItemize}

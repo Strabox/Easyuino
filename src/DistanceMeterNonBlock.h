@@ -30,50 +30,55 @@ DistanceMeterNonBlock.h
 #include "Utilities.h"
 #include "DistanceMeter.h"
 
-#define MAXIMUM_NUMBER_OF_DM_NON_BLOCK 2	//	WARNING: DON'T change it because it will broke the API
+/** ATTENTION: DON'T change it because it will broke the API due to the compiled link between
+interruption functions and the instances */
+#define MAXIMUM_NUMBER_OF_DM_NON_BLOCK 2
 
 namespace Easyuino {
 
-	/*
-	DistanceMeterNonBlock offers an API to interact with an Ultrasonic Sensor (US) to measure distance to objects using sound waves.
-	It offers a the same as DistanceMeter API plus updateDistanceNonBlock that allows your application code run while
+	/** DistanceMeterNonBlock offers an API to interact with an Ultrasonic Module to measure distance in a non-block way.
+	It offers a the same as DistanceMeter API plus updateDistanceNonBlock() that allows your application code run while
 	the distance is calculated in "background" without stopping your program.
-	WARNING: You can ONLY use TWO instances of DistanceMeterNonBlock per sketch due to implementation restrictions.
-	So if you want have multiple distance meters you can at maximum TWO DistanceMeterNonBlock and several DistanceMeter.
-	@Limitations: 
-		- This only allows ONLY 2 instances of DistanceMeterNonBlock per sketch!!!
-		- The accuracy of the non-block method is much smaller because it uses interruption mechanism
-	@Physical Devices Supported: 
-		- HC-SR03, HC-SR04, HC-SR05
-	@Physical Devices Tested: 
-		- HC-SR04
+	@see Limitation:		This allows ONLY 2 instances of DistanceMeterNonBlock per sketch!!
+	@see Limitation:		The accuracy of the non-block method is much smaller because it uses interruption mechanism
+	@see Devices Supported:	HC-SR03, HC-SR04, HC-SR05
+	@see Devices Tested:	HC-SR04
 	*/
 	class DistanceMeterNonBlock : public DistanceMeter {
 
 	private:
-		/* Necessary to have a static object to allow attach interrupts to specific object methods. */
+		/** Necessary to have a static object to allow attach interrupts to specific object methods */
 		static DistanceMeterNonBlock* INSTANCES[MAXIMUM_NUMBER_OF_DM_NON_BLOCK];
 
-		/* Used to know if it is a blocking/non-blocking measure that is ocurring */
+		/** Used to know if it is a blocking/non-blocking measure that is ocurring */
 		bool _blockingMeasure;
 
-		/* It says if the distance stored has a new value due to an non-blocking measure that occured in background */
+		/** Distance stored has a new value due to an non-blocking measure that occured in background. 
+		The distance is indirectly measured in _lastTimeEcho and _lastTimeTrigger */
 		bool _isDirtyDistance;
-		
-		/* Last time a non-block measure was concluded (only used in non-block measure) */
-		volatile unsigned long _lastTimeEcho;
-		/* Last time a non-block measure was triggered (only used in non-block measure) */
-		volatile unsigned long _lastTimeTrigger;
 
-		/* Used to know if the echo wave was already fully sent this is set to true when US put the
-		echo pin at HIGH level (only used in non-block measure) */
+		/** Used to know if the echo wave was already sent this is set to true when Ultrasonic Module 
+		put the echo pin at HIGH level (only used in non-block measure) */
 		volatile bool _echoSent;
 
+		/** Last time a non-block measure was triggered (only used in non-block measure) */
+		volatile unsigned long _lastTimeTrigger;
+		/** Last time a non-block measure was concluded (only used in non-block measure) */
+		volatile unsigned long _lastTimeEcho;
+
 	public:
+		/** Constructor
+		@param triggerPin	Arduino pin connected to the trigger pin of the Ultrasonic Module
+		@param echoPin		Arduino pin connected to the echo pin of the Ultrasonic Module
+		*/
 		DistanceMeterNonBlock(IN uint8_t triggerPin, IN uint8_t echoPin);
 
+		/** Contructor used with Ultrasonic Modules that have only one pin for trigger and echo 
+		@param triggerEchoPin	Arduino pin connected to the trigger&echo pin of the Ultrasonic Module
+		*/
 		DistanceMeterNonBlock(IN uint8_t triggerEchoPin);
 
+		/** Destructor */
 		~DistanceMeterNonBlock();
 
 		bool begin();
@@ -84,49 +89,44 @@ namespace Easyuino {
 
 		void updateDistance();
 
-		/* 
-		Updates the distance of the US to the objects in a non-blocking way. It means that the call to the method
-		will return immediatly and in the "background" the distance measure will ocurr after a while. 
-		Depending on the distance to the object the getDistance methods can be called to get the new distance value.
-		@return - True: If the distance measure started. False: Otherwise.
+		/** Updates the distance of the Ultrasonic Module to the objects in a non-blocking way. This means that
+		the call to the method will return immediatly and in the "background" the distance measure will ocurr after a while. 
+		When the measurement is concluded and you call getDistanceCentimeters() or getDistanceInches() the new distance value
+		will be returned. While the measurement is on going the distance will be from the last measurement.
 		*/
 		virtual void updateDistanceNonBlock();
 
 	protected:
 
-		/*
-		Execute a non-block distance measure
-		*/
+		/** Execute a non-block distance measurement */
 		void executeUpdateDistanceNonBlock();
 
-		/*
-		Verify if there is a non-block measure on going that has already timeouted
-		@return - True: If it timeout. False: Otherwise.
+		/** Verify if there is a non-block measuremenet on going that has already timeouted
+		@return True: If it timeout. False: Otherwise.
 		*/
 		bool isUpdateDistanceNonBlockTimeout();
 
-		/*
-		Calculates the distance to the object based on the sound speed in air using the last distance value measured!
-		@param soundSpeedCmPerSec (cm/sec)	- The sound speed to be taken in account.
-		@return	distance (Centimeters)		- The distance to the object.
+		/** Calculates the distance to the object based on the sound speed in air using the last distance value measured!
+		@param soundSpeedCmPerSec (Cm/Sec)	The sound speed to be taken in account during the calculation
+		@return	distance (Centimeters)		The new calculated distance
 		*/
 		float calculateDistance(IN float soundSpeedCmPerSec);
 
 	private:
 	#pragma region Interrupt Management/Handling Methods
-		/* Interrupt handler of the DistanceMeterNonBlock instance that is in charge of the measurement */
+		/** Interrupt handler of the DistanceMeterNonBlock instance that is in charge of the measurement */
 		void interruptHandler(IN unsigned long interruptCallTimeMicros);
 
-		/* Assign a new DistanceMeterNonBlock instance to an available spot */
+		/** Assign a new DistanceMeterNonBlock instance to an available spot */
 		static void assignInstance(IN DistanceMeterNonBlock* dm);
 
-		/* Delete the DistanceMeterNonBlock instance from the available spot */
+		/** Delete the DistanceMeterNonBlock instance from the available spot */
 		static void deleteInstance(IN DistanceMeterNonBlock* dm);
 
-		/* Attach the interrupt interruptCaller function to the right instance object */
-		static void attachInterruptToInstance(DistanceMeterNonBlock* dm);
+		/** Attach the interrupt interruptCaller function to the right instance object */
+		static void attachInterruptToInstance(IN DistanceMeterNonBlock* dm);
 
-		/* Necessary to redirect the interrupt to the specific DistanceMeterNonBlock instance */
+		/** Necessary to redirect the interrupt to the specific DistanceMeterNonBlock instance */
 		static void interruptCaller0();
 		static void interruptCaller1();
 

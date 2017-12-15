@@ -9,13 +9,26 @@ install:
   # Install the library in the arduino user libraries folder
   - ln -s $PWD /usr/local/share/arduino/libraries/Easyuino
 script:
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Leds/RGBLed/RGBLedExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Relay/RelayExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Relay/RelayNamed/RelayNamedExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/UltraSonicModule/DistanceMeter/DistanceMeterExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/UltraSonicModule/DistanceMeterNonBlock/DistanceMeterNonBlockExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/UltraSonicModule/DistanceMeterAccurate/DistanceMeterAccurateExample.ino
-  - arduino --verify --board arduino:avr:uno $PWD/examples/WaterDetector/WaterDetectorExample.ino
+  ################################## Examples To Build ###################################
+  # Communication
+  - arduino --verify --board arduino:avr:uno $PWD/examples/GSMServiceExample/GSMServiceExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/GSMServiceSecureExample/GSMServiceSecureExample.ino
+  # Led
+  - arduino --verify --board arduino:avr:uno $PWD/examples/RGBLedExample/RGBLedExample.ino
+  # SevenSegments
+  - arduino --verify --board arduino:avr:uno $PWD/examples/SevenSegmentsExample/SevenSegmentsExample.ino
+  # Relay
+  - arduino --verify --board arduino:avr:uno $PWD/examples/RelayExample/RelayExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/RelayNamedExample/RelayNamedExample.ino
+  # Ultrasonic
+  - arduino --verify --board arduino:avr:uno $PWD/examples/DistanceMeterExample/DistanceMeterExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/DistanceMeterNonBlockExample/DistanceMeterNonBlockExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/DistanceMeterAccurateExample/DistanceMeterAccurateExample.ino
+  # WaterDetector
+  - arduino --verify --board arduino:avr:uno $PWD/examples/WaterDetectorExample/WaterDetectorExample.ino
+  # WaterFlow
+  - arduino --verify --board arduino:avr:uno $PWD/examples/WaterFlowSensorExample/WaterFlowSensorExample.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/WaterFlowMeterExample/WaterFlowMeterExample.ino
 notifications:
   email:
     on_success: change
