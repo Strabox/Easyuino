@@ -52,7 +52,7 @@ namespace Easyuino {
 
 	public:
 		/** Constructor
-		@param arduionPin	Arduino pin that is connected with the relay (normal in relay is IN pins)
+		@param arduinoPin	Arduino pin that is connected with the relay (normal in relay is IN pins)
 		@param deviceName	Name (identifier) of the device that the relay activates/deactivates
 		*/
 		RelayNamed(IN uint8_t arduinoPin, IN const char* deviceName);

@@ -12,7 +12,7 @@
 	* [Usage Examples](https://github.com/Strabox/Easyuino#usage-examples)
 	* [API Documentation and Troubleshoot](https://github.com/Strabox/Easyuino#api-documentation-and-troubleshoot)
 - [Project Structure](https://github.com/Strabox/Easyuino#project-structure)
-- [Library Maintenance and Contacts](https://github.com/Strabox/Easyuino#library-maintenance-and-contacts)
+- [Contribution and Maintenance](https://github.com/Strabox/Easyuino#contribution-and-maintenance)
 - [Important Features (Advanced)](https://github.com/Strabox/Easyuino#important-features-(advanced))
 	* [Static Memory Allocation](https://github.com/Strabox/Easyuino#static-memory-allocation)
 - [API Version System](https://github.com/Strabox/Easyuino#api-version-system)
@@ -34,11 +34,11 @@ The Easyuino library has 4 fundamental goals:
 ### Currently Supported
 
 - RGB Led
-- Seven Segments Display [Hardware Supported: TM1637 Driver]
-- Ultrasonic Module [Hardware Supported: HC-SR03, HC-SR04, HC-SR05]
 - Buttons
 - Relay Module 
 - Water Detector Sensor
+- Seven Segments Display [Hardware Supported: TM1637 Driver]
+- Ultrasonic Module [Hardware Supported: HC-SR03, HC-SR04, HC-SR05]
 - Water Flow Sensor/Meter (Can be used for air and other fluids) [Hardware Supported: YF-DN40]
 - GSM Module (currently SMS services only) [Hardware Supported: GSM900 Chipset]
 
@@ -71,26 +71,19 @@ The Easyuino library has 4 fundamental goals:
 	3. Click on the Easyuino box
 	4. Select the lastest version and click in **Install Button**
 	5. Go to the menu **Sketch > Include Library**
-	6. Scroll down until you find Easyuino, click on it and DONE
+	6. Scroll down until you find Easyuino, click on it and it is DONE
 - If using the [Arduino Web IDE](https://create.arduino.cc/editor)
 	1. Go to the **Libraries** menu in left
 	2. Search for Easyuino in **Search Bar**
-	3. Put the mouse hover Easyuino box and click **Include** and DONE (this will automatically include Easyuino in your sketch)
+	3. Put the mouse hover Easyuino box and click **Include** and it is DONE
 
 ### Usage Examples
 
-The examples are in examples folder of the library and hosted in the new [Arduino Web Platform](https://create.arduino.cc/editor) where users can see the code and upload it to the board using a browser (Chrome recommended) and a plugin. So below are the links for each device/sensor examples you can follow them to the platform, see the simple guides to build the circuit, run and have fun!!
+The examples are in examples folder of the library and hosted in the new [Arduino Web IDE](https://create.arduino.cc/editor) where users can see the code and upload it to the board using a browser (Chrome recommended) and a plugin.
 
-**Important!!:** When looking for how to use a device look at the examples from the left to right. The left ones are the simpler and have a limited set of features that probably will be enough for beginners. The examples at right normally provide more advanced features that are improvements over the basic ones.
+Go to the Arduino Web IDE make the registration, search for Easyuino library and import the examples and upload them directly to your board all of this from your browser.
 
-* Simple Sensors/Devices
-    - Relay: [Turn On and Off a bulb](https://create.arduino.cc/editor/Strabox/1834908b-32db-4db2-aedc-e07a33c67559/preview), [Turn on and off a bulb with a identifier](https://create.arduino.cc/editor/Strabox/0035db7d-95da-407c-a858-cda62968412d/preview)
-    - Led: [Color festival with RGB led](https://create.arduino.cc/editor/Strabox/34b84db3-edf4-4225-9c7c-f47f43cbe842/preview)
-    - Ultrasonic Module: [Measure distance](https://create.arduino.cc/editor/Strabox/86378038-2287-437a-b7a8-fa9fb0788ea7/preview) , [Measure distance without stop Arduino](https://create.arduino.cc/editor/Strabox/ab13f15d-e830-4430-b1b5-0a7726e60b13/preview), [Measure distance considering temperature](https://create.arduino.cc/editor/Strabox/497ecf13-17b4-4bd3-94d0-9435eca87bbe/preview)
-	- Water Detector Sensor: [How soaked is ?](https://create.arduino.cc/editor/Strabox/e732834f-9262-48f5-982b-df51f3ffe7ed/preview)
-	- Water Flow Sensor: [Water is Flowing?](https://create.arduino.cc/editor/Strabox/3ac395de-bc8e-4b64-98d9-b5f33a563cc9/preview), [How much water is flowing?](https://create.arduino.cc/editor/Strabox/e4677503-b766-4b37-87ac-247b1621729d/preview)
-* Advanced/Complex  Sensors/Devices
-    - GSM/GPRS Module (currently only SMS services): [Send, Receive and delete SMS](https://create.arduino.cc/editor/Strabox/753bbeab-f2be-49b7-9caf-9a6b0f965575/preview), [Control who can send SMS to the Arduino](https://create.arduino.cc/editor/Strabox/ef0dfcde-b93a-4a7c-9611-94a2f186fc0d/preview)
+If you don't want use Arduino Web IDE check the examples folder of the library.
 
 ### API Documentation and Troubleshoot
 
@@ -98,31 +91,31 @@ The examples are in examples folder of the library and hosted in the new [Arduin
 
 If you have an old version you can go to the **\docs\html** folder in the library and consult the documentation from that version opening the index.html file in your favorite browser.
 
-If the API documentantion is not enough to clarify you or found a bug [contact me.](https://github.com/Strabox/Easyuino#library-maintenance)
+If the API documentantion is not enough to clarify you or found a bug [contact me](https://github.com/Strabox/Easyuino#library-maintenance).
 
 ## Project Structure
 
 - **/docs** contains the documentation of the API in HTML and LaTeX 
-- **/examples** contains usage examples of the API
-- **/extras** contains materials used to develop the library (e.g: devices guides, schemes, ...)
+- **/examples** contains usage examples of the API (same examples as the ones presented above)
+- **/extras** contains materials used to develop the library (e.g: devices guides, electronic schemes, ...)
 - **/src** contains the source code of the library
 - *.releaseGuide* describes step-by-step how to release a new version of Easyuino
-- *.travis.yml* describes the script to test Easyuino in CI [Travis Platform](https://travis-ci.org/)
+- *.travis.yml* script to test Easyuino in CI [Travis Platform](https://travis-ci.org/)
 - *Doxyfile* is used as input to [Doxygen](http://www.doxygen.org) tool in order to generate the API documentation from the source code
 
-## Library Maintenance and Contacts
+## Contribution and Maintenance
 
-The maintenance/development of the library, including fixes and addition of new sensors/devices, will be done depending on:
-- My time availability (Now I am doing my Masters Degree Thesis in Computer Science and Engineering that stoles a good slice of my time)
+If you want contribute you can:
+- Report bugs using issues mechanism of GitHub or sending an email. 
+- Forking, enhancing the library and submiting a pull request.
+- Provide constructive ideas and suggestions via issues or email. 
 
-**Important:** If you have any question about Easyuino you can contact me!!
+**All the help is welcome!!**
+
+**Important:** If you have any question about Easyuino you can contact me via email or issues system.
 
 Contact Channels:
 - Email: easyuino@gmail.com
-
-## Contributing
-
-TODO
 
 ## Important Features (Advanced)
 
@@ -152,4 +145,4 @@ At certain point in the development of the project mentioned I decided that isol
 
 ## License 
 
-This project is licensed under the MIT License - see the LICENSE.md file for details
+This project is licensed under the MIT License - see the LICENSE.md file for details.

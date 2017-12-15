@@ -30,18 +30,15 @@ WaterFlowSensor.h
 #include "Utilities.h"
 #include "Device.h"
 
-/** Minimum time between the flow rates update. Necessary to create a window of analysis otherwise
-many measurements in small space time would be difficult to calculate due to the small window time. 
-Arduino goes around loop function much faster than the turbine spings so we need accumulate. (Default/Min 1 Sec)*/
-#define MIN_TIME_BETWEEN_UPDATES 1000
+#define PULSE_TIMEOUT 500
 
 namespace Easyuino {
 
 	/** WaterFlowSensor is an API offers the ability to know if it is flowing something through the sensor or not
 	using fluid flow meters.
-	@see Limitation:		This allows ONLY 1 instance of WaterFlowSensor per sketch!!
-	@see Devices Supported:	 YF-DN40
-	@see Devices Tested:	 YF-DN40
+	@see Limitation:			Only allows control 1 water flow sensor per sketch
+	@see Devices Supported:		YF-DN40
+	@see Devices Tested:		YF-DN40
 	*/
 	class WaterFlowSensor : public Device {
 
@@ -53,14 +50,8 @@ namespace Easyuino {
 		/** Arduino pin connected to the sensor pulse pin */
 		uint8_t _sensorPin;
 
-		/** Incremented by the sensor each time the "turbine" does a full round */
-		volatile unsigned long _pulseCounter;
-
-		/** It is updated by the updateFlow() method and is True if there is flow and False otherwise */
-		bool _isFlowing;
-
-		/** Timestamp with the last time API checked the flow */
-		unsigned long _lastFlowUpdateTimestamp;
+		/** Timestamp with the last time a pulse was detected */
+		volatile unsigned long _lastPulseTimestamp;
 
 	public:
 		/** Constructor
@@ -75,29 +66,17 @@ namespace Easyuino {
 
 		void end();
 
-		/** Used to verify how flow is since the last call. This method should be called frequently in order
-		to have a up-to-date and reliable view of how the sensor is behaving. A good place to put it is in the
-		end of loop function.
-		*/
-		virtual void updateFlow();
-
-		/** Checks if there there are flow detected in the sensor.
+		/** Checks if there there are flow in the sensor.
 		@return isFlowing True: If there is flow. False: Otherwise.
 		*/
 		bool isFlowing() const;
 
 	protected:
-		/** Enable the pin interruption that increments the pulse counter. */
-		void enablePulseCounting();
-		
-		/** Disable the pin interruption that increments the pulse counter. */
-		void disablePulseCounting();
-
+		/** Called by the interruption ISR for each pulse. */
+		virtual void pulseHandler(IN unsigned long callTimestamp);
+	
 	private:
-		/** Called by the interruption ISR for each pulse and increments the pulse counter. */
-		void countPulses();
-
-		/** Binds the interruption event ISR to the sensor instance that will handle it. */
+		/** ISR - Binds the interruption event to the right sensor instance that will handle it. */
 		static void InterruptCaller();
 
 	};

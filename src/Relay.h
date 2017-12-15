@@ -46,7 +46,7 @@ namespace Easyuino {
 
 	public:
 		/** Constructor
-		@param arduionPin	Arduino pin that is connected with the relay (normaly called IN pins in the relay boards)
+		@param arduinoPin	Arduino pin that is connected with the relay (normaly called IN pins in the relay boards)
 		*/
 		Relay(IN uint8_t arduinoPin);
 

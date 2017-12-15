@@ -2,7 +2,7 @@
 \label{class_easyuino_1_1_distance_meter}\index{Easyuino\+::\+Distance\+Meter@{Easyuino\+::\+Distance\+Meter}}
 
 
-\hyperlink{class_easyuino_1_1_distance_meter}{Distance\+Meter} offers an A\+PI to interact with an Ultrasonic Module to measure distances to objects.  
+Used to represent the at least supported Ultrasonic Module models enum Ultrasonic\+Module \+: uint8\+\_\+t \{ H\+C\+\_\+\+S\+R03, H\+C\+\_\+\+S\+R04, H\+C\+\_\+\+S\+R05 \};.  
 
 
 
@@ -22,6 +22,9 @@ Inheritance diagram for Easyuino\+:\+:Distance\+Meter\+:\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 \hyperlink{class_easyuino_1_1_distance_meter_aa5551cc3c42fe77f0972a41acf896cf9}{Distance\+Meter} (IN uint8\+\_\+t trigger\+Echo\+Pin)
 \begin{DoxyCompactList}\small\item\em Contructor used with Ultrasonic Modules that have only one pin for trigger and echo. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_aacd298add519e79000e08a7bb1995d0f}\label{class_easyuino_1_1_distance_meter_aacd298add519e79000e08a7bb1995d0f}} 
+\hyperlink{class_easyuino_1_1_distance_meter_aacd298add519e79000e08a7bb1995d0f}{$\sim$\+Distance\+Meter} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
 bool \hyperlink{class_easyuino_1_1_distance_meter_a0374e6f806cd71f0f918c6ea7b7700a0}{begin} ()
 \begin{DoxyCompactList}\small\item\em Used to put the device ready to receive requests. \end{DoxyCompactList}\item 
 void \hyperlink{class_easyuino_1_1_distance_meter_a8a818cc922418ae5a078193dbfab1e6b}{end} ()
@@ -31,7 +34,7 @@ virtual float \hyperlink{class_easyuino_1_1_distance_meter_a637cdd0d3e4f3bcf0947
 float \hyperlink{class_easyuino_1_1_distance_meter_a4e3c650c54382d9af6bca51dcac4e7a3}{get\+Distance\+Inches} ()
 \begin{DoxyCompactList}\small\item\em Gets the last value that the A\+PI measured using the US. \end{DoxyCompactList}\item 
 virtual void \hyperlink{class_easyuino_1_1_distance_meter_a739197578f06b58faedefd0526d49499}{update\+Distance} ()
-\begin{DoxyCompactList}\small\item\em Triggeres a distance measurement in the Ultrasonic Module. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Updates the distance of the Ultrasonic Module to the objects in a blocking way. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -54,9 +57,9 @@ volatile float \hyperlink{class_easyuino_1_1_distance_meter_ae10df1a21d2acfec3aa
 
 
 \subsection{Detailed Description}
-\hyperlink{class_easyuino_1_1_distance_meter}{Distance\+Meter} offers an A\+PI to interact with an Ultrasonic Module to measure distances to objects. 
+Used to represent the at least supported Ultrasonic Module models enum Ultrasonic\+Module \+: uint8\+\_\+t \{ H\+C\+\_\+\+S\+R03, H\+C\+\_\+\+S\+R04, H\+C\+\_\+\+S\+R05 \};. 
 
-\begin{DoxySeeAlso}{See also}
+\hyperlink{class_easyuino_1_1_distance_meter}{Distance\+Meter} offers a simple A\+PI to interact with an Ultrasonic Module to measure distances to objects. \begin{DoxySeeAlso}{See also}
 Devices Supported\+: H\+C-\/\+S\+R03, H\+C-\/\+S\+R04, H\+C-\/\+S\+R05 
 
 Devices Tested\+: H\+C-\/\+S\+R04 
@@ -93,7 +96,7 @@ Contructor used with Ultrasonic Modules that have only one pin for trigger and e
 
 
 \begin{DoxyParams}{Parameters}
-{\em trigger\+Pin} & Arduino pin connected to the trigger\&echo pin of the Ultrasonic Module \\
+{\em trigger\+Echo\+Pin} & Arduino pin connected to the trigger\&echo pin of the Ultrasonic Module \\
 \hline
 \end{DoxyParams}
 
@@ -150,7 +153,7 @@ Execute a block distance measurement and calculates the distance based on the so
 
 
 \begin{DoxyParams}{Parameters}
-{\em sound\+Speed} & (cm/sec) Sound speed to introduce in the calculation \\
+{\em sound\+Speed} & (Cm/\+Sec) Sound speed to introduce in the calculation \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -194,9 +197,12 @@ distance (Inches) The most recent measurement the A\+PI have done
 
 
 
-Triggeres a distance measurement in the Ultrasonic Module. 
+Updates the distance of the Ultrasonic Module to the objects in a blocking way. 
 
-The new distance value is available using \hyperlink{class_easyuino_1_1_distance_meter_a637cdd0d3e4f3bcf094704ae91e0c7c3}{get\+Distance\+Centimeters()} or \hyperlink{class_easyuino_1_1_distance_meter_a4e3c650c54382d9af6bca51dcac4e7a3}{get\+Distance\+Inches()} method after calling this method.  This method blocks while the measurement is on going, so the arduino waits for the measure to be concluded, if you want a non block update distance method look for \hyperlink{class_easyuino_1_1_distance_meter_non_block}{Distance\+Meter\+Non\+Block} A\+PI 
+The new distance value is available using \hyperlink{class_easyuino_1_1_distance_meter_a637cdd0d3e4f3bcf094704ae91e0c7c3}{get\+Distance\+Centimeters()} or \hyperlink{class_easyuino_1_1_distance_meter_a4e3c650c54382d9af6bca51dcac4e7a3}{get\+Distance\+Inches()} method after calling this method. \begin{DoxyWarning}{Warning}
+This method blocks while the measurement is on going, so the arduino waits for the measure to be concluded, if you want a non block update distance method look for \hyperlink{class_easyuino_1_1_distance_meter_non_block}{Distance\+Meter\+Non\+Block} A\+PI 
+\end{DoxyWarning}
+
 
 Reimplemented in \hyperlink{class_easyuino_1_1_distance_meter_non_block_a4ea37c6c0562a76cd03636db329743f9}{Easyuino\+::\+Distance\+Meter\+Non\+Block}.
 

@@ -29,6 +29,7 @@ namespace Easyuino {
 
 	WaterFlowSensor::WaterFlowSensor(IN uint8_t sensorPin) : Device() {
 		_sensorPin = sensorPin;
+		_lastPulseTimestamp = 0;
 		if (Singleton != NULL) {
 			delete Singleton;
 		}
@@ -42,62 +43,42 @@ namespace Easyuino {
 	bool WaterFlowSensor::begin() {
 		if (!_isInitialized) {
 			pinMode(_sensorPin, INPUT);
-			_pulseCounter = 0;
-			_lastFlowUpdateTimestamp = 0;
-			_isFlowing = false;
 			_isInitialized = true;
-			enablePulseCounting();
+			attachInterrupt(digitalPinToInterrupt(_sensorPin), WaterFlowSensor::InterruptCaller, FALLING);
 		}
 		return _isInitialized;
 	}
 
 	void WaterFlowSensor::end() {
 		if (_isInitialized) {
-			disablePulseCounting();
+			detachInterrupt(digitalPinToInterrupt(_sensorPin));
 			_isInitialized = false;
 		}
 	}
 
-	void WaterFlowSensor::updateFlow() {
-		unsigned long currentTime = millis();
-		if (_isInitialized && (currentTime - _lastFlowUpdateTimestamp) > MIN_TIME_BETWEEN_UPDATES) {
-			disablePulseCounting();
-			if (_pulseCounter == 0) {
-				_isFlowing = false;
-			}
-			else {
-				_isFlowing = true;
-				_pulseCounter = 0;
-			}
-			_lastFlowUpdateTimestamp = currentTime;
-			enablePulseCounting();
-		}
-	}
 
 	bool WaterFlowSensor::isFlowing() const {
 		if (_isInitialized) {
-			return _isFlowing;
+			if ((millis() - _lastPulseTimestamp) > PULSE_TIMEOUT) {
+				return false;
+			}
+			else {
+				return true;
+			}
 		}
 		return false;	//API not initialized
 	}
 
-	void WaterFlowSensor::enablePulseCounting() {
-		/* My sensor works on falling. TODO see if there are sensors that work on rising. */
-		attachInterrupt(digitalPinToInterrupt(_sensorPin), WaterFlowSensor::InterruptCaller, FALLING);
-	}
 
-	void WaterFlowSensor::disablePulseCounting() {
-		detachInterrupt(digitalPinToInterrupt(_sensorPin));
-	}
-
-	void WaterFlowSensor::countPulses() {
-		_pulseCounter++;
+	void WaterFlowSensor::pulseHandler(IN unsigned long callTimestamp) {
+		_lastPulseTimestamp = callTimestamp;
 	}
 
 	/* Static */
 	void WaterFlowSensor::InterruptCaller() {
+		unsigned long callTime = millis();
 		if (Singleton != NULL) {
-			Singleton->countPulses();
+			Singleton->pulseHandler(callTime);
 		}
 	}
 

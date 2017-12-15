@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Easyuino
-   &#160;<span id="projectnumber">1.1.0</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
   </td>
  </tr>
@@ -99,14 +99,15 @@ Inheritance diagram for Easyuino::Device:</div>
  <div class="center">
   <img src="class_easyuino_1_1_device.png" usemap="#Easyuino::Device_map" alt=""/>
   <map id="Easyuino::Device_map" name="Easyuino::Device_map">
-<area href="class_easyuino_1_1_distance_meter.html" title="DistanceMeter offers an API to interact with an Ultrasonic Module to measure distances to objects..." alt="Easyuino::DistanceMeter" shape="rect" coords="180,56,350,80"/>
-<area href="class_easyuino_1_1_g_s_m_service.html" alt="Easyuino::GSMService" shape="rect" coords="180,112,350,136"/>
-<area href="class_easyuino_1_1_infra_red_receiver.html" alt="Easyuino::InfraRedReceiver" shape="rect" coords="180,168,350,192"/>
-<area href="class_easyuino_1_1_relay.html" alt="Easyuino::Relay" shape="rect" coords="180,224,350,248"/>
-<area href="class_easyuino_1_1_r_g_b_led.html" alt="Easyuino::RGBLed" shape="rect" coords="180,280,350,304"/>
-<area href="class_easyuino_1_1_seven_segments.html" alt="Easyuino::SevenSegments" shape="rect" coords="180,336,350,360"/>
-<area href="class_easyuino_1_1_water_detector.html" alt="Easyuino::WaterDetector" shape="rect" coords="180,392,350,416"/>
-<area href="class_easyuino_1_1_water_flow_sensor.html" alt="Easyuino::WaterFlowSensor" shape="rect" coords="180,448,350,472"/>
+<area href="class_easyuino_1_1_button.html" title="Button API offers an interface to interact with common buttons. " alt="Easyuino::Button" shape="rect" coords="180,56,350,80"/>
+<area href="class_easyuino_1_1_distance_meter.html" title="Used to represent the at least supported Ultrasonic Module models enum UltrasonicModule : uint8_t { H..." alt="Easyuino::DistanceMeter" shape="rect" coords="180,112,350,136"/>
+<area href="class_easyuino_1_1_g_s_m_service.html" title="GSMService API allows to interact with GSM boards in order to perform calls, sms management etc..." alt="Easyuino::GSMService" shape="rect" coords="180,168,350,192"/>
+<area href="class_easyuino_1_1_infra_red_receiver.html" alt="Easyuino::InfraRedReceiver" shape="rect" coords="180,224,350,248"/>
+<area href="class_easyuino_1_1_relay.html" title="Relay offers a simple API to interact with relay devices. " alt="Easyuino::Relay" shape="rect" coords="180,280,350,304"/>
+<area href="class_easyuino_1_1_r_g_b_led.html" title="RGBLed API allows to easily interact with a RGB led to set its color for example. ..." alt="Easyuino::RGBLed" shape="rect" coords="180,336,350,360"/>
+<area href="class_easyuino_1_1_seven_segments.html" title="SevenSegments API is used to interact with seven segments displays. " alt="Easyuino::SevenSegments" shape="rect" coords="180,392,350,416"/>
+<area href="class_easyuino_1_1_water_detector.html" title="RainDetector API is used to detect the amount of water that is touching the sensor. " alt="Easyuino::WaterDetector" shape="rect" coords="180,448,350,472"/>
+<area href="class_easyuino_1_1_water_flow_sensor.html" title="WaterFlowSensor is an API offers the ability to know if it is flowing something through the sensor or..." alt="Easyuino::WaterFlowSensor" shape="rect" coords="180,504,350,528"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -166,7 +167,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Used to put the device ready to receive requests. </p>
 <p>Normally this have some default behaviour some devices have other overload method with same name that receives other arguments to device customization. </p><dl class="section return"><dt>Returns</dt><dd>True: If the device was initialized. False: Otherwise. </dd></dl>
 
-<p>Implemented in <a class="el" href="class_easyuino_1_1_g_s_m_service.html#aeafc2dae47e4b13e127eb228a0f7ff6a">Easyuino::GSMService</a>, <a class="el" href="class_easyuino_1_1_r_g_b_led.html#abdc3512266c7f584609147fccc1ec816">Easyuino::RGBLed</a>, <a class="el" href="class_easyuino_1_1_distance_meter_non_block.html#a46d2093d0fc125e98c3602868c088a77">Easyuino::DistanceMeterNonBlock</a>, <a class="el" href="class_easyuino_1_1_distance_meter.html#a0374e6f806cd71f0f918c6ea7b7700a0">Easyuino::DistanceMeter</a>, <a class="el" href="class_easyuino_1_1_water_detector.html#af7a0ec32d6abcb8c1060f493525d5228">Easyuino::WaterDetector</a>, <a class="el" href="class_easyuino_1_1_relay.html#a920a0fa287cacfd8c6df19d8812d4958">Easyuino::Relay</a>, <a class="el" href="class_easyuino_1_1_water_flow_sensor.html#a55dcab6c527b1e1951a1fff69efdb763">Easyuino::WaterFlowSensor</a>, <a class="el" href="class_easyuino_1_1_water_flow_meter.html#a400c25b10a7cde45c623805546d071cd">Easyuino::WaterFlowMeter</a>, and <a class="el" href="class_easyuino_1_1_seven_segments.html#ab59d5cbdc22567fb97854f32d899e02d">Easyuino::SevenSegments</a>.</p>
+<p>Implemented in <a class="el" href="class_easyuino_1_1_g_s_m_service.html#aeafc2dae47e4b13e127eb228a0f7ff6a">Easyuino::GSMService</a>, <a class="el" href="class_easyuino_1_1_distance_meter.html#a0374e6f806cd71f0f918c6ea7b7700a0">Easyuino::DistanceMeter</a>, <a class="el" href="class_easyuino_1_1_distance_meter_non_block.html#a46d2093d0fc125e98c3602868c088a77">Easyuino::DistanceMeterNonBlock</a>, <a class="el" href="class_easyuino_1_1_r_g_b_led.html#abdc3512266c7f584609147fccc1ec816">Easyuino::RGBLed</a>, <a class="el" href="class_easyuino_1_1_water_flow_meter.html#a400c25b10a7cde45c623805546d071cd">Easyuino::WaterFlowMeter</a>, <a class="el" href="class_easyuino_1_1_water_detector.html#af7a0ec32d6abcb8c1060f493525d5228">Easyuino::WaterDetector</a>, <a class="el" href="class_easyuino_1_1_button.html#a3505f6abb646e92130701d5a1b285c76">Easyuino::Button</a>, <a class="el" href="class_easyuino_1_1_water_flow_sensor.html#a55dcab6c527b1e1951a1fff69efdb763">Easyuino::WaterFlowSensor</a>, <a class="el" href="class_easyuino_1_1_seven_segments.html#ab59d5cbdc22567fb97854f32d899e02d">Easyuino::SevenSegments</a>, and <a class="el" href="class_easyuino_1_1_relay.html#a920a0fa287cacfd8c6df19d8812d4958">Easyuino::Relay</a>.</p>
 
 </div>
 </div>
@@ -196,7 +197,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Used to stop the device API. </p>
 <p>After this the the device will not process API requests. </p>
 
-<p>Implemented in <a class="el" href="class_easyuino_1_1_g_s_m_service.html#a05bef783773776ec209608aa81d1ff45">Easyuino::GSMService</a>, <a class="el" href="class_easyuino_1_1_r_g_b_led.html#ad0e9fb0da405c537e876c8a2dc22246e">Easyuino::RGBLed</a>, <a class="el" href="class_easyuino_1_1_distance_meter_non_block.html#a845d4db657ff408205d1cdb3c35982a4">Easyuino::DistanceMeterNonBlock</a>, <a class="el" href="class_easyuino_1_1_distance_meter.html#a8a818cc922418ae5a078193dbfab1e6b">Easyuino::DistanceMeter</a>, <a class="el" href="class_easyuino_1_1_relay.html#a2b57237c996a6ffe8e900ae273bce9d4">Easyuino::Relay</a>, <a class="el" href="class_easyuino_1_1_water_detector.html#a9c1473536f47b2a7d8e1f8fb1bf5f3fd">Easyuino::WaterDetector</a>, <a class="el" href="class_easyuino_1_1_water_flow_sensor.html#a7f31ac7735b049394d34cfbc37f17359">Easyuino::WaterFlowSensor</a>, <a class="el" href="class_easyuino_1_1_water_flow_meter.html#a47024d4da9568e42743a875c08c33121">Easyuino::WaterFlowMeter</a>, and <a class="el" href="class_easyuino_1_1_seven_segments.html#afea49385382a7b9c597b4fe42a003fee">Easyuino::SevenSegments</a>.</p>
+<p>Implemented in <a class="el" href="class_easyuino_1_1_g_s_m_service.html#a05bef783773776ec209608aa81d1ff45">Easyuino::GSMService</a>, <a class="el" href="class_easyuino_1_1_distance_meter.html#a8a818cc922418ae5a078193dbfab1e6b">Easyuino::DistanceMeter</a>, <a class="el" href="class_easyuino_1_1_distance_meter_non_block.html#a845d4db657ff408205d1cdb3c35982a4">Easyuino::DistanceMeterNonBlock</a>, <a class="el" href="class_easyuino_1_1_r_g_b_led.html#ad0e9fb0da405c537e876c8a2dc22246e">Easyuino::RGBLed</a>, <a class="el" href="class_easyuino_1_1_water_flow_meter.html#a47024d4da9568e42743a875c08c33121">Easyuino::WaterFlowMeter</a>, <a class="el" href="class_easyuino_1_1_water_detector.html#a9c1473536f47b2a7d8e1f8fb1bf5f3fd">Easyuino::WaterDetector</a>, <a class="el" href="class_easyuino_1_1_button.html#a0742235d911c24e7b3505f9655176532">Easyuino::Button</a>, <a class="el" href="class_easyuino_1_1_water_flow_sensor.html#a7f31ac7735b049394d34cfbc37f17359">Easyuino::WaterFlowSensor</a>, <a class="el" href="class_easyuino_1_1_seven_segments.html#afea49385382a7b9c597b4fe42a003fee">Easyuino::SevenSegments</a>, and <a class="el" href="class_easyuino_1_1_relay.html#a2b57237c996a6ffe8e900ae273bce9d4">Easyuino::Relay</a>.</p>
 
 </div>
 </div>
@@ -228,7 +229,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespace_easyuino.html">Easyuino</a></li><li class="navelem"><a class="el" href="class_easyuino_1_1_device.html">Device</a></li>
+    <li class="navelem"><b>Easyuino</b></li><li class="navelem"><a class="el" href="class_easyuino_1_1_device.html">Device</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>

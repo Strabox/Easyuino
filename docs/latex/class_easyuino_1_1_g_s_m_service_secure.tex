@@ -1,5 +1,14 @@
 \hypertarget{class_easyuino_1_1_g_s_m_service_secure}{}\section{Easyuino\+:\+:G\+S\+M\+Service\+Secure Class Reference}
 \label{class_easyuino_1_1_g_s_m_service_secure}\index{Easyuino\+::\+G\+S\+M\+Service\+Secure@{Easyuino\+::\+G\+S\+M\+Service\+Secure}}
+
+
+\hyperlink{class_easyuino_1_1_g_s_m_service_secure}{G\+S\+M\+Service\+Secure} extends the \hyperlink{class_easyuino_1_1_g_s_m_service}{G\+S\+M\+Service} A\+PI allowing user to add phone numbers to accept calls and S\+M\+Ss from this predefined set of numbers.  
+
+
+
+
+{\ttfamily \#include $<$G\+S\+M\+Service\+Secure.\+h$>$}
+
 Inheritance diagram for Easyuino\+:\+:G\+S\+M\+Service\+Secure\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,28 +18,173 @@ Inheritance diagram for Easyuino\+:\+:G\+S\+M\+Service\+Secure\+:\begin{figure}[
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_secure_ab28bad6e7765f61851a3957edc5d3071}\label{class_easyuino_1_1_g_s_m_service_secure_ab28bad6e7765f61851a3957edc5d3071}} 
-{\bfseries G\+S\+M\+Service\+Secure} (IN uint8\+\_\+t tx\+Pin, IN uint8\+\_\+t rx\+Pin, IN uint8\+\_\+t power\+Pin, IN Stream \&output\+Stream)
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_secure_a4331122e2c6e42711eb13bf59cfd940c}\label{class_easyuino_1_1_g_s_m_service_secure_a4331122e2c6e42711eb13bf59cfd940c}} 
-{\bfseries G\+S\+M\+Service\+Secure} (IN uint8\+\_\+t tx\+Pin, IN uint8\+\_\+t rx\+Pin, IN uint8\+\_\+t power\+Pin)
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_secure_a7acbf1d460ef1b81bcd36d852b596af3}\label{class_easyuino_1_1_g_s_m_service_secure_a7acbf1d460ef1b81bcd36d852b596af3}} 
-G\+S\+M\+Request\+Status {\bfseries add\+Allowed\+Number} (IN unsigned long phone\+Number\+To\+Add)
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_secure_a791dd872fe2c72311d84219616e5f54c}\label{class_easyuino_1_1_g_s_m_service_secure_a791dd872fe2c72311d84219616e5f54c}} 
-G\+S\+M\+Request\+Status {\bfseries is\+Allowed} (IN unsigned long phone\+Number, O\+UT bool \&allowed)
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_secure_a1ad4988fa2dcc0ba8f87c70cf71edf29}\label{class_easyuino_1_1_g_s_m_service_secure_a1ad4988fa2dcc0ba8f87c70cf71edf29}} 
-G\+S\+M\+Request\+Status {\bfseries remove\+Allowed\+Number} (IN unsigned long phone\+Number\+To\+Remove)
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_secure_a10a8160dfb473d84b4bd182d689bdb95}\label{class_easyuino_1_1_g_s_m_service_secure_a10a8160dfb473d84b4bd182d689bdb95}} 
-G\+S\+M\+Request\+Status {\bfseries clear\+Allowed\+Numbers} ()
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_secure_a6c64fcfd9f98bec206543bc1699623d7}\label{class_easyuino_1_1_g_s_m_service_secure_a6c64fcfd9f98bec206543bc1699623d7}} 
-virtual G\+S\+M\+Request\+Status {\bfseries available\+S\+MS} (I\+N\+O\+UT \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} \&message, O\+UT bool \&sms\+Read)
-\end{DoxyCompactItemize}
+\hyperlink{class_easyuino_1_1_g_s_m_service_secure_ab28bad6e7765f61851a3957edc5d3071}{G\+S\+M\+Service\+Secure} (IN uint8\+\_\+t tx\+Pin, IN uint8\+\_\+t rx\+Pin, IN uint8\+\_\+t power\+Pin, IN Stream \&output\+Stream)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_easyuino_1_1_g_s_m_service_secure_a4331122e2c6e42711eb13bf59cfd940c}{G\+S\+M\+Service\+Secure} (IN uint8\+\_\+t tx\+Pin, IN uint8\+\_\+t rx\+Pin, IN uint8\+\_\+t power\+Pin)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_secure_ac66e15322e754c5ee56d022842f7a205}\label{class_easyuino_1_1_g_s_m_service_secure_ac66e15322e754c5ee56d022842f7a205}} 
+\hyperlink{class_easyuino_1_1_g_s_m_service_secure_ac66e15322e754c5ee56d022842f7a205}{$\sim$\+G\+S\+M\+Service\+Secure} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+G\+S\+M\+Request\+Status \hyperlink{class_easyuino_1_1_g_s_m_service_secure_a7acbf1d460ef1b81bcd36d852b596af3}{add\+Allowed\+Number} (IN unsigned long phone\+Number\+To\+Add)
+\begin{DoxyCompactList}\small\item\em Add the phone number to the allowed numbers IF it doesn\textquotesingle{}t exist yet. \end{DoxyCompactList}\item 
+G\+S\+M\+Request\+Status \hyperlink{class_easyuino_1_1_g_s_m_service_secure_a791dd872fe2c72311d84219616e5f54c}{is\+Allowed} (IN unsigned long phone\+Number, O\+UT bool \&allowed)
+\begin{DoxyCompactList}\small\item\em Verify if the phone number is in the list of allowed numbers. \end{DoxyCompactList}\item 
+G\+S\+M\+Request\+Status \hyperlink{class_easyuino_1_1_g_s_m_service_secure_a1ad4988fa2dcc0ba8f87c70cf71edf29}{remove\+Allowed\+Number} (IN unsigned long phone\+Number\+To\+Remove)
+\begin{DoxyCompactList}\small\item\em Remove the given number from the allowed numbers list (If exists there) \end{DoxyCompactList}\item 
+G\+S\+M\+Request\+Status \hyperlink{class_easyuino_1_1_g_s_m_service_secure_a10a8160dfb473d84b4bd182d689bdb95}{clear\+Allowed\+Numbers} ()
+\begin{DoxyCompactList}\small\item\em Clear the list for allowed phone numbers E\+N\+A\+B\+L\+I\+NG any number to Call and send \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} to the service and accept it. \end{DoxyCompactList}\item 
+G\+S\+M\+Request\+Status \hyperlink{class_easyuino_1_1_g_s_m_service_secure_a42177d8a9943f30a2b63f9bc51a5370d}{available\+S\+MS} (O\+UT \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} \&message, O\+UT bool \&sms\+Read)
+\begin{DoxyCompactList}\small\item\em Check if there is a new received \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_easyuino_1_1_g_s_m_service_secure}{G\+S\+M\+Service\+Secure} extends the \hyperlink{class_easyuino_1_1_g_s_m_service}{G\+S\+M\+Service} A\+PI allowing user to add phone numbers to accept calls and S\+M\+Ss from this predefined set of numbers. 
+
+\begin{DoxySeeAlso}{See also}
+Devices Supported\+: S\+I\+M90x Series Chipset, S\+I\+M80x Chipset 
+
+Devices Tested\+: S\+I\+M900 Chipset 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_secure_ab28bad6e7765f61851a3957edc5d3071}\label{class_easyuino_1_1_g_s_m_service_secure_ab28bad6e7765f61851a3957edc5d3071}} 
+\index{Easyuino\+::\+G\+S\+M\+Service\+Secure@{Easyuino\+::\+G\+S\+M\+Service\+Secure}!G\+S\+M\+Service\+Secure@{G\+S\+M\+Service\+Secure}}
+\index{G\+S\+M\+Service\+Secure@{G\+S\+M\+Service\+Secure}!Easyuino\+::\+G\+S\+M\+Service\+Secure@{Easyuino\+::\+G\+S\+M\+Service\+Secure}}
+\subsubsection{\texorpdfstring{G\+S\+M\+Service\+Secure()}{GSMServiceSecure()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Easyuino\+::\+G\+S\+M\+Service\+Secure\+::\+G\+S\+M\+Service\+Secure (\begin{DoxyParamCaption}\item[{IN uint8\+\_\+t}]{tx\+Pin,  }\item[{IN uint8\+\_\+t}]{rx\+Pin,  }\item[{IN uint8\+\_\+t}]{power\+Pin,  }\item[{IN Stream \&}]{output\+Stream }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tx\+Pin} & Arduino pin used to send the serial information to G\+SM module \\
+\hline
+{\em rx\+Pin} & Arduino pin used to receive the serial information from G\+SM module \\
+\hline
+{\em power\+Pin} & Arduino pin used to turn on and off the G\+SM module \\
+\hline
+{\em output\+Stream} & Debug output stream \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_secure_a4331122e2c6e42711eb13bf59cfd940c}\label{class_easyuino_1_1_g_s_m_service_secure_a4331122e2c6e42711eb13bf59cfd940c}} 
+\index{Easyuino\+::\+G\+S\+M\+Service\+Secure@{Easyuino\+::\+G\+S\+M\+Service\+Secure}!G\+S\+M\+Service\+Secure@{G\+S\+M\+Service\+Secure}}
+\index{G\+S\+M\+Service\+Secure@{G\+S\+M\+Service\+Secure}!Easyuino\+::\+G\+S\+M\+Service\+Secure@{Easyuino\+::\+G\+S\+M\+Service\+Secure}}
+\subsubsection{\texorpdfstring{G\+S\+M\+Service\+Secure()}{GSMServiceSecure()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Easyuino\+::\+G\+S\+M\+Service\+Secure\+::\+G\+S\+M\+Service\+Secure (\begin{DoxyParamCaption}\item[{IN uint8\+\_\+t}]{tx\+Pin,  }\item[{IN uint8\+\_\+t}]{rx\+Pin,  }\item[{IN uint8\+\_\+t}]{power\+Pin }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tx\+Pin} & Arduino pin used to send the serial information to G\+SM module \\
+\hline
+{\em rx\+Pin} & Arduino pin used to receive the serial information from G\+SM module \\
+\hline
+{\em power\+Pin} & Arduino pin used to turn on and off the G\+SM module \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_secure_a7acbf1d460ef1b81bcd36d852b596af3}\label{class_easyuino_1_1_g_s_m_service_secure_a7acbf1d460ef1b81bcd36d852b596af3}} 
+\index{Easyuino\+::\+G\+S\+M\+Service\+Secure@{Easyuino\+::\+G\+S\+M\+Service\+Secure}!add\+Allowed\+Number@{add\+Allowed\+Number}}
+\index{add\+Allowed\+Number@{add\+Allowed\+Number}!Easyuino\+::\+G\+S\+M\+Service\+Secure@{Easyuino\+::\+G\+S\+M\+Service\+Secure}}
+\subsubsection{\texorpdfstring{add\+Allowed\+Number()}{addAllowedNumber()}}
+{\footnotesize\ttfamily G\+S\+M\+Request\+Status Easyuino\+::\+G\+S\+M\+Service\+Secure\+::add\+Allowed\+Number (\begin{DoxyParamCaption}\item[{IN unsigned long}]{phone\+Number\+To\+Add }\end{DoxyParamCaption})}
+
+
+
+Add the phone number to the allowed numbers IF it doesn\textquotesingle{}t exist yet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phone\+Number\+To\+Add} & Phone number to add to the allowed numbers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+S\+M\+Request\+Status (N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, G\+S\+M\+\_\+\+R\+E\+Q\+U\+E\+S\+T\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+R\+G\+U\+M\+E\+NT, G\+S\+M\+\_\+\+OK, G\+S\+M\+\_\+\+M\+A\+X\+I\+M\+U\+M\+\_\+\+A\+L\+L\+O\+W\+E\+D\+\_\+\+N\+U\+M\+B\+E\+R\+S\+\_\+\+R\+E\+A\+C\+H\+ED) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_secure_a42177d8a9943f30a2b63f9bc51a5370d}\label{class_easyuino_1_1_g_s_m_service_secure_a42177d8a9943f30a2b63f9bc51a5370d}} 
+\index{Easyuino\+::\+G\+S\+M\+Service\+Secure@{Easyuino\+::\+G\+S\+M\+Service\+Secure}!available\+S\+MS@{available\+S\+MS}}
+\index{available\+S\+MS@{available\+S\+MS}!Easyuino\+::\+G\+S\+M\+Service\+Secure@{Easyuino\+::\+G\+S\+M\+Service\+Secure}}
+\subsubsection{\texorpdfstring{available\+S\+M\+S()}{availableSMS()}}
+{\footnotesize\ttfamily G\+S\+M\+Request\+Status Easyuino\+::\+G\+S\+M\+Service\+Secure\+::available\+S\+MS (\begin{DoxyParamCaption}\item[{O\+UT \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} \&}]{message,  }\item[{O\+UT bool \&}]{sms\+Read }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Check if there is a new received \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. 
+
+If there is it filles the message with the content. 
+\begin{DoxyParams}{Parameters}
+{\em message} & Message reference to be filled by the method if there is a new \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. \\
+\hline
+{\em sms\+Read} & Filled by the A\+PI. True\+: if a \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} was available. False\+: otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+S\+M\+Request\+Status (N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, G\+S\+M\+\_\+\+OK) 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_easyuino_1_1_g_s_m_service_a02c2bddace1c87f035f324ae248c4f1d}{Easyuino\+::\+G\+S\+M\+Service}.
+
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_secure_a10a8160dfb473d84b4bd182d689bdb95}\label{class_easyuino_1_1_g_s_m_service_secure_a10a8160dfb473d84b4bd182d689bdb95}} 
+\index{Easyuino\+::\+G\+S\+M\+Service\+Secure@{Easyuino\+::\+G\+S\+M\+Service\+Secure}!clear\+Allowed\+Numbers@{clear\+Allowed\+Numbers}}
+\index{clear\+Allowed\+Numbers@{clear\+Allowed\+Numbers}!Easyuino\+::\+G\+S\+M\+Service\+Secure@{Easyuino\+::\+G\+S\+M\+Service\+Secure}}
+\subsubsection{\texorpdfstring{clear\+Allowed\+Numbers()}{clearAllowedNumbers()}}
+{\footnotesize\ttfamily G\+S\+M\+Request\+Status Easyuino\+::\+G\+S\+M\+Service\+Secure\+::clear\+Allowed\+Numbers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clear the list for allowed phone numbers E\+N\+A\+B\+L\+I\+NG any number to Call and send \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} to the service and accept it. 
+
+\begin{DoxyReturn}{Returns}
+G\+S\+M\+Request\+Status (N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, G\+S\+M\+\_\+\+OK) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_secure_a791dd872fe2c72311d84219616e5f54c}\label{class_easyuino_1_1_g_s_m_service_secure_a791dd872fe2c72311d84219616e5f54c}} 
+\index{Easyuino\+::\+G\+S\+M\+Service\+Secure@{Easyuino\+::\+G\+S\+M\+Service\+Secure}!is\+Allowed@{is\+Allowed}}
+\index{is\+Allowed@{is\+Allowed}!Easyuino\+::\+G\+S\+M\+Service\+Secure@{Easyuino\+::\+G\+S\+M\+Service\+Secure}}
+\subsubsection{\texorpdfstring{is\+Allowed()}{isAllowed()}}
+{\footnotesize\ttfamily G\+S\+M\+Request\+Status Easyuino\+::\+G\+S\+M\+Service\+Secure\+::is\+Allowed (\begin{DoxyParamCaption}\item[{IN unsigned long}]{phone\+Number,  }\item[{O\+UT bool \&}]{allowed }\end{DoxyParamCaption})}
+
+
+
+Verify if the phone number is in the list of allowed numbers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phone\+Number} & Number to verify \\
+\hline
+{\em allowed} & Filled by the A\+PI. True\+: If the number is in allowed list or if the list is empty. False\+: Otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+S\+M\+Request\+Status (N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, G\+S\+M\+\_\+\+R\+E\+Q\+U\+E\+S\+T\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+R\+G\+U\+M\+E\+NT, G\+S\+M\+\_\+\+OK) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_g_s_m_service_secure_a1ad4988fa2dcc0ba8f87c70cf71edf29}\label{class_easyuino_1_1_g_s_m_service_secure_a1ad4988fa2dcc0ba8f87c70cf71edf29}} 
+\index{Easyuino\+::\+G\+S\+M\+Service\+Secure@{Easyuino\+::\+G\+S\+M\+Service\+Secure}!remove\+Allowed\+Number@{remove\+Allowed\+Number}}
+\index{remove\+Allowed\+Number@{remove\+Allowed\+Number}!Easyuino\+::\+G\+S\+M\+Service\+Secure@{Easyuino\+::\+G\+S\+M\+Service\+Secure}}
+\subsubsection{\texorpdfstring{remove\+Allowed\+Number()}{removeAllowedNumber()}}
+{\footnotesize\ttfamily G\+S\+M\+Request\+Status Easyuino\+::\+G\+S\+M\+Service\+Secure\+::remove\+Allowed\+Number (\begin{DoxyParamCaption}\item[{IN unsigned long}]{phone\+Number\+To\+Remove }\end{DoxyParamCaption})}
+
+
+
+Remove the given number from the allowed numbers list (If exists there) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phone\+Number\+To\+Remove} & Number to remove from the allowed numbers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+S\+M\+Request\+Status (N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, G\+S\+M\+\_\+\+R\+E\+Q\+U\+E\+S\+T\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+R\+G\+U\+M\+E\+NT, G\+S\+M\+\_\+\+OK) 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

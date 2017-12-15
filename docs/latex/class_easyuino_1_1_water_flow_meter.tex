@@ -1,5 +1,14 @@
 \hypertarget{class_easyuino_1_1_water_flow_meter}{}\section{Easyuino\+:\+:Water\+Flow\+Meter Class Reference}
 \label{class_easyuino_1_1_water_flow_meter}\index{Easyuino\+::\+Water\+Flow\+Meter@{Easyuino\+::\+Water\+Flow\+Meter}}
+
+
+\hyperlink{class_easyuino_1_1_water_flow_meter}{Water\+Flow\+Meter} A\+PI extends the \hyperlink{class_easyuino_1_1_water_flow_sensor}{Water\+Flow\+Sensor} A\+PI adding the possiblity to know how much water is flowing and how much have flown in total.  
+
+
+
+
+{\ttfamily \#include $<$Water\+Flow\+Meter.\+h$>$}
+
 Inheritance diagram for Easyuino\+:\+:Water\+Flow\+Meter\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,23 +18,55 @@ Inheritance diagram for Easyuino\+:\+:Water\+Flow\+Meter\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_easyuino_1_1_water_flow_meter_a253cbf06355c4e7dd79ef801d18c5119}\label{class_easyuino_1_1_water_flow_meter_a253cbf06355c4e7dd79ef801d18c5119}} 
-{\bfseries Water\+Flow\+Meter} (IN uint8\+\_\+t sensor\+Pin)
-\item 
+\hyperlink{class_easyuino_1_1_water_flow_meter_a51374e5ffa6327028f4d5fe730083672}{Water\+Flow\+Meter} (IN uint8\+\_\+t sensor\+Pin, IN float sensor\+Calibration\+Factor)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_easyuino_1_1_water_flow_meter_ab9f6129be636d43c426eed5b5b42e088}\label{class_easyuino_1_1_water_flow_meter_ab9f6129be636d43c426eed5b5b42e088}} 
+\hyperlink{class_easyuino_1_1_water_flow_meter_ab9f6129be636d43c426eed5b5b42e088}{$\sim$\+Water\+Flow\+Meter} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
 bool \hyperlink{class_easyuino_1_1_water_flow_meter_a400c25b10a7cde45c623805546d071cd}{begin} ()
 \begin{DoxyCompactList}\small\item\em Used to put the device ready to receive requests. \end{DoxyCompactList}\item 
 void \hyperlink{class_easyuino_1_1_water_flow_meter_a47024d4da9568e42743a875c08c33121}{end} ()
 \begin{DoxyCompactList}\small\item\em Used to stop the device A\+PI. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_easyuino_1_1_water_flow_meter_a40e53d19dc4458bd149618053a52389f}\label{class_easyuino_1_1_water_flow_meter_a40e53d19dc4458bd149618053a52389f}} 
-bool {\bfseries is\+Flowing} ()
+float \hyperlink{class_easyuino_1_1_water_flow_meter_ab8d3afb56987644486dcf6e17457269d}{get\+Flow\+Rate\+Liters\+Min} ()
+\begin{DoxyCompactList}\small\item\em Returns the current flow rate that is passing through the flow meter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_easyuino_1_1_water_flow_meter_a1798974218a55932876fafd749b98726}\label{class_easyuino_1_1_water_flow_meter_a1798974218a55932876fafd749b98726}} 
-void {\bfseries update\+Flow\+Rate} ()
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_water_flow_meter_a3f531a6a6f8bf9a27d43915004889085}\label{class_easyuino_1_1_water_flow_meter_a3f531a6a6f8bf9a27d43915004889085}} 
-float {\bfseries get\+Flow\+Rate} ()
-\end{DoxyCompactItemize}
+void \hyperlink{class_easyuino_1_1_water_flow_meter_a9f9b39b7961175f027dad4fe75271569}{pulse\+Handler} (IN unsigned long call\+Timestamp)
+\begin{DoxyCompactList}\small\item\em Called by the interruption I\+SR for each pulse. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_easyuino_1_1_water_flow_meter}{Water\+Flow\+Meter} A\+PI extends the \hyperlink{class_easyuino_1_1_water_flow_sensor}{Water\+Flow\+Sensor} A\+PI adding the possiblity to know how much water is flowing and how much have flown in total. 
+
+\begin{DoxySeeAlso}{See also}
+Limitation\+: This allows O\+N\+LY 1 instance of \hyperlink{class_easyuino_1_1_water_flow_meter}{Water\+Flow\+Meter} per sketch!! 
+
+Devices Supported\+: Y\+F-\/\+D\+N40 
+
+Devices Tested\+: Y\+F-\/\+D\+N40 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_water_flow_meter_a51374e5ffa6327028f4d5fe730083672}\label{class_easyuino_1_1_water_flow_meter_a51374e5ffa6327028f4d5fe730083672}} 
+\index{Easyuino\+::\+Water\+Flow\+Meter@{Easyuino\+::\+Water\+Flow\+Meter}!Water\+Flow\+Meter@{Water\+Flow\+Meter}}
+\index{Water\+Flow\+Meter@{Water\+Flow\+Meter}!Easyuino\+::\+Water\+Flow\+Meter@{Easyuino\+::\+Water\+Flow\+Meter}}
+\subsubsection{\texorpdfstring{Water\+Flow\+Meter()}{WaterFlowMeter()}}
+{\footnotesize\ttfamily Easyuino\+::\+Water\+Flow\+Meter\+::\+Water\+Flow\+Meter (\begin{DoxyParamCaption}\item[{IN uint8\+\_\+t}]{sensor\+Pin,  }\item[{IN float}]{sensor\+Calibration\+Factor }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sensor\+Pin} & Arduino pin connected to the sensor pulse pin \\
+\hline
+{\em sensor\+Calibration\+Factor} & Calibration factor that comes with the sensor specs, necessary for a good calculation of the flow rate and the total amount flowed (e.\+g\+: 0.\+2 in case of Y\+F-\/\+D\+N40) \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Member Function Documentation}
@@ -59,6 +100,33 @@ Used to stop the device A\+PI.
 After this the the device will not process A\+PI requests. 
 
 Implements \hyperlink{class_easyuino_1_1_device_ab31018ef64adc84aa2ea575b2297548f}{Easyuino\+::\+Device}.
+
+\mbox{\Hypertarget{class_easyuino_1_1_water_flow_meter_ab8d3afb56987644486dcf6e17457269d}\label{class_easyuino_1_1_water_flow_meter_ab8d3afb56987644486dcf6e17457269d}} 
+\index{Easyuino\+::\+Water\+Flow\+Meter@{Easyuino\+::\+Water\+Flow\+Meter}!get\+Flow\+Rate\+Liters\+Min@{get\+Flow\+Rate\+Liters\+Min}}
+\index{get\+Flow\+Rate\+Liters\+Min@{get\+Flow\+Rate\+Liters\+Min}!Easyuino\+::\+Water\+Flow\+Meter@{Easyuino\+::\+Water\+Flow\+Meter}}
+\subsubsection{\texorpdfstring{get\+Flow\+Rate\+Liters\+Min()}{getFlowRateLitersMin()}}
+{\footnotesize\ttfamily float Easyuino\+::\+Water\+Flow\+Meter\+::get\+Flow\+Rate\+Liters\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the current flow rate that is passing through the flow meter. 
+
+\begin{DoxyReturn}{Returns}
+flow\+Rate (Liters/min) The current flow rate. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_water_flow_meter_a9f9b39b7961175f027dad4fe75271569}\label{class_easyuino_1_1_water_flow_meter_a9f9b39b7961175f027dad4fe75271569}} 
+\index{Easyuino\+::\+Water\+Flow\+Meter@{Easyuino\+::\+Water\+Flow\+Meter}!pulse\+Handler@{pulse\+Handler}}
+\index{pulse\+Handler@{pulse\+Handler}!Easyuino\+::\+Water\+Flow\+Meter@{Easyuino\+::\+Water\+Flow\+Meter}}
+\subsubsection{\texorpdfstring{pulse\+Handler()}{pulseHandler()}}
+{\footnotesize\ttfamily void Easyuino\+::\+Water\+Flow\+Meter\+::pulse\+Handler (\begin{DoxyParamCaption}\item[{IN unsigned long}]{call\+Timestamp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Called by the interruption I\+SR for each pulse. 
+
+
+
+Reimplemented from \hyperlink{class_easyuino_1_1_water_flow_sensor_ab359b33262e324fa757de05a13f05141}{Easyuino\+::\+Water\+Flow\+Sensor}.
 
 
 

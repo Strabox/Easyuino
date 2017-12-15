@@ -18,32 +18,28 @@ void setup() {
   - The second parameter is the digital level of the relay when it is in Normally Closed state.
   This is needed because some relays activate when we put HIGH on the pin and others on LOW.
   */
-  relay.begin(false, HIGH);  // Equivalent to: relay.begin(); which is the common configuration
+  relay.begin(false, HIGH);  // Equivalent to: relay.begin() which is the common configuration.
 }
 
 void loop() {
   /*
-  Makes the device connected to relay to turn on
+  - Makes the device connected to relay to turn on.
   */
   relay.turnOn();
 
   delay(2000);
 
   /*
-  Makes the device connected to relay to turn off
+  - Makes the device connected to relay to turn off.
   */
   relay.turnOff();
 
   delay(2000);
 
   /*
-  Return true if the device is on and false if it is off
+  - Return true if the device is on and false if it is off.
   */
   bool result = relay.isOn(); 
 
-  /*
-  - This method will turn off the device and after that no more calls to
-  the relay will be possible without call the relay.begin(); again.
-  */
-  relay.end();
+  delay(2000);
 }

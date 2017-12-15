@@ -1,35 +1,165 @@
 \hypertarget{class_easyuino_1_1_s_m_s}{}\section{Easyuino\+:\+:S\+MS Class Reference}
 \label{class_easyuino_1_1_s_m_s}\index{Easyuino\+::\+S\+MS@{Easyuino\+::\+S\+MS}}
+
+
+Represents a \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} object used to send and receive it from the \hyperlink{class_easyuino_1_1_g_s_m_service}{G\+S\+M\+Service} A\+PI.  
+
+
+
+
+{\ttfamily \#include $<$S\+M\+S.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_easyuino_1_1_s_m_s_a5c56de204df53688169644314e8f0efe}\label{class_easyuino_1_1_s_m_s_a5c56de204df53688169644314e8f0efe}} 
-{\bfseries S\+MS} (IN unsigned long number, IN const char $\ast$message, IN unsigned int country\+Prefix\+Code=351)
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_s_m_s_a9088a459857f18c463d3ad198bbe0abd}\label{class_easyuino_1_1_s_m_s_a9088a459857f18c463d3ad198bbe0abd}} 
-{\bfseries S\+MS} (IN unsigned int country\+Prefix\+Code=351)
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_s_m_s_aef79317e0ee7511d85814a10aaa15e14}\label{class_easyuino_1_1_s_m_s_aef79317e0ee7511d85814a10aaa15e14}} 
-unsigned int {\bfseries get\+Country\+Prefix\+Code} ()
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_s_m_s_a05650de23138fee2dfc1ce9a8e2b0429}\label{class_easyuino_1_1_s_m_s_a05650de23138fee2dfc1ce9a8e2b0429}} 
-void {\bfseries set\+Country\+Prefix\+Code} (IN unsigned int new\+Country\+Prefix\+Code)
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_s_m_s_ab46be8f783d59208245e9d14d3a046d5}\label{class_easyuino_1_1_s_m_s_ab46be8f783d59208245e9d14d3a046d5}} 
-unsigned long {\bfseries get\+Number} ()
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_s_m_s_a6d9b21c6480b7e859dfb16688090ed1c}\label{class_easyuino_1_1_s_m_s_a6d9b21c6480b7e859dfb16688090ed1c}} 
-void {\bfseries set\+Number} (IN unsigned long new\+Number)
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_s_m_s_ac13745969d572629274ae69f3f98ab2e}\label{class_easyuino_1_1_s_m_s_ac13745969d572629274ae69f3f98ab2e}} 
-const char $\ast$ {\bfseries get\+Message} ()
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_s_m_s_a7c0fdcb9b1a54cf025c6b98618badc21}\label{class_easyuino_1_1_s_m_s_a7c0fdcb9b1a54cf025c6b98618badc21}} 
-void {\bfseries set\+Message} (IN const char $\ast$new\+Message)
-\item 
+\hyperlink{class_easyuino_1_1_s_m_s_a5c56de204df53688169644314e8f0efe}{S\+MS} (IN unsigned long number, IN const char $\ast$message, IN unsigned int country\+Prefix\+Code=351)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_easyuino_1_1_s_m_s_a9088a459857f18c463d3ad198bbe0abd}{S\+MS} (IN unsigned int country\+Prefix\+Code=351)
+\begin{DoxyCompactList}\small\item\em Create an empty \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{class_easyuino_1_1_s_m_s_aef79317e0ee7511d85814a10aaa15e14}{get\+Country\+Prefix\+Code} ()
+\begin{DoxyCompactList}\small\item\em Get the country prefix code associated with the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. \end{DoxyCompactList}\item 
+void \hyperlink{class_easyuino_1_1_s_m_s_a05650de23138fee2dfc1ce9a8e2b0429}{set\+Country\+Prefix\+Code} (IN unsigned int new\+Country\+Prefix\+Code)
+\begin{DoxyCompactList}\small\item\em Set the country prefix code associated with the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. \end{DoxyCompactList}\item 
+unsigned long \hyperlink{class_easyuino_1_1_s_m_s_ab46be8f783d59208245e9d14d3a046d5}{get\+Number} ()
+\begin{DoxyCompactList}\small\item\em Get the number associated with the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. \end{DoxyCompactList}\item 
+void \hyperlink{class_easyuino_1_1_s_m_s_a6d9b21c6480b7e859dfb16688090ed1c}{set\+Number} (IN unsigned long new\+Number)
+\begin{DoxyCompactList}\small\item\em Set the number of the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. \end{DoxyCompactList}\item 
+const char $\ast$ \hyperlink{class_easyuino_1_1_s_m_s_ac13745969d572629274ae69f3f98ab2e}{get\+Message} ()
+\begin{DoxyCompactList}\small\item\em Get the message associated with the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. \end{DoxyCompactList}\item 
+void \hyperlink{class_easyuino_1_1_s_m_s_a7c0fdcb9b1a54cf025c6b98618badc21}{set\+Message} (IN const char $\ast$new\+Message)
+\begin{DoxyCompactList}\small\item\em Set the message of the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_easyuino_1_1_s_m_s_a0f4b83fa7be59e7efa85c4d8e36ec8e3}\label{class_easyuino_1_1_s_m_s_a0f4b83fa7be59e7efa85c4d8e36ec8e3}} 
-void {\bfseries reset} ()
-\end{DoxyCompactItemize}
+void \hyperlink{class_easyuino_1_1_s_m_s_a0f4b83fa7be59e7efa85c4d8e36ec8e3}{reset} ()
+\begin{DoxyCompactList}\small\item\em Resets the message to empty, phone number to zero and the country prefix code to 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Represents a \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} object used to send and receive it from the \hyperlink{class_easyuino_1_1_g_s_m_service}{G\+S\+M\+Service} A\+PI. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_s_m_s_a5c56de204df53688169644314e8f0efe}\label{class_easyuino_1_1_s_m_s_a5c56de204df53688169644314e8f0efe}} 
+\index{Easyuino\+::\+S\+MS@{Easyuino\+::\+S\+MS}!S\+MS@{S\+MS}}
+\index{S\+MS@{S\+MS}!Easyuino\+::\+S\+MS@{Easyuino\+::\+S\+MS}}
+\subsubsection{\texorpdfstring{S\+M\+S()}{SMS()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Easyuino\+::\+S\+M\+S\+::\+S\+MS (\begin{DoxyParamCaption}\item[{IN unsigned long}]{number,  }\item[{IN const char $\ast$}]{message,  }\item[{IN unsigned int}]{country\+Prefix\+Code = {\ttfamily 351} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & Number of sender or receiver \\
+\hline
+{\em message} & Message content \\
+\hline
+{\em country\+Prefix\+Code} & Country prefix code of the message. Default value is 351 (Portugal Code) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_easyuino_1_1_s_m_s_a9088a459857f18c463d3ad198bbe0abd}\label{class_easyuino_1_1_s_m_s_a9088a459857f18c463d3ad198bbe0abd}} 
+\index{Easyuino\+::\+S\+MS@{Easyuino\+::\+S\+MS}!S\+MS@{S\+MS}}
+\index{S\+MS@{S\+MS}!Easyuino\+::\+S\+MS@{Easyuino\+::\+S\+MS}}
+\subsubsection{\texorpdfstring{S\+M\+S()}{SMS()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Easyuino\+::\+S\+M\+S\+::\+S\+MS (\begin{DoxyParamCaption}\item[{IN unsigned int}]{country\+Prefix\+Code = {\ttfamily 351} }\end{DoxyParamCaption})}
+
+
+
+Create an empty \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em country\+Prefix\+Code} & Country prefix code of the message. Default value is 351 (Portugal Code) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_s_m_s_aef79317e0ee7511d85814a10aaa15e14}\label{class_easyuino_1_1_s_m_s_aef79317e0ee7511d85814a10aaa15e14}} 
+\index{Easyuino\+::\+S\+MS@{Easyuino\+::\+S\+MS}!get\+Country\+Prefix\+Code@{get\+Country\+Prefix\+Code}}
+\index{get\+Country\+Prefix\+Code@{get\+Country\+Prefix\+Code}!Easyuino\+::\+S\+MS@{Easyuino\+::\+S\+MS}}
+\subsubsection{\texorpdfstring{get\+Country\+Prefix\+Code()}{getCountryPrefixCode()}}
+{\footnotesize\ttfamily unsigned int Easyuino\+::\+S\+M\+S\+::get\+Country\+Prefix\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the country prefix code associated with the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. 
+
+\begin{DoxyReturn}{Returns}
+country\+Prefix\+Code Code associated with the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} OR 0 if it was impossible to obtain the prefix code. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_s_m_s_ac13745969d572629274ae69f3f98ab2e}\label{class_easyuino_1_1_s_m_s_ac13745969d572629274ae69f3f98ab2e}} 
+\index{Easyuino\+::\+S\+MS@{Easyuino\+::\+S\+MS}!get\+Message@{get\+Message}}
+\index{get\+Message@{get\+Message}!Easyuino\+::\+S\+MS@{Easyuino\+::\+S\+MS}}
+\subsubsection{\texorpdfstring{get\+Message()}{getMessage()}}
+{\footnotesize\ttfamily const char$\ast$ Easyuino\+::\+S\+M\+S\+::get\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the message associated with the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. 
+
+\begin{DoxyReturn}{Returns}
+message Message content associated with the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_s_m_s_ab46be8f783d59208245e9d14d3a046d5}\label{class_easyuino_1_1_s_m_s_ab46be8f783d59208245e9d14d3a046d5}} 
+\index{Easyuino\+::\+S\+MS@{Easyuino\+::\+S\+MS}!get\+Number@{get\+Number}}
+\index{get\+Number@{get\+Number}!Easyuino\+::\+S\+MS@{Easyuino\+::\+S\+MS}}
+\subsubsection{\texorpdfstring{get\+Number()}{getNumber()}}
+{\footnotesize\ttfamily unsigned long Easyuino\+::\+S\+M\+S\+::get\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the number associated with the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. 
+
+\begin{DoxyReturn}{Returns}
+number Phone number associated with the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_s_m_s_a05650de23138fee2dfc1ce9a8e2b0429}\label{class_easyuino_1_1_s_m_s_a05650de23138fee2dfc1ce9a8e2b0429}} 
+\index{Easyuino\+::\+S\+MS@{Easyuino\+::\+S\+MS}!set\+Country\+Prefix\+Code@{set\+Country\+Prefix\+Code}}
+\index{set\+Country\+Prefix\+Code@{set\+Country\+Prefix\+Code}!Easyuino\+::\+S\+MS@{Easyuino\+::\+S\+MS}}
+\subsubsection{\texorpdfstring{set\+Country\+Prefix\+Code()}{setCountryPrefixCode()}}
+{\footnotesize\ttfamily void Easyuino\+::\+S\+M\+S\+::set\+Country\+Prefix\+Code (\begin{DoxyParamCaption}\item[{IN unsigned int}]{new\+Country\+Prefix\+Code }\end{DoxyParamCaption})}
+
+
+
+Set the country prefix code associated with the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. 
+
+Valid numbers are in range \mbox{[}0,999\mbox{]}. 
+\begin{DoxyParams}{Parameters}
+{\em new\+Country\+Prefix\+Code} & New country prefix code to the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_easyuino_1_1_s_m_s_a7c0fdcb9b1a54cf025c6b98618badc21}\label{class_easyuino_1_1_s_m_s_a7c0fdcb9b1a54cf025c6b98618badc21}} 
+\index{Easyuino\+::\+S\+MS@{Easyuino\+::\+S\+MS}!set\+Message@{set\+Message}}
+\index{set\+Message@{set\+Message}!Easyuino\+::\+S\+MS@{Easyuino\+::\+S\+MS}}
+\subsubsection{\texorpdfstring{set\+Message()}{setMessage()}}
+{\footnotesize\ttfamily void Easyuino\+::\+S\+M\+S\+::set\+Message (\begin{DoxyParamCaption}\item[{IN const char $\ast$}]{new\+Message }\end{DoxyParamCaption})}
+
+
+
+Set the message of the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Message} & The new message to be set on the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_easyuino_1_1_s_m_s_a6d9b21c6480b7e859dfb16688090ed1c}\label{class_easyuino_1_1_s_m_s_a6d9b21c6480b7e859dfb16688090ed1c}} 
+\index{Easyuino\+::\+S\+MS@{Easyuino\+::\+S\+MS}!set\+Number@{set\+Number}}
+\index{set\+Number@{set\+Number}!Easyuino\+::\+S\+MS@{Easyuino\+::\+S\+MS}}
+\subsubsection{\texorpdfstring{set\+Number()}{setNumber()}}
+{\footnotesize\ttfamily void Easyuino\+::\+S\+M\+S\+::set\+Number (\begin{DoxyParamCaption}\item[{IN unsigned long}]{new\+Number }\end{DoxyParamCaption})}
+
+
+
+Set the number of the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Number} & The new phone number to be set on the \hyperlink{class_easyuino_1_1_s_m_s}{S\+MS} \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

@@ -117,7 +117,7 @@ namespace Easyuino {
 		return internalReq;
 	}
 
-	GSMRequestStatus GSMService::isOn(OUT bool &result) {
+	GSMRequestStatus GSMService::isOn(OUT bool &isOn) {
 		if (!_isInitialized) {
 			result = false;
 			return GSMRequestStatus::NOT_INITIALIZED;

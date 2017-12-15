@@ -11,7 +11,7 @@ var class_easyuino_1_1_g_s_m_service =
     [ "deleteAllSentAndReadSMS", "class_easyuino_1_1_g_s_m_service.html#a7b457ab0669a8e9c16ab1906cc246365", null ],
     [ "deleteAllSMS", "class_easyuino_1_1_g_s_m_service.html#aef4379e7c82f275f0af341f79a3b451f", null ],
     [ "end", "class_easyuino_1_1_g_s_m_service.html#a05bef783773776ec209608aa81d1ff45", null ],
-    [ "isOn", "class_easyuino_1_1_g_s_m_service.html#a2ad440efbd04942d956212988d20a0df", null ],
+    [ "isOn", "class_easyuino_1_1_g_s_m_service.html#a3595ff12b6e3e5854ed48625b2fa457e", null ],
     [ "sendSMS", "class_easyuino_1_1_g_s_m_service.html#ae860cc330ef552c733d9ab4a5c2fd366", null ],
     [ "sendSMS", "class_easyuino_1_1_g_s_m_service.html#ad37d83f2a91fbe2e50a11f1d435eccb5", null ],
     [ "setBaudRate", "class_easyuino_1_1_g_s_m_service.html#a6b6ee723ceaf62bfd9312278b5dbf36d", null ],

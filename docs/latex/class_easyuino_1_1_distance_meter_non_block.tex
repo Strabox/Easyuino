@@ -1,5 +1,14 @@
 \hypertarget{class_easyuino_1_1_distance_meter_non_block}{}\section{Easyuino\+:\+:Distance\+Meter\+Non\+Block Class Reference}
 \label{class_easyuino_1_1_distance_meter_non_block}\index{Easyuino\+::\+Distance\+Meter\+Non\+Block@{Easyuino\+::\+Distance\+Meter\+Non\+Block}}
+
+
+\hyperlink{class_easyuino_1_1_distance_meter_non_block}{Distance\+Meter\+Non\+Block} offers an A\+PI to interact with an Ultrasonic Module to measure distance in a non-\/block way.  
+
+
+
+
+{\ttfamily \#include $<$Distance\+Meter\+Non\+Block.\+h$>$}
+
 Inheritance diagram for Easyuino\+:\+:Distance\+Meter\+Non\+Block\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,12 +18,13 @@ Inheritance diagram for Easyuino\+:\+:Distance\+Meter\+Non\+Block\+:\begin{figur
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_ad7e7b63fc4655957eb00f24d82512d2a}\label{class_easyuino_1_1_distance_meter_non_block_ad7e7b63fc4655957eb00f24d82512d2a}} 
-{\bfseries Distance\+Meter\+Non\+Block} (IN uint8\+\_\+t trigger\+Pin, IN uint8\+\_\+t echo\+Pin)
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_af77c0f4649ea521a5b75c457b6762db2}\label{class_easyuino_1_1_distance_meter_non_block_af77c0f4649ea521a5b75c457b6762db2}} 
-{\bfseries Distance\+Meter\+Non\+Block} (IN uint8\+\_\+t trigger\+Echo\+Pin)
-\item 
+\hyperlink{class_easyuino_1_1_distance_meter_non_block_ad7e7b63fc4655957eb00f24d82512d2a}{Distance\+Meter\+Non\+Block} (IN uint8\+\_\+t trigger\+Pin, IN uint8\+\_\+t echo\+Pin)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_easyuino_1_1_distance_meter_non_block_af77c0f4649ea521a5b75c457b6762db2}{Distance\+Meter\+Non\+Block} (IN uint8\+\_\+t trigger\+Echo\+Pin)
+\begin{DoxyCompactList}\small\item\em Contructor used with Ultrasonic Modules that have only one pin for trigger and echo. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_aabd746582e5f4dbca115e6459249e002}\label{class_easyuino_1_1_distance_meter_non_block_aabd746582e5f4dbca115e6459249e002}} 
+\hyperlink{class_easyuino_1_1_distance_meter_non_block_aabd746582e5f4dbca115e6459249e002}{$\sim$\+Distance\+Meter\+Non\+Block} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
 bool \hyperlink{class_easyuino_1_1_distance_meter_non_block_a46d2093d0fc125e98c3602868c088a77}{begin} ()
 \begin{DoxyCompactList}\small\item\em Used to put the device ready to receive requests. \end{DoxyCompactList}\item 
 void \hyperlink{class_easyuino_1_1_distance_meter_non_block_a845d4db657ff408205d1cdb3c35982a4}{end} ()
@@ -22,22 +32,69 @@ void \hyperlink{class_easyuino_1_1_distance_meter_non_block_a845d4db657ff408205d
 float \hyperlink{class_easyuino_1_1_distance_meter_non_block_a00419fc2c2ff7c587735063971aa7464}{get\+Distance\+Centimeters} ()
 \begin{DoxyCompactList}\small\item\em Gets the last value that the A\+PI measured using the Ultrasonic Module. \end{DoxyCompactList}\item 
 void \hyperlink{class_easyuino_1_1_distance_meter_non_block_a4ea37c6c0562a76cd03636db329743f9}{update\+Distance} ()
-\begin{DoxyCompactList}\small\item\em Triggeres a distance measurement in the Ultrasonic Module. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_ac7163baab744f1393bab3841de0170d4}\label{class_easyuino_1_1_distance_meter_non_block_ac7163baab744f1393bab3841de0170d4}} 
-virtual void {\bfseries update\+Distance\+Non\+Block} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Updates the distance of the Ultrasonic Module to the objects in a blocking way. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_easyuino_1_1_distance_meter_non_block_ac7163baab744f1393bab3841de0170d4}{update\+Distance\+Non\+Block} ()
+\begin{DoxyCompactList}\small\item\em Updates the distance of the Ultrasonic Module to the objects in a non-\/blocking way. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_a5410be2725e26c878ebf9bcdf2b79a05}\label{class_easyuino_1_1_distance_meter_non_block_a5410be2725e26c878ebf9bcdf2b79a05}} 
-void {\bfseries execute\+Update\+Distance\+Non\+Block} ()
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_a88f2b7e249345b93a8258ae5c7b75a49}\label{class_easyuino_1_1_distance_meter_non_block_a88f2b7e249345b93a8258ae5c7b75a49}} 
-bool {\bfseries is\+Update\+Distance\+Non\+Block\+Timeout} ()
-\item 
+void \hyperlink{class_easyuino_1_1_distance_meter_non_block_a5410be2725e26c878ebf9bcdf2b79a05}{execute\+Update\+Distance\+Non\+Block} ()
+\begin{DoxyCompactList}\small\item\em Execute a non-\/block distance measurement. \end{DoxyCompactList}\item 
+bool \hyperlink{class_easyuino_1_1_distance_meter_non_block_a88f2b7e249345b93a8258ae5c7b75a49}{is\+Update\+Distance\+Non\+Block\+Timeout} ()
+\begin{DoxyCompactList}\small\item\em Verify if there is a non-\/block measuremenet on going that has already timeouted. \end{DoxyCompactList}\item 
 float \hyperlink{class_easyuino_1_1_distance_meter_non_block_aa51eb173540f65e000189ac7137e699a}{calculate\+Distance} (IN float sound\+Speed\+Cm\+Per\+Sec)
 \begin{DoxyCompactList}\small\item\em Calculates the distance to the object based on the sound speed in air using the last distance value measured! \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_easyuino_1_1_distance_meter_non_block}{Distance\+Meter\+Non\+Block} offers an A\+PI to interact with an Ultrasonic Module to measure distance in a non-\/block way. 
+
+It offers a the same as \hyperlink{class_easyuino_1_1_distance_meter}{Distance\+Meter} A\+PI plus \hyperlink{class_easyuino_1_1_distance_meter_non_block_ac7163baab744f1393bab3841de0170d4}{update\+Distance\+Non\+Block()} that allows your application code run while the distance is calculated in \char`\"{}background\char`\"{} without stopping your program. \begin{DoxySeeAlso}{See also}
+Limitation\+: This allows O\+N\+LY 2 instances of \hyperlink{class_easyuino_1_1_distance_meter_non_block}{Distance\+Meter\+Non\+Block} per sketch!! 
+
+Limitation\+: The accuracy of the non-\/block method is much smaller because it uses interruption mechanism 
+
+Devices Supported\+: H\+C-\/\+S\+R03, H\+C-\/\+S\+R04, H\+C-\/\+S\+R05 
+
+Devices Tested\+: H\+C-\/\+S\+R04 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_ad7e7b63fc4655957eb00f24d82512d2a}\label{class_easyuino_1_1_distance_meter_non_block_ad7e7b63fc4655957eb00f24d82512d2a}} 
+\index{Easyuino\+::\+Distance\+Meter\+Non\+Block@{Easyuino\+::\+Distance\+Meter\+Non\+Block}!Distance\+Meter\+Non\+Block@{Distance\+Meter\+Non\+Block}}
+\index{Distance\+Meter\+Non\+Block@{Distance\+Meter\+Non\+Block}!Easyuino\+::\+Distance\+Meter\+Non\+Block@{Easyuino\+::\+Distance\+Meter\+Non\+Block}}
+\subsubsection{\texorpdfstring{Distance\+Meter\+Non\+Block()}{DistanceMeterNonBlock()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Easyuino\+::\+Distance\+Meter\+Non\+Block\+::\+Distance\+Meter\+Non\+Block (\begin{DoxyParamCaption}\item[{IN uint8\+\_\+t}]{trigger\+Pin,  }\item[{IN uint8\+\_\+t}]{echo\+Pin }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trigger\+Pin} & Arduino pin connected to the trigger pin of the Ultrasonic Module \\
+\hline
+{\em echo\+Pin} & Arduino pin connected to the echo pin of the Ultrasonic Module \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_af77c0f4649ea521a5b75c457b6762db2}\label{class_easyuino_1_1_distance_meter_non_block_af77c0f4649ea521a5b75c457b6762db2}} 
+\index{Easyuino\+::\+Distance\+Meter\+Non\+Block@{Easyuino\+::\+Distance\+Meter\+Non\+Block}!Distance\+Meter\+Non\+Block@{Distance\+Meter\+Non\+Block}}
+\index{Distance\+Meter\+Non\+Block@{Distance\+Meter\+Non\+Block}!Easyuino\+::\+Distance\+Meter\+Non\+Block@{Easyuino\+::\+Distance\+Meter\+Non\+Block}}
+\subsubsection{\texorpdfstring{Distance\+Meter\+Non\+Block()}{DistanceMeterNonBlock()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Easyuino\+::\+Distance\+Meter\+Non\+Block\+::\+Distance\+Meter\+Non\+Block (\begin{DoxyParamCaption}\item[{IN uint8\+\_\+t}]{trigger\+Echo\+Pin }\end{DoxyParamCaption})}
+
+
+
+Contructor used with Ultrasonic Modules that have only one pin for trigger and echo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trigger\+Echo\+Pin} & Arduino pin connected to the trigger\&echo pin of the Ultrasonic Module \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Member Function Documentation}
@@ -70,11 +127,11 @@ Calculates the distance to the object based on the sound speed in air using the 
 
 
 \begin{DoxyParams}{Parameters}
-{\em sound\+Speed\+Cm\+Per\+Sec} & (cm/sec) -\/ The sound speed to be taken in account. \\
+{\em sound\+Speed\+Cm\+Per\+Sec} & (Cm/\+Sec) The sound speed to be taken in account during the calculation \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-distance (Centimeters) -\/ The distance to the object. 
+distance (Centimeters) The new calculated distance 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_a845d4db657ff408205d1cdb3c35982a4}\label{class_easyuino_1_1_distance_meter_non_block_a845d4db657ff408205d1cdb3c35982a4}} 
 \index{Easyuino\+::\+Distance\+Meter\+Non\+Block@{Easyuino\+::\+Distance\+Meter\+Non\+Block}!end@{end}}
@@ -107,6 +164,19 @@ distance (Centimeters) The most recent measurement the A\+PI have done
 
 Reimplemented from \hyperlink{class_easyuino_1_1_distance_meter_a637cdd0d3e4f3bcf094704ae91e0c7c3}{Easyuino\+::\+Distance\+Meter}.
 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_a88f2b7e249345b93a8258ae5c7b75a49}\label{class_easyuino_1_1_distance_meter_non_block_a88f2b7e249345b93a8258ae5c7b75a49}} 
+\index{Easyuino\+::\+Distance\+Meter\+Non\+Block@{Easyuino\+::\+Distance\+Meter\+Non\+Block}!is\+Update\+Distance\+Non\+Block\+Timeout@{is\+Update\+Distance\+Non\+Block\+Timeout}}
+\index{is\+Update\+Distance\+Non\+Block\+Timeout@{is\+Update\+Distance\+Non\+Block\+Timeout}!Easyuino\+::\+Distance\+Meter\+Non\+Block@{Easyuino\+::\+Distance\+Meter\+Non\+Block}}
+\subsubsection{\texorpdfstring{is\+Update\+Distance\+Non\+Block\+Timeout()}{isUpdateDistanceNonBlockTimeout()}}
+{\footnotesize\ttfamily bool Easyuino\+::\+Distance\+Meter\+Non\+Block\+::is\+Update\+Distance\+Non\+Block\+Timeout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Verify if there is a non-\/block measuremenet on going that has already timeouted. 
+
+\begin{DoxyReturn}{Returns}
+True\+: If it timeout. False\+: Otherwise. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_a4ea37c6c0562a76cd03636db329743f9}\label{class_easyuino_1_1_distance_meter_non_block_a4ea37c6c0562a76cd03636db329743f9}} 
 \index{Easyuino\+::\+Distance\+Meter\+Non\+Block@{Easyuino\+::\+Distance\+Meter\+Non\+Block}!update\+Distance@{update\+Distance}}
 \index{update\+Distance@{update\+Distance}!Easyuino\+::\+Distance\+Meter\+Non\+Block@{Easyuino\+::\+Distance\+Meter\+Non\+Block}}
@@ -115,13 +185,26 @@ Reimplemented from \hyperlink{class_easyuino_1_1_distance_meter_a637cdd0d3e4f3bc
 
 
 
-Triggeres a distance measurement in the Ultrasonic Module. 
+Updates the distance of the Ultrasonic Module to the objects in a blocking way. 
 
-The new distance value is available using \hyperlink{class_easyuino_1_1_distance_meter_non_block_a00419fc2c2ff7c587735063971aa7464}{get\+Distance\+Centimeters()} or \hyperlink{class_easyuino_1_1_distance_meter_a4e3c650c54382d9af6bca51dcac4e7a3}{get\+Distance\+Inches()} method after calling this method.  This method blocks while the measurement is on going, so the arduino waits for the measure to be concluded, if you want a non block update distance method look for \hyperlink{class_easyuino_1_1_distance_meter_non_block}{Distance\+Meter\+Non\+Block} A\+PI 
+The new distance value is available using \hyperlink{class_easyuino_1_1_distance_meter_non_block_a00419fc2c2ff7c587735063971aa7464}{get\+Distance\+Centimeters()} or \hyperlink{class_easyuino_1_1_distance_meter_a4e3c650c54382d9af6bca51dcac4e7a3}{get\+Distance\+Inches()} method after calling this method. \begin{DoxyWarning}{Warning}
+This method blocks while the measurement is on going, so the arduino waits for the measure to be concluded, if you want a non block update distance method look for \hyperlink{class_easyuino_1_1_distance_meter_non_block}{Distance\+Meter\+Non\+Block} A\+PI 
+\end{DoxyWarning}
+
 
 Reimplemented from \hyperlink{class_easyuino_1_1_distance_meter_a739197578f06b58faedefd0526d49499}{Easyuino\+::\+Distance\+Meter}.
 
+\mbox{\Hypertarget{class_easyuino_1_1_distance_meter_non_block_ac7163baab744f1393bab3841de0170d4}\label{class_easyuino_1_1_distance_meter_non_block_ac7163baab744f1393bab3841de0170d4}} 
+\index{Easyuino\+::\+Distance\+Meter\+Non\+Block@{Easyuino\+::\+Distance\+Meter\+Non\+Block}!update\+Distance\+Non\+Block@{update\+Distance\+Non\+Block}}
+\index{update\+Distance\+Non\+Block@{update\+Distance\+Non\+Block}!Easyuino\+::\+Distance\+Meter\+Non\+Block@{Easyuino\+::\+Distance\+Meter\+Non\+Block}}
+\subsubsection{\texorpdfstring{update\+Distance\+Non\+Block()}{updateDistanceNonBlock()}}
+{\footnotesize\ttfamily virtual void Easyuino\+::\+Distance\+Meter\+Non\+Block\+::update\+Distance\+Non\+Block (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
+
+
+Updates the distance of the Ultrasonic Module to the objects in a non-\/blocking way. 
+
+This means that the call to the method will return immediatly and in the \char`\"{}background\char`\"{} the distance measure will ocurr after a while. When the measurement is concluded and you call \hyperlink{class_easyuino_1_1_distance_meter_non_block_a00419fc2c2ff7c587735063971aa7464}{get\+Distance\+Centimeters()} or \hyperlink{class_easyuino_1_1_distance_meter_a4e3c650c54382d9af6bca51dcac4e7a3}{get\+Distance\+Inches()} the new distance value will be returned. While the measurement is on going the distance will be from the last measurement. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

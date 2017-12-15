@@ -28,9 +28,9 @@ SOFTWARE.
 /** 7 segments light brigthness [0-7] */
 #define DEFAULT_BRIGHTNESS 4
 
-/** Used for TM1637 */
+/** Used to initialize the display */
 #define INITIALIZE_MASK 136
-/** */
+/** Used to terminate the display */
 #define TERMINATE_MASK 128
 /** */
 #define MINUS_SIGNAL_7_BIT_ENCODING 64
@@ -99,6 +99,8 @@ namespace Easyuino {
 		_dataPin = dataPin;
 	}
 
+	SevenSegments::~SevenSegments() { /* Do Nothing */}
+
 	bool SevenSegments::begin() {
 		return begin(DEFAULT_BRIGHTNESS);
 	}
@@ -132,14 +134,14 @@ namespace Easyuino {
 		}
 	}
 
-	void SevenSegments::print(IN uint8_t num, IN uint8_t position) {
-		if (position >= 0 && position < NUM_OF_7_SEGMENTS && num >= 0 && num <= 9) {
+	void SevenSegments::print(IN uint8_t digit, IN uint8_t position) {
+		if (position >= 0 && position < NUM_OF_7_SEGMENTS && digit >= 0 && digit <= 9) {
 			start();
 			sendByte(0x44);
 			stop();
 			start();
 			sendByte(0xC0|position);
-			sendByte(pgm_read_word(digits7BitEncoding + num));
+			sendByte(pgm_read_word(digits7BitEncoding + digit));
 			stop();
 		}
 	}
@@ -208,6 +210,9 @@ namespace Easyuino {
 			if (isalpha(string[ctr])) {
 				char writableChar = toupper(string[ctr]);
 				sendByte(pgm_read_word(characters7BitEncoding + (writableChar -'A')));
+			}
+			else if (isdigit(string[ctr])) {
+				sendByte(pgm_read_word(digits7BitEncoding + (string[ctr] - '0')));
 			}
 		}
 

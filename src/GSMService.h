@@ -150,7 +150,7 @@ namespace Easyuino {
 		@param isOn					True: If GSM board is on. False: otherwise.
 		@return	GSMRequestStatus	(NOT_INITIALIZED, GSM_OK)
 		*/
-		GSMRequestStatus isOn(OUT bool &result);
+		GSMRequestStatus isOn(OUT bool &isOn);
 
 		/** Set the baud rate of the GSM module to a new one.
 		After calling this method with success the next time you use the GSM module

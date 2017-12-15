@@ -1,20 +1,108 @@
 \hypertarget{class_easyuino_1_1_utilities}{}\section{Easyuino\+:\+:Utilities Class Reference}
 \label{class_easyuino_1_1_utilities}\index{Easyuino\+::\+Utilities@{Easyuino\+::\+Utilities}}
+
+
+Provides some auxiliary functions for internal use in library but at same time expose it to public for the library users.  
+
+
+
+
+{\ttfamily \#include $<$Utilities.\+h$>$}
+
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+static void $\ast$ \hyperlink{class_easyuino_1_1_utilities_a5a7991900cbc3f9e4cda1289ee7a7ee1}{Easy\+Malloc} (IN unsigned int size\+In\+Bytes)
+\begin{DoxyCompactList}\small\item\em Wrapper around the stdlib.\+h malloc to make it safe of overflows in the the majority of common string manipulation cases and at same time zero\textquotesingle{}s all the allocated memory too. \end{DoxyCompactList}\item 
+static void \hyperlink{class_easyuino_1_1_utilities_a736bd038601132c4beac24cd88340695}{Zero\+Buffer} (IN void $\ast$buffer, IN size\+\_\+t buffer\+Size)
+\begin{DoxyCompactList}\small\item\em Fills a given buffer with zeros aka \textbackslash{}0. \end{DoxyCompactList}\item 
+static void \hyperlink{class_easyuino_1_1_utilities_a4d7f4573ee544e72da2945f18d043704}{Override\+Last\+String\+Char} (IN char $\ast$string)
+\begin{DoxyCompactList}\small\item\em Put a \textbackslash{}0 in the last character of the string. \end{DoxyCompactList}\item 
+static void \hyperlink{class_easyuino_1_1_utilities_a8f5da1e6939a43f10702b16c2fdeb8e0}{Override\+Last\+Two\+Char} (IN char $\ast$string)
+\begin{DoxyCompactList}\small\item\em Put a \textbackslash{}0 in the last two characters of the string. \end{DoxyCompactList}\item 
+static void \hyperlink{class_easyuino_1_1_utilities_a1e9c0e9ed293db6e7c3d6da6b6a40f62}{Obtain\+I2\+C\+Device\+Address} (I\+N\+O\+UT int $\ast$list\+Of\+Addresses, IN uint8\+\_\+t size\+Of\+List)
+\begin{DoxyCompactList}\small\item\em Obtain the addresses of all devices connected to Arduino using I2C. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides some auxiliary functions for internal use in library but at same time expose it to public for the library users. 
+
+\subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_easyuino_1_1_utilities_a5a7991900cbc3f9e4cda1289ee7a7ee1}\label{class_easyuino_1_1_utilities_a5a7991900cbc3f9e4cda1289ee7a7ee1}} 
-static void $\ast$ {\bfseries Easy\+Malloc} (IN unsigned int size\+In\+Bytes)
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_utilities_a736bd038601132c4beac24cd88340695}\label{class_easyuino_1_1_utilities_a736bd038601132c4beac24cd88340695}} 
-static void {\bfseries Zero\+Buffer} (IN void $\ast$buffer, IN size\+\_\+t buffer\+Size)
-\item 
-\mbox{\Hypertarget{class_easyuino_1_1_utilities_a4d7f4573ee544e72da2945f18d043704}\label{class_easyuino_1_1_utilities_a4d7f4573ee544e72da2945f18d043704}} 
-static void {\bfseries Override\+Last\+String\+Char} (IN char $\ast$string)
-\item 
+\index{Easyuino\+::\+Utilities@{Easyuino\+::\+Utilities}!Easy\+Malloc@{Easy\+Malloc}}
+\index{Easy\+Malloc@{Easy\+Malloc}!Easyuino\+::\+Utilities@{Easyuino\+::\+Utilities}}
+\subsubsection{\texorpdfstring{Easy\+Malloc()}{EasyMalloc()}}
+{\footnotesize\ttfamily static void$\ast$ Easyuino\+::\+Utilities\+::\+Easy\+Malloc (\begin{DoxyParamCaption}\item[{IN unsigned int}]{size\+In\+Bytes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Wrapper around the stdlib.\+h malloc to make it safe of overflows in the the majority of common string manipulation cases and at same time zero\textquotesingle{}s all the allocated memory too. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size\+In\+Bytes} & Amount of bytes to be allocated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ptr Pointer to the first byte of the allocated memory 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_easyuino_1_1_utilities_a1e9c0e9ed293db6e7c3d6da6b6a40f62}\label{class_easyuino_1_1_utilities_a1e9c0e9ed293db6e7c3d6da6b6a40f62}} 
+\index{Easyuino\+::\+Utilities@{Easyuino\+::\+Utilities}!Obtain\+I2\+C\+Device\+Address@{Obtain\+I2\+C\+Device\+Address}}
+\index{Obtain\+I2\+C\+Device\+Address@{Obtain\+I2\+C\+Device\+Address}!Easyuino\+::\+Utilities@{Easyuino\+::\+Utilities}}
+\subsubsection{\texorpdfstring{Obtain\+I2\+C\+Device\+Address()}{ObtainI2CDeviceAddress()}}
+{\footnotesize\ttfamily static void Easyuino\+::\+Utilities\+::\+Obtain\+I2\+C\+Device\+Address (\begin{DoxyParamCaption}\item[{I\+N\+O\+UT int $\ast$}]{list\+Of\+Addresses,  }\item[{IN uint8\+\_\+t}]{size\+Of\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Obtain the addresses of all devices connected to Arduino using I2C. 
+
+It scans all the addresses to see if someone is on the other side. Based on \href{http://playground.arduino.cc/Main/I2cScanner}{\tt http\+://playground.\+arduino.\+cc/\+Main/\+I2c\+Scanner}. \mbox{\Hypertarget{class_easyuino_1_1_utilities_a4d7f4573ee544e72da2945f18d043704}\label{class_easyuino_1_1_utilities_a4d7f4573ee544e72da2945f18d043704}} 
+\index{Easyuino\+::\+Utilities@{Easyuino\+::\+Utilities}!Override\+Last\+String\+Char@{Override\+Last\+String\+Char}}
+\index{Override\+Last\+String\+Char@{Override\+Last\+String\+Char}!Easyuino\+::\+Utilities@{Easyuino\+::\+Utilities}}
+\subsubsection{\texorpdfstring{Override\+Last\+String\+Char()}{OverrideLastStringChar()}}
+{\footnotesize\ttfamily static void Easyuino\+::\+Utilities\+::\+Override\+Last\+String\+Char (\begin{DoxyParamCaption}\item[{IN char $\ast$}]{string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Put a \textbackslash{}0 in the last character of the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & Pointer to the string \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_easyuino_1_1_utilities_a8f5da1e6939a43f10702b16c2fdeb8e0}\label{class_easyuino_1_1_utilities_a8f5da1e6939a43f10702b16c2fdeb8e0}} 
-static void {\bfseries Override\+Last\+Two\+Char} (IN char $\ast$string)
-\end{DoxyCompactItemize}
+\index{Easyuino\+::\+Utilities@{Easyuino\+::\+Utilities}!Override\+Last\+Two\+Char@{Override\+Last\+Two\+Char}}
+\index{Override\+Last\+Two\+Char@{Override\+Last\+Two\+Char}!Easyuino\+::\+Utilities@{Easyuino\+::\+Utilities}}
+\subsubsection{\texorpdfstring{Override\+Last\+Two\+Char()}{OverrideLastTwoChar()}}
+{\footnotesize\ttfamily static void Easyuino\+::\+Utilities\+::\+Override\+Last\+Two\+Char (\begin{DoxyParamCaption}\item[{IN char $\ast$}]{string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Put a \textbackslash{}0 in the last two characters of the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & Pointer to the string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_easyuino_1_1_utilities_a736bd038601132c4beac24cd88340695}\label{class_easyuino_1_1_utilities_a736bd038601132c4beac24cd88340695}} 
+\index{Easyuino\+::\+Utilities@{Easyuino\+::\+Utilities}!Zero\+Buffer@{Zero\+Buffer}}
+\index{Zero\+Buffer@{Zero\+Buffer}!Easyuino\+::\+Utilities@{Easyuino\+::\+Utilities}}
+\subsubsection{\texorpdfstring{Zero\+Buffer()}{ZeroBuffer()}}
+{\footnotesize\ttfamily static void Easyuino\+::\+Utilities\+::\+Zero\+Buffer (\begin{DoxyParamCaption}\item[{IN void $\ast$}]{buffer,  }\item[{IN size\+\_\+t}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Fills a given buffer with zeros aka \textbackslash{}0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Pointer to the buffer \\
+\hline
+{\em buffer\+Size} & Buffer\textquotesingle{}s size \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

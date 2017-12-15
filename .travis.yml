@@ -15,6 +15,8 @@ script:
   - arduino --verify --board arduino:avr:uno $PWD/examples/GSMServiceSecureExample/GSMServiceSecureExample.ino
   # Led
   - arduino --verify --board arduino:avr:uno $PWD/examples/RGBLedExample/RGBLedExample.ino
+  # SevenSegments
+  - arduino --verify --board arduino:avr:uno $PWD/examples/SevenSegmentsExample/SevenSegmentsExample.ino
   # Relay
   - arduino --verify --board arduino:avr:uno $PWD/examples/RelayExample/RelayExample.ino
   - arduino --verify --board arduino:avr:uno $PWD/examples/RelayNamedExample/RelayNamedExample.ino

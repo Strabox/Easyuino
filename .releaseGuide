@@ -12,4 +12,5 @@ but for now I will go like this while this doesn't take off the ground.
 7. Commit (DON'T forget close github issues in the commit message if there are any).
 8. Push/Sync to the remote branch.
 9. Merge the remote branch with master branch IF travis build pass.
-10. RELEASE DONE!!
+10. Create a new release (over the master branch) in GitHub in order to the Arduino Library crawler update the Easyuino entry.
+--- RELEASE DONE!!

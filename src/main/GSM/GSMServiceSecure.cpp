@@ -101,7 +101,7 @@ namespace Easyuino {
 		return GSMRequestStatus::GSM_OK;
 	}
 
-	GSMRequestStatus GSMServiceSecure::availableSMS(INOUT SMS & message, OUT bool & smsRead) {
+	GSMRequestStatus GSMServiceSecure::availableSMS(OUT SMS & message, OUT bool & smsRead) {
 		GSMRequestStatus requestRes = GSMService::availableSMS(message, smsRead);
 		if (requestRes != GSMRequestStatus::NOT_INITIALIZED) {
 			isAllowed(message.getNumber(), smsRead);

@@ -34,7 +34,12 @@ namespace Easyuino {
 
 	bool WaterFlowMeter::begin() {
 		if (!_isInitialized && WaterFlowSensor::begin()) {
-			_totalAmountFlowedLiters = _currentFlowRate = 0.0f;
+			_cachedFlowRate = 0.0f;
+			_currentMeasurementInitialTimestamp = millis();
+			_previousMeasurementDuration = 0;
+			_previousMeasurementPulses = 0;
+			_currentMeasurementPulseCounter = 0;
+			_isDirtyFlowRate = false;
 			_isInitialized = true;
 		}
 		return _isInitialized;
@@ -46,36 +51,28 @@ namespace Easyuino {
 		}
 	}
 
-	void WaterFlowMeter::updateFlow() {
-		unsigned long currentTime = millis();
-		if (_isInitialized && (currentTime - _lastFlowUpdateTimestamp) > MIN_TIME_BETWEEN_UPDATES) {
-			disablePulseCounting();
-			// The flow formula: Pulses/Sec(Hz) = (sensorCalibrationFactor * Liters/Min) +- 3%
-			_currentFlowRate = (_pulseCounter / ((currentTime - _lastFlowUpdateTimestamp) / 1000.0f))  / _sensorCalibrationFactor;
-			_totalAmountFlowedLiters += _currentFlowRate * ((currentTime - _lastFlowUpdateTimestamp) / 60000.0f);
-			_pulseCounter = 0;
-			_lastFlowUpdateTimestamp = currentTime;
-			if (_currentFlowRate == 0.0f) {
-				_isFlowing = false;
-			}
-			else {
-				_isFlowing = true;
-			}
-			enablePulseCounting();
+	float WaterFlowMeter::getFlowRateLitersMin()  {
+		if (!isFlowing()) {
+			return 0.0f;
+		}
+		else if (!_isDirtyFlowRate) {
+			return _cachedFlowRate;
+		}
+		else {
+			_isDirtyFlowRate = false;
+			return _cachedFlowRate = (_previousMeasurementPulses / (_previousMeasurementDuration / 1000.0f)) / _sensorCalibrationFactor;
 		}
 	}
 
-	float WaterFlowMeter::getFlowRate() const {
-		return _currentFlowRate;
-	}
-
-	float WaterFlowMeter::getTotalAmountFlowedLiters() const {
-		return _totalAmountFlowedLiters;
-	}
-
-	void WaterFlowMeter::resetTotalAmountFlowed() {
-		if (_isInitialized) {
-			_totalAmountFlowedLiters = 0.0f;
+	void WaterFlowMeter::pulseHandler(IN unsigned long callTimestamp) {
+		_lastPulseTimestamp = callTimestamp;
+		_currentMeasurementPulseCounter++;
+		if ((callTimestamp - _currentMeasurementInitialTimestamp) > MIN_TIME_BETWEEN_UPDATES) {
+			_previousMeasurementDuration = callTimestamp - _currentMeasurementInitialTimestamp;
+			_previousMeasurementPulses = _currentMeasurementPulseCounter;
+			_currentMeasurementInitialTimestamp = callTimestamp;
+			_currentMeasurementPulseCounter = 0;
+			_isDirtyFlowRate = true;
 		}
 	}
 

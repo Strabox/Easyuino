@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Easyuino
-   &#160;<span id="projectnumber">1.1.0</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
   </td>
  </tr>
@@ -82,52 +82,63 @@ $(document).ready(function(){initNavTree('class_easyuino_1_1_water_flow_meter.ht
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="class_easyuino_1_1_water_flow_meter-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Easyuino::WaterFlowMeter Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="class_easyuino_1_1_water_flow_meter.html" title="WaterFlowMeter API extends the WaterFlowSensor API adding the possiblity to know how much water is fl...">WaterFlowMeter</a> API extends the <a class="el" href="class_easyuino_1_1_water_flow_sensor.html" title="WaterFlowSensor is an API offers the ability to know if it is flowing something through the sensor or...">WaterFlowSensor</a> API adding the possiblity to know how much water is flowing and how much have flown in total.  
+ <a href="class_easyuino_1_1_water_flow_meter.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_water_flow_meter_8h_source.html">WaterFlowMeter.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Easyuino::WaterFlowMeter:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_easyuino_1_1_water_flow_meter.png" usemap="#Easyuino::WaterFlowMeter_map" alt=""/>
   <map id="Easyuino::WaterFlowMeter_map" name="Easyuino::WaterFlowMeter_map">
-<area href="class_easyuino_1_1_water_flow_sensor.html" alt="Easyuino::WaterFlowSensor" shape="rect" coords="0,56,170,80"/>
+<area href="class_easyuino_1_1_water_flow_sensor.html" title="WaterFlowSensor is an API offers the ability to know if it is flowing something through the sensor or..." alt="Easyuino::WaterFlowSensor" shape="rect" coords="0,56,170,80"/>
 <area href="class_easyuino_1_1_device.html" title="General class that provides the common API behaviour for all the devices/sensors. ..." alt="Easyuino::Device" shape="rect" coords="0,0,170,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a253cbf06355c4e7dd79ef801d18c5119"><td class="memItemLeft" align="right" valign="top"><a id="a253cbf06355c4e7dd79ef801d18c5119"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>WaterFlowMeter</b> (IN uint8_t sensorPin)</td></tr>
-<tr class="separator:a253cbf06355c4e7dd79ef801d18c5119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51374e5ffa6327028f4d5fe730083672"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easyuino_1_1_water_flow_meter.html#a51374e5ffa6327028f4d5fe730083672">WaterFlowMeter</a> (IN uint8_t sensorPin, IN float sensorCalibrationFactor)</td></tr>
+<tr class="memdesc:a51374e5ffa6327028f4d5fe730083672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a51374e5ffa6327028f4d5fe730083672">More...</a><br /></td></tr>
+<tr class="separator:a51374e5ffa6327028f4d5fe730083672"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9f6129be636d43c426eed5b5b42e088"><td class="memItemLeft" align="right" valign="top"><a id="ab9f6129be636d43c426eed5b5b42e088"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easyuino_1_1_water_flow_meter.html#ab9f6129be636d43c426eed5b5b42e088">~WaterFlowMeter</a> ()</td></tr>
+<tr class="memdesc:ab9f6129be636d43c426eed5b5b42e088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
+<tr class="separator:ab9f6129be636d43c426eed5b5b42e088"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a400c25b10a7cde45c623805546d071cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easyuino_1_1_water_flow_meter.html#a400c25b10a7cde45c623805546d071cd">begin</a> ()</td></tr>
 <tr class="memdesc:a400c25b10a7cde45c623805546d071cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to put the device ready to receive requests.  <a href="#a400c25b10a7cde45c623805546d071cd">More...</a><br /></td></tr>
 <tr class="separator:a400c25b10a7cde45c623805546d071cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47024d4da9568e42743a875c08c33121"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easyuino_1_1_water_flow_meter.html#a47024d4da9568e42743a875c08c33121">end</a> ()</td></tr>
 <tr class="memdesc:a47024d4da9568e42743a875c08c33121"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to stop the device API.  <a href="#a47024d4da9568e42743a875c08c33121">More...</a><br /></td></tr>
 <tr class="separator:a47024d4da9568e42743a875c08c33121"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40e53d19dc4458bd149618053a52389f"><td class="memItemLeft" align="right" valign="top"><a id="a40e53d19dc4458bd149618053a52389f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isFlowing</b> ()</td></tr>
-<tr class="separator:a40e53d19dc4458bd149618053a52389f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1798974218a55932876fafd749b98726"><td class="memItemLeft" align="right" valign="top"><a id="a1798974218a55932876fafd749b98726"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateFlowRate</b> ()</td></tr>
-<tr class="separator:a1798974218a55932876fafd749b98726"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f531a6a6f8bf9a27d43915004889085"><td class="memItemLeft" align="right" valign="top"><a id="a3f531a6a6f8bf9a27d43915004889085"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getFlowRate</b> ()</td></tr>
-<tr class="separator:a3f531a6a6f8bf9a27d43915004889085"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8d3afb56987644486dcf6e17457269d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easyuino_1_1_water_flow_meter.html#ab8d3afb56987644486dcf6e17457269d">getFlowRateLitersMin</a> ()</td></tr>
+<tr class="memdesc:ab8d3afb56987644486dcf6e17457269d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current flow rate that is passing through the flow meter.  <a href="#ab8d3afb56987644486dcf6e17457269d">More...</a><br /></td></tr>
+<tr class="separator:ab8d3afb56987644486dcf6e17457269d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_easyuino_1_1_water_flow_sensor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_easyuino_1_1_water_flow_sensor')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_easyuino_1_1_water_flow_sensor.html">Easyuino::WaterFlowSensor</a></td></tr>
-<tr class="memitem:acee82d1863cb2311e58210906d9fbfaa inherit pub_methods_class_easyuino_1_1_water_flow_sensor"><td class="memItemLeft" align="right" valign="top"><a id="acee82d1863cb2311e58210906d9fbfaa"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>WaterFlowSensor</b> (IN uint8_t sensorPin)</td></tr>
+<tr class="memitem:acee82d1863cb2311e58210906d9fbfaa inherit pub_methods_class_easyuino_1_1_water_flow_sensor"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easyuino_1_1_water_flow_sensor.html#acee82d1863cb2311e58210906d9fbfaa">WaterFlowSensor</a> (IN uint8_t sensorPin)</td></tr>
+<tr class="memdesc:acee82d1863cb2311e58210906d9fbfaa inherit pub_methods_class_easyuino_1_1_water_flow_sensor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="class_easyuino_1_1_water_flow_sensor.html#acee82d1863cb2311e58210906d9fbfaa">More...</a><br /></td></tr>
 <tr class="separator:acee82d1863cb2311e58210906d9fbfaa inherit pub_methods_class_easyuino_1_1_water_flow_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad4212e3ee97251787a78db46bdfb803 inherit pub_methods_class_easyuino_1_1_water_flow_sensor"><td class="memItemLeft" align="right" valign="top"><a id="aad4212e3ee97251787a78db46bdfb803"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easyuino_1_1_water_flow_sensor.html#aad4212e3ee97251787a78db46bdfb803">~WaterFlowSensor</a> ()</td></tr>
+<tr class="memdesc:aad4212e3ee97251787a78db46bdfb803 inherit pub_methods_class_easyuino_1_1_water_flow_sensor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
+<tr class="separator:aad4212e3ee97251787a78db46bdfb803 inherit pub_methods_class_easyuino_1_1_water_flow_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55dcab6c527b1e1951a1fff69efdb763 inherit pub_methods_class_easyuino_1_1_water_flow_sensor"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easyuino_1_1_water_flow_sensor.html#a55dcab6c527b1e1951a1fff69efdb763">begin</a> ()</td></tr>
 <tr class="memdesc:a55dcab6c527b1e1951a1fff69efdb763 inherit pub_methods_class_easyuino_1_1_water_flow_sensor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to put the device ready to receive requests.  <a href="class_easyuino_1_1_water_flow_sensor.html#a55dcab6c527b1e1951a1fff69efdb763">More...</a><br /></td></tr>
 <tr class="separator:a55dcab6c527b1e1951a1fff69efdb763 inherit pub_methods_class_easyuino_1_1_water_flow_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f31ac7735b049394d34cfbc37f17359 inherit pub_methods_class_easyuino_1_1_water_flow_sensor"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easyuino_1_1_water_flow_sensor.html#a7f31ac7735b049394d34cfbc37f17359">end</a> ()</td></tr>
 <tr class="memdesc:a7f31ac7735b049394d34cfbc37f17359 inherit pub_methods_class_easyuino_1_1_water_flow_sensor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to stop the device API.  <a href="class_easyuino_1_1_water_flow_sensor.html#a7f31ac7735b049394d34cfbc37f17359">More...</a><br /></td></tr>
 <tr class="separator:a7f31ac7735b049394d34cfbc37f17359 inherit pub_methods_class_easyuino_1_1_water_flow_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67678648c16c24f773e134bb0d2b0df8 inherit pub_methods_class_easyuino_1_1_water_flow_sensor"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easyuino_1_1_water_flow_sensor.html#a67678648c16c24f773e134bb0d2b0df8">isFlowing</a> () const</td></tr>
+<tr class="memdesc:a67678648c16c24f773e134bb0d2b0df8 inherit pub_methods_class_easyuino_1_1_water_flow_sensor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there there are flow in the sensor.  <a href="class_easyuino_1_1_water_flow_sensor.html#a67678648c16c24f773e134bb0d2b0df8">More...</a><br /></td></tr>
+<tr class="separator:a67678648c16c24f773e134bb0d2b0df8 inherit pub_methods_class_easyuino_1_1_water_flow_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_easyuino_1_1_device"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_easyuino_1_1_device')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_easyuino_1_1_device.html">Easyuino::Device</a></td></tr>
 <tr class="memitem:a14b00250154fa77a8c1f766f312c7705 inherit pub_methods_class_easyuino_1_1_device"><td class="memItemLeft" align="right" valign="top"><a id="a14b00250154fa77a8c1f766f312c7705"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easyuino_1_1_device.html#a14b00250154fa77a8c1f766f312c7705">Device</a> ()</td></tr>
@@ -141,28 +152,74 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>getFlowRate</b> ()</
 <tr class="memdesc:a3761bc02cb81ca0833b535ecaf9a7659 inherit pub_methods_class_easyuino_1_1_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify is the device is initialized and ready to use.  <a href="class_easyuino_1_1_device.html#a3761bc02cb81ca0833b535ecaf9a7659">More...</a><br /></td></tr>
 <tr class="separator:a3761bc02cb81ca0833b535ecaf9a7659 inherit pub_methods_class_easyuino_1_1_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a9f9b39b7961175f027dad4fe75271569"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easyuino_1_1_water_flow_meter.html#a9f9b39b7961175f027dad4fe75271569">pulseHandler</a> (IN unsigned long callTimestamp)</td></tr>
+<tr class="memdesc:a9f9b39b7961175f027dad4fe75271569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by the interruption ISR for each pulse.  <a href="#a9f9b39b7961175f027dad4fe75271569">More...</a><br /></td></tr>
+<tr class="separator:a9f9b39b7961175f027dad4fe75271569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_methods_class_easyuino_1_1_water_flow_sensor"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_easyuino_1_1_water_flow_sensor')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_easyuino_1_1_water_flow_sensor.html">Easyuino::WaterFlowSensor</a></td></tr>
-<tr class="memitem:adc2ba2c1888114b01719cfd6a659d59b inherit pro_methods_class_easyuino_1_1_water_flow_sensor"><td class="memItemLeft" align="right" valign="top"><a id="adc2ba2c1888114b01719cfd6a659d59b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>enablePulseCounting</b> ()</td></tr>
-<tr class="separator:adc2ba2c1888114b01719cfd6a659d59b inherit pro_methods_class_easyuino_1_1_water_flow_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66d275227c18329b38f33834b4682ff3 inherit pro_methods_class_easyuino_1_1_water_flow_sensor"><td class="memItemLeft" align="right" valign="top"><a id="a66d275227c18329b38f33834b4682ff3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>disablePulseCouning</b> ()</td></tr>
-<tr class="separator:a66d275227c18329b38f33834b4682ff3 inherit pro_methods_class_easyuino_1_1_water_flow_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_easyuino_1_1_water_flow_sensor"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_easyuino_1_1_water_flow_sensor')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_easyuino_1_1_water_flow_sensor.html">Easyuino::WaterFlowSensor</a></td></tr>
 <tr class="memitem:a7efef15ef9da3a66bd40183c4ea908ff inherit pro_attribs_class_easyuino_1_1_water_flow_sensor"><td class="memItemLeft" align="right" valign="top"><a id="a7efef15ef9da3a66bd40183c4ea908ff"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>_sensorPin</b></td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easyuino_1_1_water_flow_sensor.html#a7efef15ef9da3a66bd40183c4ea908ff">_sensorPin</a></td></tr>
+<tr class="memdesc:a7efef15ef9da3a66bd40183c4ea908ff inherit pro_attribs_class_easyuino_1_1_water_flow_sensor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arduino pin connected to the sensor pulse pin. <br /></td></tr>
 <tr class="separator:a7efef15ef9da3a66bd40183c4ea908ff inherit pro_attribs_class_easyuino_1_1_water_flow_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8877c5e4a3ed8012341d416ce05fa93e inherit pro_attribs_class_easyuino_1_1_water_flow_sensor"><td class="memItemLeft" align="right" valign="top"><a id="a8877c5e4a3ed8012341d416ce05fa93e"></a>
-volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>_pulseCounter</b></td></tr>
-<tr class="separator:a8877c5e4a3ed8012341d416ce05fa93e inherit pro_attribs_class_easyuino_1_1_water_flow_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28f717a1424eaa47eb6cf08d5de76fb0 inherit pro_attribs_class_easyuino_1_1_water_flow_sensor"><td class="memItemLeft" align="right" valign="top"><a id="a28f717a1424eaa47eb6cf08d5de76fb0"></a>
+volatile unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easyuino_1_1_water_flow_sensor.html#a28f717a1424eaa47eb6cf08d5de76fb0">_lastPulseTimestamp</a></td></tr>
+<tr class="memdesc:a28f717a1424eaa47eb6cf08d5de76fb0 inherit pro_attribs_class_easyuino_1_1_water_flow_sensor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timestamp with the last time a pulse was detected. <br /></td></tr>
+<tr class="separator:a28f717a1424eaa47eb6cf08d5de76fb0 inherit pro_attribs_class_easyuino_1_1_water_flow_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_easyuino_1_1_device"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_easyuino_1_1_device')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_easyuino_1_1_device.html">Easyuino::Device</a></td></tr>
 <tr class="memitem:aa0b9574dae06ba9fc2180cba67d63126 inherit pro_attribs_class_easyuino_1_1_device"><td class="memItemLeft" align="right" valign="top"><a id="aa0b9574dae06ba9fc2180cba67d63126"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easyuino_1_1_device.html#aa0b9574dae06ba9fc2180cba67d63126">_isInitialized</a></td></tr>
 <tr class="memdesc:aa0b9574dae06ba9fc2180cba67d63126 inherit pro_attribs_class_easyuino_1_1_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to know if the device API is initialized and ready to receive requests. <br /></td></tr>
 <tr class="separator:aa0b9574dae06ba9fc2180cba67d63126 inherit pro_attribs_class_easyuino_1_1_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_easyuino_1_1_water_flow_meter.html" title="WaterFlowMeter API extends the WaterFlowSensor API adding the possiblity to know how much water is fl...">WaterFlowMeter</a> API extends the <a class="el" href="class_easyuino_1_1_water_flow_sensor.html" title="WaterFlowSensor is an API offers the ability to know if it is flowing something through the sensor or...">WaterFlowSensor</a> API adding the possiblity to know how much water is flowing and how much have flown in total. </p>
+<dl class="section see"><dt>See also</dt><dd>Limitation: This allows ONLY 1 instance of <a class="el" href="class_easyuino_1_1_water_flow_meter.html" title="WaterFlowMeter API extends the WaterFlowSensor API adding the possiblity to know how much water is fl...">WaterFlowMeter</a> per sketch!! </dd>
+<dd>
+Devices Supported: YF-DN40 </dd>
+<dd>
+Devices Tested: YF-DN40 </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a51374e5ffa6327028f4d5fe730083672"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51374e5ffa6327028f4d5fe730083672">&#9670;&nbsp;</a></span>WaterFlowMeter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Easyuino::WaterFlowMeter::WaterFlowMeter </td>
+          <td>(</td>
+          <td class="paramtype">IN uint8_t&#160;</td>
+          <td class="paramname"><em>sensorPin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IN float&#160;</td>
+          <td class="paramname"><em>sensorCalibrationFactor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensorPin</td><td>Arduino pin connected to the sensor pulse pin </td></tr>
+    <tr><td class="paramname">sensorCalibrationFactor</td><td>Calibration factor that comes with the sensor specs, necessary for a good calculation of the flow rate and the total amount flowed (e.g: 0.2 in case of YF-DN40) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a400c25b10a7cde45c623805546d071cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a400c25b10a7cde45c623805546d071cd">&#9670;&nbsp;</a></span>begin()</h2>
@@ -224,6 +281,56 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a id="ab8d3afb56987644486dcf6e17457269d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8d3afb56987644486dcf6e17457269d">&#9670;&nbsp;</a></span>getFlowRateLitersMin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Easyuino::WaterFlowMeter::getFlowRateLitersMin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the current flow rate that is passing through the flow meter. </p>
+<dl class="section return"><dt>Returns</dt><dd>flowRate (Liters/min) The current flow rate. </dd></dl>
+
+</div>
+</div>
+<a id="a9f9b39b7961175f027dad4fe75271569"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f9b39b7961175f027dad4fe75271569">&#9670;&nbsp;</a></span>pulseHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Easyuino::WaterFlowMeter::pulseHandler </td>
+          <td>(</td>
+          <td class="paramtype">IN unsigned long&#160;</td>
+          <td class="paramname"><em>callTimestamp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called by the interruption ISR for each pulse. </p>
+
+<p>Reimplemented from <a class="el" href="class_easyuino_1_1_water_flow_sensor.html#ab359b33262e324fa757de05a13f05141">Easyuino::WaterFlowSensor</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/<a class="el" href="_water_flow_meter_8h_source.html">WaterFlowMeter.h</a></li>
 </ul>
@@ -232,7 +339,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespace_easyuino.html">Easyuino</a></li><li class="navelem"><a class="el" href="class_easyuino_1_1_water_flow_meter.html">WaterFlowMeter</a></li>
+    <li class="navelem"><b>Easyuino</b></li><li class="navelem"><a class="el" href="class_easyuino_1_1_water_flow_meter.html">WaterFlowMeter</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>

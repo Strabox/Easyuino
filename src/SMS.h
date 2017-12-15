@@ -54,7 +54,7 @@ namespace Easyuino {
 		SMS(IN unsigned long number, IN const char* message, IN unsigned int countryPrefixCode = 351);
 
 		/**	Create an empty SMS
-		@param number	Country prefix code of the message. Default value is 351 (Portugal Code)
+		@param countryPrefixCode	Country prefix code of the message. Default value is 351 (Portugal Code)
 		*/
 		SMS(IN unsigned int countryPrefixCode = 351);
 
@@ -74,7 +74,7 @@ namespace Easyuino {
 		unsigned long getNumber();
 
 		/** Set the number of the SMS
-		@param number The new phone number to be set on the SMS
+		@param newNumber The new phone number to be set on the SMS
 		*/
 		void setNumber(IN unsigned long newNumber);
 
@@ -84,7 +84,7 @@ namespace Easyuino {
 		const char* getMessage();
 
 		/** Set the message of the SMS
-		@param message The new message to be set on the SMS
+		@param newMessage The new message to be set on the SMS
 		*/
 		void setMessage(IN const char* newMessage);
 

@@ -98,9 +98,9 @@ namespace Easyuino {
 		void setColor(IN uint8_t red, IN uint8_t green, IN uint8_t blue);
 
 		/** Set the led's color based on the hexadecimal color code (highly used in web development)
-		@param hexadecimalCode	String that represents a valid hexadecimal color code (e.g: "#ffffff" to red color)
+		@param hexadecimalColorCode	String that represents a valid hexadecimal color code (e.g: "#ffffff" to red color)
 		*/
-		void setColor(IN char hexadecimalColoCode[8]);
+		void setColor(IN char hexadecimalColorCode[8]);
 
 		/** Set the led's color based in a set o pre defined colors
 		@param color Value that represents the color

@@ -96,7 +96,7 @@ namespace Easyuino {
 
 #pragma region SMS Management
 
-		virtual GSMRequestStatus availableSMS(INOUT SMS &message, OUT bool &smsRead);
+		GSMRequestStatus availableSMS(OUT SMS &message, OUT bool &smsRead);
 
 #pragma endregion
 	

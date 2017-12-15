@@ -1,6 +1,7 @@
 var hierarchy =
 [
     [ "Easyuino::Device", "class_easyuino_1_1_device.html", [
+      [ "Easyuino::Button", "class_easyuino_1_1_button.html", null ],
       [ "Easyuino::DistanceMeter", "class_easyuino_1_1_distance_meter.html", [
         [ "Easyuino::DistanceMeterNonBlock", "class_easyuino_1_1_distance_meter_non_block.html", [
           [ "Easyuino::DistanceMeterAccurate", "class_easyuino_1_1_distance_meter_accurate.html", null ]

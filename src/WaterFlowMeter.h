@@ -30,6 +30,11 @@ WaterFlowMeter.h
 #include "Utilities.h"
 #include "WaterFlowSensor.h"
 
+/** Minimum time between the flow rates update. Necessary to create a window of analysis otherwise
+many measurements in small space time would be difficult to calculate due to the small window time.
+Arduino goes around loop function much faster than the turbine spings so we need accumulate. (Default/Minimum 1 Sec)*/
+#define MIN_TIME_BETWEEN_UPDATES 1000
+
 namespace Easyuino {
 
 	/** WaterFlowMeter API extends the WaterFlowSensor API adding the possiblity to know how much water
@@ -43,11 +48,21 @@ namespace Easyuino {
 	private:
 		/** Calibration factor that comes with the sensor specs (e.g: 0.2 in case of YF-DN40) */
 		float _sensorCalibrationFactor;
-		
-		/** The flow rate calculated when updateFlow() was called, if it is called frequently this value will be accurate. */
-		float _currentFlowRate;
-		/** Accumulates the liters that flowed through the sensor */
-		float _totalAmountFlowedLiters;
+
+		/** The last value calculated by the API. Used to avoid calculate the value multiple times when it didn't change. */
+		float _cachedFlowRate;
+		/** Used to indicate that _cachedFlowRate is dirty making the API use the new measurements to calculate the value. */
+		volatile bool _isDirtyFlowRate;
+
+		/** The last measurement counter for pulses. Used to calculate the value of flow rate. */
+		volatile unsigned long _previousMeasurementPulses;
+		/** The last measurement exat duration. Used to calculate the value of flow rate. */
+		volatile unsigned long _previousMeasurementDuration;
+
+		/** The current pulse counter that is being updated */
+		volatile unsigned long _currentMeasurementPulseCounter;
+		/** When the current measurement started */
+		volatile unsigned long _currentMeasurementInitialTimestamp;
 
 	public:
 		/** Constructor
@@ -64,20 +79,13 @@ namespace Easyuino {
 
 		void end();
 
-		void updateFlow();
-
 		/** Returns the current flow rate that is passing through the flow meter.
 		@return flowRate (Liters/min) The current flow rate.
 		*/
-		float getFlowRate() const;
+		float getFlowRateLitersMin();
 
-		/** Returns the current total amount of liters that flowed throudh the flow meter.
-		@return totalAmountFlowed (Liters) The total amount flowed through the meter.
-		*/
-		float getTotalAmountFlowedLiters() const;
-
-		/** Resets the total amount flowed through the meter putting it at 0. */
-		void resetTotalAmountFlowed();
+	protected:
+		void pulseHandler(IN unsigned long callTimestamp);
 
 	};
 

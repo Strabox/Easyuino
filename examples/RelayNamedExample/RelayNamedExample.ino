@@ -6,13 +6,15 @@ RelayNamedExample.ino
 
 using Easyuino::RelayNamed;  // Necessary in order to use RelayNamed
 
-int arduinoPin = 6;				// Arduino pin that controls the relay
-const char* controlledDevice = "Lamp";// The difference for normal relay is that the relay stays with a name identifier name attached	
+int arduinoPin = 6;  // Arduino pin that controls the relay
+const char* controlledDevice = "Lamp"; // The difference for normal relay is that the relay stays with a name identifier name attached	
 
 RelayNamed relayNamed(arduinoPin, controlledDevice);  // Create the RelayNamed object that exposes the API to use
 
 void setup() {
   Serial.begin(9600);  // Used to start the serial connection with the computer. Change the 9600 if needed.
+  while (!Serial);  // Necessary for Arduino Leonardo serial monitor use
+
   relayNamed.begin(false, HIGH);  // See RelayExample.ino for the explanation
 }
 
@@ -20,17 +22,17 @@ void loop() {
   bool result;
 
   relayNamed.turnOn(); // Makes the device connected to relay to turn on
-  result = relayNamed.isOn();  // result would be TRUE
+  result = relayNamed.isOn();  // result would be true
 
   delay(2000);
 
   relayNamed.turnOff();  // Makes the device connected to relay to turn off
-  result = relayNamed.isOn();  // result would be FALSE
+  result = relayNamed.isOn();  // result would be false
 
   delay(2000);
 
   /*
-  - state would be "Lamp:Off" which is useful for print into the serial monitor to debug.
+  - State would be "Lamp:Off" which is useful for print into the serial monitor to debug.
   */
   char* state = relayNamed.toString();
 
@@ -51,7 +53,7 @@ void loop() {
   free(state);
   */
   Serial << relayNamed;
-  Serial.println();
+  Serial.println();  // It is here only to print a new line
 
   delay(2000);
 
@@ -62,9 +64,5 @@ void loop() {
   Serial << relayNamed;
   Serial.println();
 
-  /*
-  - This method will turn off the relay and after that no more calls to
-  the relay will work without call the relayNamed.begin(); again.
-  */
-  relayNamed.end();
+  delay(2000);
 }

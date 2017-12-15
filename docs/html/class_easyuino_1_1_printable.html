@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Easyuino
-   &#160;<span id="projectnumber">1.1.0</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
   </td>
  </tr>
@@ -88,29 +88,69 @@ $(document).ready(function(){initNavTree('class_easyuino_1_1_printable.html','')
 <div class="title">Easyuino::Printable Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Provides an interface interface to write objects to a Stream.  
+ <a href="class_easyuino_1_1_printable.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_printable_8h_source.html">Printable.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Easyuino::Printable:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_easyuino_1_1_printable.png" usemap="#Easyuino::Printable_map" alt=""/>
   <map id="Easyuino::Printable_map" name="Easyuino::Printable_map">
-<area href="class_easyuino_1_1_distance_meter_printable.html" alt="Easyuino::DistanceMeterPrintable" shape="rect" coords="0,56,202,80"/>
-<area href="class_easyuino_1_1_relay_named.html" alt="Easyuino::RelayNamed" shape="rect" coords="212,56,414,80"/>
+<area href="class_easyuino_1_1_distance_meter_printable.html" title="It offers the same API as DistanceMeter plus some methods to print the internal state into a stream f..." alt="Easyuino::DistanceMeterPrintable" shape="rect" coords="0,56,202,80"/>
+<area href="class_easyuino_1_1_relay_named.html" title="RelayNamed offers the same API of the Relay plus the possibility to associate a string label to the A..." alt="Easyuino::RelayNamed" shape="rect" coords="212,56,414,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a49ae1c60dc0404600ee122c6c2684155"><td class="memItemLeft" align="right" valign="top"><a id="a49ae1c60dc0404600ee122c6c2684155"></a>
-virtual char *&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const =0</td></tr>
+<tr class="memitem:a49ae1c60dc0404600ee122c6c2684155"><td class="memItemLeft" align="right" valign="top">virtual char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easyuino_1_1_printable.html#a49ae1c60dc0404600ee122c6c2684155">toString</a> () const =0</td></tr>
+<tr class="memdesc:a49ae1c60dc0404600ee122c6c2684155"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to return a string representation of the object state.  <a href="#a49ae1c60dc0404600ee122c6c2684155">More...</a><br /></td></tr>
 <tr class="separator:a49ae1c60dc0404600ee122c6c2684155"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a50c7f93c6a84fde9f1f97f1185d853d9"><td class="memItemLeft" align="right" valign="top"><a id="a50c7f93c6a84fde9f1f97f1185d853d9"></a>
-Stream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (IN Stream &amp;stream, IN const <a class="el" href="class_easyuino_1_1_printable.html">Printable</a> &amp;printable)</td></tr>
+Stream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easyuino_1_1_printable.html#a50c7f93c6a84fde9f1f97f1185d853d9">operator&lt;&lt;</a> (IN Stream &amp;stream, IN const <a class="el" href="class_easyuino_1_1_printable.html">Printable</a> &amp;printable)</td></tr>
+<tr class="memdesc:a50c7f93c6a84fde9f1f97f1185d853d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the object state string representation to a given stream (e.g: Used to print the obejct state to the Serial monitor) <br /></td></tr>
 <tr class="separator:a50c7f93c6a84fde9f1f97f1185d853d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides an interface interface to write objects to a Stream. </p>
+<p>Useful for debug the current state of the device. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a49ae1c60dc0404600ee122c6c2684155"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49ae1c60dc0404600ee122c6c2684155">&#9670;&nbsp;</a></span>toString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual char* Easyuino::Printable::toString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used to return a string representation of the object state. </p>
+<p>IMPORTANT: It is mandatory to free the returned pointer in order to have no memory leaks. </p>
+
+<p>Implemented in <a class="el" href="class_easyuino_1_1_relay_named.html#a1e9e82e563baaba5055ee9335551a306">Easyuino::RelayNamed</a>, and <a class="el" href="class_easyuino_1_1_distance_meter_printable.html#a42bb42319353c84294975ed5edc3a84c">Easyuino::DistanceMeterPrintable</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/<a class="el" href="_printable_8h_source.html">Printable.h</a></li>
 </ul>
@@ -119,7 +159,7 @@ Stream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespace_easyuino.html">Easyuino</a></li><li class="navelem"><a class="el" href="class_easyuino_1_1_printable.html">Printable</a></li>
+    <li class="navelem"><b>Easyuino</b></li><li class="navelem"><a class="el" href="class_easyuino_1_1_printable.html">Printable</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
