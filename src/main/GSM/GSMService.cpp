@@ -119,18 +119,18 @@ namespace Easyuino {
 
 	GSMRequestStatus GSMService::isOn(OUT bool &isOn) {
 		if (!_isInitialized) {
-			result = false;
+			isOn = false;
 			return GSMRequestStatus::NOT_INITIALIZED;
 		}
 		GSMRequestStatus internalReq;
-		result = false;
+		isOn = false;
 
 		_GSMSerial->print(F(AT_COMM_MANUFACTER_ID));
 		internalReq = waitForGSMmoduleData();
 
 		if (internalReq == GSMRequestStatus::GSM_OK) {
 			if (strlen(_internalBuffer) > 0) {
-				result = true;
+				isOn = true;
 			}
 		}
 		return GSMRequestStatus::GSM_OK;
