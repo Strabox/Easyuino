@@ -43,6 +43,7 @@ The Easyuino library has 4 fundamental goals:
 - GSM Module (currently SMS services only) [Hardware Supported: GSM900 Chipset]
 
 **Note:** The hardware devices supported could be more than the specified. I only put there the tested ones.
+
 **Note2:** The devices that doesn't have [Hardware supported] tag it is due to its simplicity.
 
 ### Under Development
