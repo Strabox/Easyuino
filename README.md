@@ -74,9 +74,13 @@ The Easyuino library has 4 fundamental goals:
 	5. Go to the menu **Sketch > Include Library**
 	6. Scroll down until you find Easyuino, click on it and it is DONE
 - If using the [Arduino Web IDE](https://create.arduino.cc/editor)
-	1. Go to the **Libraries** menu in left
-	2. Search for Easyuino in **Search Bar**
-	3. Put the mouse hover Easyuino box and click **Include** and it is DONE
+	1. Go to the **Library Manager** menu in the upper left corner
+	2. Search for Easyuino in the dialog that will appear
+	3. Click on the **Star** to put Easyuino in your favorite libraries
+	4. Close the dialog in the **Done** button
+	5. Click on the **Libraries** tab in the left side
+	6. Click on the **Favorites** tab (below the search box)
+	7. Look for Easyuino. Now you can include it in your sketches or test Easyuino examples.
 
 ### Usage Examples
 
