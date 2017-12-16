@@ -2,8 +2,8 @@
 
 ## Table of Contents
 
-- [What is Easyuino?](https://github.com/Strabox/Easyuino#what-is-easyuino?)
-- [List of Sensors and Devices](https://github.com/Strabox/Easyuino#list-of-sensors-and-devices)
+- [What is Easyuino?](https://github.com/Strabox/Easyuino#what-is-easyuino-)
+- [List of Sensors and Devices Supported](https://github.com/Strabox/Easyuino#list-of-sensors-and-devices-supported)
 	* [Currently Supported](https://github.com/Strabox/Easyuino#currently-supported)
 	* [Under Development](https://github.com/Strabox/Easyuino#under-development)
 	* [Future Development](https://github.com/Strabox/Easyuino#future-development)
@@ -13,9 +13,9 @@
 	* [API Documentation and Troubleshoot](https://github.com/Strabox/Easyuino#api-documentation-and-troubleshoot)
 - [Project Structure](https://github.com/Strabox/Easyuino#project-structure)
 - [Contribution and Maintenance](https://github.com/Strabox/Easyuino#contribution-and-maintenance)
-- [Important Features (Advanced)](https://github.com/Strabox/Easyuino#important-features-(advanced))
+- [Important Features (Advanced)](https://github.com/Strabox/Easyuino#important-features-advanced)
 	* [Static Memory Allocation](https://github.com/Strabox/Easyuino#static-memory-allocation)
-- [API Version System](https://github.com/Strabox/Easyuino#api-version-system)
+- [API Versioning System](https://github.com/Strabox/Easyuino#api-versioning-system)
 - [Easyuino History Briefly](https://github.com/Strabox/Easyuino#easyuino-history-briefly)
 - [License](https://github.com/Strabox/Easyuino#license)
 
@@ -91,7 +91,7 @@ If you don't want use Arduino Web IDE check the examples folder of the library.
 
 If you have an old version you can go to the **\docs\html** folder in the library and consult the documentation from that version opening the index.html file in your favorite browser.
 
-If the API documentantion is not enough to clarify you or found a bug [contact me](https://github.com/Strabox/Easyuino#library-maintenance).
+If the API documentantion is not enough to clarify you or found a bug [contact me](https://github.com/Strabox/Easyuino#contribution-and-maintenance).
 
 ## Project Structure
 
