@@ -88,9 +88,9 @@ If you don't want use Arduino Web IDE check the examples folder of the library.
 
 ### API Documentation and Troubleshoot
 
-[Here](https://strabox.github.io/Easyuino/) you can consult the detailed documentation for the latest version of the Easyuino API. The documentation in the link is the same that is in the **\docs** folder of the latest Easyuino release.
+[Here](https://strabox.github.io/Easyuino/) you can consult the detailed documentation for the latest version of the Easyuino API. The documentation in the link is the same that is in the **/docs** folder of the latest Easyuino release.
 
-If you have an old version you can go to the **\docs** folder in the library and consult the documentation from that version opening the index.html file in your favorite browser.
+If you have an old version you can go to the **/docs** folder in the library and consult the documentation from that version opening the index.html file in your favorite browser.
 
 If the API documentantion is not enough to clarify you or found a bug [contact me](https://github.com/Strabox/Easyuino#contribution-and-maintenance).
 
