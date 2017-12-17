@@ -233,6 +233,10 @@ namespace Easyuino {
 		if(num_tokens != 2) {
 			message.reset();
 		}
+		else {
+			smsRead = true;
+		}
+
 		return GSMRequestStatus::GSM_OK;
 	}
 
