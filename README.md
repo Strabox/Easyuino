@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [What is Easyuino?](https://github.com/Strabox/Easyuino#what-is-easyuino-)
+- [What is Easyuino ?](https://github.com/Strabox/Easyuino#what-is-easyuino-)
 - [List of Sensors and Devices Supported](https://github.com/Strabox/Easyuino#list-of-sensors-and-devices-supported)
 	* [Currently Supported](https://github.com/Strabox/Easyuino#currently-supported)
 	* [Under Development](https://github.com/Strabox/Easyuino#under-development)
